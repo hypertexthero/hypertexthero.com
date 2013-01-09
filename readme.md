@@ -1,6 +1,4 @@
-# django-fireball
-
-Inspired by John Gruber's Daring Fireball.
+# hypertexthero.com
 
 Features
 ----
