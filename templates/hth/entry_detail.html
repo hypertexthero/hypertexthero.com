@@ -1,0 +1,56 @@
+{% extends "base_weblog.html" %}
+
+{% block title %}{{ object.title|escape }} | Weblog{% endblock %}
+
+{# {% block content %} #}
+{# <h1>{{ object.title|safe }}</h1> #}
+{# {{ object.body_html|safe }} #}
+{# <p class="date small">Posted by <strong>{{ object.author }}</strong> on {{ object.pub_date|date:"j F Y" }}</p> #}
+{# {% endblock %} #}
+
+
+{# {% block keywords %}{{ object.keywords }}{% endblock keywords %} #}
+{% block headtitle %}{{ object.title }}{% endblock headtitle %}
+{% block bodyid %}logbook{% endblock bodyid %}
+
+{% block header %}
+    <p>Hello. You are reading a <a href="/logbook/" title="logbook front page.">Logbook</a> entry at <a href="/" title="Hypertexthero homepage.">Hypertexthero<span class="small">.com</span></a> Browse past entries in the <a href="/archive/" title="Logs of past flights.">Archive</a>. Track current flying on <a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a>.</p>
+{% endblock header %}
+
+{% block content %}
+
+{% if object.kind == "L" %} {# if a value for linkurl is present in the head of files this is a link to another site: #}
+    {# <p> #}
+    {#     <a href="{{ linkurl }}">{{ title }}</a> #}
+    {#     <a class="quiet" href="{{ ROOT_URL }}/{{ path }}" rel="permalink" title="Permanent link to {{ title }}.">#</a> #}
+    {# </p> #}
+    <dl>
+        <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" style="color:inherit !important;" title="Permanent link to {{ object.title }}" href="{{ object.get_absolute_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
+        <dd>
+    	    {{ object.body_html|safe }}
+        </dd>
+    </dl>
+    {% else %} {# otherwise it is an original article: #}
+
+<pre class="articlebreak">
+     __|__
+-------O-------
+    o´   `o
+</pre>
+		<h1><a href="{{ object.get_absolute_url }}" rel="permalink" title="Permanent link to {{ object.title }}.">{{ object.title }}</a></h1>
+		<h2 class="dateline"><time pubdate="pubdate">{{ object.pub_date|date:"F j, Y" }}</time></h2>
+		{{ object.body_html|safe }}
+<pre class="articlebreak">
+     __|__
+-------O-------
+    o´   `o
+</pre>
+{% endif %}
+
+{% if user.is_staff %} 
+<div class="pull-right">
+    <a class="edit small" href="/admin/hth/entry/{{ entry.id }}">Edit</a>
+</div>
+{% endif %}
+
+{% endblock %}

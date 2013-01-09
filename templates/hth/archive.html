@@ -1,0 +1,28 @@
+{% extends "base_weblog.html" %}
+{% block headtitle %}Archive{% endblock headtitle %}
+{% block bodyid %}archive{% endblock bodyid %}
+
+{% block header %}
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> / <a href="/archive/" title="Logs of past flights.">Archive</a>. Track current flying on <a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a>.</p>
+{% endblock header %}
+
+{% block content %}
+
+<form id="search" action="/search/" method="get">
+<label for="q" style="display:none;">Search:</label>
+<input name="q" value="" size="22" type="text">
+<input value="Search" class="button" type="submit">
+</form>
+    
+    <h1>Previously, on Hypertexthero</h1>
+	
+	{% for entry in latest %}	
+        {% ifchanged %}
+            <h2 class="dateline datelinearchive">{{ entry.pub_date|date:"F Y" }}</h2>
+        {% endifchanged %}    
+        <p>
+            <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a> <small>{{ entry.pub_date|date:"d b Y" }}</small>
+        </p>
+	{% endfor %}
+	
+{% endblock %}

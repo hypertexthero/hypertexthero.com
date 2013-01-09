@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block keywords %}{{ keywords }}{% endblock keywords %}
+{% block headtitle %}{{ title }}{% endblock headtitle %}
+{% block bodyid %}logbook{% endblock bodyid %}
+
+{% block header %}
+    <p>Hello. You are reading a <a href="/logbook/" title="logbook front page.">Logbook</a> entry at <a href="/" title="Hypertexthero homepage.">Hypertexthero<span class="small">.com</span></a> Browse past entries in the <a href="/archive/" title="Logs of past flights.">Archive</a>. Track current flying on <a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a>.</p>
+{% endblock header %}
+
+{% block content %}
+
+{% if linkurl %} {# if a value for linkurl is present in the head of files this is a link to another site: #}
+    {# <p> #}
+    {#     <a href="{{ linkurl }}">{{ title }}</a> #}
+    {#     <a class="quiet" href="{{ ROOT_URL }}/{{ path }}" rel="permalink" title="Permanent link to {{ title }}.">#</a> #}
+    {# </p> #}
+    <dl>
+        <dt><a href="{{ linkurl }}">{{ title }}</a> &nbsp;<a class="plink" style="color:inherit !important;" title="Permanent link to {{ title }}" href="{{ ROOT_URL }}/{{ path }}"># {{ date|date:"d b Y" }}</a></dt>
+        <dd>
+    	    {{ body }}
+        </dd>
+    </dl>
+    {% else %} {# otherwise it is an original article: #}
+
+<pre class="articlebreak">
+     __|__
+-------O-------
+    o´   `o
+</pre>
+		<h1><a href="{{ ROOT_URL }}/{{ path }}" rel="permalink" title="Permanent link to {{ title }}.">{{ title }}</a></h1>
+		<h2 class="dateline"><time pubdate="pubdate">{{ date|date:"F j, Y" }}</time></h2>
+		{{ body }}
+<pre class="articlebreak">
+     __|__
+-------O-------
+    o´   `o
+</pre>
+{% endif %}
+
+
+
+{# <nav> #}
+{#  <ul> #}
+{#      {% if prevPost %} #}
+{#      <li> #}
+{#          <a href='{{ ROOT_URL }}/{{ prevPost.path }}'> #}
+{#              &laquo; Before: {{ prevPost.title }} #}
+{#          </a> #}
+{#      </li> #}
+{#      {% else %} #}
+{#      {% endif %} #}
+{#  #}
+{#      {% if nextPost %} #}
+{#      <li> #}
+{#          <a href='{{ ROOT_URL }}/{{ nextPost.path }}'> #}
+{#              &raquo; After: {{ nextPost.title }} #}
+{#          </a> #}
+{#      </li> #}
+{#      {% else %} #}
+{#      {% endif %} #}
+{#  #}
+{#      <li> #}
+{#          <a href="/">Home</a> #}
+{#      </li> #}
+{#  </ul> #}
+{# </nav> #}
+{% endblock %}

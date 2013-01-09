@@ -1,0 +1,51 @@
+{% extends "base_weblog.html" %}
+
+{% block bodyid %}logbook{% endblock %}
+
+{% block header %}
+<p><strong><a href="/" title="Hypertexthero homepage.">Hypertexthero</a></strong>  flies about the internet recording interesting experiences in this <strong><a href="/logbook/" title="logbook front page.">Logbook</a></strong>. Browse past logs in the <strong><a href="/archive/" title="Logs of past flights.">Archive</a></strong>. Track current flying on <strong><a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a></strong>.</p>
+{% endblock header %}
+
+{% block content %}
+
+<h1>The Hypertexthero Linked List</h1>
+
+{% if latest %} {# the 'latest' variable of the template context is assigned automatically by the django.views.generic.date_based.archive_index generic view - https://docs.djangoproject.com/en/dev/ref/generic-views/#django-views-generic-date-based-archive-index #}
+{% for object in latest %}
+{# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#ifchanged #}
+{% ifchanged %}
+    {# <hr /> #}
+    {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#date #}
+    <h2 class="dateline">{{ object.created|date:"l, d F Y" }}</h2>
+{% endifchanged %}
+
+
+<dl>
+    <dt>
+        <a href="{{ object.url }}">{{ object.title }}</a>
+        <a class="plink" href="{{ object.get_absolute_url }}" rel="permalink" title="Permanent link to {{ object.title }}.">#</a> 
+        {% if user.is_staff %} 
+        {# <span class="smaller normal quiet"> last edited {{ object.mod_date|timesince }} ago by {{ user.first_name }} {{ user.last_name }}</span> #}
+            <div class="pull-right">
+                <span class="small"> 
+                    <a class="edit " href="/admin/hth/entry/{{ object.id }}">Edit</a>
+                </span>
+            </div>
+        {% endif %}
+    </dt>
+    <dd>
+        {{ object.body_html|safe }}
+    </dd>
+</dl>
+
+
+{% endfor %} {# / for note in latest #}
+
+{% else %}
+    No entries.
+{% endif %} {# / if latest #}
+    
+{% endblock %} {# / block content #}
+
+{# {% block sidebar %} #}
+{# {% endblock %} #}

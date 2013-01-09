@@ -1,0 +1,19 @@
+/*
+hypertexthero.css ie6 bug fixing stylesheet by Simon Griffee
+Monday, 29 November 2010 at 14:16:01
+*/
+
+
+body#contact #page {width:890px; background-position:202px -40px;}
+div#brief {left:200px;}
+body#contact #header {height:117px; margin-bottom:20px; background-position:0 5px;}
+
+#footer {padding-left:21px;}
+
+* html #overlay{
+	background-color: #000;
+	back\ground-color: transparent;
+	background-image: url(blank.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/overlay.png", sizingMethod="scale");
+	}
+pre {word-wrap: break-word; /* Internet Explorer 5.5+ */}

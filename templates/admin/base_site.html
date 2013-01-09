@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {{sitename}} site admin{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="/">{{sitename}} Admin - View public site</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block extrahead %}
+<style type="text/css" media="screen">
+    textarea {font-family:courier, monospace !important;}
+</style>
+
+{% endblock extrahead %}

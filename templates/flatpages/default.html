@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block headtitle %}{{ flatpage.title }} - {% endblock %}
+{% block bodyid %}about{% endblock bodyid %}
+{% block breadcrumbs %} &rarr; {{ flatpage.title }}{% endblock %}
+
+{% block content %}
+    
+    {% if user.is_staff %} 
+    <div class="pull-right">
+        <a class="edit small" href="/admin/flatpages/flatpage/{{ flatpage.id }}">Edit</a>
+    </div>
+    {% endif %}
+
+    {% load markup %}
+    {{ flatpage.content|markdown:"codehilite,tables,footnotes" }}
+{% endblock %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="robots" content="all" />
+<meta http-equiv="imagetoolbar" content="false" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="description" content="Hypertexthero: Web design, HTML, CSS, graphic design, web standards" />
+<meta name="keywords" content="{% block keywords %}{% endblock keywords %}" />
+<meta name="author" content="Simon Griffee" />
+<meta name="copyright" content="Copyright 2001-{% now "Y" %} Simon Griffee." />
+
+{# <link rel="openid.server" href="http://www.myopenid.com/server" /> #}
+{# <link rel="openid.delegate" href="http://hypertexthero.myopenid.com/" /> #}
+{# <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/atom/" /> #}
+
+<link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero.css" type="text/css" />
+<link rel="Shortcut Icon" href="{{ STATIC_URL }}/favicon.ico" type="image/x-icon" />
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}/css/ie7.css" />
+<![endif]-->
+
+{% block extrahead %}{% endblock extrahead %}
+
+<title>{% block headtitle %}{% endblock headtitle %} - Hypertexthero</title>
+</head>
+
+<body id="{% block bodyid %}{% endblock bodyid %}">
+<div id="wrapper">
+<div id="page">
+    <div id="header">
+        {% block header %}{% endblock header %}
+    </div>
+    <div id="content">
+    {# <form id="search" action="/search/" method="get"> #}
+    {# <label for="q" style="display:none;">Search:</label> #}
+    {# <input type="text" name="q" value="" size="22" /> #}
+    {# <input type="submit" value="Search" class="button" /> #}
+    {# </form> #}
+        {% block content %}{% endblock %}
+    </div> {# /#content #}
+    
+    <div id="footer">
+        © Copyright {% now "Y" %} <a href="/about/" title="About Hypertexthero.">Simon Griffee</a> | <a href="/contact/" title="Call Hypertexthero.">Contact</a> | <a href="/logbook/" title="Logbook.">Logbook</a> | <a href="/linked/" title="Linked List.">Linked List</a>
+    {# <br> #}
+    {# <br> #}
+    {#  #}
+    {# <form id="search" action="/search/" method="get"> #}
+    {# <label for="q" style="display:none;">Search:</label> #}
+    {# <input name="q" value="" size="22" type="text"> #}
+    {# <input value="Search" class="button" type="submit"> #}
+    {# </form> #}
+    </div>
+    
+</div> {# /#page #}
+</div> {# /#wrapper #}
+</body>
+</html>
