@@ -9,7 +9,7 @@ from django.contrib.sites.models import Site
 from django.utils.encoding import smart_str
 from django.utils.translation import ugettext_lazy as _
 
-from markdown import markdown
+import markdown
 from typogrify.templatetags.typogrify_tags import typogrify
 from django.template.defaultfilters import slugify
 
@@ -89,7 +89,7 @@ class Entry(models.Model):
                 # http://freewisdom.org/projects/python-markdown/CodeHilite
                 # http://freewisdom.org/projects/python-markdown/Footnotes
                 # typogrify - http://code.google.com/p/typogrify/ and http://djangosnippets.org/snippets/381/
-            self.body_html = typogrify(markdown(self.body, ['extra', 'codehilite']))
+            self.body_html = typogrify(markdown.markdown(self.body, ["extra", "codehilite"]))
             # self.content_html = markdown(self.content_markdown)
             self.modified = datetime.datetime.now()
         super(Entry, self).save(*args, **kwargs)
