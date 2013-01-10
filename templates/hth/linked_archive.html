@@ -3,35 +3,18 @@
 {% block bodyid %}archive{% endblock bodyid %}
 
 {% block header %}
-    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> / <a href="/archive/" title="Logs of past flights.">Archive</a>. Track current flying on <a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a>.</p>
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> / <a href="/linked/" title="Linked List.">Linked List</a> / {{ month|date:"F Y" }}</p>
 {% endblock header %}
 
 {% block content %}
-
-<form id="search" action="/search/" method="get">
-<label for="q" style="display:none;">Search:</label>
-<input name="q" value="" size="22" type="text">
-<input value="Search" class="button" type="submit">
-</form>
-	
-
-    {# {% for y, months in archive %} #}
-    {# <div> #}
-    {#   {{ y.year }} archives:  #}
-    {#   {% for m in months %} #}
-    {#     {{ m|date:"F" }} #}
-    {#   {% endfor %} #}
-    {# </div> #}
-    {# {% endfor %} #}
-    
+        	<h1>Linked List: {{ month|date:"F Y" }}</h1>
     {% for object in object_list %}    
-    	<h1>Linked List: {{ object.pub_date|date:"F Y" }}</h1>
             {% ifchanged %}
                 <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
             {% endifchanged %}    
             
             <dl>
-                <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" style="color:inherit !important;" title="Permanent link to {{ object.title }}" href="{{ object.get_absolute_url }}">#</a></dt>
+                <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to {{ object.title }}" href="{{ object.get_absolute_url }}">#</a></dt>
                 <dd>
             	    {{ object.body_html|safe }}
                 </dd>

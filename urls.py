@@ -1,6 +1,9 @@
 from __future__ import absolute_import
 from django.conf.urls import patterns, include, url
 
+# http://stackoverflow.com/a/523366/412329
+from django.views.generic.simple import redirect_to
+
 from .models import Entry
 from . import views
 
@@ -23,10 +26,11 @@ urlpatterns = patterns('',
     # this doesn't fucking work
     # url(r'^linked/(?P<year>\d+)/(?P<month>[a-z]{3})/$', 'hth.views.linked_archive', name='linked-archive'),
     
-    url(r'^linked/(?P<year>\d+)/(?P<month>[a-z]{3})/$', 
+    url(r'^linked/(?P<year>\d+)/(?P<month>[-\w]+)/$', 
             MonthArchiveView.as_view(
                 model=Entry, 
                 date_field='pub_date', 
+                month_format='%B', 
                 template_name='hth/linked_archive.html',
                 queryset=Entry.objects.filter(kind='L').order_by('-pub_date', 'title')), 
             name='linked-archive'),
@@ -61,6 +65,8 @@ urlpatterns += patterns('django.views.generic.simple',
     
     # homepage and work index - hypertexthero.com/
     url(r'^$', 'direct_to_template', {'template': 'home.html'}, name="home"),
+    
+    url(r'^linked/(?P<year>\d+)/$', redirect_to, {'url': '/linked#archive'}),
     
 )
 

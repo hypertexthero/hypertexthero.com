@@ -47,7 +47,7 @@ class Entry(models.Model):
     kind = models.CharField(max_length=1, choices=KIND, default=1, help_text="Is this a link to other content or an original article?")
     # TODO: linkurl field and link/article slug
     url = models.URLField(blank=True, help_text="The link URL")
-    body = models.TextField()
+    body = models.TextField(blank=True)
     body_html = models.TextField()
     content_format = models.CharField(choices=CONTENT_FORMAT_CHOICES, max_length=50, default=1)
     is_active = models.BooleanField(help_text=_("Tick to make this entry live (see also the publication date). Note that administrators (like yourself) are allowed to preview inactive entries whereas the general public aren't."), default=True)
@@ -65,7 +65,10 @@ class Entry(models.Model):
 
     def __unicode__(self):
         return self.title
-
+    
+    # =todo: http://devwiki.beloblotskiy.com/index.php5/Django:_Decoupling_the_URLs
+    # http://www.achanceofbrainshowers.com/blog/tech/2010/11/29/djangos_permalink_decorator/
+    # @models.permalink
     def get_absolute_url(self):
         return "/logbook/%s/%s/" % (self.pub_date.strftime("%Y/%B").lower(), self.slug)
     

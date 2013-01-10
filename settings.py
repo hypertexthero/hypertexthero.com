@@ -55,6 +55,9 @@ USE_TZ = False
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(DIRNAME, 'static/files')
 
+# ln -s ~/Projects/hth-env/lib/python2.7/site-packages/django/contrib/admin/static/admin/ ~/projects/hth-env/hth/hth/static/admin
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -98,6 +101,7 @@ TEMPLATE_LOADERS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # enabling middleware for flatpages app
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware', # enabling redirects app
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -149,6 +153,7 @@ INSTALLED_APPS = (
     'typogrify',
     'markdown',
     # python manage.py staticsitegen
+    'django.contrib.redirects', # enabling redirects app
     'django_medusa',
     'hth',
 )

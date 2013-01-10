@@ -3,7 +3,7 @@
 {% block bodyid %}logbook{% endblock %}
 
 {% block header %}
-<p><strong><a href="/" title="Hypertexthero homepage.">Hypertexthero</a></strong>  flies about the internet recording interesting experiences in this <strong><a href="/logbook/" title="logbook front page.">Logbook</a></strong>. Browse past logs in the <strong><a href="/archive/" title="Logs of past flights.">Archive</a></strong>. Track current flying on <strong><a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a></strong>.</p>
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> / Linked List</p>
 {% endblock header %}
 
 {% block content %}
@@ -16,7 +16,7 @@
 {% ifchanged %}
     {# <hr /> #}
     {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#date #}
-    <h2 class="dateline">{{ object.created|date:"l, d F Y" }}</h2>
+    <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
 {% endifchanged %}
 
 
@@ -38,13 +38,31 @@
     </dd>
 </dl>
 
-
 {% endfor %} {# / for note in latest #}
 
 {% else %}
     No entries.
 {% endif %} {# / if latest #}
     
+
+<h2 id="archive">About the Linked List</h2>
+
+<p>The Hypertexthero Linked List is a list of links to other places on the internet that Hypertexthero finds interesting.</p>
+
+<h2 id="archive">Linked List Archive</h2>
+{# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#regroup #}
+{% regroup latest by pub_date|date:"Y" as year_list %}
+{% for year in year_list %}
+    {% regroup year.list by pub_date|date:"F" as month_list %}
+    <ul>
+    {% for month in month_list %}
+        <li><a href="/linked/{{year.grouper}}/{{month.grouper}}">{{ month.grouper }} {{ year.grouper }}</a></li>
+        {# {{ month.list }} #}
+    {% endfor %}
+    </ul>
+{% endfor %}
+
+
 {% endblock %} {# / block content #}
 
 {# {% block sidebar %} #}

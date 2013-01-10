@@ -13,7 +13,7 @@
 {% ifchanged %}
     {# <hr /> #}
     {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#date #}
-    <h2 class="dateline">{{ object.created|date:"l, d F Y" }}</h2>
+    <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
 {% endifchanged %}
 
 {% if object.kind == "A" %}
@@ -35,7 +35,7 @@
     {% endif %}
 
     <h1><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h1>
-    <h2 class="dateline">{{ object.created|date:"l, d F Y" }}</h2>
+    <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
     {{ object.body_html|safe }}            
 
 </div>
