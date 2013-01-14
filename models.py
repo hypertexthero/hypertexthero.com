@@ -70,6 +70,7 @@ class Entry(models.Model):
     
     # =todo: http://devwiki.beloblotskiy.com/index.php5/Django:_Decoupling_the_URLs
     # http://www.achanceofbrainshowers.com/blog/tech/2010/11/29/djangos_permalink_decorator/
+    # http://stackoverflow.com/questions/712878/how-to-get-a-reverse-url-for-a-generic-view
     def get_absolute_url(self): # link "see on site" will be available in admin site
         """Construct the absolute URL for an Entry."""
         # old (hard-coded url):

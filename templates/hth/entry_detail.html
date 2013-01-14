@@ -46,13 +46,26 @@
     o´   `o
 </pre>
 
+<div id="PreviousNext">
+    <table>
+    <tbody>
+        {% if object.get_prev_article %}
+        <tr valign="top">
+            <td align="right"><strong>Previous:</strong></td>
+            <td><a href="{{ object.get_prev_article.get_absolute_url }}">{{ object.get_prev_article }}</a></td>
+        </tr>
+        {% endif %}
+        {% if object.get_next_article %}
+        <tr valign="top">
+            <td align="right"><strong>Next:</strong></td>
+            <td><a href="{{ object.get_next_article.get_absolute_url }}">{{ object.get_next_article }}</a></td>
+        </tr>
+        {% endif %}
+    </tbody>
+    </table>
+</div>
 
-{% if object.get_prev_article %}
-    <p>Previous: <a href="{{ object.get_prev_article.get_absolute_url }}">{{ object.get_prev_article }}</a></p>
-{% endif %}
-{% if object.get_next_article %}
-    <p>Next: <a href="{{ object.get_next_article.get_absolute_url }}">{{ object.get_next_article }}</a></p>
-{% endif %}
+
 
 
 {% endif %}
