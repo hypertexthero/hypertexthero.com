@@ -46,12 +46,12 @@
     o´   `o
 </pre>
 
-{% else %} {# object.kind == "A" #}
+{% else %} {# object.kind == "L" #}
 
 <dl>
     <dt>
         <a href="{{ object.url }}">{{ object.title }}</a>
-        <a class="plink" href="{{ object.get_absolute_url }}" rel="permalink" title="Permanent link to {{ object.title }}.">#</a> 
+        <a class="plink" href="{{ object.get_linked_list_url }}" rel="permalink" title="Permanent link to {{ object.title }}.">#</a> 
         {% if user.is_staff %} 
         {# <span class="smaller normal quiet"> last edited {{ object.mod_date|timesince }} ago by {{ user.first_name }} {{ user.last_name }}</span> #}
             <div class="pull-right">

@@ -24,8 +24,7 @@ urlpatterns = patterns('',
     
     # linked list archive month - hypertexthero.com/linked/2013/january
     # this doesn't fucking work
-    # url(r'^linked/(?P<year>\d+)/(?P<month>[a-z]{3})/$', 'hth.views.linked_archive', name='linked-archive'),
-    
+    # url(r'^linked/(?P<year>\d+)/(?P<month>[a-z]{3})/$', 'hth.views.linked_archive', name='linked-archive'),    
     url(r'^linked/(?P<year>\d+)/(?P<month>[-\w]+)/$', 
             MonthArchiveView.as_view(
                 model=Entry, 
@@ -35,10 +34,18 @@ urlpatterns = patterns('',
                 queryset=Entry.objects.filter(kind='L').order_by('-pub_date', 'title')), 
             name='linked-archive'),
 
+
+
     # logbook entry detail - hypertexthero.com/logbook/2013/january/entry-title
     url(r'^logbook/(?P<year>\d+)/(?P<month>[-\w]+)/(?P<slug>[\w-]+)/$',
         DetailView.as_view(model=Entry),
         name="logbook-entry-detail"),
+
+    # linked list entry detail - hypertexthero.com/logbook/2013/january/entry-title
+    url(r'^linked/(?P<year>\d+)/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[\w-]+)/$',
+        DetailView.as_view(model=Entry),
+        name="linked-entry-detail"),
+
 
     
     # hypertexthero.com/linked/#archive

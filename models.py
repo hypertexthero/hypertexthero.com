@@ -13,6 +13,8 @@ import markdown
 from typogrify.templatetags.typogrify_tags import typogrify
 from django.template.defaultfilters import slugify
 
+from django.core.urlresolvers import reverse
+# from django.views.generic import DetailView
 
 # BLOG_DOCUTILS_SETTINGS = getattr(settings, 'BLOG_DOCUTILS_SETTINGS',
 #      {  'doctitle_xform': False,
@@ -68,10 +70,35 @@ class Entry(models.Model):
     
     # =todo: http://devwiki.beloblotskiy.com/index.php5/Django:_Decoupling_the_URLs
     # http://www.achanceofbrainshowers.com/blog/tech/2010/11/29/djangos_permalink_decorator/
-    # @models.permalink
-    def get_absolute_url(self):
+    def get_absolute_url(self): # link "see on site" will be available in admin site
+        """Construct the absolute URL for an Entry."""
+        # old (hard-coded url):
         return "/logbook/%s/%s/" % (self.pub_date.strftime("%Y/%B").lower(), self.slug)
+        # return reverse('logbook-entry-detail', (), {
+        #                     'year': self.pub_date.strftime("%Y"),
+        #                     'month': self.pub_date.strftime("%B").lower(),
+        #                             # 'day': self.pub_date.strftime("%d"),
+        #                     'slug': self.slug})
     
+    # =todo:
+    def get_linked_list_url(self): # link "see on site" will be available in admin site
+        """Construct the absolute URL for an Entry whose kind == L."""
+        return "/linked/%s/%s/" % (self.pub_date.strftime("%Y/%m/%d").lower(), self.slug)
+        # return reverse('project.app.views.view_name', None, [str(self.id)])
+
+    # =todo: next and previous articles: http://stackoverflow.com/questions/2214852/next-previous-links-from-a-query-set-generic-views
+    def get_next_article(self):
+      next = Entry.objects.filter(id__gt=self.id, kind='A')
+      if next:
+        return next[0]
+      return False
+    
+    def get_prev_article(self):
+      prev = Entry.objects.filter(id__lt=self.id, kind='A')
+      if prev:
+        return prev[0]
+      return False
+      
     def is_published(self):
         """
         Return True if the entry is publicly accessible.

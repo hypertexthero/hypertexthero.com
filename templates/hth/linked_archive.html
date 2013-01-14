@@ -14,7 +14,7 @@
             {% endifchanged %}    
             
             <dl>
-                <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to {{ object.title }}" href="{{ object.get_absolute_url }}">#</a></dt>
+                <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}">#</a></dt>
                 <dd>
             	    {{ object.body_html|safe }}
                 </dd>

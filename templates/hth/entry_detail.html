@@ -25,7 +25,7 @@
     {#     <a class="quiet" href="{{ ROOT_URL }}/{{ path }}" rel="permalink" title="Permanent link to {{ title }}.">#</a> #}
     {# </p> #}
     <dl>
-        <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" style="color:inherit !important;" title="Permanent link to {{ object.title }}" href="{{ object.get_absolute_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
+        <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" style="color:inherit !important;" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
         <dd>
     	    {{ object.body_html|safe }}
         </dd>
@@ -45,6 +45,16 @@
 -------O-------
     o´   `o
 </pre>
+
+
+{% if object.get_prev_article %}
+    <p>Previous: <a href="{{ object.get_prev_article.get_absolute_url }}">{{ object.get_prev_article }}</a></p>
+{% endif %}
+{% if object.get_next_article %}
+    <p>Next: <a href="{{ object.get_next_article.get_absolute_url }}">{{ object.get_next_article }}</a></p>
+{% endif %}
+
+
 {% endif %}
 
 {% if user.is_staff %} 
