@@ -1,6 +1,6 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: Wednesday, 09 January 2013
+Last update: Wednesday, 06 March 2013
 */
 
 * {margin:0; padding:0;}
@@ -12,6 +12,10 @@ body {font-family:"times new roman", times, serif; font-size:100%; color:#2e2a1f
 a:link, a:visited {color:#000; text-decoration:none; border-bottom:1px solid #9E9682; padding-bottom:0;}
 a:visited {color:#2e2a1f;}
 a:hover, a:active {text-decoration:none; color:#000; outline:none; background:#9E9682;}
+
+:target {
+   background: #ffc !important;
+}
 
 #wrapper {text-align:center;}
 #page {width:970px; text-align:left; margin:0 auto; background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}
@@ -104,6 +108,7 @@ p#homelink a {border:none !important;}
 p#homelink a:hover, p#homelink a:active {text-indent:0 !important; line-height:1em !important; color:#afa99f; background:none;}
 p {margin:0 0 1em; line-height:1.3em;}
 dt {margin:0 0 0.5em; color:#2e2a1f;}
+body.detail dt {font-weight:bold;}
 dd {margin:0 0 2em 1em;}
 dd p {color:#000;}
 ul, ol {margin-bottom:1em;}
@@ -124,25 +129,26 @@ body#about h1 {font-size:1.7em;}
 h2 {font-size:16px; margin:1.5em 0 0.3em;}
 body#about h2 {font-size:1.5em;}
 h2.dateline {margin:3em 0; text-transform:uppercase; font-size:0.9em !important; letter-spacing:0.1em; font-weight:normal;}
-h2.datelinearchive {margin-bottom:1em;}
 h3.posted {font-size:14px; font-style:italic; font-weight:normal; margin-top:0em;}
 body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
-.small, small {font-size:0.8em;}
-body#archive p small {margin-left:1em;}
+.small {font-size:0.8em;}
 p.caption {font-size:15px; font-style:italic;}
 pre {font-family:monospace; margin:1em 0; padding:1em; overflow:visible; background:#eee; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
 pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#afa99f; background:none;}
 strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}
-p.footnote {font-size:0.8em;}
+div.footnote {font-size:0.8em;}
 p.paging {margin:5em 0;}
 img {border:0; display:block; margin-bottom:1em;}
 body#home img {margin-bottom:0;}
 acronym, abbr {border-bottom:1px dashed #2e2a1f;}
 sup {line-height:0;}
+hr {color:#afa99f; background:#afa99f; height:1px; border:none; margin:1em 0;}
 .caps {font-size:0.9em;}
 .pull-right {float:right;}
 .pull-left {float:left;}
+.monospace {font-family:monospace;}
+.titlecase {text-transform:capitalize;}
 
 #footer {clear:both; padding:26px 43px; font-size:14px;}
 

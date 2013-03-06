@@ -12,9 +12,10 @@
 {# {% block keywords %}{{ object.keywords }}{% endblock keywords %} #}
 {% block headtitle %}{{ object.title }}{% endblock headtitle %}
 {% block bodyid %}logbook{% endblock bodyid %}
+{% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
-    <p>Hello. You are reading a <a href="/logbook/" title="logbook front page.">Logbook</a> entry at <a href="/" title="Hypertexthero homepage.">Hypertexthero<span class="small">.com</span></a> Browse past entries in the <a href="/archive/" title="Logs of past flights.">Archive</a>. Track current flying on <a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a>.</p>
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> /</p>
 {% endblock header %}
 
 {% block content %}
@@ -46,24 +47,15 @@
     o´   `o
 </pre>
 
-<div id="PreviousNext">
-    <table>
-    <tbody>
+<p class="paging small">
         {% if object.get_prev_article %}
-        <tr valign="top">
-            <td align="right"><strong>Previous:</strong></td>
-            <td><a href="{{ object.get_prev_article.get_absolute_url }}">{{ object.get_prev_article }}</a></td>
-        </tr>
+            <a rel="prev" href="{{ object.get_prev_article.get_absolute_url }}"><i>Before:</i> {{ object.get_prev_article }}</a>
         {% endif %}
+        <br>
         {% if object.get_next_article %}
-        <tr valign="top">
-            <td align="right"><strong>Next:</strong></td>
-            <td><a href="{{ object.get_next_article.get_absolute_url }}">{{ object.get_next_article }}</a></td>
-        </tr>
+            <a rel="next" href="{{ object.get_next_article.get_absolute_url }}"><i>After:</i>{{ object.get_next_article }}</a>
         {% endif %}
-    </tbody>
-    </table>
-</div>
+</p>
 
 
 
@@ -72,7 +64,7 @@
 
 {% if user.is_staff %} 
 <div class="pull-right">
-    <a class="edit small" href="/admin/hth/entry/{{ entry.id }}">Edit</a>
+    <a class="edit small monospace" href="/admin/hth/entry/{{ entry.id }}">Edit</a>
 </div>
 {% endif %}
 
