@@ -155,6 +155,7 @@ INSTALLED_APPS = (
     # python manage.py staticsitegen
     'django.contrib.redirects', # enabling redirects app
     'django_medusa',
+    'taggit',
     'hth',
 )
 

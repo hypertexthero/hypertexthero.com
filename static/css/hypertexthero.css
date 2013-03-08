@@ -119,6 +119,7 @@ ol ol {list-style:lower-roman; font-size:0.9em;}
 #content ul, #content ol {margin-left:1em;}
 blockquote ul, blockquote ol {margin-left:1em;}
 a.plink {color:#c4c1b2; text-decoration:none; font-size:0.8em; text-transform:capitalize;}
+body.detail a.plink {color:inherit;}
 body#logbook dt a:hover {background:#c4c1b2; color:#000;}
 body#logbook dt a:hover {background:#c4c1b2; color:#000;} 
 body#logbook dt:hover a.plink {color:#000;}
@@ -149,6 +150,7 @@ hr {color:#afa99f; background:#afa99f; height:1px; border:none; margin:1em 0;}
 .pull-left {float:left;}
 .monospace {font-family:monospace;}
 .titlecase {text-transform:capitalize;}
+a.edit {color:#afa99f;}
 
 #footer {clear:both; padding:26px 43px; font-size:14px;}
 

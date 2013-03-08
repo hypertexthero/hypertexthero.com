@@ -1,15 +1,7 @@
 {% extends "base_weblog.html" %}
-
+{# http://stackoverflow.com/a/3410813 #}
+{% block tags %}{% for tag in object.tags.all %}{{ tag.name }}{% if forloop.last %}{% else %}, {% endif %}{% endfor %}{% endblock tags %}
 {% block title %}{{ object.title|escape }} | Weblog{% endblock %}
-
-{# {% block content %} #}
-{# <h1>{{ object.title|safe }}</h1> #}
-{# {{ object.body_html|safe }} #}
-{# <p class="date small">Posted by <strong>{{ object.author }}</strong> on {{ object.pub_date|date:"j F Y" }}</p> #}
-{# {% endblock %} #}
-
-
-{# {% block keywords %}{{ object.keywords }}{% endblock keywords %} #}
 {% block headtitle %}{{ object.title }}{% endblock headtitle %}
 {% block bodyid %}logbook{% endblock bodyid %}
 {% block bodyclass %}detail{% endblock bodyclass %}
@@ -20,18 +12,15 @@
 
 {% block content %}
 
-{% if object.kind == "L" %} {# if a value for linkurl is present in the head of files this is a link to another site: #}
-    {# <p> #}
-    {#     <a href="{{ linkurl }}">{{ title }}</a> #}
-    {#     <a class="quiet" href="{{ ROOT_URL }}/{{ path }}" rel="permalink" title="Permanent link to {{ title }}.">#</a> #}
-    {# </p> #}
+{% if object.kind == "L" %} {# if a value for linkurl is present in the head of files this is a link to another site #}
     <dl>
-        <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" style="color:inherit !important;" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
+        <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
         <dd>
     	    {{ object.body_html|safe }}
         </dd>
     </dl>
-    {% else %} {# otherwise it is an original article: #}
+
+    {% else %} {# otherwise it is an original article #}
 
 <pre class="articlebreak">
      __|__
@@ -49,18 +38,15 @@
 
 <p class="paging small">
         {% if object.get_prev_article %}
-            <a rel="prev" href="{{ object.get_prev_article.get_absolute_url }}"><i>Before:</i> {{ object.get_prev_article }}</a>
+            <a rel="prev" href="{{ object.get_prev_article.get_absolute_url }}"><i>Previous:</i> <b>{{ object.get_prev_article }}</b></a>
         {% endif %}
         <br>
         {% if object.get_next_article %}
-            <a rel="next" href="{{ object.get_next_article.get_absolute_url }}"><i>After:</i>{{ object.get_next_article }}</a>
+            <a rel="next" href="{{ object.get_next_article.get_absolute_url }}"><i>Next:</i> <b>{{ object.get_next_article }}</b></a>
         {% endif %}
 </p>
 
-
-
-
-{% endif %}
+{% endif %} {# object.kind == "L" #}
 
 {% if user.is_staff %} 
 <div class="pull-right">

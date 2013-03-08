@@ -2,7 +2,12 @@
 {% block headtitle %}Search results for: {{ query }}  - {% endblock %}
 {# {% block bodyid %}home{% endblock %} #}
 
+{% block header %}
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> /</p>
+{% endblock header %}
+
 {% block content %}
+{% include "hth/search_form.html" %}
 {% if title_results or results %} 
     <p>Search results for &ldquo;<strong>{{ query }}</strong>&rdquo;:</p> 
     {% if title_results %}
@@ -28,3 +33,7 @@
 {% endif %}
 
 {% endblock %}
+
+{% block footer %}
+{% include "hth/footer.html" %}
+{% endblock footer %}

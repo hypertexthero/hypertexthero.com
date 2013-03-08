@@ -16,13 +16,7 @@ from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
 # from django.views.generic import DetailView
 
-# BLOG_DOCUTILS_SETTINGS = getattr(settings, 'BLOG_DOCUTILS_SETTINGS',
-#      {  'doctitle_xform': False,
-#         'initial_header_level': 4,
-#         'id_prefix': 's-',
-#      }
-# )
-
+from taggit.managers import TaggableManager
 
 class EntryManager(models.Manager):
     
@@ -56,6 +50,8 @@ class Entry(models.Model):
     pub_date = models.DateTimeField(verbose_name=_("Publication date"), help_text=_("For an entry to be published, it must be active and its publication date must be in the past."))
     mod_date = models.DateTimeField(auto_now_add=True, editable=False)
     # author = models.CharField(max_length=100)
+
+    tags = TaggableManager()
 
     objects = EntryManager()
     
