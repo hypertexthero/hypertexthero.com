@@ -1,10 +1,13 @@
-{% extends "base_weblog.html" %}
+{% extends "base.html" %}
 
 {% block bodyid %}logbook{% endblock %}
+{% block headtitle %}Logbook{% endblock headtitle %}
 
 {% block header %}
 <p><strong><a href="/" title="Hypertexthero homepage.">Hypertexthero</a></strong>  flies about the internet recording interesting experiences in this <strong><a href="/logbook/" title="logbook front page.">Logbook</a></strong>. Browse past logs in the <strong><a href="/archive/" title="Logs of past flights.">Archive</a></strong>. Track current flying on <strong><a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a></strong>.</p>
 {% endblock header %}
+
+
 
 {% block content %}
 {% if latest %} {# the 'latest' variable of the template context is assigned automatically by the django.views.generic.date_based.archive_index generic view - https://docs.djangoproject.com/en/dev/ref/generic-views/#django-views-generic-date-based-archive-index #}

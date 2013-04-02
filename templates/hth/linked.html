@@ -1,4 +1,4 @@
-{% extends "base_weblog.html" %}
+{% extends "base.html" %}
 
 {% block bodyid %}logbook{% endblock %}
 
@@ -56,7 +56,7 @@
     {% regroup year.list by pub_date|date:"F" as month_list %}
     <ul>
     {% for month in month_list %}
-        <li><a href="/linked/{{year.grouper}}/{{month.grouper}}">{{ month.grouper }} {{ year.grouper }}</a></li>
+        <li><a href="/linked/{{year.grouper}}/{{month.grouper|lower}}">{{ month.grouper }} {{ year.grouper }}</a></li>
         {# {{ month.list }} #}
     {% endfor %}
     </ul>

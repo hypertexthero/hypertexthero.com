@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
-<meta name="robots" content="all" />
-<meta http-equiv="imagetoolbar" content="false" />
-<meta name="MSSmartTagsPreventParsing" content="true" />
-<meta name="description" content="Hypertexthero: Web design, HTML, CSS, graphic design, web standards" />
-<meta name="keywords" content="{% block tags %}{% endblock tags %}" />
-<meta name="author" content="Simon Griffee" />
-<meta name="copyright" content="Copyright 2001-{% now "Y" %} Simon Griffee." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="description" content="Hypertexthero: Web design, HTML, CSS, graphic design, web standards">
+<meta name="keywords" content="{% block tags %}{% endblock tags %}">
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-{% now "Y" %} Simon Griffee.">
 
-{# <link rel="openid.server" href="http://www.myopenid.com/server" /> #}
-{# <link rel="openid.delegate" href="http://hypertexthero.myopenid.com/" /> #}
 {# <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/atom/" /> #}
 
-<link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero.css" type="text/css" />
-<link rel="Shortcut Icon" href="{{ STATIC_URL }}/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero.css" type="text/css">
+<link rel="Shortcut Icon" href="{{ STATIC_URL }}/favicon.ico" type="image/x-icon">
 
 <!--[if lte IE 6]>
 <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}/css/ie6.css" />
@@ -28,7 +26,7 @@
 
 {% block extrahead %}{% endblock extrahead %}
 
-<title>{% block headtitle %}{% endblock headtitle %} - Hypertexthero</title>
+<title>{% block headtitle %}{% endblock headtitle %}</title>
 </head>
 
 <body id="{% block bodyid %}{% endblock bodyid %}" class="{% block bodyclass %}{% endblock bodyclass %}">
@@ -42,12 +40,8 @@
     <div id="header">
         {% block header %}{% endblock header %}
     </div>
+    
     <div id="content">
-    {# <form id="search" action="/search/" method="get"> #}
-    {# <label for="q" style="display:none;">Search:</label> #}
-    {# <input type="text" name="q" value="" size="22" /> #}
-    {# <input type="submit" value="Search" class="button" /> #}
-    {# </form> #}
         {% block content %}{% endblock %}
     </div> {# /#content #}
     

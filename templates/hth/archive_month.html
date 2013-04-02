@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block headtitle %}Hypertexthero Archives: {{ month|date:"F Y" }}{% endblock headtitle %}
+{% block bodyid %}archive{% endblock bodyid %}
+
+{% block header %}
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/archive/" title="logbook front page.">Logbook</a> / <a href="/archive/" title="Logs of past flights.">Archive</a> / {{ month|date:"F Y" }}</p>
+{% endblock header %}
+
+{% block content %}
+        	<h1 style="margin-bottom:1em;">Articles Published in {{ month|date:"F Y" }}</h1>
+    {% for object in object_list %}    
+            
+            <p>
+                <a href="{{ object.get_absolute_url }}">{{ object.title }}</a> <span class="small quiet extrapad" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}">{{ object.pub_date|date:"j M Y" }}</span>
+            </p>
+    {% endfor %}
+	
+{% endblock %}
