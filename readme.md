@@ -15,5 +15,4 @@ Features
 
 - Combine django-staticgenerator or django-medusa with this application so we are serving static files in HTML on server and Markdown and HTML columns in database. Also try to find a way to have static files in Markdown format on the server.
 - Contact form
-- Year and Month article archives
 - [SSL](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS)
