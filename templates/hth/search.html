@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block headtitle %}Search results for: {{ query }}  - {% endblock %}
-{# {% block bodyid %}home{% endblock %} #}
+{% block bodyid %}logbook{% endblock %}
 
 {% block header %}
-    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> /</p>
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / Search results for: <strong>{{ query }}</strong></p>
 {% endblock header %}
 
 {% block content %}
-{% include "hth/search_form.html" %}
 {% if title_results or results %} 
-    <p>Search results for &ldquo;<strong>{{ query }}</strong>&rdquo;:</p> 
     {% if title_results %}
         <ul>
         {% for entry in title_results %} 
@@ -31,6 +29,8 @@
     {% else %}
     {# <p>Type a search query into the box below, and press "Submit" to search.</p> #}    
 {% endif %}
+
+{% include "hth/search_form.html" %}
 
 {% endblock %}
 
