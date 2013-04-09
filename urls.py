@@ -78,7 +78,7 @@ urlpatterns = patterns('',
 urlpatterns += patterns('django.views.generic.simple',
 
     # note that flatpage urls such as /about/ are served as per django.contrib.flatpages.urls    
-
+    url(r'^contact/', include("contact.urls", namespace="contact_form")),
     url(r'^search/$', views.search, name="search"),
     url(r'^work/(?P<slug>[-\w]+)$', 'direct_to_template', {'template': 'work.html'}, name='work-detail'),    
     # homepage and work index - hypertexthero.com/
