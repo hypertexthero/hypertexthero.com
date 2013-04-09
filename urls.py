@@ -22,11 +22,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     
-    # linked list detail - hypertexthero.com/linked/2013/january/01/entry-title
-    # url(r'^linked/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\d{2})/$', 'hth.views.linked_archive_day', name='linked-archive-day'),
-    
     # linked list archive month - hypertexthero.com/linked/2013/january
-    # this doesn't fucking work
+    # this doesn't fucking work so far
     # url(r'^linked/(?P<year>\d+)/(?P<month>[a-z]{3})/$', 'hth.views.linked_archive', name='linked-archive'),    
     url(r'^linked/(?P<year>\d+)/(?P<month>[-\w]+)/$', 
             MonthArchiveView.as_view(

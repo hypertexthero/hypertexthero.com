@@ -1,9 +1,8 @@
 import functools
 # https://docs.djangoproject.com/en/1.4/topics/generic-views-migration/
-# from django.views.generic import dates
 # http://ccbv.co.uk/projects/Django/1.5/django.views.generic.list/MultipleObjectMixin/
-from django.views.generic.list import MultipleObjectMixin
 # http://ccbv.co.uk/projects/Django/1.5/django.views.generic.dates/ArchiveIndexView/
+from django.views.generic.list import MultipleObjectMixin
 from django.views.generic import ArchiveIndexView
 from django.core.urlresolvers import reverse
 
@@ -12,7 +11,7 @@ from .models import Entry
 # http://stackoverflow.com/q/8547880/412329
 class LogbookView(ArchiveIndexView):
     """
-    Logbook homepage
+    Logbook Homepage
         Extends the ArchiveIndexView view to add entries to the context
     """
     model = Entry
@@ -22,14 +21,13 @@ class LogbookView(ArchiveIndexView):
 # https://docs.djangoproject.com/en/1.5/topics/class-based-views/generic-display/#adding-extra-context
     def get_context_data(self, **kwargs):
         context = super(LogbookView, self).get_context_data(**kwargs)
-        context['entries'] = Entry.objects.filter(is_active=True
-                                            ).order_by(
-                                                '-pub_date', 'title')[:30]
+        context['entries'] = Entry.objects.filter(
+            is_active=True).order_by('-pub_date', 'title')[:30]
         return context
 
 class LinkedListView(ArchiveIndexView):
     """ 
-    Linked list (kind == Link)
+    Linked List (kind == Link)
         Extends the ArchiveIndexView view to add entries to the context
     """
     model = Entry
@@ -38,8 +36,8 @@ class LinkedListView(ArchiveIndexView):
     allow_future = False
     def get_context_data(self, **kwargs):
         context = super(LinkedListView, self).get_context_data(**kwargs)
-        context['latest'] = Entry.objects.filter(is_active=True,
-                            kind='L').order_by('-pub_date', 'title')[:30]
+        context['latest'] = Entry.objects.filter(
+            is_active=True, kind='L').order_by('-pub_date', 'title')[:30]
         return context
 
 class LogbookArchiveView(ArchiveIndexView):
@@ -53,8 +51,8 @@ class LogbookArchiveView(ArchiveIndexView):
     allow_future = False
     def get_context_data(self, **kwargs):
         context = super(LogbookArchiveView, self).get_context_data(**kwargs)
-        context['latest'] = Entry.objects.filter(is_active=True,
-                            kind='A').order_by('-pub_date', 'title')[:9999]
+        context['latest'] = Entry.objects.filter(
+            is_active=True, kind='A').order_by('-pub_date', 'title')[:9999]
         return context
 
 
@@ -80,8 +78,8 @@ from django.template import RequestContext
 # def search(request):
 #     query = request.GET['q']
 #     return render_to_response('hth/search.html',
-#         {   'query': query, 
-#             'results': Note.objects.filter(content_html__icontains=query) })
+#         {'query': query, 
+#          'results': Note.objects.filter(content_html__icontains=query) })
 
 # rewritten so /search/ URL can be accessed directly:
 
@@ -101,8 +99,8 @@ def search(request):
         results = Entry.objects.filter(Q(title__icontains=query)|Q(
                                     body_html__icontains=query)).distinct()
     return render_to_response('hth/search.html',
-        {   'query': query, 
-            'results': results,
-            'user': user
-            # http://stackoverflow.com/a/5478944/412329
-             }, context_instance=RequestContext(request)) 
+        {'query': query, 
+         'results': results,
+         'user': user
+         # http://stackoverflow.com/a/5478944/412329
+        }, context_instance=RequestContext(request)) 
