@@ -2,16 +2,18 @@ from __future__ import absolute_import
 from django.conf.urls import patterns, include, url
 
 # http://stackoverflow.com/a/523366/412329
-from django.views.generic.simple import redirect_to
+# from django.views.generic.simple import redirect_to
+from django.views.generic import RedirectView, TemplateView
 
 from .models import Entry
 from . import views
+from .views import LogbookView, LinkedListView, LogbookArchiveView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ArchiveIndexView
 from django.views.generic.dates import MonthArchiveView, YearArchiveView
 
 urlpatterns = patterns('',
@@ -46,10 +48,10 @@ urlpatterns = patterns('',
         name="linked-entry-detail"),
     
     # linked list index hypertexthero.com/linked/ and hypertexthero.com/linked/#archive - will need template tag?
-    url(r'^linked/$', 'hth.views.linked', name='linked'),
+    url(r'^linked/$', view=LinkedListView.as_view(), name='LinkedListView'),
 
     # logbook original articles - hypertexthero.com/archive/
-    url(r'^archive/$', 'hth.views.logbook_archive', name='archive'),
+    url(r'^archive/$', view=LogbookArchiveView.as_view(), name='LogbookArchiveView'),
     # =todo: Year and Month article archives
 
     url(r'^(?P<year>\d+)/(?P<month>\d{2})/$', 
@@ -72,20 +74,22 @@ urlpatterns = patterns('',
                 name='archive-year'),
     
     # logbook index - hypertexthero.com/logbook/
-    url(r'^logbook/$', 'hth.views.logbook', name='logbook'),    
+    url(r'^logbook/$', view=LogbookView.as_view(), name='LogbookView'),    
 )
 
-urlpatterns += patterns('django.views.generic.simple',
+urlpatterns += patterns('django.views.generic.base',
 
     # note that flatpage urls such as /about/ are served as per django.contrib.flatpages.urls    
     url(r'^contact/', include("contact.urls", namespace="contact_form")),
     url(r'^search/$', views.search, name="search"),
-    url(r'^work/(?P<slug>[-\w]+)$', 'direct_to_template', {'template': 'work.html'}, name='work-detail'),    
+    # https://docs.djangoproject.com/en/1.4/topics/generic-views-migration/
+    url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(template_name='work.html'), name='work-detail'),    
+    
     # homepage and work index - hypertexthero.com/
-    url(r'^$', 'direct_to_template', {'template': 'home.html'}, name="home"),
+    url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
     
     # In addition to this, we are also using the built-in redirect app to redirect /linked/archive to /linked#archive
-    url(r'^linked/(?P<year>\d+)/$', redirect_to, {'url': '/linked#archive'}),
+    url(r'^linked/(?P<year>\d+)/$', RedirectView.as_view(url='/linked#archive')),
     
 )
 

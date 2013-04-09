@@ -1,42 +1,60 @@
 import functools
-from django.views.generic import date_based
+# https://docs.djangoproject.com/en/1.4/topics/generic-views-migration/
+# from django.views.generic import dates
+# http://ccbv.co.uk/projects/Django/1.5/django.views.generic.list/MultipleObjectMixin/
+from django.views.generic.list import MultipleObjectMixin
+# http://ccbv.co.uk/projects/Django/1.5/django.views.generic.dates/ArchiveIndexView/
+from django.views.generic import ArchiveIndexView
 from django.core.urlresolvers import reverse
 
 from .models import Entry
 
-def logbook(request): 
-    """Logbook homepage"""
-    return date_based.archive_index(request,
-        queryset=Entry.objects.filter(is_active=True).order_by('-pub_date', 'title'), # https://docs.djangoproject.com/en/dev/ref/models/querysets/#django.db.models.query.QuerySet.order_by
-        num_latest=20, # https://docs.djangoproject.com/en/1.2/ref/generic-views/#date-based-generic-views
-        date_field='pub_date', # don't forget to set {{ note.created|date:"d F Y" }} in notes/list.html
-        template_name='hth/logbook.html',
-        # template_object_name='note',
-        allow_future = False # this is the default, but am keeping it here to remember that it can be set to true for other use cases, such as calendar of upcoming events
-        )
+# http://stackoverflow.com/q/8547880/412329
+class LogbookView(ArchiveIndexView):
+    """
+    Logbook homepage - Extends the ArchiveIndexView view to add entries to the context
+    """
+    model = Entry
+    date_field = 'pub_date' # don't forget to set {{ note.created|date:"d F Y" }} in notes/list.html
+    template_name = 'hth/logbook.html'
+    allow_future = False
+    def get_context_data(self, **kwargs):
+        context = super(LogbookView, self).get_context_data(**kwargs)
+        context['entries'] = Entry.objects.filter(is_active=True
+                                                    ).order_by('-pub_date', 'title')[:30]
+        # context['comments'] = Comment.objects.filter(allow=True).order_by('created').reverse()[:4]
+        return context
 
-def linked(request): 
-    """Linked list (kind == Link)"""
-    return date_based.archive_index(request,
-        queryset=Entry.objects.filter(is_active=True, kind='L').order_by('-pub_date', 'title'), # https://docs.djangoproject.com/en/dev/ref/models/querysets/#django.db.models.query.QuerySet.order_by
-        num_latest=30, # https://docs.djangoproject.com/en/1.2/ref/generic-views/#date-based-generic-views
-        date_field='pub_date', # don't forget to set {{ note.created|date:"d F Y" }} in notes/list.html
-        template_name='hth/linked.html',
-        # template_object_name='note',
-        allow_future = False # this is the default, but am keeping it here to remember that it can be set to true for other use cases, such as calendar of upcoming events
-        )
+class LinkedListView(ArchiveIndexView):
+    """ 
+    Linked list (kind == Link)
+        Extends the ArchiveIndexView view to add entries to the context
+    """
+    model = Entry
+    date_field = 'pub_date' # don't forget to set {{ note.created|date:"d F Y" }} in notes/list.html
+    template_name = 'hth/linked.html'
+    allow_future = False
+    def get_context_data(self, **kwargs):
+        context = super(LinkedListView, self).get_context_data(**kwargs)
+        context['latest'] = Entry.objects.filter(is_active=True, kind='L').order_by('-pub_date', 'title')[:30]
+        # context['comments'] = Comment.objects.filter(allow=True).order_by('created').reverse()[:4]
+        return context
 
+class LogbookArchiveView(ArchiveIndexView):
+    """
+        Archive of original entries (kind == Article) - 
+            Extends the ArchiveIndexView view to add entries to the context
+    """
+    model = Entry
+    date_field = 'pub_date' # don't forget to set {{ note.created|date:"d F Y" }} in notes/list.html
+    template_name = 'hth/archive.html'
+    allow_future = False
+    def get_context_data(self, **kwargs):
+        context = super(LogbookArchiveView, self).get_context_data(**kwargs)
+        context['latest'] = Entry.objects.filter(is_active=True, kind='A').order_by('-pub_date', 'title')[:9999]
+        # context['comments'] = Comment.objects.filter(allow=True).order_by('created').reverse()[:4]
+        return context
 
-def logbook_archive(request): 
-    """Archive of original entries (kind == Article)"""
-    return date_based.archive_index(request,
-        queryset=Entry.objects.filter(kind='A').order_by('-pub_date', 'title'), # https://docs.djangoproject.com/en/dev/ref/models/querysets/#django.db.models.query.QuerySet.order_by
-        num_latest=9999, # https://docs.djangoproject.com/en/1.2/ref/generic-views/#date-based-generic-views
-        date_field='pub_date', # don't forget to set {{ note.created|date:"d F Y" }} in notes/list.html
-        template_name='hth/archive.html',
-        # template_object_name='note',
-        allow_future = False # this is the default, but am keeping it here to remember that it can be set to true for other use cases, such as calendar of upcoming events
-        )
 
 # =Search
 
