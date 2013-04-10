@@ -8,7 +8,7 @@ Features
 - Dates on homepage are displayed only once for notes published on the same day. Using '[ifchanged](https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#ifchanged)'.
 - Code syntax highlighting in markup courtesy of [Pygments](http://pygments.org/) and [CodeHilite](http://freewisdom.org/projects/python-markdown/CodeHilite).
 - Simple search.
-- Uses django admin interface.
+- Uses Django admin interface.
 - Combine [django-medusa](https://github.com/mtigas/django-medusa/) with this application so we are serving static HTML files from disk on server and Markdown and HTML columns in database.
 
 ## TODO
