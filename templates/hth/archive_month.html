@@ -7,7 +7,7 @@
 {% endblock header %}
 
 {% block content %}
-        	<h1 style="margin-bottom:1em;">Articles Published in {{ month|date:"F Y" }}</h1>
+        	<h1 style="margin-bottom:1em;">Articles Published {{ month|date:"F Y" }}</h1>
     {% for object in object_list %}    
             
             <p>

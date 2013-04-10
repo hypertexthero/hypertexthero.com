@@ -3,11 +3,11 @@
 {% block bodyid %}archive{% endblock bodyid %}
 
 {% block header %}
-    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/archive/" title="logbook front page.">Logbook</a> / <a href="/archive/" title="Logs of past flights.">Archive</a> / {{ year }}</p>
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/archive/" title="logbook front page.">Logbook</a> / <a href="/archive/" title="Logs of past flights.">Archive</a> / {{ year|date:"Y" }}</p>
 {% endblock header %}
 
 {% block content %}
-        	<h1 style="margin-bottom:1em;">Articles Published in {{ year }}</h1>
+        	<h1 style="margin-bottom:1em;">Articles Published in {{ year|date:"Y" }}</h1>
     {% for object in object_list %}    
             {% ifchanged %}
                 <h2 class="dateline datelinearchive">{{ object.pub_date|date:"F Y" }}</h2>

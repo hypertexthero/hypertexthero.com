@@ -16,7 +16,7 @@
     
     <h1>Previously, on Hypertexthero</h1>
 	
-	{% for entry in latest %}	
+	{% for entry in object_list %}	
         {% ifchanged %}
             <h2 class="dateline datelinearchive">{{ entry.pub_date|date:"F Y" }}</h2>
         {% endifchanged %}    

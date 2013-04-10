@@ -3,12 +3,13 @@ import functools
 # http://ccbv.co.uk/projects/Django/1.5/django.views.generic.list/MultipleObjectMixin/
 # http://ccbv.co.uk/projects/Django/1.5/django.views.generic.dates/ArchiveIndexView/
 from django.views.generic.list import MultipleObjectMixin
-from django.views.generic import ArchiveIndexView
+from django.views.generic import ArchiveIndexView, MonthArchiveView, YearArchiveView, DetailView
 from django.core.urlresolvers import reverse
 
 from .models import Entry
 
-# http://stackoverflow.com/q/8547880/412329
+# =home, =list views ===============
+# http://stackoverflow.com/questions/8547880/listing-object-with-specific-tag-using-django-taggit
 class LogbookView(ArchiveIndexView):
     """
     Logbook Homepage
@@ -21,7 +22,7 @@ class LogbookView(ArchiveIndexView):
 # https://docs.djangoproject.com/en/1.5/topics/class-based-views/generic-display/#adding-extra-context
     def get_context_data(self, **kwargs):
         context = super(LogbookView, self).get_context_data(**kwargs)
-        context['entries'] = Entry.objects.filter(
+        context['latest'] = Entry.objects.filter(
             is_active=True).order_by('-pub_date', 'title')[:30]
         return context
 
@@ -40,6 +41,16 @@ class LinkedListView(ArchiveIndexView):
             is_active=True, kind='L').order_by('-pub_date', 'title')[:30]
         return context
 
+# =single pages ===============
+class LogbookDetailView(DetailView):
+    """ Article permalink page """
+    model = Entry
+
+class LinkedDetailView(DetailView):
+    """ Link permalink page """
+    model = Entry
+        
+# =archives ===============
 class LogbookArchiveView(ArchiveIndexView):
     """
         Archive of original entries (kind == Article) - 
@@ -51,9 +62,50 @@ class LogbookArchiveView(ArchiveIndexView):
     allow_future = False
     def get_context_data(self, **kwargs):
         context = super(LogbookArchiveView, self).get_context_data(**kwargs)
-        context['latest'] = Entry.objects.filter(
+        context['object_list'] = Entry.objects.filter(
             is_active=True, kind='A').order_by('-pub_date', 'title')[:9999]
         return context
+
+class LinkedListMonthArchive(MonthArchiveView):
+    """Linked List monthly archives"""
+    model = Entry
+    date_field = 'pub_date'
+    month_format='%B'
+    template_name = 'hth/linked_archive.html'
+    allow_future = False
+    def get_context_data(self, **kwargs):
+        context = super(LinkedListMonthArchive, self).get_context_data(**kwargs)
+        context['object_list'] = Entry.objects.filter(
+            is_active=True, kind='L').order_by('-pub_date', 'title')[:9999]
+        return context
+
+class LogbookMonthArchive(MonthArchiveView):
+    """Monthly archives of articles"""
+    model = Entry
+    date_field = 'pub_date'
+    month_format='%m'
+    template_name = 'hth/archive_month.html'
+    allow_future = False
+    def get_context_data(self, **kwargs):
+        context = super(LogbookMonthArchive, self).get_context_data(**kwargs)
+        context['object_list'] = Entry.objects.filter(
+            is_active=True, kind='A').order_by('-pub_date', 'title')[:9999]
+        return context
+
+class LogbookYearArchive(YearArchiveView):
+    """Yearly archives of articles"""
+    model = Entry
+    date_field = 'pub_date'
+    year_format='%Y'
+    make_object_list=True, 
+    template_name = 'hth/archive_year.html'
+    allow_future = False
+    def get_context_data(self, **kwargs):
+        context = super(LogbookYearArchive, self).get_context_data(**kwargs)
+        context['object_list'] = Entry.objects.filter(
+            is_active=True, kind='A').order_by('-pub_date', 'title')[:9999]
+        return context
+
 
 
 # =Search

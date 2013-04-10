@@ -7,87 +7,72 @@ from django.views.generic import RedirectView, TemplateView
 
 from .models import Entry
 from . import views
-from .views import LogbookView, LinkedListView, LogbookArchiveView
+from .views import LogbookView, LinkedListView, LogbookArchiveView,\
+LinkedListMonthArchive, LogbookDetailView, LinkedDetailView,\
+LogbookMonthArchive, LogbookYearArchive
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
-from django.views.generic import DetailView, ArchiveIndexView
-from django.views.generic.dates import MonthArchiveView, YearArchiveView
+from django.views.generic.dates import YearArchiveView
 
 urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    
-    # linked list archive month - hypertexthero.com/linked/2013/january
-    # this doesn't fucking work so far
-    # url(r'^linked/(?P<year>\d+)/(?P<month>[a-z]{3})/$', 'hth.views.linked_archive', name='linked-archive'),    
-    url(r'^linked/(?P<year>\d+)/(?P<month>[-\w]+)/$', 
-            MonthArchiveView.as_view(
-                model=Entry, 
-                date_field='pub_date', 
-                month_format='%B', 
-                template_name='hth/linked_archive.html',
-                queryset=Entry.objects.filter(kind='L').order_by('-pub_date', 'title')), 
-                name='linked-archive'),
 
-    # logbook entry detail - hypertexthero.com/logbook/2013/january/entry-title
-    url(r'^logbook/(?P<year>\d+)/(?P<month>[-\w]+)/(?P<slug>[\w-]+)/$',
-        DetailView.as_view(model=Entry),
+    # hypertexthero.com/logbook/2013/01/entry-title
+    url(r'^logbook/(?P<year>\d+)/(?P<month>\d{2})/(?P<slug>[\w-]+)/$',
+        view=LogbookDetailView.as_view(),
         name="logbook-entry-detail"),
 
-    # linked list entry detail - hypertexthero.com/logbook/2013/january/entry-title
+    # hypertexthero.com/logbook/2013/01/28/entry-title
     url(r'^linked/(?P<year>\d+)/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[\w-]+)/$',
-        DetailView.as_view(model=Entry),
-        name="linked-entry-detail"),
-    
-    # linked list index hypertexthero.com/linked/ and hypertexthero.com/linked/#archive - will need template tag?
-    url(r'^linked/$', view=LinkedListView.as_view(), name='LinkedListView'),
+        view=LinkedDetailView.as_view(),
+        name="linked-entry-detail"),   
 
-    # logbook original articles - hypertexthero.com/archive/
-    url(r'^archive/$', view=LogbookArchiveView.as_view(), name='LogbookArchiveView'),
-    # =todo: Year and Month article archives
+    # hypertexthero.com/archive
+    url(r'^archive/$', 
+        view=LogbookArchiveView.as_view(), 
+        name='logbook-archive'),
 
+    # hypertexthero.com/2013/01
     url(r'^(?P<year>\d+)/(?P<month>\d{2})/$', 
-            MonthArchiveView.as_view(
-                model=Entry, 
-                date_field='pub_date', 
-                month_format='%m',
-                template_name='hth/archive_month.html',
-                queryset=Entry.objects.filter(kind='A').order_by('-pub_date', 'title')), 
-                name='archive-month'),
+        view=LogbookMonthArchive.as_view(),
+        name='archive-month'),
 
+    # hypertexthero.com/2013    
     url(r'^(?P<year>\d+)/$',
-            YearArchiveView.as_view(
-                model=Entry, 
-                date_field='pub_date', 
-                # year_format='%Y',
-                make_object_list=True, 
-                template_name='hth/archive_year.html',
-                queryset=Entry.objects.filter(kind='A').order_by('-pub_date', 'title')), 
-                name='archive-year'),
+        view=LogbookYearArchive.as_view(),
+        name='archive-year'),
+
+    # hypertexthero.com/linked/2013/january
+    url(r'^linked/(?P<year>\d+)/(?P<month>[-\w]+)/$', 
+        view=LinkedListMonthArchive.as_view(),
+        name='linked-archive'),
+    # hypertexthero.com/linked/ and hypertexthero.com/linked/#archive
+    url(r'^linked/$', 
+        view=LinkedListView.as_view(), 
+        name='linked-list'),
     
-    # logbook index - hypertexthero.com/logbook/
-    url(r'^logbook/$', view=LogbookView.as_view(), name='LogbookView'),    
+    # hypertexthero.com/logbook
+    url(r'^logbook/$', view=LogbookView.as_view(), name='logbook'),    
+    
+    # In addition to the following url pattern we are also using the 
+    # built-in redirect app to redirect /linked/archive to /linked#archive
+    url(r'^linked/(?P<year>\d+)/$', RedirectView.as_view(url='/linked#archive')),
+    
 )
 
 urlpatterns += patterns('django.views.generic.base',
-
-    # note that flatpage urls such as /about/ are served as per django.contrib.flatpages.urls    
+    # flatpage urls such as /about are served as per django.contrib.flatpages.urls    
     url(r'^contact/', include("contact.urls", namespace="contact_form")),
     url(r'^search/$', views.search, name="search"),
-    # https://docs.djangoproject.com/en/1.4/topics/generic-views-migration/
     url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(template_name='work.html'), name='work-detail'),    
-    
-    # homepage and work index - hypertexthero.com/
+    # =homepage - hypertexthero.com
     url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
-    
-    # In addition to this, we are also using the built-in redirect app to redirect /linked/archive to /linked#archive
-    url(r'^linked/(?P<year>\d+)/$', RedirectView.as_view(url='/linked#archive')),
-    
 )
 
 # http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-development
