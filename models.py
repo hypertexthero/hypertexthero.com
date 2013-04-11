@@ -85,7 +85,8 @@ class Entry(models.Model):
         #                     'slug': self.slug})
     
     # =todo: remove hardcoded /linked/ link (see =todo above)
-    def get_linked_list_url(self): # "view on site" link will be visible in admin interface
+    # "view on site" link will be visible in admin interface
+    def get_linked_list_url(self):
         """Construct the absolute URL for an Entry whose kind == L."""
         return "/linked/%s/%s/" % (self.pub_date.strftime(
                                                 "%Y/%m/%d").lower(), self.slug)

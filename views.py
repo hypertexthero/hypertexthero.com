@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse
 from .models import Entry
 
 # =home, =list views ===============
+
 # http://stackoverflow.com/questions/8547880/listing-object-with-specific-tag-using-django-taggit
 class LogbookView(ArchiveIndexView):
     """
@@ -41,7 +42,9 @@ class LinkedListView(ArchiveIndexView):
             is_active=True, kind='L').order_by('-pub_date', 'title')[:30]
         return context
 
+
 # =single pages ===============
+
 class LogbookDetailView(DetailView):
     """ Article permalink page """
     model = Entry
@@ -50,7 +53,9 @@ class LinkedDetailView(DetailView):
     """ Link permalink page """
     model = Entry
         
+
 # =archives ===============
+
 class LogbookArchiveView(ArchiveIndexView):
     """
         Archive of original entries (kind == Article) - 
@@ -107,6 +112,15 @@ class LogbookYearArchive(YearArchiveView):
         return context
 
 
+# =misc ===============
+
+# quotations = [
+#     'quotation one', 
+#     'second quotation',
+#             
+# ]
+# ...
+# return render_to_response('quotations.html', {'my_strings':my_strings})
 
 # =Search
 

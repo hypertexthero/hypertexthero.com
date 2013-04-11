@@ -157,6 +157,7 @@ INSTALLED_APPS = (
     'django_medusa',
     'contact',
     'contact.templatetags',
+    'hth.templatetags',
     'taggit',
     'hth',
 )
