@@ -1,20 +1,14 @@
-# import akismet
 import datetime
-# from docutils.core import publish_parts
 
 from django.conf import settings
 from django.db import models
 from django.contrib.sites.models import Site
-# from django.contrib.comments.signals import comment_was_posted
 from django.utils.encoding import smart_str
 from django.utils.translation import ugettext_lazy as _
 
 import markdown
 from typogrify.templatetags.typogrify_tags import typogrify
 from django.template.defaultfilters import slugify
-
-from django.core.urlresolvers import reverse
-# from django.views.generic import DetailView
 
 from taggit.managers import TaggableManager
 
@@ -70,16 +64,13 @@ class Entry(models.Model):
     def __unicode__(self):
         return self.title
     
-# =todo: http://devwiki.beloblotskiy.com/index.php5/Django:_Decoupling_the_URLs
-# http://www.achanceofbrainshowers.com/blog/tech/2010/11/29/djangos_permalink_decorator/
-# http://stackoverflow.com/questions/712878/how-to-get-a-reverse-url-for-a-generic-view
-    
+    # http://devwiki.beloblotskiy.com/index.php5/Django:_Decoupling_the_URLs  
     @models.permalink # or: get_absolute_url = models.permalink(get_absolute_url) below
     def get_absolute_url(self): # "view on site" link will be visible in admin interface
         """Construct the absolute URL for an Entry of kind == Article."""
         # old hard-coded URL:
         # return "/logbook/%s/%s/" % (self.pub_date.strftime(
-        #                                         "%Y/%m").lower(), self.slug)
+        #                                         "%Y/%m"), self.slug)
         return ('logbook-entry-detail', (), {
                             'year': self.pub_date.strftime("%Y"),
                             'month': self.pub_date.strftime("%m"),
@@ -89,9 +80,6 @@ class Entry(models.Model):
     @models.permalink
     def get_linked_list_url(self):
         """Construct the absolute URL for an Entry of kind == Link."""
-        # old hard-coded URL:
-        # return "/linked/%s/%s/" % (self.pub_date.strftime(
-        #                                         "%Y/%m/%d").lower(), self.slug)
         return ('linked-entry-detail', (), {
                             'year': self.pub_date.strftime("%Y"),
                             'month': self.pub_date.strftime("%m"),
@@ -113,9 +101,7 @@ class Entry(models.Model):
       return False
       
     def is_published(self):
-        """
-        Return True if the entry is publicly accessible.
-        """
+        """Return True if the entry is publicly accessible."""
         return self.is_active and self.pub_date <= datetime.datetime.now()
     is_published.boolean = True
     
