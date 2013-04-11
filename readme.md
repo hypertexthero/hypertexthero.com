@@ -13,6 +13,7 @@ Features
 
 ## TODO
 
+- Display latest logbook entries on homepage ([write a template tag](http://mechanicalgirl.com/post/custom-template-tags-in-django/))
 - Learn how to [write tests](http://www.tdd-django-tutorial.com/) for views, then write unit and functional tests.
 - Articles available in Markdown format on the server (article-title.txt).
 - Consider using [prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html) for syntax highlighting (shows line numbers)

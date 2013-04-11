@@ -40,3 +40,10 @@ def RandomLine(afile):
 #                               selected_line = aLine
 #     file_object.close(  )
 #     return selected_line
+
+# http://mechanicalgirl.com/post/custom-template-tags-in-django/
+# def LatestEntries():
+#         latest_entries = Entry.objects.filter(is_active=1)
+#         return {'latest_entries': latest_entries}
+# 
+# register.inclusion_tag('latest_entries.html')(LatestEntries)

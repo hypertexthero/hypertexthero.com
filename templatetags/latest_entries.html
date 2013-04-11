@@ -1,0 +1,6 @@
+<div class="latest">
+    <h3>Latest Logbook Entries: </h3>
+    {% for entry in latest_entries %}
+        <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a><br />
+    {% endfor %}
+</div>
