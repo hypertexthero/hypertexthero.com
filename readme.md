@@ -13,6 +13,7 @@ Features
 
 ## TODO
 
+- Learn how to [write tests](http://www.tdd-django-tutorial.com/) for views, then write unit and functional tests.
 - Articles available in Markdown format on the server (article-title.txt).
 - JavaScript-based search for static files on server.
 - Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment to github-powered site, maybe also github pages.

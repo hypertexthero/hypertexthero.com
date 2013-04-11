@@ -73,24 +73,31 @@ class Entry(models.Model):
 # =todo: http://devwiki.beloblotskiy.com/index.php5/Django:_Decoupling_the_URLs
 # http://www.achanceofbrainshowers.com/blog/tech/2010/11/29/djangos_permalink_decorator/
 # http://stackoverflow.com/questions/712878/how-to-get-a-reverse-url-for-a-generic-view
-    def get_absolute_url(self): # "view on site" link will be visible in admin interface
-        """Construct the absolute URL for an Entry."""
-        # old (hard-coded url):
-        return "/logbook/%s/%s/" % (self.pub_date.strftime(
-                                                "%Y/%m").lower(), self.slug)
-        # return reverse('logbook-entry-detail', (), {
-        #                     'year': self.pub_date.strftime("%Y"),
-        #                     'month': self.pub_date.strftime("%d").lower(),
-        #                             # 'day': self.pub_date.strftime("%d"),
-        #                     'slug': self.slug})
     
-    # =todo: remove hardcoded /linked/ link (see =todo above)
-    # "view on site" link will be visible in admin interface
+    @models.permalink # or: get_absolute_url = models.permalink(get_absolute_url) below
+    def get_absolute_url(self): # "view on site" link will be visible in admin interface
+        """Construct the absolute URL for an Entry of kind == Article."""
+        # old hard-coded URL:
+        # return "/logbook/%s/%s/" % (self.pub_date.strftime(
+        #                                         "%Y/%m").lower(), self.slug)
+        return ('logbook-entry-detail', (), {
+                            'year': self.pub_date.strftime("%Y"),
+                            'month': self.pub_date.strftime("%m"),
+                            # 'day': self.pub_date.strftime("%d"),
+                            'slug': self.slug})
+    
+    @models.permalink
     def get_linked_list_url(self):
-        """Construct the absolute URL for an Entry whose kind == L."""
-        return "/linked/%s/%s/" % (self.pub_date.strftime(
-                                                "%Y/%m/%d").lower(), self.slug)
-        # return reverse('project.app.views.view_name', None, [str(self.id)])
+        """Construct the absolute URL for an Entry of kind == Link."""
+        # old hard-coded URL:
+        # return "/linked/%s/%s/" % (self.pub_date.strftime(
+        #                                         "%Y/%m/%d").lower(), self.slug)
+        return ('linked-entry-detail', (), {
+                            'year': self.pub_date.strftime("%Y"),
+                            'month': self.pub_date.strftime("%m"),
+                            'day': self.pub_date.strftime("%d"),
+                            'slug': self.slug})
+
 
 # http://stackoverflow.com/questions/2214852/next-previous-links-from-a-query-set-generic-views
     def get_next_article(self):

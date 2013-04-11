@@ -149,7 +149,7 @@ from django.template import RequestContext
 
 # rewritten so /search/ URL can be accessed directly:
 
-def search(request):    
+def Search(request):    
     query = request.GET.get('q', '') # both /search/ and /search/?q=query work
     results = []
     # http://stackoverflow.com/a/4338108/412329 - 

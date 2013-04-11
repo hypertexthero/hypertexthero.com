@@ -6,16 +6,15 @@ from django.conf.urls import patterns, include, url
 from django.views.generic import RedirectView, TemplateView
 
 from .models import Entry
-from . import views
 from .views import LogbookView, LinkedListView, LogbookArchiveView,\
 LinkedListMonthArchive, LogbookDetailView, LinkedDetailView,\
-LogbookMonthArchive, LogbookYearArchive
+LogbookMonthArchive, LogbookYearArchive, Search
+
+from django.views.generic.dates import YearArchiveView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
-
-from django.views.generic.dates import YearArchiveView
 
 urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -66,12 +65,15 @@ urlpatterns = patterns('',
     
 )
 
-urlpatterns += patterns('django.views.generic.base',
+urlpatterns += patterns('views',
     # flatpage urls such as /about are served as per django.contrib.flatpages.urls    
+    url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(
+            template_name='work.html'), name='work-detail'),
+    
     url(r'^contact/', include("contact.urls", namespace="contact_form")),
-    url(r'^search/$', views.search, name="search"),
-    url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(template_name='work.html'), name='work-detail'),    
-    # =homepage - hypertexthero.com
+    url(r'^search/$', Search, name="search"),
+    
+    # =homepage
     url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
 )
 
