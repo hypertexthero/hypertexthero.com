@@ -29,10 +29,11 @@ h1#logo a {position:absolute; right:185px; bottom:0; width:227px; height:53px; b
 h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}
 
 #content {padding-left:43px; position:relative;}
-body#logbook #content, body#about #content, body#error #content {width:500px; float:left;}
+body#logbook #content, body#about #content, body#error #content {float:left;}
 #sidebar {float:right; width:296px; font-size:14px;}
 #picture {float:left; margin:0 0 1em 0;}
 #picture p {max-width:400px;}
+#content p, #content li, #content dd {max-width:32em;}
 
 /* =home ---------------------- */
 
@@ -136,7 +137,7 @@ h3.posted {font-size:14px; font-style:italic; font-weight:normal; margin-top:0em
 body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 .small {font-size:0.8em;}
 p.caption {font-size:15px; font-style:italic;}
-pre {font-family:monospace; margin:1em 0; padding:1em; overflow:visible; background:#eee; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
+pre {font-family:monospace; margin:1em 0; padding:1em; overflow:visible; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
 pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#afa99f; background:none;}
 strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}

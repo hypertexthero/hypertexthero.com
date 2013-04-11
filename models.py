@@ -112,8 +112,7 @@ class Entry(models.Model):
         elif self.content_format == u'markdown':
             # Also applying codehilite and footnotes markdown extensions: 
                 # http://fi.am/entry/code-highlighting-in-django/
-                # http://freewisdom.org/projects/python-markdown/CodeHilite
-                # http://freewisdom.org/projects/python-markdown/Footnotes
+                # https://pypi.python.org/pypi/Markdown
                 # typogrify - http://code.google.com/p/typogrify/ 
                     # and http://djangosnippets.org/snippets/381/
             self.body_html = typogrify(markdown.markdown(
