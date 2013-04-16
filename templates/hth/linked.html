@@ -52,16 +52,16 @@
 <h2 id="archive">Linked List Archive</h2>
 {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#regroup #}
 {% regroup latest by pub_date|date:"Y" as year_list %}
+    <ul>
 {% for year in year_list %}
     {% regroup year.list by pub_date|date:"F" as month_list %}
-    <ul>
+
     {% for month in month_list %}
         <li><a href="/linked/{{year.grouper}}/{{month.grouper|lower}}">{{ month.grouper }} {{ year.grouper }}</a></li>
         {# {{ month.list }} #}
     {% endfor %}
-    </ul>
 {% endfor %}
-
+    </ul>
 
 {% endblock %} {# / block content #}
 
