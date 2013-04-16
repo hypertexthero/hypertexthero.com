@@ -22,6 +22,15 @@ def RandomLine(afile):
       line = aline
     return line
 
+# http://stackoverflow.com/a/12992277/412329
+@register.filter(name="month_number_to_name")
+def MonthNumberToName(value):
+    """returns the month name for the given number - 1 indexed"""
+    month_name = ["", "January", "February", "March", "April", "May", "June", "July",
+               "August", "September", "October", "November", "December"
+              ]
+    return month_name[int(value)]
+
 # Also works but the above is shorter. Need to test which performs best.
 # ==
 # @register.simple_tag(name="kind_words")

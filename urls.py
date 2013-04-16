@@ -48,7 +48,7 @@ urlpatterns = patterns('',
         name='archive-year'),
 
     # hypertexthero.com/linked/2013/january
-    url(r'^linked/(?P<year>\d+)/(?P<month>[-\w]+)/$', 
+    url(r'^linked/(?P<year>\d+)/(?P<month>\d{2})/$', 
         view=LinkedListMonthArchive.as_view(),
         name='linked-archive'),
     # hypertexthero.com/linked/ and hypertexthero.com/linked/#archive

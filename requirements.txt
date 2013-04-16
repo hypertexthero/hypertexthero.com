@@ -9,4 +9,6 @@ typogrify
 Pygments
 django-taggit
 
+https://github.com/mtigas/django-medusa/tarball/master#egg=django-medusa
+
 # South >= 0.7, < 0.8

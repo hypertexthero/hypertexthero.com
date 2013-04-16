@@ -50,14 +50,17 @@
 <p>The Hypertexthero Linked List is a list of links to other places on the internet that Hypertexthero finds interesting.</p>
 
 <h2 id="archive">Linked List Archive</h2>
+
+{% load hth_tags %}
+
 {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#regroup #}
 {% regroup latest by pub_date|date:"Y" as year_list %}
     <ul>
 {% for year in year_list %}
-    {% regroup year.list by pub_date|date:"F" as month_list %}
+    {% regroup year.list by pub_date|date:"m" as month_list %}
 
     {% for month in month_list %}
-        <li><a href="/linked/{{year.grouper}}/{{month.grouper|lower}}">{{ month.grouper }} {{ year.grouper }}</a></li>
+        <li><a href="/linked/{{year.grouper}}/{{month.grouper}}">{{ month.grouper|month_number_to_name }} {{ year.grouper }}</a></li>
         {# {{ month.list }} #}
     {% endfor %}
 {% endfor %}

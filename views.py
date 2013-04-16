@@ -20,12 +20,13 @@ class LogbookView(ArchiveIndexView):
     date_field = 'pub_date' 
     template_name = 'hth/logbook.html'
     allow_future = False
+    queryset = Entry.objects.filter(is_active=True).order_by('-pub_date', 'title')
 # https://docs.djangoproject.com/en/1.5/topics/class-based-views/generic-display/#adding-extra-context
-    def get_context_data(self, **kwargs):
-        context = super(LogbookView, self).get_context_data(**kwargs)
-        context['latest'] = Entry.objects.filter(
-            is_active=True).order_by('-pub_date', 'title')[:30]
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super(LogbookView, self).get_context_data(**kwargs)
+    #     context['latest'] = Entry.objects.filter(
+    #         is_active=True).order_by('-pub_date', 'title')[:30]
+    #     return context
 
 class LinkedListView(ArchiveIndexView):
     """ 
@@ -36,11 +37,12 @@ class LinkedListView(ArchiveIndexView):
     date_field = 'pub_date'
     template_name = 'hth/linked.html'
     allow_future = False
-    def get_context_data(self, **kwargs):
-        context = super(LinkedListView, self).get_context_data(**kwargs)
-        context['latest'] = Entry.objects.filter(
-            is_active=True, kind='L').order_by('-pub_date', 'title')[:30]
-        return context
+    queryset = Entry.objects.filter(is_active=True, kind="L").order_by('-pub_date', 'title')
+    # def get_context_data(self, **kwargs):
+    #     context = super(LinkedListView, self).get_context_data(**kwargs)
+    #     context['latest'] = Entry.objects.filter(
+    #         is_active=True, kind='L').order_by('-pub_date', 'title')[:30]
+    #     return context
 
 
 # =single pages ===============
@@ -65,24 +67,18 @@ class LogbookArchiveView(ArchiveIndexView):
     date_field = 'pub_date'
     template_name = 'hth/archive.html'
     allow_future = False
-    def get_context_data(self, **kwargs):
-        context = super(LogbookArchiveView, self).get_context_data(**kwargs)
-        context['object_list'] = Entry.objects.filter(
-            is_active=True, kind='A').order_by('-pub_date', 'title')[:9999]
-        return context
+    queryset = Entry.objects.filter(
+          is_active=True, kind='A').order_by('-pub_date', 'title')
 
 class LinkedListMonthArchive(MonthArchiveView):
     """Linked List monthly archives"""
     model = Entry
     date_field = 'pub_date'
-    month_format='%B'
+    month_format='%m'
     template_name = 'hth/linked_archive.html'
     allow_future = False
-    def get_context_data(self, **kwargs):
-        context = super(LinkedListMonthArchive, self).get_context_data(**kwargs)
-        context['object_list'] = Entry.objects.filter(
-            is_active=True, kind='L').order_by('-pub_date', 'title')[:9999]
-        return context
+    queryset = Entry.objects.filter(
+          is_active=True, kind='L').order_by('-pub_date', 'title')
 
 class LogbookMonthArchive(MonthArchiveView):
     """Monthly archives of articles"""
@@ -91,11 +87,8 @@ class LogbookMonthArchive(MonthArchiveView):
     month_format='%m'
     template_name = 'hth/archive_month.html'
     allow_future = False
-    def get_context_data(self, **kwargs):
-        context = super(LogbookMonthArchive, self).get_context_data(**kwargs)
-        context['object_list'] = Entry.objects.filter(
-            is_active=True, kind='A').order_by('-pub_date', 'title')[:9999]
-        return context
+    queryset = Entry.objects.filter(
+          is_active=True, kind='A').order_by('-pub_date', 'title')
 
 class LogbookYearArchive(YearArchiveView):
     """Yearly archives of articles"""
@@ -105,11 +98,8 @@ class LogbookYearArchive(YearArchiveView):
     make_object_list=True, 
     template_name = 'hth/archive_year.html'
     allow_future = False
-    def get_context_data(self, **kwargs):
-        context = super(LogbookYearArchive, self).get_context_data(**kwargs)
-        context['object_list'] = Entry.objects.filter(
-            is_active=True, kind='A').order_by('-pub_date', 'title')[:9999]
-        return context
+    queryset = Entry.objects.filter(
+          is_active=True, kind='A').order_by('-pub_date', 'title')
 
 
 # =misc ===============
