@@ -44,11 +44,13 @@ h2#websites {height:111px; width:162px; background:url(/static/img/heading_websi
 h2#print {height:111px; width:162px; background:url(/static/img/heading_print.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#identity {height:111px; width:162px; background:url(/static/img/heading_identity.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#etcetera {height:111px; width:162px; background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
+h2#writing {padding-top:54px;/*height:111px; */width:162px; 
+/*    background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;*/
+    }
 div.column ul.thumbs {list-style:none;}
 div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #c4c1b2;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
-#latest {text-align:left; float:right; width:180px; font-size:14px; margin-top:-80px;}
-#latest ul {list-style:circle;}
+#latest ul li {padding:0.25em 0; font-size:14px;}
 
 /* =contact ---------------------- */
 
@@ -155,6 +157,7 @@ hr {color:#afa99f; background:#afa99f; height:1px; border:none; margin:1em 0;}
 .pull-left {float:left;}
 .monospace {font-family:monospace;}
 .titlecase {text-transform:capitalize;}
+.center {text-align:center;}
 a.edit {color:#afa99f;}
 
 #footer {clear:both; padding:26px 43px; font-size:14px;}
@@ -176,8 +179,7 @@ a.edit {color:#afa99f;}
 
 @media (max-width: 970px) {
     #page {width:auto;}
-    #latest {width:auto; clear:both; text-align:right; padding-right:45px;}
-    #latest ul {list-style:none;}
+    #latest {width:auto; clear:both; text-align:left; float:none;}
     #header #logo a {display:block;}
     #header blockquote {position:normal; float:left; width:300px;}
     body#contact #page {width:770px;}

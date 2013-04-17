@@ -14,6 +14,8 @@ Features
 
 ## TODO
 
+- Change Logbook plane to Macchi.
+- Make Work category pages?
 - List of tags (categories) page. Titled 'What'.
 - Articles available in Markdown format on the server (article-title.txt).
 - JavaScript-based search for static files on server?

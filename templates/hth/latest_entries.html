@@ -1,6 +1,6 @@
 <div id="latest">
-    <h2><i>Latest from the <a href="/logbook/">Logbook</a></i></h2>
-    <ul>
+    {# <h2><i>Latest from the <a href="/logbook/">Logbook</a></i></h2> #}
+    <ul class="unstyled center">
     {% for entry in latest_entries %}
     <li><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></li>
     {% endfor %}

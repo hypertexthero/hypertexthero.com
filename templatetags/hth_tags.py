@@ -55,5 +55,5 @@ def RandomLine(afile):
 @register.inclusion_tag("hth/latest_entries.html", name="latest_entries")
 def LatestEntries():
         latest_entries = Entry.objects.filter(
-                            is_active=1).order_by('-pub_date', 'title')[:10]
+                            is_active=1).order_by('-pub_date', 'title')[:11]
         return {'latest_entries': latest_entries}

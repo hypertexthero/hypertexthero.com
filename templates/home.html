@@ -42,7 +42,10 @@
         <li><a href="http://hypertexthero.com/work/earth-among-the-stars" title="Earth Among The Stars"><img src="http://hypertexthero.com/images/53t.png" alt="Earth Among The Stars in HTML and CSS." title="Earth Among The Stars in HTML and CSS." height="96" width="155"></a></li><li><a href="http://hypertexthero.com/work/photographs" title="Photographs"><img src="http://hypertexthero.com/images/42t.jpg" alt="Photograph from 'The Island' story, 2010." title="Photograph from 'The Island' story, 2010." height="96" width="155"></a></li><li><a href="http://hypertexthero.com/work/atpm-covers" title="ATPM Covers"><img src="http://hypertexthero.com/images/49t.png" alt="The November 2010 ATPM cover is a drawing of an Adobe Flash cage being opened by CSS, JavaScript and HTML5, releasing the open web." title="The November 2010 ATPM cover is a drawing of an Adobe Flash cage being opened by CSS, JavaScript and HTML5, releasing the open web." height="96" width="155"></a></li>
     </ul>
     </div>
-{% latest_entries %}
+    <div class="column">
+    <h2 id="writing">Writing<br><small>Latest <a href="/logbook">Logbook</a> Entries</small></h2>
+    {% latest_entries %}
+    </div>
 {% endblock %}
 
 {% block footer %}

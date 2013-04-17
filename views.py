@@ -62,7 +62,8 @@ def smart_truncate(content, length=200, suffix='...'):
 class RssLogbookFeed(Feed):
     title = "Hypertexthero Logbook by Simon Griffee"
     link = "/logbook/"
-    description = "Hypertexthero logbook entries."
+    description = "Hypertexthero logbook entries by Simon Griffee"
+    # description_template = "hth/feed_description.html" - using default for now
 
     def items(self):
         return Entry.objects.order_by('-pub_date')[:15]
