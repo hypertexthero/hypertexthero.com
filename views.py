@@ -11,57 +11,6 @@ from django.core.urlresolvers import reverse
 
 from .models import Entry
 
-# =feed
-
-# http://stackoverflow.com/a/250373/412329
-def smart_truncate(content, length=200, suffix='...'):
-    if len(content) <= length:
-        return content
-    else:
-        return ' '.join(content[:length+1].split(' ')[0:-1]) + suffix
-
-class RssLogbookFeed(Feed):
-    title = "Hypertexthero Logbook by Simon Griffee"
-    link = "/logbook/"
-    description = "Hypertexthero logbook entries."
-    
-    def items(self):
-        return Entry.objects.order_by('-pub_date')[:15]
-
-    def item_title(self, item):
-        return item.title
-
-    def item_pubdate(self, item):
-        return item.pub_date
-
-    def item_description(self, item):
-        return smart_truncate(item.body)
-        
-
-
-class AtomLogbookFeed(RssLogbookFeed):
-    feed_type = Atom1Feed
-    subtitle = RssLogbookFeed.description
-
-# class LatestEntriesFeed(Feed):
-#     feed_type = Atom1Feed
-#     title = "Hypertexthero Logbook"
-#     link = "/logbook/"
-#     description = "Latest Hypertexthero logbook entries."
-# 
-#     def items(self):
-#         return Entry.objects.order_by('-pub_date')[:30]
-# 
-#     def item_title(self, item):
-#         return item.title
-# 
-#     def item_description(self, item):
-#         return item.description
-# 
-#     # item_link is only needed if Entry has no get_absolute_url method.
-#     # def item_link(self, item):
-#     #     return reverse('news-item', args=[item.pk])
-
 # =home, =list views ===============
 
 # http://stackoverflow.com/questions/8547880/listing-object-with-specific-tag-using-django-taggit
@@ -99,6 +48,37 @@ class LinkedListView(ArchiveIndexView):
     #     context['latest'] = Entry.objects.filter(
     #         is_active=True, kind='L').order_by('-pub_date', 'title')[:30]
     #     return context
+
+
+# =feeds ===============
+
+# http://stackoverflow.com/a/250373/412329
+def smart_truncate(content, length=200, suffix='...'):
+    if len(content) <= length:
+        return content
+    else:
+        return ' '.join(content[:length+1].split(' ')[0:-1]) + suffix
+
+class RssLogbookFeed(Feed):
+    title = "Hypertexthero Logbook by Simon Griffee"
+    link = "/logbook/"
+    description = "Hypertexthero logbook entries."
+
+    def items(self):
+        return Entry.objects.order_by('-pub_date')[:15]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_pubdate(self, item):
+        return item.pub_date
+
+    def item_description(self, item):
+        return smart_truncate(item.body_html)
+
+class AtomLogbookFeed(RssLogbookFeed):
+    feed_type = Atom1Feed
+    subtitle = RssLogbookFeed.description
 
 
 # =single pages ===============
