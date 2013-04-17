@@ -6,12 +6,13 @@
 <meta name="robots" content="all">
 <meta http-equiv="imagetoolbar" content="false">
 <meta name="MSSmartTagsPreventParsing" content="true">
-<meta name="description" content="Hypertexthero: Web design, HTML, CSS, graphic design, web standards">
+{# <meta name="description" content="{% block description %}{% endblock description %}"> #}
 <meta name="keywords" content="{% block tags %}{% endblock tags %}">
 <meta name="author" content="Simon Griffee">
 <meta name="copyright" content="Copyright 2001-{% now "Y" %} Simon Griffee.">
 
-{# <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/atom/" /> #}
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/" />
 
 <link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero.css" type="text/css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/code.css" type="text/css">

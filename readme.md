@@ -10,14 +10,15 @@ Features
 - Simple search.
 - Uses Django admin interface.
 - Combine [django-medusa](https://github.com/mtigas/django-medusa/) with this application so we are serving static HTML files from disk on server and Markdown and HTML columns in database.
+- XML feeds in both Atom and RSS flavours.
 
 ## TODO
 
-- Display latest logbook entries on homepage ([write a template tag](http://mechanicalgirl.com/post/custom-template-tags-in-django/))
-- Learn how to [write tests](http://www.tdd-django-tutorial.com/) for views, then write unit and functional tests.
+- List of tags (categories) page. Titled 'What'.
 - Articles available in Markdown format on the server (article-title.txt).
-- Consider using [prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html) for syntax highlighting (shows line numbers)
-- JavaScript-based search for static files on server.
+- JavaScript-based search for static files on server?
 - Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment to github-powered site, maybe also github pages.
 - [Automatically post new articles to Twitter](http://djangosnippets.org/snippets/1339/).
+- Learn how to [write tests](http://www.tdd-django-tutorial.com/) for views, then write unit and functional tests.
 - [SSL](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS).
+- Consider using [prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html) for syntax highlighting (shows line numbers)

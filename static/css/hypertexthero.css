@@ -47,6 +47,8 @@ h2#etcetera {height:111px; width:162px; background:url(/static/img/heading_etcet
 div.column ul.thumbs {list-style:none;}
 div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #c4c1b2;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
+#latest {text-align:left; float:right; width:180px; font-size:14px; margin-top:-80px;}
+#latest ul {list-style:circle;}
 
 /* =contact ---------------------- */
 
@@ -174,6 +176,8 @@ a.edit {color:#afa99f;}
 
 @media (max-width: 970px) {
     #page {width:auto;}
+    #latest {width:auto; clear:both; text-align:right; padding-right:45px;}
+    #latest ul {list-style:none;}
     #header #logo a {display:block;}
     #header blockquote {position:normal; float:left; width:300px;}
     body#contact #page {width:770px;}
@@ -182,7 +186,7 @@ a.edit {color:#afa99f;}
     body#contact #content form, body#contact #content p#thankyou {right:0;}    
     }
 @media (max-width: 800px) {
-    #page {width:auto;}
+    #page, #latest {width:auto;}
     body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {display:block; right:0;}
     div.column {margin:0 10px 0 0;}

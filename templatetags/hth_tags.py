@@ -7,6 +7,15 @@ import random
 
 register = template.Library()
 
+# http://stackoverflow.com/a/12992277/412329
+@register.filter(name="month_number_to_name")
+def MonthNumberToName(value):
+    """returns the month name for the given number - 1 indexed"""
+    month_name = ["", "January", "February", "March", "April", "May", "June", "July",
+               "August", "September", "October", "November", "December"
+              ]
+    return month_name[int(value)]
+
 # http://stackoverflow.com/a/3540315/412329
 # (Waterman's "Reservoir Algorithm") from Knuth's 
 # "The Art of Computer Programming" is good (simplified version):
@@ -21,15 +30,6 @@ def RandomLine(afile):
       if random.randrange(num + 2): continue
       line = aline
     return line
-
-# http://stackoverflow.com/a/12992277/412329
-@register.filter(name="month_number_to_name")
-def MonthNumberToName(value):
-    """returns the month name for the given number - 1 indexed"""
-    month_name = ["", "January", "February", "March", "April", "May", "June", "July",
-               "August", "September", "October", "November", "December"
-              ]
-    return month_name[int(value)]
 
 # Also works but the above is shorter. Need to test which performs best.
 # ==
@@ -51,8 +51,9 @@ def MonthNumberToName(value):
 #     return selected_line
 
 # http://mechanicalgirl.com/post/custom-template-tags-in-django/
-# def LatestEntries():
-#         latest_entries = Entry.objects.filter(is_active=1)
-#         return {'latest_entries': latest_entries}
-# 
-# register.inclusion_tag('latest_entries.html')(LatestEntries)
+
+@register.inclusion_tag("hth/latest_entries.html", name="latest_entries")
+def LatestEntries():
+        latest_entries = Entry.objects.filter(
+                            is_active=1).order_by('-pub_date', 'title')[:10]
+        return {'latest_entries': latest_entries}
