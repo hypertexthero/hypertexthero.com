@@ -44,7 +44,7 @@ h2#websites {height:111px; width:162px; background:url(/static/img/heading_websi
 h2#print {height:111px; width:162px; background:url(/static/img/heading_print.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#identity {height:111px; width:162px; background:url(/static/img/heading_identity.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#etcetera {height:111px; width:162px; background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
-h2#writing {padding-top:54px;/*height:111px; */width:162px; 
+h2#writing {padding-top:54px;/*height:111px; */width:162px;
 /*    background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;*/
     }
 div.column ul.thumbs {list-style:none;}
