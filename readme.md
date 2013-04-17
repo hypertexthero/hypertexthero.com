@@ -14,6 +14,7 @@ Features
 
 ## TODO
 
+- Get rid of footnotes title and ruler.
 - Change Logbook plane to Macchi.
 - Make Work category pages?
 - List of tags (categories) page. Titled 'What'.

@@ -82,7 +82,7 @@ body#work #header p.breadcrumbs, body#about #header p.breadcrumbs {bottom:22px;}
 /* =logbook ---------------------- */
 
 body#logbook #header {background:url(/static/img/aeroplane_larc_en_ciel_n1_pilote_drouhin.gif) no-repeat; background-position:right bottom;}
-body#logbook #header p, body#archive #header p {width:28em; font-size:14px; position:absolute; bottom:0; left:0;}
+body#logbook #header p, body#archive #header p, body#about #header p, body#work #header p {width:28em; font-size:14px; position:absolute; bottom:0; left:0;}
 body#logbook #header p strong a {font-style:italic; font-size:22px; line-height:14px;}
 
 body#logbook #content blockquote {padding-left:1em; border-left:1px solid #c4c1b2;}
@@ -153,8 +153,8 @@ acronym, abbr {border-bottom:1px dashed #2e2a1f;}
 sup {line-height:0;}
 hr {color:#afa99f; background:#afa99f; height:1px; border:none; margin:1em 0;}
 .caps {font-size:0.9em;}
-.pull-right {float:right;}
-.pull-left {float:left;}
+.pull-right {float:right; padding:0 0 1em 1.5em;}
+.pull-left {float:left; padding:0 0 0 1.5em 1em;}
 .monospace {font-family:monospace;}
 .titlecase {text-transform:capitalize;}
 .center {text-align:center;}

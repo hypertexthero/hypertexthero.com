@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block headtitle %}Hypertexthero: {{ flatpage.title }}{% endblock %}
-{% block bodyid %}about{% endblock bodyid %}
-{% block breadcrumbs %} &rarr; {{ flatpage.title }}{% endblock %}
+{% block bodyid %}work{% endblock bodyid %}
+{% block bodyclass %}detail{% endblock bodyclass %}
+{% block header %}
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / {{ flatpage.title }}</p>
+{% endblock header %}
+
 
 {% block content %}
     
