@@ -63,7 +63,7 @@ def smart_truncate(content, length=200, suffix='...'):
 class RssLogbookFeed(Feed):
     title = "Hypertexthero Logbook by Simon Griffee"
     link = "/logbook/"
-    description = "Hypertexthero logbook entries by Simon Griffee"
+    description = "Writing and links on web, design and simplicity by Simon Griffee"
     # description_template = "hth/feed_description.html" - using default for now
 
     def items(self):
