@@ -84,6 +84,7 @@ urlpatterns += patterns('views',
 )
 
 # sitemap.xml - https://docs.djangoproject.com/en/dev/ref/contrib/sitemaps/
+# http://stackoverflow.com/questions/14169976/google-doesnt-accept-my-django-sitemap
 from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
 info_dict = {
     'queryset': Entry.objects.all(),
