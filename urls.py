@@ -71,8 +71,6 @@ urlpatterns += patterns('views',
 # url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(
 #         template_name='flatpages/default.html'), name='work-detail'),
 
-    url(r'^portfolio/', include('portfolio.urls')),
-
     url(r'^contact/', include("contact.urls", namespace="contact_form")),
     url(r'^search/$', Search, name="search"),
 

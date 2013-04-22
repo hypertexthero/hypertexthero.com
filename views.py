@@ -177,9 +177,15 @@ from django.template import RequestContext
 
 # rewritten so /search/ URL can be accessed directly:
 
+# http://stackoverflow.com/questions/744424/django-models-how-to-filter-out-duplicate-values-by-pk-after-the-fact
+from itertools import chain
+from django.contrib.flatpages.models import FlatPage
+
 def Search(request):    
     query = request.GET.get('q', '') # both /search/ and /search/?q=query work
-    results = []
+    entry_list = []
+    work_list = []
+    result_list = list(chain(entry_list, work_list))
     # http://stackoverflow.com/a/4338108/412329 - 
         # passing the user variable into the context
     user = request.user
@@ -190,11 +196,19 @@ def Search(request):
         # DO THIS avoid duplicate results when query word is both in title 
             # and content_html:
 # http://stackoverflow.com/questions/744424/django-models-how-to-filter-out-duplicate-values-by-pk-after-the-fact
-        results = Entry.objects.filter(Q(title__icontains=query)|Q(
+# http://stackoverflow.com/questions/431628/how-to-combine-2-or-more-querysets-in-a-django-view
+        entry_list = Entry.objects.filter(Q(title__icontains=query)|Q(
                                     body_html__icontains=query)).distinct()
+        work_list = FlatPage.objects.filter(Q(title__icontains=query)|Q(
+                                    content__icontains=query)).distinct()
+        result_list = sorted(
+            chain(entry_list, work_list),
+            key=lambda instance: instance)
+            # key=lambda instance: instance.pub_date)
+        
     return render_to_response('hth/search.html',
         {'query': query, 
-         'results': results,
+         'results': result_list,
          'user': user
          # http://stackoverflow.com/a/5478944/412329
         }, context_instance=RequestContext(request)) 
