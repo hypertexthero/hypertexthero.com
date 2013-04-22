@@ -71,6 +71,8 @@ urlpatterns += patterns('views',
 # url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(
 #         template_name='flatpages/default.html'), name='work-detail'),
 
+    url(r'^portfolio/', include('portfolio.urls')),
+
     url(r'^contact/', include("contact.urls", namespace="contact_form")),
     url(r'^search/$', Search, name="search"),
 
@@ -83,9 +85,11 @@ urlpatterns += patterns('views',
 
 )
 
+
 # sitemap.xml - https://docs.djangoproject.com/en/dev/ref/contrib/sitemaps/
 # http://stackoverflow.com/questions/14169976/google-doesnt-accept-my-django-sitemap
 from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
+
 info_dict = {
     'queryset': Entry.objects.all(),
     'date_field': 'pub_date',
@@ -94,10 +98,13 @@ sitemaps = {
     'flatpages': FlatPageSitemap,
     'logbook': GenericSitemap(info_dict, priority=0.6),
 }
+
 urlpatterns += patterns('',
     # the sitemap
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', 
+        {'sitemaps': sitemaps}),
 )
+
 
 # http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-development
 from django.conf import settings

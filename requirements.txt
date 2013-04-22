@@ -1,10 +1,8 @@
 # Requirements to deploy this code. To install all these run the following from terminal: 
 # pip install -r REQUIREMENTS.txt
 
-Django >= 1.5
-# http://packages.python.org/Markdown/
-markdown
-# https://github.com/mintchaos/typogrify
+Django >= 1.5 # http://packages.python.org/Markdown/
+markdown # https://github.com/mintchaos/typogrify
 typogrify 
 Pygments
 django-taggit
@@ -12,3 +10,10 @@ django-taggit
 https://github.com/mtigas/django-medusa/tarball/master#egg=django-medusa
 
 # South >= 0.7, < 0.8
+
+# Portfolio app ======
+# PIL
+# django-admin-sortable
+# sorl-thumbnail
+# #pip install -e git://github.com/dokterbob/django-portfolio.git#egg=django-portfolio
+# git://github.com/dokterbob/django-portfolio.git#egg=django-portfolio

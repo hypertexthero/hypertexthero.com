@@ -154,13 +154,17 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.redirects', # enabling redirects app
     'django.contrib.sitemaps', # enabling sitemaps app
+
     'typogrify',
     'markdown',
+
     # python manage.py staticsitegen
     'django_medusa',
+
     'contact',
     'contact.templatetags',
     'hth.templatetags',
+    
     'taggit',
     'hth',
 )
