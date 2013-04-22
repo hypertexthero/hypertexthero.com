@@ -99,6 +99,8 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+APPEND_SLASH = True
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # enabling middleware for flatpages app
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware', # enabling redirects app
@@ -151,6 +153,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'django.contrib.redirects', # enabling redirects app
+    'django.contrib.sitemaps', # enabling sitemaps app
     'typogrify',
     'markdown',
     # python manage.py staticsitegen

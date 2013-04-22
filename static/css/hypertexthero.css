@@ -163,19 +163,6 @@ a.edit {color:#afa99f;}
 
 #footer {clear:both; padding:26px 43px; font-size:14px;}
 
-/* =lightbox - http://www.huddletogether.com/projects/lightbox/ ---------------------- */
-
-#lightbox {color:#333; background-color:#eee; padding:8px; border-bottom:1px solid #666; border-right:1px solid #666;}
-#lightbox a:link, #lightbox a:visited {background-color:#eee; color:#000; font-weight:bold;}
-#lightbox kbd {background:#ff9;}
-#lightboxDetails {font-size: 0.9em; padding-top: 0.5em;}
-#lightboxCaption {float:left;}
-#keyboardMsg {float:right;}
-#lightbox img {border:none;} 
-#overlay img {border:none;}
-#overlay {background-image:url(/static/img/overlay.png);}
-* html #overlay {background-color: #000; background-image: url(blank.gif);}
-
 /* =responsive structure - work in progress ---------------------- */
 
 @media (max-width: 970px) {

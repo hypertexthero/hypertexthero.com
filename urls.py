@@ -62,14 +62,15 @@ urlpatterns = patterns('',
     # In addition to the following url pattern we are also using the 
     # built-in redirect app to redirect /linked/archive to /linked#archive
     url(r'^linked/(?P<year>\d+)/$', RedirectView.as_view(url='/linked#archive')),
-    
 )
 
 urlpatterns += patterns('views',
-    # flatpage urls such as /about are served as per django.contrib.flatpages.urls    
-    url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(
-            template_name='work.html'), name='work-detail'),
     
+# # flatpage urls such as /about are served as per django.contrib.flatpages.urls
+# # Superfluous, and if we keep this, append_slashes doest not work:
+# url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(
+#         template_name='flatpages/default.html'), name='work-detail'),
+
     url(r'^contact/', include("contact.urls", namespace="contact_form")),
     url(r'^search/$', Search, name="search"),
 
@@ -79,6 +80,22 @@ urlpatterns += patterns('views',
     
     # =homepage
     url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
+
+)
+
+# sitemap.xml - https://docs.djangoproject.com/en/dev/ref/contrib/sitemaps/
+from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
+info_dict = {
+    'queryset': Entry.objects.all(),
+    'date_field': 'pub_date',
+}
+sitemaps = {
+    'flatpages': FlatPageSitemap,
+    'logbook': GenericSitemap(info_dict, priority=0.6),
+}
+urlpatterns += patterns('',
+    # the sitemap
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
 )
 
 # http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-development

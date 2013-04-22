@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block headtitle %}Hypertexthero: {{ flatpage.title }}{% endblock %}
+{% block extrahead %}
+<link href="/static/css/lightbox.css" rel="stylesheet" />
+{% endblock extrahead %}
 {% block bodyid %}work{% endblock bodyid %}
 {% block bodyclass %}detail{% endblock bodyclass %}
 {% block header %}
@@ -20,3 +23,24 @@
     {% load markup %}
     {{ flatpage.content|markdown:"codehilite,tables,footnotes" }}
 {% endblock %}
+
+{% block footer %}
+{{ block.super }}
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+<script src="/static/js/lightbox.js"></script>
+<script>
+  jQuery(document).ready(function($) {
+      $('a').smoothScroll({
+        speed: 0,
+        // easing: 'easeInOutCubic'
+      });
+
+      $('.showOlderChanges').on('click', function(e){
+        $('.changelog .old').slideDown('fast');
+        $(this).fadeOut();
+        e.preventDefault();
+      })
+  });
+
+</script>
+{% endblock footer %}
