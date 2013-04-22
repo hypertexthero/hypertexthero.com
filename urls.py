@@ -86,6 +86,8 @@ from django.conf import settings
 
 if settings.DEBUG :
     urlpatterns += patterns('',
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-        url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
+            {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+        url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve', 
+            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
     )

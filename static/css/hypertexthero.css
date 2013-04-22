@@ -82,7 +82,7 @@ body#work #header p.breadcrumbs, body#about #header p.breadcrumbs {bottom:22px;}
 /* =logbook ---------------------- */
 
 body#logbook #header {/*background:url(/static/img/aeroplane_larc_en_ciel_n1_pilote_drouhin.gif) no-repeat; background-position:right bottom;*/ height:120px;}
-body#logbook #header p, body#archive #header p, body#about #header p, body#work #header p {width:28em; font-size:14px; position:absolute; bottom:0; left:0;}
+body#logbook #header p.breadcrumbs, body#archive #header p.breadcrumbs, body#about #header p.breadcrumbs, body#work #header p.breadcrumbs {width:28em; font-size:14px; position:absolute; bottom:0; left:0;}
 body#logbook #header p strong a {font-style:italic; font-size:22px; line-height:14px;}
 
 body#logbook #content blockquote {padding-left:1em; border-left:1px solid #c4c1b2;}
@@ -236,7 +236,7 @@ a.edit {color:#afa99f;}
     #content img.thumbincontent {width:auto;}
     body#contact #page {width:350px; background:none;}
     body#contact #header {width:180px; height:100px; background:none;}
-    body#logbook #header p, body#archive #header p {width:auto; position:normal;}
+    body#logbook #header p.breadcrumbs, body#archive #header p.breadcrumbs {width:auto; position:normal;}
     body#contact #content form, body#contact #content form textarea {width:300px;}
     body#contact h1#logo a {left:0;}
     body#contact p#homelink {display:none !important;}
