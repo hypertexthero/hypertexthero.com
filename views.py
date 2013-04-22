@@ -64,7 +64,7 @@ class RssLogbookFeed(Feed):
     title = "Hypertexthero Logbook by Simon Griffee"
     link = "/logbook/"
     description = "Writing and links on web, design and simplicity by Simon Griffee"
-    # description_template = "hth/feed_description.html" - using default for now
+    # description_template = "hth/feed_description.html" # using default for now
 
     def items(self):
         return Entry.objects.order_by('-pub_date')[:15]

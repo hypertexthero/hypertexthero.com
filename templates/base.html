@@ -49,7 +49,10 @@
     
     <div id="footer">
     {% block footer %}
-    {% include "hth/footer.html" %}
+    <hr>
+    Copyright © 2005–{% now "Y" %} {% include "hth/navigation.html" %}
+    <br>
+    <br>
     {% include "hth/search_form.html" %}
     {% endblock footer %}
     </div> {# /#footer #}

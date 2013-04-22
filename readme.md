@@ -14,10 +14,8 @@ Features
 
 ## TODO
 
-- Get rid of footnotes title and ruler.
 - Change Logbook plane to Macchi.
-- Make Work category pages?
-- List of tags (categories) page. Titled 'What'.
+- Make Work category pages and list of categories page titled 'What'.
 - Articles available in Markdown format on the server (article-title.txt).
 - JavaScript-based search for static files on server?
 - Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment to github-powered site, maybe also github pages.

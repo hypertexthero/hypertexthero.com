@@ -4,7 +4,10 @@
 {% block headtitle %}Logbook{% endblock headtitle %}
 
 {% block header %}
-<p><strong><a href="/" title="Hypertexthero homepage.">Hypertexthero</a></strong>  flies about the internet recording interesting experiences in this <strong><a href="/logbook/" title="logbook front page.">Logbook</a></strong>. Browse past logs in the <strong><a href="/archive/" title="Logs of past flights.">Archive</a></strong>. Track current flying on <strong><a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a></strong>.</p>
+{# <p class="pull-right"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a>  flies about the internet recording interesting experiences in this <a href="/logbook/" title="logbook front page.">Logbook</a>. Browse past logs in the <a href="/archive/" title="Logs of past flights.">Archive</a>. Track current flying on <a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a>.</p> #}
+
+    <p><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <strong>Logbook</strong></p>
+    
 {% endblock header %}
 
 
@@ -38,7 +41,7 @@
     {% endif %}
 
     <h1><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h1>
-    <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
+    {# <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2> #}
     {{ object.body_html|safe }}            
 
 </div>

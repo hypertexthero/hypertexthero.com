@@ -29,19 +29,10 @@
 
     {% else %} {# otherwise it is an original article #}
 
-<pre class="articlebreak">
-     __|__
--------O-------
-    o´   `o
-</pre>
 		<h1><a href="{{ object.get_absolute_url }}" rel="permalink" title="Permanent link to {{ object.title }}.">{{ object.title }}</a></h1>
-		<h2 class="dateline"><time pubdate="pubdate">{{ object.pub_date|date:"F j, Y" }}</time></h2>
+		<p class="quiet"><time pubdate="pubdate">{{ object.pub_date|date:"l, F j Y" }}</time></p>
 		{{ object.body_html|safe }}
-<pre class="articlebreak">
-     __|__
--------O-------
-    o´   `o
-</pre>
+
 
 <p class="paging small">
         {% if object.get_prev_article %}
