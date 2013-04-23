@@ -9,9 +9,10 @@ from django.views.generic.list import MultipleObjectMixin
 from django.views.generic import ArchiveIndexView, MonthArchiveView, YearArchiveView, DetailView
 from django.core.urlresolvers import reverse
 
+from django.contrib.flatpages.models import FlatPage
 from .models import Entry
 
-# =home, =list views ===============
+# =home, =list views ===================================
 
 # http://stackoverflow.com/questions/8547880/listing-object-with-specific-tag-using-django-taggit
 class LogbookView(ArchiveIndexView):
@@ -50,7 +51,7 @@ class LinkedListView(ArchiveIndexView):
     #     return context
 
 
-# =feeds ===============
+# =feeds ===================================
 
 # http://stackoverflow.com/a/250373/412329
 def smart_truncate(content, length=200, suffix='...'):
@@ -83,7 +84,7 @@ class AtomLogbookFeed(RssLogbookFeed):
     subtitle = RssLogbookFeed.description
 
 
-# =single pages ===============
+# =single pages ===================================
 
 class LogbookDetailView(DetailView):
     """ Article permalink page """
@@ -94,7 +95,7 @@ class LinkedDetailView(DetailView):
     model = Entry
         
 
-# =archives ===============
+# =archives ===================================
 
 class LogbookArchiveView(ArchiveIndexView):
     """
@@ -140,17 +141,7 @@ class LogbookYearArchive(YearArchiveView):
           is_active=True, kind='A').order_by('-pub_date', 'title')
 
 
-# =misc ===============
-
-# quotations = [
-#     'quotation one', 
-#     'second quotation',
-#             
-# ]
-# ...
-# return render_to_response('quotations.html', {'my_strings':my_strings})
-
-# =Search
+# =Search ===================================
 
 # from django.http import HttpResponse 
 # from django.template import loader, Context
@@ -179,7 +170,6 @@ from django.template import RequestContext
 
 # http://stackoverflow.com/questions/744424/django-models-how-to-filter-out-duplicate-values-by-pk-after-the-fact
 from itertools import chain
-from django.contrib.flatpages.models import FlatPage
 
 def Search(request):    
     query = request.GET.get('q', '') # both /search/ and /search/?q=query work
@@ -212,3 +202,34 @@ def Search(request):
          'user': user
          # http://stackoverflow.com/a/5478944/412329
         }, context_instance=RequestContext(request)) 
+
+
+# =Static Generation of files on server ===================================
+
+# https://github.com/hypertexthero/django-staticgenerator/
+# from blog.models import Post
+from django.dispatch import dispatcher
+from django.db.models import signals
+from staticgenerator import quick_delete
+# from django.contrib.comments.models import Comment, FreeComment
+
+def delete(sender, instance):
+    quick_delete(instance, '/')
+
+dispatcher.connect(delete, sender=Entry, signal=signals.post_save)
+dispatcher.connect(delete, sender=FlatPage, signal=signals.post_save)
+
+def delete_index(sender, instance):
+    quick_delete(instance, '/')
+
+signals.post_delete.connect(delete_index, sender=Entry)
+signals.post_delete.connect(delete_index, sender=FlatPage)
+signals.post_save.connect(publish_entry, sender=Entry)
+signals.post_save.connect(publish_flatpage, sender=FlatPage)
+
+
+# def publish_comment(sender, instance):
+#     quick_delete(instance.get_content_object())
+
+# signals.post_save.connect(publish_comment, sender=Comment)
+# signals.post_save.connect(publish_comment, sender=FreeComment)

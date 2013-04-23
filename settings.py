@@ -102,6 +102,7 @@ TEMPLATE_LOADERS = (
 APPEND_SLASH = True
 
 MIDDLEWARE_CLASSES = (
+    'staticgenerator.middleware.StaticGeneratorMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # enabling middleware for flatpages app
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware', # enabling redirects app
     'django.middleware.common.CommonMiddleware',
@@ -159,7 +160,9 @@ INSTALLED_APPS = (
     'markdown',
 
     # python manage.py staticsitegen
-    'django_medusa',
+    # 'django_medusa',
+    
+    'staticgenerator',
 
     'contact',
     'contact.templatetags',
@@ -169,6 +172,19 @@ INSTALLED_APPS = (
     'hth',
 )
 
+# staticgenerator
+WEB_ROOT = os.path.join(
+    DIRNAME, '..', "_output"
+)
+
+# # Note that the static files in django_projects/ephyto/public will only be generated after they are visited once
+STATIC_GENERATOR_URLS = (
+    r'^/$',
+    r'^/()', # matches any page created?
+    # (r'^$', 'direct_to_template', {'template': 'base.html'}),
+    # r'^/(blog|about|projects|opa)',
+    # r'^/(archive)',
+)
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -218,9 +234,9 @@ LOGGING = {
 }
 
 # django_medusa -- disk-based renderer
-import os
-MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-MEDUSA_DEPLOY_DIR = os.path.join(
-    PROJECT_DIR, '..', "_output"
-)
+# import os
+# MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
+# PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+# MEDUSA_DEPLOY_DIR = os.path.join(
+#     PROJECT_DIR, '..', "_output"
+# )
