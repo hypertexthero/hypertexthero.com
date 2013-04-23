@@ -15,21 +15,31 @@ from django_medusa.renderers import StaticSiteRenderer
 # renderers = [HomeRenderer, ]
 
 
-
-from hth.models import Entry
-
-
-class EntryRenderer(StaticSiteRenderer):
-    def get_paths(self):
-        paths = ["/", "/logbook/", "/work/", ]
-
-        items = Entry.objects.filter(is_active=True).order_by('-pub_date')
-        for item in items:
-            paths.append(item.get_absolute_url())
-
-        return paths
-
-renderers = [EntryRenderer, ]
+# # =todo
+# from hth.models import Entry
+# from django.contrib.flatpages.models import FlatPage
+# 
+# class EntryRenderer(StaticSiteRenderer):
+#     def get_paths(self):
+#         paths = ["/", "/logbook/", "/archive/", "/linked/",]
+# 
+#         items = Entry.objects.filter(is_active=True).order_by('-pub_date')
+#         for item in items:
+#             paths.append(item.get_absolute_url())
+# 
+#         return paths
+# 
+# class WorkRenderer(StaticSiteRenderer):
+#     def get_paths(self):
+#         paths = ["/work/", ]
+# 
+#         items = FlatPage.objects.all()
+#         for item in items:
+#             paths.append(item.get_absolute_url())
+# 
+#         return paths
+# 
+# renderers = [EntryRenderer, WorkRenderer,]
 
 # =todo
 # from hth.models import Entry
@@ -59,3 +69,5 @@ renderers = [EntryRenderer, ]
 #         return paths
 # 
 # renderers = [EntryRenderer, ]
+
+

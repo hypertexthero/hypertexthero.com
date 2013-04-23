@@ -14,7 +14,7 @@ Features
 
 ## TODO
 
-- Fix django-medusa static renderer so it includes work items as well as logbook posts
+- Fix django-medusa static renderer so it includes work items as well as logbook posts, or replace django-medusa with [django-static-generator](https://github.com/timetric/django-staticgenerator)
 
 - [Image](http://stackoverflow.com/questions/1021487/add-functionality-to-django-flatpages-without-changing-the-original-django-app) and [thumbnail](https://bitbucket.org/winsmith/django-thumbnail/wiki/Home) functionality for flatpages?
 - [Ordering](https://github.com/iambrandontaylor/django-admin-sortable) (or [this](http://djangosnippets.org/snippets/2047/)) of flatpages?
