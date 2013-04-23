@@ -14,6 +14,6 @@ body#contact #header {height:117px; margin-bottom:20px; background-position:0 5p
 	background-color: #000;
 	back\ground-color: transparent;
 	background-image: url(blank.gif);
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/overlay.png", sizingMethod="scale");
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/overlay.png", sizingMethod="scale");
 	}
 pre {word-wrap: break-word; /* Internet Explorer 5.5+ */}

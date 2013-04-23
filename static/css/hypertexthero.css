@@ -75,14 +75,14 @@ div#address h3 {font-style:italic;}
 
 /* =work ---------------------- */
 
-body#work #header p#homelink a, body#error #header p#homelink a {position:absolute; width:140px; height:109px; top:0; right:0; display:block; text-indent:-2000em;}
+body#work #header p#homelink a, body#logbook #header p#homelink a, body#error #header p#homelink a {position:absolute; width:140px; height:109px; top:0; right:0; display:block; text-indent:-2000em;}
 div#description {width:296px; float:left; padding-left:43px; font-size:15px;}
 body#work #header p.breadcrumbs, body#about #header p.breadcrumbs {bottom:22px;}
 
 /* =logbook ---------------------- */
 
 body#logbook #header {/*background:url(/static/img/aeroplane_larc_en_ciel_n1_pilote_drouhin.gif) no-repeat; background-position:right bottom;*/ height:120px;}
-body#logbook #header p.breadcrumbs, body#archive #header p.breadcrumbs, body#about #header p.breadcrumbs, body#work #header p.breadcrumbs {width:28em; font-size:14px; position:absolute; bottom:0; left:0;}
+body#archive #header p.breadcrumbs, body#about #header p.breadcrumbs, body#work #header p.breadcrumbs {font-size:14px; position:absolute; bottom:22px; left:0;}
 body#logbook #header p strong a {font-style:italic; font-size:22px; line-height:14px;}
 
 body#logbook #content blockquote {padding-left:1em; border-left:1px solid #c4c1b2;}
@@ -108,7 +108,7 @@ body#about #page, body#archive #page {background:url(/static/img/bg_technical.gi
 
 /* =typography, etc ---------------------- */
 
-p#homelink {line-height:0 !important; margin:0 !important; font-style:italic;}
+p#homelink {line-height:0 !important; margin:0 !important; font-style:italic; outline:double red;}
 p#homelink a {border:none !important;}
 p#homelink a:hover, p#homelink a:active {text-indent:0 !important; line-height:1em !important; color:#afa99f; background:none;}
 p {margin:0 0 1em; line-height:1.3em;}

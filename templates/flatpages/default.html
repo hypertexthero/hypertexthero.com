@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block headtitle %}Hypertexthero: {{ flatpage.title }}{% endblock %}
+
 {% block extrahead %}
 <link href="/static/css/lightbox.css" rel="stylesheet" />
 {% endblock extrahead %}
+
 {% block bodyid %}work{% endblock bodyid %}
 {% block bodyclass %}detail{% endblock bodyclass %}
+
 {% block header %}
     <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p>
     <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / {{ flatpage.title }}</p>
