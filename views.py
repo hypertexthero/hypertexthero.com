@@ -207,29 +207,13 @@ def Search(request):
 # =Static Generation of files on server ===================================
 
 # https://github.com/hypertexthero/django-staticgenerator/
-# from blog.models import Post
-from django.dispatch import dispatcher
-from django.db.models import signals
-from staticgenerator import quick_delete
-# from django.contrib.comments.models import Comment, FreeComment
+# from django.dispatch import dispatcher
+# from django.db.models import signals
+# from staticgenerator import quick_delete
+# 
+# def delete(sender, instance):
+#     quick_delete(instance, '/')
+# 
+# dispatcher.connect(delete, sender=Entry, signal=signals.post_save)
+# dispatcher.connect(delete, sender=FlatPage, signal=signals.post_save)
 
-def delete(sender, instance):
-    quick_delete(instance, '/')
-
-dispatcher.connect(delete, sender=Entry, signal=signals.post_save)
-dispatcher.connect(delete, sender=FlatPage, signal=signals.post_save)
-
-def delete_index(sender, instance):
-    quick_delete(instance, '/')
-
-signals.post_delete.connect(delete_index, sender=Entry)
-signals.post_delete.connect(delete_index, sender=FlatPage)
-signals.post_save.connect(publish_entry, sender=Entry)
-signals.post_save.connect(publish_flatpage, sender=FlatPage)
-
-
-# def publish_comment(sender, instance):
-#     quick_delete(instance.get_content_object())
-
-# signals.post_save.connect(publish_comment, sender=Comment)
-# signals.post_save.connect(publish_comment, sender=FreeComment)
