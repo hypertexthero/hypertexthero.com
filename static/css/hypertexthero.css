@@ -75,11 +75,11 @@ div#address h3 {font-style:italic;}
 
 body#work #header p#homelink a, body#logbook #header p#homelink a, body#error #header p#homelink a {position:absolute; width:140px; height:109px; top:0; right:0; display:block; text-indent:-2000em;}
 div#description {width:296px; float:left; padding-left:43px; font-size:15px;}
-body#work #header p.breadcrumbs, body#about #header p.breadcrumbs {bottom:22px;}
+body#work #header p.breadcrumbs, body#about #header p.breadcrumbs, body#logbook #header p.breadcrumbs {bottom:22px;}
 
 /* =logbook ---------------------- */
 
-body#logbook #header {/*background:url(/static/img/aeroplane_larc_en_ciel_n1_pilote_drouhin.gif) no-repeat; background-position:right bottom;*/ height:120px;}
+body#logbook #header {background:url(/static/img/Airplane_BoeingP26Peashooter.gif) no-repeat; background-position:right bottom; height:120px;}
 body#archive #header p.breadcrumbs, body#about #header p.breadcrumbs, body#work #header p.breadcrumbs {font-size:14px; position:absolute; bottom:22px; left:0;}
 body#logbook #header p strong a {font-style:italic; font-size:22px; line-height:14px;}
 
@@ -91,7 +91,7 @@ body#logbook #content h2 {font-size:110%;}
 
 /* =archive ---------------------- */
 
-body#archive #header {/*background:url(/static/img/aeroplane_larc_en_ciel_n1_pilote_drouhin.gif) no-repeat; background-position:right bottom;*/ height:120px;}
+body#archive #header {background:url(/static/img/aeroplane_larc_en_ciel_n1_pilote_drouhin.gif) no-repeat; background-position:right bottom; height:120px;}
 body#archive form {margin-bottom:1em;}
 body#archive #content h2.archivemonth {margin:2.5em 0; font-weight:bold;}
 body#archive #content p.archiveday {line-height:1em; margin:0 0 -1em 1em !important;}

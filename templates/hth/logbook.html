@@ -6,7 +6,7 @@
 {% block header %}
 {# <p class="pull-right"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a>  flies about the internet recording interesting experiences in this <a href="/logbook/" title="logbook front page.">Logbook</a>. Browse past logs in the <a href="/archive/" title="Logs of past flights.">Archive</a>. Track current flying on <a href="http://twitter.com/hypertexthero" title="Hypertexthero on Twitter.">Twitter</a>.</p> #}
     <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p>
-    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <strong>Logbook</strong></p>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / Logbook</p>
     
 {% endblock header %}
 
@@ -15,12 +15,15 @@
 {% block content %}
 {% if latest %} {# the 'latest' variable of the template context is assigned automatically by the django.views.generic.date_based.archive_index generic view - https://docs.djangoproject.com/en/dev/ref/generic-views/#django-views-generic-date-based-archive-index #}
 {% for object in latest %}
-{# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#ifchanged #}
-{% ifchanged %}
-    {# <hr /> #}
+
+{# http://stackoverflow.com/a/10495325/412329 #}
+{% if not forloop.first %}
+    {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#ifchanged #}
+    {% ifchanged %}
     {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#date #}
-    <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
-{% endifchanged %}
+        <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
+    {% endifchanged %}
+{% endif %}
 
 {% if object.kind == "A" %}
 <pre class="articlebreak">
