@@ -139,7 +139,7 @@ h2.dateline {margin:5em 0 3em; text-transform:uppercase; font-size:0.9em !import
 h3.posted {font-size:14px; font-style:italic; font-weight:normal; margin-top:0em;}
 body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 .small {font-size:0.8em;}
-p.caption {font-size:15px; font-style:italic;}
+p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
 pre {font-family:monospace; margin:1em 0; padding:1em; overflow:visible; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
 pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#afa99f; background:none;}
 strong, b {font-weight:bold;}

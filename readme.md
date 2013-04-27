@@ -18,7 +18,7 @@ Features
 - Finalize data import. Don't forget to fix macroman->utf-8 encoding problems and import keywords into tag field.
 - Replace taggit with <https://bitbucket.org/fabian/django-taggit-autosuggest>
 - Refactor breadcrumbs into templatetag to reduce amount of repetition.
-- [Image](http://stackoverflow.com/questions/1021487/add-functionality-to-django-flatpages-without-changing-the-original-django-app) and [thumbnail](https://bitbucket.org/winsmith/django-thumbnail/wiki/Home) functionality for flatpages?
+- [Images in entries](http://stackoverflow.com/a/537966/412329)? [Image](http://stackoverflow.com/questions/1021487/add-functionality-to-django-flatpages-without-changing-the-original-django-app) and [thumbnail](https://bitbucket.org/winsmith/django-thumbnail/wiki/Home) functionality for flatpages?
 - [Ordering](https://github.com/iambrandontaylor/django-admin-sortable) (or [this](http://djangosnippets.org/snippets/2047/)) of flatpages?
 - Change Logbook plane to Macchi.
 - Make Work category pages and list of categories page titled 'What'.
