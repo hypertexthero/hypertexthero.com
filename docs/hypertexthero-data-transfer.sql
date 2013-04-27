@@ -18,7 +18,15 @@ sqlite3 hth.db
 attach database 'hthdbimport.sqlite' as txpdb;
 
 insert into logbook_entries (pub_date,mod_date,title,body,body_html,content_format,is_active,slug,url,kind) select Posted,LastMod,Title,Body,Body_html,'markdown','1',url_title,custom_1,'L' from txpdb.hypertexthero_db;
-    
+
+
+-- lets get keywords imported into tags. can also try: http://stackoverflow.com/questions/3270952/populating-a-sqlite3-database-from-a-txt-file-with-python
+
+sqlite3 hth.db
+
+attach database 'hthdbimport.sqlite' as txpdb;
+
+insert into taggit_tag (id, name, slug) select rowid,ID,Keywords from txpdb.hypertexthero_db;
     
     
 CREATE TABLE "logbook_entries" (

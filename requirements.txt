@@ -5,10 +5,11 @@ Django >= 1.5 # http://packages.python.org/Markdown/
 markdown # https://github.com/mintchaos/typogrify
 typogrify 
 Pygments
+
 django-taggit
+# https://github.com/hypertexthero/django-taggit-autosuggest-select2/tarball/master
 
 https://github.com/hypertexthero/django-staticgenerator/tree/master/staticgenerator
-# https://github.com/mtigas/django-medusa/tarball/master#egg=django-medusa
 
 # South >= 0.7, < 0.8
 
