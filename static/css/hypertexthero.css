@@ -44,11 +44,15 @@ h2#websites {height:111px; width:162px; background:url(/static/img/heading_websi
 h2#print {height:111px; width:162px; background:url(/static/img/heading_print.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#identity {height:111px; width:162px; background:url(/static/img/heading_identity.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#etcetera {height:111px; width:162px; background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
-h2#writing {height:111px; width:162px; background:url(/static/img/heading_writing.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
+h2#writing a {display:block; height:111px; width:162px; background:url(/static/img/heading_writing.gif) no-repeat 0 30px; text-indent:-2000em; margin:0 auto; border:0;}
+#latest {margin:-15px 0 0;}
+#latest ul li {padding:0.5em 0; font-size:14px;}
 div.column ul.thumbs {list-style:none;}
 div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #c4c1b2;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
-#latest ul li {padding:0.5em 0; font-size:14px;}
+
+#header p#homelink a {position:absolute; width:240px; height:109px; top:0; right:0; display:block; text-indent:-2000em;}
+body#archive #header p#homelink a {width:385px;}
 
 /* =contact ---------------------- */
 
@@ -73,7 +77,6 @@ div#address h3 {font-style:italic;}
 
 /* =work ---------------------- */
 
-body#work #header p#homelink a, body#logbook #header p#homelink a, body#error #header p#homelink a {position:absolute; width:140px; height:109px; top:0; right:0; display:block; text-indent:-2000em;}
 div#description {width:296px; float:left; padding-left:43px; font-size:15px;}
 body#work #header p.breadcrumbs, body#about #header p.breadcrumbs, body#logbook #header p.breadcrumbs {bottom:22px;}
 
