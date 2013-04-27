@@ -11,21 +11,20 @@ Features
 - Uses Django admin interface.
 - Combine [django-medusa](https://github.com/mtigas/django-medusa/) with this application so we are serving static HTML files from disk on server and Markdown and HTML columns in database.
 - XML feeds in both Atom and RSS flavours.
+- Tags with auto-suggest widget
 
 ## TODO
 
+- Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment to github-powered site, maybe also github pages.
+- [Automatically post new articles to Twitter](http://djangosnippets.org/snippets/1339/).
 - Find a way to run django tests so each url on the site is accessed and generated automatically with a command.
 - Finalize data import. Don't forget to fix macroman->utf-8 encoding problems and import keywords into tag field.
-- Replace taggit with <https://bitbucket.org/fabian/django-taggit-autosuggest>
-- Refactor breadcrumbs into templatetag to reduce amount of repetition.
+- Refactor breadcrumbs into templatetag to remove repetition.
 - [Images in entries](http://stackoverflow.com/a/537966/412329)? [Image](http://stackoverflow.com/questions/1021487/add-functionality-to-django-flatpages-without-changing-the-original-django-app) and [thumbnail](https://bitbucket.org/winsmith/django-thumbnail/wiki/Home) functionality for flatpages?
-- [Ordering](https://github.com/iambrandontaylor/django-admin-sortable) (or [this](http://djangosnippets.org/snippets/2047/)) of flatpages?
-- Change Logbook plane to Macchi.
+- [Ordering](https://github.com/iambrandontaylor/django-admin-sortable) (or [this](http://djangosnippets.org/snippets/2047/, or [this](http://djangosnippets.org/snippets/1053/)) of flatpages?
 - Make Work category pages and list of categories page titled 'What'.
 - Articles available in Markdown format on the server (article-title.txt).
 - JavaScript-based search for static files on server?
-- Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment to github-powered site, maybe also github pages.
-- [Automatically post new articles to Twitter](http://djangosnippets.org/snippets/1339/).
 - Learn how to [write tests](http://www.tdd-django-tutorial.com/) for views, then write unit and functional tests.
 - [SSL](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS).
 - Consider using [prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html) for syntax highlighting (shows line numbers)
