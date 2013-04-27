@@ -21,6 +21,8 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    
+    url(r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),
 
     # hypertexthero.com/logbook/2013/01/entry-title
     url(r'^logbook/(?P<year>\d+)/(?P<month>\d{2})/(?P<slug>[\w-]+)/$',

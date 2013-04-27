@@ -10,7 +10,9 @@ import markdown
 from typogrify.templatetags.typogrify_tags import typogrify
 from django.template.defaultfilters import slugify
 
-from taggit.managers import TaggableManager
+# from taggit.managers import TaggableManager
+from taggit_autosuggest.managers import TaggableManager
+
 
 class EntryManager(models.Manager):
     

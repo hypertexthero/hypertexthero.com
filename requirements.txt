@@ -7,7 +7,7 @@ typogrify
 Pygments
 
 django-taggit
-# https://github.com/hypertexthero/django-taggit-autosuggest-select2/tarball/master
+https://bitbucket.org/fabian/django-taggit-autosuggest/get/tip.tar.gz
 
 https://github.com/hypertexthero/django-staticgenerator/tree/master/staticgenerator
 

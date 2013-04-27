@@ -86,7 +86,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -161,8 +161,10 @@ INSTALLED_APPS = (
 
     # python manage.py staticsitegen
     # 'django_medusa',
-    
     'staticgenerator',
+
+    'taggit',
+    'taggit_autosuggest',
 
     'contact',
     'contact.templatetags',
@@ -235,10 +237,21 @@ LOGGING = {
     }
 }
 
-# django_medusa -- disk-based renderer
-# import os
-# MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
-# PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-# MEDUSA_DEPLOY_DIR = os.path.join(
-#     PROJECT_DIR, '..', "_output"
-# )
+# https://github.com/applegrew/django-select2/blob/master/testapp/testapp/settings.py
+AUTO_RENDER_SELECT2_STATICS = False
+
+#GENERATE_RANDOM_SELECT2_ID = True
+
+##
+# To test for multiple processes in developement system w/o WSGI, runserver at
+# different ports. Use $('#select2_field_html_id').data('field_id') to get the id
+# in one process. Now switch to another port and use
+# $('#select2_field_html_id').data('field_id', "id from previous process") to set
+# id from last process. Now try to use that field. Its ajax should still work and
+# you should see a message like - "Id 7:2013-03-01 14:49:18.490212 not found in
+# this process. Looking up in remote server.", in console if you have debug enabled.
+##
+#ENABLE_SELECT2_MULTI_PROCESS_SUPPORT = True
+#SELECT2_MEMCACHE_HOST = '127.0.0.1' # Uncomment to use memcached too
+#SELECT2_MEMCACHE_PORT = 11211       # Uncomment to use memcached too
+#SELECT2_MEMCACHE_TTL = 9           # Default 900
