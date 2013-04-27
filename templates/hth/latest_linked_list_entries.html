@@ -1,0 +1,28 @@
+{% for object in latest_linked_list_entries %}
+{# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#ifchanged #}
+{% ifchanged %}
+    {# <hr /> #}
+    {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#date #}
+    <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
+{% endifchanged %}
+
+
+<dl>
+    <dt>
+        <a href="{{ object.url }}">{{ object.title }}</a>
+        <a class="plink" href="{{ object.get_linked_list_url }}" rel="permalink" title="Permanent link to {{ object.title }}.">#</a> 
+        {% if user.is_staff %} 
+        {# <span class="smaller normal quiet"> last edited {{ object.mod_date|timesince }} ago by {{ user.first_name }} {{ user.last_name }}</span> #}
+            <div class="pull-right">
+                <span class="small"> 
+                    <a class="edit " href="/admin/hth/entry/{{ object.id }}">Edit</a>
+                </span>
+            </div>
+        {% endif %}
+    </dt>
+    <dd>
+        {{ object.body_html|safe }}
+    </dd>
+</dl>
+
+{% endfor %} {# / for object in latest #}

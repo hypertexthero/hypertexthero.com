@@ -1,8 +1,9 @@
 <div id="latest">
     {# <h2><i>Latest from the <a href="/logbook/">Logbook</a></i></h2> #}
-    <ul class="unstyled center">
+    <ul class="unstyled">
     {% for entry in latest_entries %}
-    <li><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></li>
+        <li><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></li>
     {% endfor %}
+        <li>» <a href="/logbook/">More Entries</a></li>
     </ul>
 </div>

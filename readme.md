@@ -14,13 +14,10 @@ Features
 
 ## TODO
 
-- Fix django-medusa static renderer so it includes work items as well as logbook posts, or replace django-medusa with [django-static-generator](https://github.com/timetric/django-staticgenerator). Make sure to understand how static generator is working. Find a way to run django tests so each url on the site is accessed and generated automatically with a command.
-
+- Find a way to run django tests so each url on the site is accessed and generated automatically with a command.
+- Refactor breadcrumbs into templatetag to reduce amount of repetition.
 - [Image](http://stackoverflow.com/questions/1021487/add-functionality-to-django-flatpages-without-changing-the-original-django-app) and [thumbnail](https://bitbucket.org/winsmith/django-thumbnail/wiki/Home) functionality for flatpages?
 - [Ordering](https://github.com/iambrandontaylor/django-admin-sortable) (or [this](http://djangosnippets.org/snippets/2047/)) of flatpages?
-
-Or Write own custom [portfolio app](https://github.com/dokterbob/django-portfolio)?
-
 - Change Logbook plane to Macchi.
 - Make Work category pages and list of categories page titled 'What'.
 - Articles available in Markdown format on the server (article-title.txt).

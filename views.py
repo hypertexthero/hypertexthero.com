@@ -5,7 +5,7 @@ import functools
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Atom1Feed
 
-from django.views.generic.list import MultipleObjectMixin
+# from django.views.generic.list import MultipleObjectMixin
 from django.views.generic import ArchiveIndexView, MonthArchiveView, YearArchiveView, DetailView
 from django.core.urlresolvers import reverse
 
@@ -14,24 +14,52 @@ from .models import Entry
 
 # =home, =list views ===================================
 
+# def new(request):
+#     """Show new posts"""
+#     return object_list(request,
+#         queryset=Entry.objects.filter(status=IS_PUBLIC).order_by('-created_at')[:300],
+#         template_name='new.html',
+#         template_object_name='post',
+#         extra_context= {"profile": get_profiles}
+#     )
+
 # http://stackoverflow.com/questions/8547880/listing-object-with-specific-tag-using-django-taggit
+# http://stackoverflow.com/a/7382708/412329
 class LogbookView(ArchiveIndexView):
     """
     Logbook Homepage
-        Extends the ArchiveIndexView view to add entries to the context
     """
     model = Entry
     date_field = 'pub_date' 
     template_name = 'hth/logbook.html'
-    allow_future = False
     queryset = Entry.objects.filter(
-            is_active=True).order_by('-pub_date', 'title')
-# https://docs.djangoproject.com/en/1.5/topics/class-based-views/generic-display/#adding-extra-context
-    # def get_context_data(self, **kwargs):
-    #     context = super(LogbookView, self).get_context_data(**kwargs)
-    #     context['latest'] = Entry.objects.filter(
-    #         is_active=True).order_by('-pub_date', 'title')[:30]
-    #     return context
+        is_active=True).order_by('-pub_date', 'title')
+    allow_future = False
+
+    def get_dated_items(self):
+        date_list, items, extra_context = super(LogbookView, self).get_dated_items()
+        return (date_list, items[:30], extra_context)
+
+# class LogbookView(ArchiveIndexView):
+#     """
+#     Logbook Homepage
+#         Extends the ArchiveIndexView view to add entries to the context
+#     """
+#     model = Entry
+#     date_field = 'pub_date' 
+#     template_name = 'hth/logbook.html'
+#     allow_future = False
+#     # queryset = Entry.objects.filter(
+#     #         is_active=True).order_by('-pub_date', 'title')
+#     # paginate_by = 30
+#     queryset = Entry.objects.filter(
+#             is_active=True).order_by('-pub_date', 'title')[:30]
+# # https://docs.djangoproject.com/en/1.5/topics/class-based-views/generic-display/#adding-extra-context
+#     # def get_context_data(self, **kwargs):
+#     #     context = super(LogbookView, self).get_context_data(**kwargs)
+#     #     context['latest'] = Entry.objects.filter(
+#     #         is_active=True).order_by('-pub_date', 'title')[:30]
+#     #     return context
 
 class LinkedListView(ArchiveIndexView):
     """ 
@@ -44,11 +72,6 @@ class LinkedListView(ArchiveIndexView):
     allow_future = False
     queryset = Entry.objects.filter(
             is_active=True, kind="L").order_by('-pub_date', 'title')
-    # def get_context_data(self, **kwargs):
-    #     context = super(LinkedListView, self).get_context_data(**kwargs)
-    #     context['latest'] = Entry.objects.filter(
-    #         is_active=True, kind='L').order_by('-pub_date', 'title')[:30]
-    #     return context
 
 
 # =feeds ===================================

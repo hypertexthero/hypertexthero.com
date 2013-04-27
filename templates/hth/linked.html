@@ -6,9 +6,15 @@
     <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> / Linked List</p>
 {% endblock header %}
 
+
 {% block content %}
 
 <h1>The Hypertexthero Linked List</h1>
+    {% load hth_tags %}
+    {% latest_linked_list_entries %}
+{% comment %}
+    
+
 
 {% if latest %} {# the 'latest' variable of the template context is assigned automatically by the django.views.generic.date_based.archive_index generic view - https://docs.djangoproject.com/en/dev/ref/generic-views/#django-views-generic-date-based-archive-index #}
 {% for object in latest %}
@@ -44,7 +50,7 @@
     No entries.
 {% endif %} {# / if latest #}
     
-
+{% endcomment %}
 <h2 id="archive">About the Linked List</h2>
 
 <p>The Hypertexthero Linked List is a list of links to other places on the internet that Hypertexthero finds interesting.</p>

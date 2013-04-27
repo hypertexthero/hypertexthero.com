@@ -177,12 +177,14 @@ WEB_ROOT = os.path.join(
     DIRNAME, '..', "_output"
 )
 
-# # Note that the static files in django_projects/ephyto/public will only be generated after they are visited once
+# =todo: Static files should be generated automatically, and not after they have been visited once
 STATIC_GENERATOR_URLS = (
     r'^/$',
-    r'^/()', # matches any page created?
+    # r'^/()', # matches any page created?
     # (r'^$', 'direct_to_template', {'template': 'base.html'}),
-    # r'^/(blog|about|projects|opa)',
+    r'^/(logbook|linked|archive|work)',
+    r'^/(?P<year>\d+)/(?P<month>\d{2})/$', 
+    r'^/(?P<year>\d+)/$',
     # r'^/(archive)',
 )
 

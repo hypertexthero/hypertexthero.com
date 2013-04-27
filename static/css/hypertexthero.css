@@ -44,13 +44,11 @@ h2#websites {height:111px; width:162px; background:url(/static/img/heading_websi
 h2#print {height:111px; width:162px; background:url(/static/img/heading_print.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#identity {height:111px; width:162px; background:url(/static/img/heading_identity.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#etcetera {height:111px; width:162px; background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
-h2#writing {padding-top:54px;/*height:111px; */width:162px;
-/*    background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;*/
-    }
+h2#writing {height:111px; width:162px; background:url(/static/img/heading_writing.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 div.column ul.thumbs {list-style:none;}
 div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #c4c1b2;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
-#latest ul li {padding:0.25em 0; font-size:14px;}
+#latest ul li {padding:0.5em 0; font-size:14px;}
 
 /* =contact ---------------------- */
 
@@ -108,7 +106,7 @@ body#about #page, body#archive #page {background:url(/static/img/bg_technical.gi
 
 /* =typography, etc ---------------------- */
 
-p#homelink {line-height:0 !important; margin:0 !important; font-style:italic; outline:double red;}
+p#homelink {line-height:0 !important; margin:0 !important; font-style:italic;}
 p#homelink a {border:none !important;}
 p#homelink a:hover, p#homelink a:active {text-indent:0 !important; line-height:1em !important; color:#afa99f; background:none;}
 p {margin:0 0 1em; line-height:1.3em;}
@@ -137,7 +135,7 @@ body#about h1 {font-size:1.7em;}
 body#logbook h1 {margin:0 0 0.5em;}
 h2 {font-size:16px; margin:1.5em 0 0.3em;}
 body#about h2 {font-size:1.5em;}
-h2.dateline {margin:3em 0; text-transform:uppercase; font-size:0.9em !important; letter-spacing:0.2em; font-weight:normal;}
+h2.dateline {margin:5em 0 3em; text-transform:uppercase; font-size:0.9em !important; letter-spacing:0.2em; font-weight:normal;}
 h3.posted {font-size:14px; font-style:italic; font-weight:normal; margin-top:0em;}
 body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 .small {font-size:0.8em;}

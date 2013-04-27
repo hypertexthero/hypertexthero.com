@@ -37,8 +37,8 @@ class Entry(models.Model):
     slug = models.SlugField(unique_for_date='pub_date')
     kind = models.CharField(max_length=1, choices=KIND, default=1,
      help_text="Is this a link to other content or an original article?")
-    url = models.URLField(blank=True, help_text="The link URL")
-    body = models.TextField(blank=True)
+    url = models.URLField(blank=True, null=True, help_text="The link URL")
+    body = models.TextField(blank=True, null=True)
     body_html = models.TextField()
     content_format = models.CharField(choices=CONTENT_FORMAT_CHOICES, 
                                             max_length=50, default=1)
@@ -56,7 +56,7 @@ class Entry(models.Model):
     objects = EntryManager()
     
     class Meta:
-        db_table = 'blog_entries'
+        db_table = 'logbook_entries'
         verbose_name_plural = 'entries'
         ordering = ('-mod_date',)
         get_latest_by = 'pub_date'
