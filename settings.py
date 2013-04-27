@@ -188,7 +188,7 @@ STATIC_GENERATOR_URLS = (
     # r'^/(archive)',
 )
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Production backend?
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

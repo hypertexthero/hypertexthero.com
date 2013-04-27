@@ -15,6 +15,7 @@ Features
 ## TODO
 
 - Find a way to run django tests so each url on the site is accessed and generated automatically with a command.
+- Finalize data import. Don't forget to fix macroman->utf-8 encoding problems and import keywords into tag field.
 - Refactor breadcrumbs into templatetag to reduce amount of repetition.
 - [Image](http://stackoverflow.com/questions/1021487/add-functionality-to-django-flatpages-without-changing-the-original-django-app) and [thumbnail](https://bitbucket.org/winsmith/django-thumbnail/wiki/Home) functionality for flatpages?
 - [Ordering](https://github.com/iambrandontaylor/django-admin-sortable) (or [this](http://djangosnippets.org/snippets/2047/)) of flatpages?
