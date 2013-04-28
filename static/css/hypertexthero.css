@@ -40,7 +40,7 @@ body#logbook #content, body#about #content, body#error #content {float:left;}
 body#home #header {margin-bottom:12px;}
 div.column {width:155px; float:left; margin:0 26px 0 0;}
 
-div.column h2 {text-align:center; background: url(/static/img/headings.png) no-repeat top left; text-indent:-2000em; margin:25px auto 10px; width: 111px; height: 68px;}
+div.column h2 {text-align:center; background: url(/static/img/headings-sprite.png) no-repeat top left; text-indent:-2000em; margin:25px auto 10px; width: 111px; height: 68px;}
 
 h2#etcetera {background-position: 0 0;} 
 h2#identity {background-position: 0 -118px;} 
