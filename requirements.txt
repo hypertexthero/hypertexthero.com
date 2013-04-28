@@ -10,7 +10,8 @@ Pygments
 # https://github.com/hypertexthero/django-contact-form/tree/master/staticgenerator
 
 django-taggit
-https://bitbucket.org/fabian/django-taggit-autosuggest/
+# pip install -e hg+http://hg.myproject.org/MyProject/@special_feature#egg=MyProject
+-e hg+https://hg.bitbucket.org/fabian/django-taggit-autosuggest/#egg=django-taggit-autosuggest
 
 # South >= 0.7, < 0.8
 
