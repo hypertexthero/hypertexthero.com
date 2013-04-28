@@ -172,6 +172,7 @@ hr {color:#c4c1b2; background:#c4c1b2; max-width:42em; height:1px; border:none; 
 .monospace {font-family:monospace;}
 .titlecase {text-transform:capitalize;}
 .center {text-align:center;}
+.hide {display:none;}
 a.edit {color:#afa99f;}
 
 #footer {clear:both; padding:26px 43px; font-size:14px;}
