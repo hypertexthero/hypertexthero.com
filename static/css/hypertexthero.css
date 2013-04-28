@@ -39,12 +39,24 @@ body#logbook #content, body#about #content, body#error #content {float:left;}
 
 body#home #header {margin-bottom:12px;}
 div.column {width:155px; float:left; margin:0 26px 0 0;}
-div.column h2 {text-align:center;}
+
+div.column h2 {text-align:center; background: url(/static/img/headings.png) no-repeat top left; text-indent:-2000em; margin:25px auto 10px; width: 111px; height: 68px;}
+
+h2#etcetera {background-position: 0 0;} 
+h2#identity {background-position: 0 -118px;} 
+h2#print {background-position: 0 -236px;} 
+h2#websites {background-position: 0 -354px;} 
+h2#writing {background-position: 0 -472px;  width: 162px; height: 80px;} 
+h2#writing a {margin:0 auto; border:0; display:block; width: 162px; height: 80px;}
+h2#writing a:hover {background:none; border-bottom:1px solid #c4c1b2;}
+
+/* =temporarily staying here in case we run into browser issues with sprites
 h2#websites {height:111px; width:162px; background:url(/static/img/heading_websites.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#print {height:111px; width:162px; background:url(/static/img/heading_print.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#identity {height:111px; width:162px; background:url(/static/img/heading_identity.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
 h2#etcetera {height:111px; width:162px; background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
-h2#writing a {display:block; height:111px; width:162px; background:url(/static/img/heading_writing.gif) no-repeat 0 30px; text-indent:-2000em; margin:0 auto; border:0;}
+h2#writing a {display:block; height:111px; width:162px; background:url(/static/img/heading_writing.gif) no-repeat 0 30px; text-indent:-2000em; margin:0 auto; border:0;}*/
+
 #latest {margin:-15px 0 0;}
 #latest ul li {padding:0.5em 0; font-size:14px;}
 div.column ul.thumbs {list-style:none;}
