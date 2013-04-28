@@ -1,3 +1,5 @@
 *.pyc
 _output
 .DS_Store
+settings_local.py
+passenger_wsgi.py

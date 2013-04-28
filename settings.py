@@ -8,26 +8,6 @@ DATE_FORMAT = 'Y-F-j'# This is used by the SelectDateWidget in django.forms.extr
 DATETIME_FORMAT = 'Y-F-j H-i-s'
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True # https://docs.djangoproject.com/en/dev/topics/cache/#the-per-site-cache
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
-ADMINS = (
-    ('Simon Griffee', 'simon@hypertexthero.com'),
-)
-
-MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/Simon/projects/hth-env/hth/hth.db', # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -58,20 +38,11 @@ MEDIA_ROOT = os.path.join(DIRNAME, 'static/files')
 # ln -s ~/Projects/hth-env/lib/python2.7/site-packages/django/contrib/admin/static/admin/ ~/projects/hth-env/hth/hth/static/admin
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://127.0.0.1:8000/static/files/'
-
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = os.path.join(DIRNAME, 'static')
-
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-STATIC_URL = 'http://127.0.0.1:8000/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -88,9 +59,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'mysecrethere'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -237,21 +205,8 @@ LOGGING = {
     }
 }
 
-# https://github.com/applegrew/django-select2/blob/master/testapp/testapp/settings.py
-AUTO_RENDER_SELECT2_STATICS = False
-
-#GENERATE_RANDOM_SELECT2_ID = True
-
-##
-# To test for multiple processes in developement system w/o WSGI, runserver at
-# different ports. Use $('#select2_field_html_id').data('field_id') to get the id
-# in one process. Now switch to another port and use
-# $('#select2_field_html_id').data('field_id', "id from previous process") to set
-# id from last process. Now try to use that field. Its ajax should still work and
-# you should see a message like - "Id 7:2013-03-01 14:49:18.490212 not found in
-# this process. Looking up in remote server.", in console if you have debug enabled.
-##
-#ENABLE_SELECT2_MULTI_PROCESS_SUPPORT = True
-#SELECT2_MEMCACHE_HOST = '127.0.0.1' # Uncomment to use memcached too
-#SELECT2_MEMCACHE_PORT = 11211       # Uncomment to use memcached too
-#SELECT2_MEMCACHE_TTL = 9           # Default 900
+# database, secret key, etc are in settings_local.py
+try:
+    from settings_local import *
+except ImportError:
+    pass
