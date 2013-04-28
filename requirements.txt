@@ -1,15 +1,16 @@
 # Requirements to deploy this code. To install all these run the following from terminal: 
-# pip install -r REQUIREMENTS.txt
+# pip install -r requirements.txt
 
 Django >= 1.5 # http://packages.python.org/Markdown/
 markdown # https://github.com/mintchaos/typogrify
-typogrify 
+typogrify
 Pygments
 
-django-taggit
-https://bitbucket.org/fabian/django-taggit-autosuggest/get/tip.tar.gz
+# https://github.com/hypertexthero/staticgenerator/tree/master/staticgenerator
+# https://github.com/hypertexthero/django-contact-form/tree/master/staticgenerator
 
-https://github.com/hypertexthero/django-staticgenerator/tree/master/staticgenerator
+django-taggit
+https://bitbucket.org/fabian/django-taggit-autosuggest/
 
 # South >= 0.7, < 0.8
 
