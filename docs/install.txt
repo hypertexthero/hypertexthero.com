@@ -58,6 +58,7 @@ Edit your nginx.conf file to look like the following but with your own port numb
         server { 
             listen       11180; 
             server_name  hypertexthero.com; 
+            error_log /users/home/sgriffee/logs/hypertexthero.nginx.error.log;
             
             location /media { 
                 root   /users/home/sgriffee/Projects/hth-env/web/public; 
@@ -125,7 +126,7 @@ You’ll need to make this init.sh file executable:
 
 Startup the Django FastCGI instance with:
 
-    $ ~/users/home/sgriffee/Projects/hth-env/hth/init.sh start
+    $ /users/home/sgriffee/Projects/hth-env/hth/init.sh start
 
 This script also takes start, stop, and restart as parameters.
 

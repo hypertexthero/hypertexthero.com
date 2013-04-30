@@ -10,6 +10,7 @@ flup
 # psycopg2 # If using postgres db
 
 https://github.com/hypertexthero/django-staticgenerator/zipball/master
+https://github.com/hypertexthero/django-contact-form/zipball/master
 
 django-taggit
 # pip install -e hg+http://hg.myproject.org/MyProject/@special_feature#egg=MyProject
