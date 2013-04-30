@@ -25,6 +25,18 @@ DATABASES = {
 
 INTERNAL_IPS = ('127.0.0.1',)
 
+# Testing Email Sending in local development environment
+# https://docs.djangoproject.com/en/dev/topics/email/#testing-e-mail-sending
+# http://blog.danawoodman.com/blog/2011/09/11/testing-email-sending-locally-in-django/
+# In terminal:
+# python -m smtpd -n -c DebuggingServer localhost:1025
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 1025
+# EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD
+# EMAIL_USE_TLS
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"

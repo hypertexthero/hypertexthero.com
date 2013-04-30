@@ -1,0 +1,142 @@
+## Setup the server’s virtualenv
+
+create a symbolic link called 'hth' in ~/Projexts/hth-env/lib/python2.7/site-packages
+
+    $ ln -s `pwd` ../lib/python2.7/site-packages/`basename \`pwd\`` 
+    $ export DJANGO_SETTINGS_MODULE=hth.settings
+
+add previous line - export DJANGO_SETTINGS_MODULE=hth.settings - ~/Projexts/hth-env/bin/activate file
+
+    $ echo "!!" >> ../bin/activate
+
+## Install packages on the server with pip
+
+Let’s install the packages in our REQUIREMENTS file.
+
+    $ pip install -r REQUIREMENTS
+
+## Setup static media
+
+Let’s assume you have some static media for your project in ~/django_projects/mysite/myproject/media/
+
+For security reasons (but don’t trust me on this) we don’t want to serve static media (CSS, Javacsript) from inside our project directory. Instead, let’s create some other directories to serve static media from:
+
+    $ mkdir -p ~/Projects/hth-env/web/public
+
+And then create a symbolic link from there to our media directory.
+
+    $ ln -s ~/Projects/hth-env/hth/hth/static/ ~/Projects/hth-env/web/public/static
+
+Now let’s link Django’s contrib.admin media to this location:
+
+    $ ln -s ~/Projects/hth-env/lib/python2.7/site-packages/django/contrib/admin/static/admin/ ~/Projects/hth-env/hth/hth/static/admin
+
+And lastly let’s configure our settings.py to use these locations:
+
+    MEDIA_URL = '/static/' 
+    ADMIN_MEDIA_PREFIX = '/static/admin/' 
+
+## Setup NginX and FastCGI
+
+Now let’s get NginX running.
+
+Create a nginx.conf file inside your site directory:
+
+    $ mkdir -p ~/django_projects/mysite/etc/ 
+    $ vim ~/django_projects/mysite/etc/nginx.conf 
+
+Edit your nginx.conf file to look like the following but with your own port number, domain, and username. In the example my port is 10071, my domain is django.joyeurs.com, and my username is carmi:
+
+    events { 
+        worker_connections  24; 
+    } 
+    
+    http { 
+        include     /opt/local/etc/nginx/mime.types; 
+        default_type  application/octet-stream; 
+        
+        server { 
+            listen       11180; 
+            server_name  hypertexthero.com; 
+            
+            location /media { 
+                root   /users/home/sgriffee/Projects/hth-env/web/public; 
+            } 
+            
+            location / { 
+                fastcgi_pass unix:/users/home/sgriffee/Projects/hth-env/hth/hth.socket; 
+                
+                # fastcgi parameters 
+                fastcgi_param PATH_INFO $fastcgi_script_name; 
+                fastcgi_param QUERY_STRING $query_string; 
+                fastcgi_param REQUEST_METHOD $request_method; 
+                fastcgi_param SERVER_PORT $server_port; 
+                fastcgi_param SERVER_PROTOCOL $server_protocol; 
+                fastcgi_param SERVER_NAME $server_name; 
+                fastcgi_param CONTENT_TYPE $content_type; 
+                fastcgi_param CONTENT_LENGTH $content_length; 
+            }    
+        }   
+    } 
+
+Create an init.sh script in your project directory to start the Django FastCGI process that should look like:
+
+    #!/usr/local/bin/bash 
+    
+    #Activate the virtualenv 
+    source /users/home/sgriffee/Projects/hth-env/bin/activate
+    
+    PROJECT_NAME="myproject" 
+    PROJECT_DIR="/users/home/sgriffee/Projects/hth-env/hth" 
+    PID_FILE="/users/home/sgriffee/Projects/hth-env/hth/hth.pid" 
+    SOCKET_FILE="/users/home/sgriffee/Projects/hth-env/hth/hth.socket" 
+    BIN_PYTHON="/users/home/sgriffee/Projects/hth-env/bin/python" 
+    DJANGO_ADMIN="/users/home/sgriffee/Projects/hth-env/bin/django-admin.py" 
+    OPTIONS="maxchildren=2 maxspare=2 minspare=1" 
+    METHOD="prefork" 
+    
+    case "$1" in
+        start) 
+          # Starts the Django process 
+          echo "Starting Django project" 
+          $BIN_PYTHON $DJANGO_ADMIN runfcgi $OPTIONS method=$METHOD socket=$SOCKET_FILE pidfile=$PID_FILE 
+      ;;  
+        stop) 
+          # stops the daemon by cating the pidfile 
+          echo "Stopping Django project" 
+          kill `/bin/cat $PID_FILE` 
+      ;;  
+        restart) 
+          ## Stop the service regardless of whether it was 
+          ## running or not, start it again. 
+          echo "Restarting process" 
+          $0 stop
+          $0 start
+      ;;  
+        *)  
+          echo "Usage: init.sh (start|stop|restart)" 
+          exit 1
+      ;;  
+    esac 
+
+You’ll need to make this init.sh file executable:
+
+    $ chmod +x ~/users/home/sgriffee/Projects/hth-env/hth/init.sh
+
+Startup the Django FastCGI instance with:
+
+    $ ~/users/home/sgriffee/Projects/hth-env/hth/init.sh start
+
+This script also takes start, stop, and restart as parameters.
+
+Now launch NginX with your configuration file:
+
+    $ /usr/local/sbin/nginx -p /users/home/sgriffee/ -c /users/home/sgriffee/Projects/hth-env/etc/nginx.conf
+
+We should now having our Django application running. Go to http://domain.tld:PORTNUBMER/ to see it. For my app, we can login to the admin interface by going to: http://domain.tld:11180/admin/
+
+TODO: Proxypath from http://domain.tld:PORTNUMBER TO http://domain.tld
+
+Now, in virtualmin create bootup actions to start the Django FastCGI process and NginX on server reboots.
+
+Great! We’ve just covered setting up a Django application on Textdrive using virtualenv, pip, NginX, and git.

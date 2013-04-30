@@ -6,6 +6,9 @@ markdown # https://github.com/mintchaos/typogrify
 typogrify
 Pygments
 
+flup
+# psycopg2 # If using postgres db
+
 https://github.com/hypertexthero/django-staticgenerator/zipball/master
 
 django-taggit

@@ -3,3 +3,4 @@ _output
 .DS_Store
 settings_local.py
 passenger_wsgi.py
+static/admin

@@ -158,23 +158,10 @@ STATIC_GENERATOR_URLS = (
     # r'^/(archive)',
 )
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # Production backend?
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # or
 # EMAIL_BACKEND = "mailer.backend.DbBackend"
-
-# Testing Email Sending in local development environment
-# https://docs.djangoproject.com/en/dev/topics/email/#testing-e-mail-sending
-# http://blog.danawoodman.com/blog/2011/09/11/testing-email-sending-locally-in-django/
-# In terminal:
-# python -m smtpd -n -c DebuggingServer localhost:1025
-EMAIL_HOST = "localhost"
-EMAIL_PORT = 1025
-# EMAIL_HOST_USER
-# EMAIL_HOST_PASSWORD
-# EMAIL_USE_TLS
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
