@@ -1,6 +1,9 @@
 from __future__ import absolute_import
 from django.conf.urls import patterns, include, url
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 # http://stackoverflow.com/a/523366/412329
 # from django.views.generic.simple import redirect_to
 from django.views.generic import RedirectView, TemplateView
@@ -64,7 +67,7 @@ urlpatterns = patterns('',
     # In addition to the following url pattern we are also using the 
     # built-in redirect app to redirect /linked/archive to /linked#archive
     url(r'^linked/(?P<year>\d+)/$', RedirectView.as_view(url='/linked#archive')),
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += patterns('views',
     
@@ -107,12 +110,12 @@ urlpatterns += patterns('',
 
 
 # http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-development
-from django.conf import settings
-
-if settings.DEBUG :
-    urlpatterns += patterns('',
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
-            {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-        url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve', 
-            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-    )
+# from django.conf import settings
+# 
+# if settings.DEBUG :
+#     urlpatterns += patterns('',
+#         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
+#             {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+#         url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve', 
+#             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+#     )
