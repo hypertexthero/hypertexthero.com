@@ -9,8 +9,8 @@ Pygments
 flup
 # psycopg2 # If using postgres db
 
-https://github.com/hypertexthero/django-staticgenerator/zipball/master
-https://github.com/hypertexthero/django-contact-form/zipball/master
+-e git+https://github.com/hypertexthero/django-staticgenerator/#egg=django-staticgenerator
+-e git+https://github.com/hypertexthero/django-contact-form/#egg=django-staticgenerator
 
 django-taggit
 # pip install -e hg+http://hg.myproject.org/MyProject/@special_feature#egg=MyProject
