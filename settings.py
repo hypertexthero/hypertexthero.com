@@ -162,6 +162,11 @@ STATIC_GENERATOR_URLS = (
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # or
 # EMAIL_BACKEND = "mailer.backend.DbBackend"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 1025
+# EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD
+# EMAIL_USE_TLS
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
