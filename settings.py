@@ -158,16 +158,6 @@ STATIC_GENERATOR_URLS = (
     # r'^/(archive)',
 )
 
-# Production backend?
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# or
-# EMAIL_BACKEND = "mailer.backend.DbBackend"
-EMAIL_HOST = "localhost"
-EMAIL_PORT = 1025
-# EMAIL_HOST_USER
-# EMAIL_HOST_PASSWORD
-# EMAIL_USE_TLS
-
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -197,7 +187,7 @@ LOGGING = {
     }
 }
 
-# database, secret key, etc are in settings_local.py
+# database, secret key, email settings, etc are in settings_local.py
 try:
     from settings_local import *
 except ImportError:
