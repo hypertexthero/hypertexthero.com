@@ -10,8 +10,10 @@ from sys import path
 path.append(join(dirname(__file__), "hth"))
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
+# change to False for production
 DEBUG = True
 
+# change to False for production
 TEMPLATE_DEBUG = True
 
 ADMINS = (
