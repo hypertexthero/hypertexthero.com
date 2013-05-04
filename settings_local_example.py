@@ -31,18 +31,21 @@ DATABASES = {
     }
 }
 
-# development
-INTERNAL_IPS = ('127.0.0.1',)
+# development - uncomment 2 lines below
+# INTERNAL_IPS = ('127.0.0.1',)
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-# production - https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-ALLOWED_HOSTS
-ALLOWED_HOSTS = ['.domain.tld',]
+# production - uncomment line below # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-ALLOWED_HOSTS
+# ALLOWED_HOSTS = ['.domain.tld',]
 
-# development
+# development email
 # Testing Email Sending in local development environment
 # https://docs.djangoproject.com/en/dev/topics/email/#testing-e-mail-sending
-# http://blog.danawoodman.com/blog/2011/09/11/testing-email-sending-locally-in-django/
-# In terminal:
-# python -m smtpd -n -c DebuggingServer localhost:1025
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_HOST = "localhost"
+# EMAIL_PORT = 1025
+
+# production email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = "localhost"
@@ -68,7 +71,7 @@ STATIC_URL = 'http://domain.tld/static/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
+ADMIN_MEDIA_PREFIX = os.path.join(PROJECT_ROOT, "admin/")
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'mysecrethere-obviously-pick-something-different-and-long-and-complicated-and-do-not-share'
