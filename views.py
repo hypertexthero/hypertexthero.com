@@ -212,7 +212,7 @@ def Search(request):
 # http://stackoverflow.com/questions/744424/django-models-how-to-filter-out-duplicate-values-by-pk-after-the-fact
 # http://stackoverflow.com/questions/431628/how-to-combine-2-or-more-querysets-in-a-django-view
         entry_list = Entry.objects.filter(Q(title__icontains=query)|Q(
-                                    body_html__icontains=query)).distinct()
+                                    body_html__icontains=query), is_active=True).distinct()
         work_list = FlatPage.objects.filter(Q(title__icontains=query)|Q(
                                     content__icontains=query)).distinct()
         result_list = sorted(
