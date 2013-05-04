@@ -4,3 +4,5 @@ _output
 settings_local.py
 passenger_wsgi.py
 static/admin
+.db
+.sqlite3
