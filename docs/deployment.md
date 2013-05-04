@@ -16,14 +16,14 @@ Thanks to [Evan Carmi](http://ecarmi.org/writing/django-on-joyent/) and [Poko](h
                 etc
                     nginx
                         sites-enabled
-                            nginx.conf      <- nginx config file (=todo:create symlink from here to hth/conf below)
+                            nginx.conf      <- nginx config file (=todo:create symlink from here to web/hth/hth/conf below)
                 web
                     hth
                         hth     <- django project git repository cloned from github
                         init.sh     <- fcgi startup script. don't forget to make executable with chmod +x init.sh
                         manage.py
                 public
-                    static      <- static files - either create symlink here or run python manage.py collectstatic
+                    static   <- static files - either create symlink from here to project repo or run python manage.py collectstatic
                     static/files    <- static files uploaded by users of your app
                     static/@admin    <- admin media symlink
 
