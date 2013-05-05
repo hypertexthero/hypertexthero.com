@@ -1,1 +1,21 @@
-404 - Not found
+{% extends "base.html" %}
+{% block headtitle %}Hypertexthero: 404 Not Found{% endblock headtitle %}
+{% block description %}Hypertexthero: 404 Not Found{% endblock %}
+{% block bodyid %}error{% endblock bodyid %}
+
+{% load hth_tags %}
+
+{% block header %}
+    <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / 404 Not Found</p>
+{% endblock header %}
+
+{% block content %}
+<h1>404 Not Found</h1>
+<p><em>The requested resource was not found.</em></p>
+<p>Uh-oh! It seems the page you are looking for could not be reached. Please try the <a href="/" title="Hypertexthero homepage.">homepage</a> or search the <a href="/archive/" title="Logbook archive.">Logbook archive</a>. I do my best to keep <a href="http://www.w3.org/Provider/Style/URI" title="Cool URI&#39;s don&#39;t change.">keep things organized here</a>, so please <a href="/contact/" title="Get in touch!">let me know</a> if you think there is a problem. <br><br>Cheers,<br> Simon</p>
+{% endblock %}
+
+{% block footer %}
+{{ block.super }}
+{% endblock footer %}
