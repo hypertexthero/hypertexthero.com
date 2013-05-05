@@ -19,6 +19,12 @@
 
 {% block content %}
 
+{% if user.is_staff %} 
+<div class="pull-right">
+    <a class="edit small monospace" href="/admin/hth/entry/{{ entry.id }}">Edit</a>
+</div>
+{% endif %}
+
 {% if object.kind == "L" %} {# if a value for linkurl is present in the head of files this is a link to another site #}
     <dl>
         <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
@@ -45,11 +51,5 @@
 </p>
 
 {% endif %} {# end if object.kind == "L" #}
-
-{% if user.is_staff %} 
-<div class="pull-right">
-    <a class="edit small monospace" href="/admin/hth/entry/{{ entry.id }}">Edit</a>
-</div>
-{% endif %}
 
 {% endblock %}
