@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {# http://stackoverflow.com/a/3410813 #}
 {% block tags %}{% for tag in object.tags.all %}{{ tag.name }}{% if forloop.last %}{% else %}, {% endif %}{% endfor %}{% endblock tags %}
-{% block title %}{{ object.title|escape }} | Weblog{% endblock %}
+
 {% block headtitle %}
-    {% if object.kind == "L" %}
-        Hypertexthero Linked List: 
-    {% else %} {# otherwise it is an original article #}
-        Hypertexthero: 
-    {% endif %}   
-        {{ object.title }}
+    {% if object.kind == "L" %}Hypertexthero Linked List:{% else %} {# otherwise it is an original article #}Hypertexthero: 
+    {% endif %} {{ object.title }}
 {% endblock headtitle %}
+
+{% block description %}{% if object.kind == "L" %}Hypertexthero Linked List: {% else %} {# otherwise it is an original article #}Hypertexthero:{% endif %}{{ object.title }}{% endblock %}
+
 {% block bodyid %}logbook{% endblock bodyid %}
 {% block bodyclass %}detail{% endblock bodyclass %}
 

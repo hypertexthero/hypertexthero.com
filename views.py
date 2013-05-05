@@ -91,7 +91,7 @@ class RssLogbookFeed(Feed):
     # description_template = "hth/feed_description.html" # using default for now
 
     def items(self):
-        return Entry.objects.order_by('-pub_date')[:15]
+        return Entry.objects.filter(is_active=True).order_by('-pub_date')[:15]
 
     def item_title(self, item):
         return item.title
