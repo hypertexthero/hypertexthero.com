@@ -16,6 +16,7 @@ Features
 ## TODO
 
 - Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment to github-powered site, maybe also github pages.
+- Add Textile as a text syntax option.
 - [Automatically post new articles to Twitter](http://djangosnippets.org/snippets/1339/).
 - Find a way to run django tests so each url on the site is accessed and generated automatically with a command.
 - Finalize data import. Don't forget to fix macroman->utf-8 encoding problems and import keywords into tag field.
