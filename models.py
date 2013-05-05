@@ -59,7 +59,7 @@ class Entry(models.Model):
     class Meta:
         db_table = 'logbook_entries'
         verbose_name_plural = 'entries'
-        ordering = ('-mod_date',)
+        ordering = ('-pub_date',)
         get_latest_by = 'pub_date'
 
     def __unicode__(self):
