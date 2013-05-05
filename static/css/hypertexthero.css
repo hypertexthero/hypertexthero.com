@@ -159,7 +159,7 @@ body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
 pre {font-family:courier, "courier new", monospace; margin:1em 0; padding:1em; overflow:visible; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
 pre, code, kbd, samp, tt{font-family:monospace,monospace; font-size:0.9em;}
-pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#afa99f; background:none;}
+pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#afa99f; background:none; border:0 !important;}
 strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}
 div.footnote {font-size:0.8em;}
