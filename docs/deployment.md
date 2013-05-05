@@ -38,11 +38,13 @@ yourportnumber
                     static/@admin    <- django admin media symlink
 
 ## SSH into your Txd server
-
+    
+    :::bash
     $ ssh yourusername@yourserver.textdrive.us
 
 ## Install virtualenv
 
+    :::bash
     $ mkdir -p local/
     $ cd local/
     $ wget -O virtualenv-1.9.1.tar.gz http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.9.1.tar.gz
@@ -50,6 +52,7 @@ yourportnumber
 
 Let’s now create our virtualenv on our server. This is the same as on our local machine:
 
+    :::bash
     $ python virtualenv.py --no-site-packages ~/domains/yourdomain.tld/.virtualenv/yourproject
     $ cd ~/domains/yourdomain.tld/.virtualenv/yourproject
     $ . bin/activate
@@ -58,31 +61,37 @@ Let’s now create our virtualenv on our server. This is the same as on our loca
 
 Create a symbolic link called 'yourproject' in `~/domains/yourdomain.tld/.virtualenv/yourproject/lib/python2.7/site-packages`:
 
+    :::bash
     $ ln -s `pwd` ../lib/python2.7/site-packages/`basename \`pwd\`` 
     $ export DJANGO_SETTINGS_MODULE=yourproject.settings
 
 Add the previous line - `export DJANGO_SETTINGS_MODULE=yourproject.settings` - to the `~/domains/yourdomain.tld/.virtualenv/yourproject/bin/activate` file:
 
+    :::bash
     $ echo "!!" >> ../bin/activate
 
 ## Activate virtualenv
 
+    :::bash
     $ source ~/domains/yourdomain.tld/.virtualenv/yourproject/bin/activate
 
 ## Install Django, then upload your application to the server
 
+    :::bash
     $ pip install django
     $ cd ~/domains/yourdomain.tld/web/
     $ python django-admin.py startproject yourproject
     
 This will have created the following folder layout under `~/domains/yourdomain.tld/web/`:
 
+    :::test
     yourproject
         manage.py
         yourproject     <- default django app
 
 Remove the latter yourproject folder (the default django app created by the startproject command) and replace it with your own project cloned from Github or elsewhere, since, like a good citizien, you are developing locally and only putting tested applications on the production server. Leave manage.py alone.
 
+    :::bash
     $ cd ~/domains/yourdomain.tld/web/yourproject/
     $ rm -rf yourproject
     $ git clone https://github.com/yourusername/yourproject/ yourproject
@@ -90,6 +99,7 @@ Remove the latter yourproject folder (the default django app created by the star
 
 [Set up your settings files for production (=TODO: Set up django-configurations)](http://stackoverflow.com/a/88331/412329) and update the database settings to use your PostgreSQL or MySQL database if you are using those instead of sqlite3. If you use PostgreSQL or MySQL you need to create those first in virtualmin.
 
+    :::bash
     DATABASES = { 
         'default': { 
             'ENGINE': 'postgresql_psycopg2', 
@@ -107,6 +117,7 @@ Try running `python manage.py syncdb`. If it works then your database is configu
 
 Let’s install the software packages from your application's requirements.txt file (if you have one).
 
+    :::bash
     $ cd ~/domains/yourdomain.tld/web/yourproject/yourproject
     $ pip install -r requirements.txt
 
@@ -116,18 +127,22 @@ Let’s assume you have some static media for your project in `~/domains/yourdom
 
 For security reasons (but don’t trust me on this) we don’t want to serve static media (CSS, JavaScript, images) from inside our project directory. Instead, let’s create some other directories to serve static media from:
 
+    :::bash
     $ mkdir -p ~/domains/yourdomain.tld/web/public/static
 
 And then create a symbolic link from there to our media directory.
 
+    :::bash
     $ ln -s ~/domains/yourdomain.tld/web/yourproject/yourproject/static/ ~/domains/yourdomain.tld/web/public/static
 
 Now let’s link Django’s contrib.admin media to this location so that the static assets of Django's admin app get served as well:
 
+    :::bash
     $ ln -s ~/domains/yourdomain.tld/.virtualenv/yourproject/lib/python2.7/site-packages/django/contrib/admin/static/admin/ ~/domains/yourdomain.tld/web/yourproject/yourproject/static/admin
 
-And lastly let’s configure our settings.py to use these locations:
+And lastly let’s configure settings.py (or settings_local.py depending on your project setup) to use these locations:
 
+    :::python
     import os
     import sys
     
@@ -144,12 +159,13 @@ And lastly let’s configure our settings.py to use these locations:
 
 Create a directory to keep your nginx.conf file and the nginx.conf file itself:
 
+    :::bash
     $ mkdir -p ~/yourdomain.tld/etc/nginx/sites-enabled 
     $ vim ~/yourdomain.tld/etc/nginx/sites-enabled/nginx.conf 
 
 **=TODO: keep nginx conf in the project's git repository and create symlink from sites-enabled to yourproject/conf/nginx.conf. This way we can keep the config in version control.**
 
-Edit your nginx.conf file to look like the following but with your own port number (yourportnumber), domain (yourdomain.tld), and username (yourusername).
+Edit your nginx.conf file to look like the following but with your own port number[^portnumber] (yourportnumber), domain (yourdomain.tld), and username (yourusername).
 
     :::nginx
     # http://stackoverflow.com/questions/13371925/how-to-turn-off-or-specify-the-nginx-error-log-location
@@ -252,16 +268,19 @@ Create an init.sh script in your project directory to start the Django FastCGI p
 
 ### Make this init.sh file executable:
 
+    :::bash
     $ chmod +x /users/home/yourusername/domains/yourdomain.tld/web/yourproject/init.sh
 
 ### Start Django FastCGI instance with:
 
+    :::bash
     $ /users/home/yourusername/domains/yourdomain.tld/web/yourproject/init.sh start
 
 This script also takes start, stop, and restart as parameters.
 
 ### Launch Nginx with your configuration file:
 
+    :::bash
     $ /usr/local/sbin/nginx -p /users/home/yourusername/ -c /users/home/yourusername/domains/yourdomain.tld/etc/nginx/sites-enabled/nginx.conf
     
 The Django application should now be running at http://domain.tld:PORTNUBMER/. Don't forget to log in and go to http://domain.tld:yourportnumber/admin/sites/site/ and set the domain name.
@@ -291,11 +310,13 @@ NOTE: the balancer name should be the same as the one entered for "Remote URL" u
 
 ## Stopping Nginx
 
-    ps -ef | grep nginx | awk '{print $2}'| xargs kill -9
+    :::bash
+    $ ps -ef | grep nginx | awk '{print $2}'| xargs kill -9
 
 ## Stopping fcgi (whenever you update your application you need to stop and then start fcgi)
 
-    . init.sh stop
+    :::bash
+    $ . init.sh stop
 
 ## Todo:
 
