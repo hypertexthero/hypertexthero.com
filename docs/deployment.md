@@ -1,16 +1,18 @@
-# Textdrive (txd) Server Deployment with Nginx via [FastCGI](https://docs.djangoproject.com/en/dev/howto/deployment/fastcgi/)
+# Textdrive Server Deployment with Nginx via FastCGI
 
-Thanks to [Evan Carmi](http://ecarmi.org/writing/django-on-joyent/), who much of this is paraphrased from, and [Pokoka](http://tumunu.com/) who [also has an alternate method using uWSGI](http://discuss.textdrive.com/viewtopic.php?id=531).
+My notes on deploying a Django application (this website) on Textdrive shared hosting with Nginx via [FastCGI](https://docs.djangoproject.com/en/dev/howto/deployment/fastcgi/).
+
+Thanks to [Evan Carmi](http://ecarmi.org/writing/django-on-joyent/), who much of this is paraphrased from, and [Pokoka](http://tumunu.com/) who has  far more knowledge on system administration than I, and [has an alternate method using uWSGI](http://discuss.textdrive.com/viewtopic.php?id=531).
 
 ## Search and Replace
 
 yourusername  
 yourdomain.tld  
 yourproject  
-yourportnumber  
+yourportnumber
 
 ## Server folder layout
-
+    :::text
     yourusername
         domains
             yourdomain.tld
@@ -149,6 +151,7 @@ Create a directory to keep your nginx.conf file and the nginx.conf file itself:
 
 Edit your nginx.conf file to look like the following but with your own port number (yourportnumber), domain (yourdomain.tld), and username (yourusername).
 
+    :::nginx
     # http://stackoverflow.com/questions/13371925/how-to-turn-off-or-specify-the-nginx-error-log-location
     error_log /dev/null crit;
     
@@ -206,6 +209,7 @@ Edit your nginx.conf file to look like the following but with your own port numb
 
 Create an init.sh script in your project directory to start the Django FastCGI process that should look like:
 
+    :::bash
     #!/usr/local/bin/bash 
     
     #Activate the virtualenv 
