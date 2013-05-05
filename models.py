@@ -90,13 +90,13 @@ class Entry(models.Model):
 
 # http://stackoverflow.com/questions/2214852/next-previous-links-from-a-query-set-generic-views
     def get_next_article(self):
-      next = Entry.objects.filter(id__gt=self.id, kind='A')
+      next = Entry.objects.filter(id__gt=self.id, kind='A', is_active=True)
       if next:
         return next[0]
       return False
     
     def get_prev_article(self):
-      prev = Entry.objects.filter(id__lt=self.id, kind='A')
+      prev = Entry.objects.filter(id__lt=self.id, kind='A', is_active=True)
       if prev:
         return prev[0]
       return False
