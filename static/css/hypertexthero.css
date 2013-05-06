@@ -145,8 +145,8 @@ body#about #page, body#archive #page {background:url(/static/img/bg_technical.gi
 p#homelink {line-height:0 !important; margin:0 !important; font-style:italic;}
 p#homelink a {border:none !important;}
 p#homelink a:hover, p#homelink a:active {text-indent:0 !important; line-height:1em !important; color:#afa99f; background:none;}
-p {margin:0 0 1em; line-height:1.3em;}
-dt {margin:0 0 0.5em; color:#2e2a1f;}
+p {margin:0 0 0.5em; line-height:1.3em;}
+dt {margin:0 0 0.75em; color:#2e2a1f;}
 body.detail dt {font-weight:bold;}
 dd {margin:0 0 2em 1em;}
 dd p {color:#000;}
