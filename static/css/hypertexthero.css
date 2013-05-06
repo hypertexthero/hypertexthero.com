@@ -183,7 +183,8 @@ pre, code, kbd, samp, tt{font-family:courier, "courier new", monospace,monospace
 pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#afa99f; background:none; border:0 !important;}
 strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}
-div.footnote {font-size:0.8em;}
+div.footnote {font-size:0.9em;}
+div.footnote hr {display:none;}
 p.paging {margin:5em 0;}
 img {border:0; display:block; margin-bottom:1em;}
 body#home img {margin-bottom:0;}
