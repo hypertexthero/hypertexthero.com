@@ -1,13 +1,34 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: 2013-05-05
+Last update: 2013-05-06
 */
 
 * {margin:0; padding:0;}
 
+/* =fonts ---------------------- */
+/* If hosting myself: http://stackoverflow.com/questions/8966740/what-is-the-correct-way-of-hosting-google-web-fonts-on-my-own-server*/
+/*@font-face {
+  font-family: 'Gentium Basic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gentium Basic'), local('GentiumBasic'), url(../font/GentiumBasic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Gentium Basic';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Gentium Basic Bold'), local('GentiumBasic-Bold'), url(../font/GentiumBasic-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Gentium Basic';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Gentium Basic Italic'), local('GentiumBasic-Italic'), url(../font/GentiumBasic-Italic.ttf) format('truetype');
+}*/
+
 /* =layout =links =general ---------------------- */
 
-body {font-family:"times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#eae6d8 url(/static/img/bg.jpg) repeat 0 0;}
+body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#eae6d8 url(/static/img/bg.jpg) repeat 0 0;}
 
 a:link, a:visited {color:#000; text-decoration:none; border-bottom:1px solid #c4c1b2; padding-bottom:0;}
 a:visited {color:#2e2a1f;}
@@ -157,8 +178,8 @@ h3.posted {font-size:14px; font-style:italic; font-weight:normal; margin-top:0em
 body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 .small {font-size:0.8em;}
 p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
-pre {font-family:courier, "courier new", monospace; margin:1em 0; padding:1em; overflow:visible; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
-pre, code, kbd, samp, tt{font-family:monospace,monospace; font-size:0.9em;}
+pre {margin:1em 0; padding:1em; overflow:visible; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
+pre, code, kbd, samp, tt{font-family:courier, "courier new", monospace,monospace; font-size:0.9em;}
 pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#afa99f; background:none; border:0 !important;}
 strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}
