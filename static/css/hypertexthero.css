@@ -1,6 +1,6 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: 2013-05-06
+Last update: Wednesday, 05 June 2013: 16:56:55 Italy Time
 */
 
 * {margin:0; padding:0;}
@@ -43,11 +43,14 @@ a:hover, a:active {text-decoration:none; color:#000; outline:none; background:#c
 body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error.gif) no-repeat top left; background-position:352px -50px;}
 
 #header {margin:0 43px 12px; height:137px; position:relative; background:url(/static/img/macchi_home.gif) no-repeat top right;}
-#header blockquote {position:absolute; bottom:0; left:0; width:422px; font-size:14px; line-height:17px;}
+#header blockquote {position:absolute; bottom:0; left:0; width:45%; font-size:14px; line-height:17px;}
 #header p.breadcrumbs {position:absolute; bottom:0; left:0; font-size:14px;}
 
-h1#logo a {position:absolute; right:185px; bottom:0; width:227px; height:53px; background:url(/static/img/logo_home.gif) no-repeat 0 0; text-indent:-2000em; border:none;}
-h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}
+/*h1#logo a {position:absolute; right:185px; bottom:0; width:227px; height:53px; background:url(/static/img/logo_home.gif) no-repeat 0 0; text-indent:-2000em; border:none;}
+h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}*/
+h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none;}
+h1#logo a b {border-bottom:1px solid #c4c1b2; padding-bottom:0;}
+/*h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}*/
 
 #content {padding-left:43px; position:relative;}
 body#logbook #content, body#about #content, body#error #content {float:left;}
@@ -92,7 +95,8 @@ body#archive #header p#homelink a {width:385px;}
 body#contact #header p#homelink a {position:absolute; width:140px; height:109px; top:28px; left:0; display:block; text-indent:-2000em;}
 body#contact #page {padding-bottom:100px; background:url(/static/img/balloon.gif) no-repeat top left; background-position:196px 0; width:900px;}
 body#contact #header {background:url(/static/img/macchi_contact.gif) no-repeat top left; background-position:0 28px; margin-bottom:41px;}
-body#contact h1#logo a {width:240px; bottom:0; right:100px; background:url(/static/img/logo_contact.gif) no-repeat 0 0;}
+/*body#contact h1#logo a {width:240px; bottom:0; right:100px; background:url(/static/img/logo_contact.gif) no-repeat 0 0;}*/
+body#contact h1#logo a {width:240px; bottom:0; right:100px;}
 body#contact #content {position:relative;}
 body#contact #content form, body#contact #content p#thankyou {position:absolute; right:-47px; top:0; width:336px; padding-right:90px; background:url(/static/img/inverted_jenny.gif) no-repeat bottom right;}
 body#contact #content p#thankyou {padding-bottom:200px;}
@@ -208,8 +212,9 @@ a.edit {color:#afa99f;}
     #page {width:auto;}
     #latest {width:auto; clear:both; text-align:left; float:none;}
     #header #logo a {display:block;}
-    #header blockquote {position:normal; float:left; width:300px;}
+    #header blockquote {position:normal; float:left;}
     body#contact #page {width:770px;}
+/*    body#contact h1#logo a {right:0;}*/
     body#contact h1#logo a {right:0;}
     div#brief {left:43px; text-align:left;}
     body#contact #content form, body#contact #content p#thankyou {right:0;}    
@@ -219,7 +224,7 @@ a.edit {color:#afa99f;}
     body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {display:block; right:0;}
     div.column {margin:0 10px 0 0;}
-    #header blockquote {position:relative; display:block; float:left; width:400px; padding-top:1em;}
+    #header blockquote {position:relative; display:block; float:left; padding-top:1em;}
     #content img {width: 100%; height: auto;}
     #content img.thumbincontent {width:auto;}
     body#contact #page {background:none; width:770px;}
@@ -232,8 +237,8 @@ a.edit {color:#afa99f;}
     #page {width:auto;}
     #header {margin:0 20px 0; width:auto;}
     body#logbook #header, body#archive #header {background:none !important;}
-    #header #logo a {display:block; right:0;}
-    #header blockquote {position:relative; display:block; float:left; width:300px; display:block;}
+    #header #logo a {display:block;}
+    #header blockquote {position:relative; display:block; float:left; display:block;}
     body#home #content {width:400px !important; padding-left:20px;}
     #content {width:500px !important; padding-left:20px;}
     #content img {width: 100%; height: auto;}
@@ -253,7 +258,7 @@ a.edit {color:#afa99f;}
     #page {width:auto; background:none;}
     #header {margin:0 20px 0;}
     body#logbook #header, body#archive #header {background:none !important;}
-    #header #logo a {display:block; right:0;}
+    #header #logo a {width:auto;}
     div.column {margin:0 24px 0 0;}
     #header blockquote {display:none; position:relative;  float:left; width:180px;}
     #content {width:340px !important; padding-left:20px;}
