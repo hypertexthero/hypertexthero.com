@@ -35,6 +35,20 @@
 </head>
 
 <body id="{% block bodyid %}{% endblock bodyid %}" class="{% block bodyclass %}{% endblock bodyclass %}">
+
+<script type="text/javascript">
+    window._idl = {};
+    _idl.variant = "banner";
+    _idl.campaign = "nsa";
+    (function() {
+        var idl = document.createElement('script');
+        idl.type = 'text/javascript';
+        idl.async = true;
+        idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+        document.getElementsByTagName('body')[0].appendChild(idl);
+    })();
+</script>
+
     {% if user.is_staff %}
     <p class="small monospace pull-right" style="padding:1em 0;">
         <a style="padding:1em; border:0;" href="/admin/">admin</a> <a style="padding:1em; border:0;" href="/admin/logout/">logout</a>
