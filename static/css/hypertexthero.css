@@ -181,6 +181,7 @@ h3 span.normal {font-size:16px;}
 h3.posted {font-size:14px; font-style:italic; font-weight:normal; margin-top:0em;}
 body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 .small {font-size:0.8em;}
+.noborder {border:0;}
 p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
 pre {margin:1em 0; padding:1em; overflow:visible; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
 pre, code, kbd, samp, tt{font-family:courier, "courier new", monospace,monospace; font-size:0.9em;}
