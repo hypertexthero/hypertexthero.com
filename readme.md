@@ -15,6 +15,10 @@ Features
 
 ## TODO
 
+- add to portfolio:
+    - http://www.angelopaionni.it/
+    - ippc identity work, including redrawn logo, trifold brochure, etc
+
 - Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment to github-powered site, maybe also github pages.
 - Add Textile as a text syntax option.
 - [Automatically post new articles to Twitter](http://djangosnippets.org/snippets/1339/).
