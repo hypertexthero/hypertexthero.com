@@ -15,7 +15,7 @@ Features
 
 ## Things to do
 
-- **Implement [Mozilla Persona for authentication](https://developer.mozilla.org/en-US/docs/Mozilla/Persona/Why_Persona)**
+- **Implement [Mozilla Persona for authentication](https://developer.mozilla.org/en-US/docs/Mozilla/Persona/Why_Persona)**, perhaps using [django-allauth](http://www.intenct.nl/projects/django-allauth/)
 - add to portfolio:
     - http://www.angelopaionni.it/
     - ippc identity work, including redrawn logo, trifold brochure, etc
