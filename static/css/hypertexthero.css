@@ -1,12 +1,10 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: Wednesday, 05 June 2013: 16:56:55 Italy Time
+Last update: 2013-09-05
 */
-
 * {margin:0; padding:0;}
-
 /* =fonts ---------------------- */
-/* If hosting myself: http://stackoverflow.com/questions/8966740/what-is-the-correct-way-of-hosting-google-web-fonts-on-my-own-server*/
+/* If self-hosting: http://stackoverflow.com/questions/8966740/what-is-the-correct-way-of-hosting-google-web-fonts-on-my-own-server*/
 /*@font-face {
   font-family: 'Gentium Basic';
   font-style: normal;
@@ -28,18 +26,20 @@ Last update: Wednesday, 05 June 2013: 16:56:55 Italy Time
 
 /* =layout =links =general ---------------------- */
 
-body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#eae6d8 url(/static/img/bg.jpg) repeat 0 0;}
+/*body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#eae6d8 url(/static/img/bg.jpg) repeat 0 0;}*/
+body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff;}
 
-a:link, a:visited {color:#000; text-decoration:none; border-bottom:1px solid #c4c1b2; padding-bottom:0;}
+a:link, a:visited {color:#06C; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
 a:visited {color:#2e2a1f;}
-a:hover, a:active {text-decoration:none; color:#000; outline:none; background:#c4c1b2;}
+a:hover, a:active {text-decoration:none; color:#000; outline:none; background:#ffc;}
 
 :target {
    background: #ffc !important;
 }
 
 #wrapper {text-align:center;}
-#page {width:970px; text-align:left; margin:0 auto; background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}
+/*#page {width:970px; text-align:left; margin:0 auto; background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}*/
+#page {width:970px; text-align:left; margin:0 auto;}
 body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error.gif) no-repeat top left; background-position:352px -50px;}
 
 #header {margin:0 43px 12px; height:137px; position:relative; background:url(/static/img/macchi_home.gif) no-repeat top right;}
@@ -49,45 +49,41 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 /*h1#logo a {position:absolute; right:185px; bottom:0; width:227px; height:53px; background:url(/static/img/logo_home.gif) no-repeat 0 0; text-indent:-2000em; border:none;}
 h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}*/
 h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none;}
-h1#logo a b {border-bottom:1px solid #c4c1b2; padding-bottom:0;}
-/*h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}*/
+h1#logo a b {border-bottom:2px solid #c4c1b2; padding-bottom:0;}
+h1#logo a:hover b, h1#logo a:active b a:active {border:none;}
 
 #content {padding-left:43px; position:relative;}
 body#logbook #content, body#about #content, body#error #content {float:left;}
 #sidebar {float:right; width:296px; font-size:14px;}
 #picture {float:left; margin:0 0 1em 0;}
 #picture p {max-width:400px;}
-#content p, #content li, #content dd {max-width:34em;}
+#content h1, #content h2, #content h3, #content p, #content li, #content dd {max-width:34em;}
 
 /* =home ---------------------- */
 
 body#home #header {margin-bottom:12px;}
 div.column {width:155px; float:left; margin:0 26px 0 0;}
 
-div.column h2 {text-align:center; background: url(/static/img/headings-sprite.png) no-repeat top left; text-indent:-2000em; margin:25px auto 10px; width: 111px; height: 68px;}
+/*div.column h2 {text-align:center; background: url(/static/img/headings-sprite.png) no-repeat top left; text-indent:-2000em; margin:25px auto 10px; width: 111px; height: 68px;}*/
 
-h2#etcetera {background-position: 0 0;} 
-h2#identity {background-position: 0 -118px;} 
-h2#print {background-position: 0 -236px;} 
-h2#websites {background-position: 0 -354px;} 
-h2#writing {background-position: 0 -472px;  width: 162px; height: 80px;} 
-h2#writing a {margin:0 auto; border:0; display:block; width: 162px; height: 80px;}
-h2#writing a:hover {background:none; border-bottom:1px solid #c4c1b2;}
+div.column h2 {text-align:center; background: url(/static/img/parachute.gif) no-repeat 35px 0; margin:20px auto 15px; width: 155px; padding:40px 0 0 10px;}
 
-/* =temporarily staying here in case we run into browser issues with sprites
-h2#websites {height:111px; width:162px; background:url(/static/img/heading_websites.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
-h2#print {height:111px; width:162px; background:url(/static/img/heading_print.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
-h2#identity {height:111px; width:162px; background:url(/static/img/heading_identity.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
-h2#etcetera {height:111px; width:162px; background:url(/static/img/heading_etcetera.gif) no-repeat 20px 30px; text-indent:-2000em; margin:0 auto;}
-h2#writing a {display:block; height:111px; width:162px; background:url(/static/img/heading_writing.gif) no-repeat 0 30px; text-indent:-2000em; margin:0 auto; border:0;}*/
+h2#etcetera {background-position: 35px 0;} 
+h2#identity {background-position: 35px 0;} 
+h2#print {background-position: 32px 0;} 
+h2#websites {background-position: 35px 0;} 
+h2#writing {background-position: 30px 0;} 
+h2#writing a {margin:0 auto 20px; border:0; display:block;}
+h2#writing a:hover {text-decoration:underline;}
 
 #latest {margin:-15px 0 0;}
 #latest ul li {padding:0.5em 0; font-size:14px;}
 div.column ul.thumbs {list-style:none;}
-div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #c4c1b2;}
+div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #c4c1b2; border-radius:2px;}
+li.nopicture {height:96px;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
 
-#header p#homelink a {position:absolute; width:240px; height:109px; top:0; right:0; display:block; text-indent:-2000em;}
+#header p#homelink a {position:absolute; width:240px; height:109px; top:0; right:0; display:block; text-indent:-2000em; padding-top:2em;}
 body#archive #header p#homelink a {width:385px;}
 
 /* =contact ---------------------- */
@@ -125,8 +121,7 @@ body#logbook #header p strong a {font-style:italic; font-size:22px; line-height:
 
 body#logbook #content blockquote {padding-left:1em; border-left:1px solid #c4c1b2;}
 body#logbook #content h1 {font-size:125%;}
-body#logbook #content h1 a {border-bottom:none;}
-body#logbook #content h1 a:hover {background:#c4c1b2 !important; color:#000 !important;}
+body#logbook #content h1 a {border-bottom:none; color:#000;}
 body#logbook #content h2 {font-size:110%;}
 
 /* =archive ---------------------- */
@@ -140,7 +135,7 @@ body#archive #content p.archivetitle {line-height:1.2em; position:relative; padd
 /* =misc ---------------------- */
 
 body#about #header {background:url(/static/img/macchi_home.gif) no-repeat top right; margin-bottom:12px;}
-body#about #page, body#archive #page {background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}
+/*body#about #page, body#archive #page {background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}*/
 .quiet {color:#9E9682;}
 .normal {font-weight:normal;}
 
@@ -165,14 +160,12 @@ blockquote ul, blockquote ol {margin-left:1em;}
 .extrapad {padding:0.25em 0.5em;}
 a.plink {color:#c4c1b2; text-decoration:none; font-size:0.8em; text-transform:capitalize; padding:0.25em 0.5em; border:0;}
 body.detail a.plink {color:inherit;}
-body#logbook dt a:hover {background:#c4c1b2; color:#000;}
-body#logbook dt a:hover {background:#c4c1b2; color:#000;} 
 body#logbook dt:hover a.plink {color:#000;}
 body#logboook a.plink:hover {color:#000;}
 
 h1 {font-size:23px; font-weight:bold;}
 body#about h1 {font-size:1.7em;}
-body#logbook h1 {margin:0 0 0.5em;}
+body#logbook h1 {margin:0 0 0.3em;}
 h2 {font-size:21px; margin:1.5em 0 0.4em;}
 body#about h2 {font-size:1.5em;}
 h2.dateline {margin:5em 0 3em; text-transform:uppercase; font-size:0.9em !important; letter-spacing:0.2em; font-weight:normal;}
@@ -218,7 +211,10 @@ a.edit {color:#afa99f;}
 /*    body#contact h1#logo a {right:0;}*/
     body#contact h1#logo a {right:0;}
     div#brief {left:43px; text-align:left;}
-    body#contact #content form, body#contact #content p#thankyou {right:0;}    
+    body#contact #content form, body#contact #content p#thankyou {right:0;}
+    div.logcolumn {width:99%; text-align:left;}
+    div.logcolumn h2 {text-align:left; width:99%; padding-left:15px;}
+    div.logcolumn h2#writing {background-position:0 0; text-align:left;}
     }
 @media (max-width: 800px) {
     #page, #latest {width:auto;}
