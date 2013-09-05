@@ -27,7 +27,7 @@ Last update: 2013-09-05
 /* =layout =links =general ---------------------- */
 
 /*body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#eae6d8 url(/static/img/bg.jpg) repeat 0 0;}*/
-body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff url(/static/img/bg-white-plaster.png) repeat 0 0;}
+body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#ccc url(/static/img/paper_fibers.png) repeat 0 0;}
 
 a:link, a:visited {color:#06C; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
 a:visited {color:#2e2a1f;}
@@ -38,7 +38,7 @@ a:hover, a:active {text-decoration:none; color:#000; outline:none; background:#f
 }
 
 #wrapper {text-align:center;}
-/*#page {width:970px; text-align:left; margin:0 auto; background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}*/
+#page {width:970px; text-align:left; margin:0 auto; background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}
 #page {width:970px; text-align:left; margin:0 auto;}
 body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error.gif) no-repeat top left; background-position:352px -50px;}
 

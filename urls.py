@@ -110,12 +110,12 @@ urlpatterns += patterns('',
 
 
 # http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-development
-# from django.conf import settings
-# 
-# if settings.DEBUG :
-#     urlpatterns += patterns('',
-#         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
-#             {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-#         url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve', 
-#             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-#     )
+from django.conf import settings
+
+if settings.DEBUG :
+    urlpatterns += patterns('',
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
+            {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+        url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve', 
+            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    )
