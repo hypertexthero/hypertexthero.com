@@ -49,7 +49,7 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 /*h1#logo a {position:absolute; right:185px; bottom:0; width:227px; height:53px; background:url(/static/img/logo_home.gif) no-repeat 0 0; text-indent:-2000em; border:none;}
 h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}*/
 h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none;}
-h1#logo a b {border-bottom:2px solid #c4c1b2; padding-bottom:0;}
+h1#logo a b {border-bottom:2px dotted #c4c1b2; padding-bottom:0;}
 h1#logo a:hover b, h1#logo a:active b a:active {border:none;}
 
 #content {padding-left:43px; position:relative;}
