@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="{{ STATIC_URL }}css/code.css" type="text/css">
 
 {# =Mozilla =Persona - http://django-browserid.readthedocs.org/en/v0.9/setup.html#installation #}
-{# {% load browserid %} #}
+{% load browserid %}
 {# {% browserid_css %} #}
 
 <link rel="Shortcut Icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon">
@@ -66,10 +66,29 @@
     {% endblock footer %}
     
     {# =Mozilla =Persona #}
-    {# {% browserid_info %} #}
-    {# <p class="authentication">{% if user.is_authenticated %}Logged in as {{ user }} / {% browserid_logout text='Logout' %}{% else %}{% browserid_login text='Login' color='light' %}{% endif %}</p> #}
-    {# <script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"></script> #}
-    {# {% browserid_js %} #}
+    {% browserid_info %}
+    <p class="small">
+      {% if user.is_authenticated %}
+        Logged in as {{ user }} / {% browserid_logout text='Logout' %}
+        {% else %}
+        {% browserid_login text='Login' color='light' %}
+      {% endif %}
+    </p>
+    
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+            {% autoescape off %}
+                {{ message|safe }}
+            {% endautoescape %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <script src="{{ STATIC_URL }}js/jquery-1.9.1.min.js"></script>
+    {% browserid_js %}
+    {# <script type="text/javascript" src="{{ STATIC_URL }}js/browserid.js"></script> #}
+    {# <script type="text/javascript" src="https://login.persona.org/include.js"></script> #}
     
 </div> {# /#footer #}
     

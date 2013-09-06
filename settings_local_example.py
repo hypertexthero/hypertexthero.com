@@ -33,18 +33,29 @@ DATABASES = {
     }
 }
 
-# important to set this correctly for persona authentication!
 # http://django-browserid.readthedocs.org/en/v0.9/setup.html#installation
-# =Mozilla =Persona
-SITE_URL = 'http://127.0.0.1:8000'
+# =Mozilla =Persona - http://django-browserid.readthedocs.org/en/latest/details/troubleshooting.html
+# important to set this correctly for persona authentication!
+
+# for LOCAL DEVELOPMENT, uncomment the following:
+# SITE_URL = 'http://127.0.0.1:8000' 
+
+# for PRODUCTION make sure you set your domain name correctly:
+# SITE_URL = 'http://example.tld'
+
 BROWSERID_CREATE_USER = False
-# Path to redirect to on successful login.
 LOGIN_REDIRECT_URL = '/'
-# Path to redirect to on unsuccessful login attempt.
 LOGIN_REDIRECT_URL_FAILURE = '/'
-# Path to redirect to on logout.
 LOGOUT_REDIRECT_URL = '/'
 
+# for LOCAL DEVELOPMENT, uncomment the following: #########################################
+# SESSION_COOKIE_SECURE = False
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+#         'LOCATION': 'unique-snowflake'
+#     }
+# }
 # development - uncomment 2 lines below
 # INTERNAL_IPS = ('127.0.0.1',)
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1']
