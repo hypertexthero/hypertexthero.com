@@ -27,10 +27,10 @@ Last update: 2013-09-05
 /* =layout =links =general ---------------------- */
 
 /*body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#eae6d8 url(/static/img/bg.jpg) repeat 0 0;}*/
-body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#ccc url(/static/img/paper_fibers.png) repeat 0 0;}
+body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff url(/static/img/bg-grey.gif) repeat 0 0;}
 
 a:link, a:visited {color:#06C; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
-a:visited {color:#2e2a1f;}
+a:visited {color:#000;}
 a:hover, a:active {text-decoration:none; color:#000; outline:none; background:#ffc;}
 
 :target {
@@ -49,7 +49,7 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 /*h1#logo a {position:absolute; right:185px; bottom:0; width:227px; height:53px; background:url(/static/img/logo_home.gif) no-repeat 0 0; text-indent:-2000em; border:none;}
 h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}*/
 h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none;}
-h1#logo a b {border-bottom:2px dotted #c4c1b2; padding-bottom:0;}
+h1#logo a b {border-bottom:2px dotted #eee; padding-bottom:0;}
 h1#logo a:hover b, h1#logo a:active b a:active {border:none;}
 
 #content {padding-left:43px; position:relative;}
@@ -57,6 +57,7 @@ body#logbook #content, body#about #content, body#error #content {float:left;}
 #sidebar {float:right; width:296px; font-size:14px;}
 #picture {float:left; margin:0 0 1em 0;}
 #picture p {max-width:400px;}
+#picture img {border:1px solid #eee;}
 #content h1, #content h2, #content h3, #content p, #content li, #content dd {max-width:34em;}
 
 /* =home ---------------------- */
@@ -79,7 +80,7 @@ h2#writing a:hover {text-decoration:underline;}
 #latest {margin:-15px 0 0;}
 #latest ul li {padding:0.5em 0; font-size:14px;}
 div.column ul.thumbs {list-style:none;}
-div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #c4c1b2; border-radius:2px;}
+div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #eee; border-radius:2px;}
 li.nopicture {height:96px;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
 
@@ -119,7 +120,7 @@ body#logbook #header {background:url(/static/img/Airplane_BoeingP26Peashooter.gi
 body#archive #header p.breadcrumbs, body#about #header p.breadcrumbs, body#work #header p.breadcrumbs {font-size:14px; position:absolute; bottom:22px; left:0;}
 body#logbook #header p strong a {font-style:italic; font-size:22px; line-height:14px;}
 
-body#logbook #content blockquote {padding-left:1em; border-left:1px solid #c4c1b2;}
+body#logbook #content blockquote {padding-left:1em; border-left:1px solid #eee;}
 body#logbook #content h1 {font-size:125%;}
 body#logbook #content h1 a {border-bottom:none; color:#000;}
 body#logbook #content h2 {font-size:110%;}
@@ -136,7 +137,7 @@ body#archive #content p.archivetitle {line-height:1.2em; position:relative; padd
 
 body#about #header {background:url(/static/img/macchi_home.gif) no-repeat top right; margin-bottom:12px;}
 /*body#about #page, body#archive #page {background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}*/
-.quiet {color:#9E9682;}
+.quiet {color:#999;}
 .normal {font-weight:normal;}
 
 /* =typography, etc ---------------------- */
@@ -158,7 +159,7 @@ ol ol {list-style:lower-roman; font-size:0.9em;}
 #content ul, #content ol {margin-left:1em;}
 blockquote ul, blockquote ol {margin-left:1em;}
 .extrapad {padding:0.25em 0.5em;}
-a.plink {color:#c4c1b2; text-decoration:none; font-size:0.8em; text-transform:capitalize; padding:0.25em 0.5em; border:0;}
+a.plink {color:#eee; text-decoration:none; font-size:0.8em; text-transform:capitalize; padding:0.25em 0.5em; border:0;}
 body.detail a.plink {color:inherit;}
 body#logbook dt:hover a.plink {color:#000;}
 body#logboook a.plink:hover {color:#000;}
@@ -188,7 +189,7 @@ img {border:0; display:block; margin-bottom:1em;}
 body#home img {margin-bottom:0;}
 acronym, abbr {border-bottom:1px dashed #2e2a1f;}
 sup {line-height:0;}
-hr {color:#c4c1b2; background:#c4c1b2; max-width:42em; height:1px; border:none; margin:1em 0;}
+hr {color:#eee; background:#eee; max-width:42em; height:1px; border:none; margin:1em 0;}
 .caps {font-size:0.9em;}
 .pull-right {float:right; padding:0 0 1em 1.5em;}
 .pull-left {float:left; padding:0 0 0 1.5em 1em;}
@@ -198,7 +199,7 @@ hr {color:#c4c1b2; background:#c4c1b2; max-width:42em; height:1px; border:none; 
 .hide {display:none;}
 a.edit {color:#afa99f;}
 
-#footer {clear:both; padding:26px 43px; font-size:14px;}
+#footer {clear:both; padding:26px 43px;}
 
 /* =responsive structure - work in progress ---------------------- */
 

@@ -86,6 +86,9 @@ urlpatterns += patterns('views',
     # =homepage
     url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
 
+    # =404 for testing
+    url(r'^error/$', TemplateView.as_view(template_name='404.html'), name="error"),
+
 )
 
 

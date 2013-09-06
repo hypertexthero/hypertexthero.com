@@ -40,7 +40,7 @@
 		{{ object.body_html|safe }}
 
 
-<p class="paging small">
+<p class="paging">
         {% if object.get_prev_article %}
             <a rel="prev" href="{{ object.get_prev_article.get_absolute_url }}"><i>Previous:</i> <b>{{ object.get_prev_article }}</b></a>
         {% endif %}
