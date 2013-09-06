@@ -179,7 +179,7 @@ strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}
 div.footnote {font-size:0.9em;}
 div.footnote hr {margin:3em 0 1em; width:8em;}
-p.paging {margin:5em 0;}
+p.paging {margin:5em 0; font-size:0.9em;}
 img {border:0; display:block; margin-bottom:1em;}
 body#home img {margin-bottom:0;}
 acronym, abbr {border-bottom:1px dashed #2e2a1f;}
