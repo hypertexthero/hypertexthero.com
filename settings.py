@@ -61,6 +61,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django_browserid.auth.BrowserIDBackend',
+)
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
@@ -69,9 +73,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     # need to add the following so user variables such as username are available in templates - https://docs.djangoproject.com/en/dev/ref/templates/api/#django-contrib-auth-context-processors-auth
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
-    # display django version in footer using template tag defined in context_processors.py - http://stackoverflow.com/questions/4256145/django-template-tag-to-display-django-version
-    # 'phytosanitary.context_processors.django_version',
-    # required to have login form on every page and for templatetags - http://stackoverflow.com/questions/2734055/putting-a-django-login-form-on-every-page
+    'django_browserid.context_processors.browserid',
     'django.core.context_processors.request',
 )
 
@@ -102,6 +104,9 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.redirects', # enabling redirects app
     'django.contrib.sitemaps', # enabling sitemaps app
+
+    # =mozilla =persona authentication
+    'django_browserid',
 
     'typogrify',
     'markdown',

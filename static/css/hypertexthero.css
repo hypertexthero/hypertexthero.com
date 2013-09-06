@@ -67,9 +67,9 @@ h2#etcetera {background-position: 35px 0;}
 h2#identity {background-position: 35px 0;} 
 h2#print {background-position: 32px 0;} 
 h2#websites {background-position: 35px 0;} 
-h2#writing {background-position: 30px 0;} 
-h2#writing a {margin:0 auto 20px; border:0; display:block;}
-h2#writing a:hover {text-decoration:underline;}
+h2#writing {background-position: 30px 0; font-style:italic;} 
+h2#writing a {margin:-50px auto 20px; border:0; padding:50px 0 0; display:block;}
+h2#writing a:hover {text-decoration:underline; background:none;}
 
 #latest {margin:-15px 0 0;}
 #latest ul li {padding:0.5em 0; font-size:14px;}

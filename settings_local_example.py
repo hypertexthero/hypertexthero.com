@@ -33,6 +33,18 @@ DATABASES = {
     }
 }
 
+# important to set this correctly for persona authentication!
+# http://django-browserid.readthedocs.org/en/v0.9/setup.html#installation
+# =Mozilla =Persona
+SITE_URL = 'http://127.0.0.1:8000'
+BROWSERID_CREATE_USER = False
+# Path to redirect to on successful login.
+LOGIN_REDIRECT_URL = '/'
+# Path to redirect to on unsuccessful login attempt.
+LOGIN_REDIRECT_URL_FAILURE = '/'
+# Path to redirect to on logout.
+LOGOUT_REDIRECT_URL = '/'
+
 # development - uncomment 2 lines below
 # INTERNAL_IPS = ('127.0.0.1',)
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1']

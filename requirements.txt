@@ -2,6 +2,7 @@
 # pip install -r requirements.txt
 
 Django==1.5.2
+-e git+https://github.com/ubernostrum/django-browserid.git#egg=django_browserid
 gunicorn==18.0
 Markdown==2.3.1
 Pygments==1.6

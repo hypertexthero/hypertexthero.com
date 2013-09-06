@@ -17,6 +17,11 @@
 
 <link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero.css" type="text/css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/code.css" type="text/css">
+
+{# =Mozilla =Persona - http://django-browserid.readthedocs.org/en/v0.9/setup.html#installation #}
+{# {% load browserid %} #}
+{# {% browserid_css %} #}
+
 <link rel="Shortcut Icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon">
 
 <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
@@ -43,15 +48,15 @@
     {% endif %}
 <div id="wrapper">
 <div id="page">
-    <div id="header">
-        {% block header %}{% endblock header %}
-    </div>
-    
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div> {# /#content #}
-    
-    <div id="footer">
+  <div id="header">
+    {% block header %}{% endblock header %}
+  </div>
+
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div> {# /#content #}
+
+  <div id="footer">
     {% block footer %}
     <hr class="hide">
     Copyright © 2005–{% now "Y" %} {% include "hth/navigation.html" %}
@@ -59,7 +64,14 @@
     <br>
     {% include "hth/search_form.html" %}
     {% endblock footer %}
-    </div> {# /#footer #}
+    
+    {# =Mozilla =Persona #}
+    {# {% browserid_info %} #}
+    {# <p class="authentication">{% if user.is_authenticated %}Logged in as {{ user }} / {% browserid_logout text='Logout' %}{% else %}{% browserid_login text='Login' color='light' %}{% endif %}</p> #}
+    {# <script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"></script> #}
+    {# {% browserid_js %} #}
+    
+</div> {# /#footer #}
     
 </div> {# /#page #}
 </div> {# /#wrapper #}
