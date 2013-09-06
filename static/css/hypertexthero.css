@@ -140,7 +140,7 @@ body#about #header {background:url(/static/img/macchi_home.gif) no-repeat top ri
 p#homelink {line-height:0 !important; margin:0 !important; font-style:italic;}
 p#homelink a {border:none !important;}
 p#homelink a:hover, p#homelink a:active {text-indent:0 !important; line-height:1em !important; color:#afa99f; background:none;}
-p {margin:0 0 0.5em; line-height:1.3em;}
+p {margin:0 0 0.6em; line-height:1.3em;}
 dt {margin:0 0 0.75em; color:#2e2a1f;}
 body.detail dt {font-weight:bold;}
 dd {margin:0 0 2em 1em;}
