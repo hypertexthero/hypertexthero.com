@@ -30,8 +30,8 @@ Last update: 2013-09-06
 body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff url(/static/img/bg-grey.gif) repeat 0 0;}
 
 a:link, a:visited {color:#06c; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
-a:visited {color:#000;}
-a:hover, a:active {text-decoration:none; color:#000; outline:none; background:#ffc;}
+a:visited {color:#36c;}
+a:hover, a:active {text-decoration:none; color:#900; outline:none; border:none;}
 
 :target {background: #ffc !important;}
 
