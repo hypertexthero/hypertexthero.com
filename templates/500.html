@@ -1,1 +1,20 @@
-500 - Unhandled exception
+{% extends "base.html" %}
+{% block headtitle %}Hypertexthero: 500 - Unhandled Exception{% endblock headtitle %}
+{% block description %}Hypertexthero: 500 - Unhandled Exception{% endblock %}
+{% block bodyid %}error{% endblock bodyid %}
+
+{% load hth_tags %}
+
+{% block header %}
+    <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / 500 - Unhandled Exception</p>
+{% endblock header %}
+
+{% block content %}
+<h1>500 - Unhandled Exception</h1>
+<p><em>Oops. We will be right back!</em></p>
+{% endblock %}
+
+{% block footer %}
+{{ block.super }}
+{% endblock footer %}
