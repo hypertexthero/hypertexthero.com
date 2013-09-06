@@ -27,10 +27,10 @@
 
 {% if object.kind == "L" %} {# if a value for linkurl is present in the head of files this is a link to another site #}
     <dl>
-        <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
-        <dd>
-    	    {{ object.body_html|safe }}
-        </dd>
+      <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
+      <dd>
+    	  {{ object.body_html|safe }}
+      </dd>
     </dl>
 
     {% else %} {# otherwise it is an original article #}
@@ -39,17 +39,17 @@
 		<p class="quiet"><time pubdate="pubdate">{{ object.pub_date|date:"l, F j Y" }}</time></p>
 		{{ object.body_html|safe }}
 
+{% endif %} {# end if object.kind == "L" #}
 
 <p class="paging">
-        {% if object.get_prev_article %}
-            <a rel="prev" href="{{ object.get_prev_article.get_absolute_url }}"><i>Previous:</i> <b>{{ object.get_prev_article }}</b></a>
-        {% endif %}
-        <br>
-        {% if object.get_next_article %}
-            <a rel="next" href="{{ object.get_next_article.get_absolute_url }}"><i>Next:</i> <b>{{ object.get_next_article }}</b></a>
-        {% endif %}
+  {# https://docs.djangoproject.com/en/dev/ref/models/instances/?from=olddocs#django.db.models.Model.get_next_by_FOO #}
+  {% if object.get_previous_by_pub_date %}
+    <a rel="prev" href="{{ object.get_previous_by_pub_date.get_absolute_url }}"><i>Previous:</i> <b>{{ object.get_previous_by_pub_date }}</b></a>
+  {% endif %}
+    <br>
+  {% if object.get_next_by_pub_date %}
+    <a rel="next" href="{{ object.get_next_by_pub_date.get_absolute_url }}"><i>Next:</i> <b>{{ object.get_next_by_pub_date }}</b></a>
+  {% endif %}
 </p>
-
-{% endif %} {# end if object.kind == "L" #}
 
 {% endblock %}
