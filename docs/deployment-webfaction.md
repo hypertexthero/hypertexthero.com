@@ -2,7 +2,7 @@
 
 ## Software Stack
 
-The deployed stack for <http://hypertexthero.com> consists of the following components runn on webfaction:
+The deployed stack for <http://hypertexthero.com> consists of the following components running on webfaction:
 
 - [NGINX](http://nginx.org/en/) - public facing web server - serves media and proxies dynamic requests to Gunicorn. Currently using webfactions system-wide nginx.
 - [Gunicorn](http://gunicorn.org/ "Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX.") - internal HTTP application server
