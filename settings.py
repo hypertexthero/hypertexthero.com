@@ -112,8 +112,14 @@ INSTALLED_APPS = (
 
     'taggit',
     'taggit_autosuggest',
-
+    
+    # application server
     'gunicorn',
+    # see what's running: ps aux | grep gunicorn
+    # graceful stop: kill -HUP ####
+    # start: gunicorn --daemon wsgi:application -b 127.0.0.1:23035
+    #    or: python manage.py run_gunicorn --daemon -b 127.0.0.1:23035 -w 2 --max-requests 500
+    # stop: pkill gunicorn
 
     'contact_form',
     'hth.templatetags',
