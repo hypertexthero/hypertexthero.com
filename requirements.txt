@@ -1,25 +1,14 @@
 # Requirements to deploy this code. To install all these run the following from terminal: 
 # pip install -r requirements.txt
 
-Django >= 1.5 # http://packages.python.org/Markdown/
-markdown # https://github.com/mintchaos/typogrify
-typogrify
-Pygments
-
-flup
-# psycopg2 # If using postgres db
-
--e git+https://github.com/hypertexthero/django-staticgenerator/#egg=django-staticgenerator
-
-django-taggit
-# pip install -e hg+http://hg.myproject.org/MyProject/@special_feature#egg=MyProject
--e hg+https://hg.bitbucket.org/fabian/django-taggit-autosuggest/#egg=django-taggit-autosuggest
-
-# South >= 0.7, < 0.8
-
-# Portfolio app ======
-# PIL
-# django-admin-sortable
-# sorl-thumbnail
-# #pip install -e git://github.com/dokterbob/django-portfolio.git#egg=django-portfolio
-# git://github.com/dokterbob/django-portfolio.git#egg=django-portfolio
+Django==1.5.2
+Markdown==2.3.1
+Pygments==1.6
+django-contact-form==1.0
+django-medusa==0.1.dev
+django-taggit==0.10a1
+django-taggit-autosuggest==0.2
+django-taggit-autosuggest-select2==0.1
+smartypants==1.6.0.3
+typogrify==2.0.0
+wsgiref==0.1.2

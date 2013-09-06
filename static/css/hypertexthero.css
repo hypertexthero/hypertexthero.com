@@ -116,7 +116,7 @@ body#work #header p.breadcrumbs, body#about #header p.breadcrumbs, body#logbook 
 
 /* =logbook ---------------------- */
 
-body#logbook #header {background:url(/static/img/Airplane_BoeingP26Peashooter.gif) no-repeat; background-position:right bottom; height:120px;}
+body#logbook #header {background:url(/static/img/AeromarineAirwaysHighballExpresstoBimini.gif) no-repeat; background-position:right bottom; height:120px;}
 body#archive #header p.breadcrumbs, body#about #header p.breadcrumbs, body#work #header p.breadcrumbs {font-size:14px; position:absolute; bottom:22px; left:0;}
 body#logbook #header p strong a {font-style:italic; font-size:22px; line-height:14px;}
 
@@ -132,6 +132,8 @@ body#archive form {margin-bottom:1em;}
 body#archive #content h2.archivemonth {margin:2.5em 0; font-weight:bold;}
 body#archive #content p.archiveday {line-height:1em; margin:0 0 -1em 1em !important;}
 body#archive #content p.archivetitle {line-height:1.2em; position:relative; padding-left:2.8em;}
+
+body.linked #header {background:url(/static/img/Airplane_BoeingP26Peashooter.gif) no-repeat !important; background-position:right bottom !important; height:120px;}
 
 /* =misc ---------------------- */
 

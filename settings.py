@@ -113,8 +113,8 @@ INSTALLED_APPS = (
     'taggit',
     'taggit_autosuggest',
 
-    'contact',
-    'contact.templatetags',
+    'contact_form',
+    # 'contact.templatetags',
     'hth.templatetags',
     
     'hth',
