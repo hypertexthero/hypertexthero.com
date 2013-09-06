@@ -1,8 +1,9 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: 2013-09-05
+Last update: 2013-09-06
 */
 * {margin:0; padding:0;}
+
 /* =fonts ---------------------- */
 /* If self-hosting: http://stackoverflow.com/questions/8966740/what-is-the-correct-way-of-hosting-google-web-fonts-on-my-own-server*/
 /*@font-face {
@@ -26,16 +27,13 @@ Last update: 2013-09-05
 
 /* =layout =links =general ---------------------- */
 
-/*body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#eae6d8 url(/static/img/bg.jpg) repeat 0 0;}*/
 body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff url(/static/img/bg-grey.gif) repeat 0 0;}
 
-a:link, a:visited {color:#06C; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
+a:link, a:visited {color:#06c; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
 a:visited {color:#000;}
 a:hover, a:active {text-decoration:none; color:#000; outline:none; background:#ffc;}
 
-:target {
-   background: #ffc !important;
-}
+:target {background: #ffc !important;}
 
 #wrapper {text-align:center;}
 #page {width:970px; text-align:left; margin:0 auto; background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}
@@ -46,10 +44,8 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 #header blockquote {position:absolute; bottom:0; left:0; width:45%; font-size:14px; line-height:17px;}
 #header p.breadcrumbs {position:absolute; bottom:0; left:0; font-size:14px;}
 
-/*h1#logo a {position:absolute; right:185px; bottom:0; width:227px; height:53px; background:url(/static/img/logo_home.gif) no-repeat 0 0; text-indent:-2000em; border:none;}
-h1#logo a:hover, h1#logo a:active, body#contact h1#logo a:hover, body#contact h1#logo a:active {background-position:0 -53px;}*/
 h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none;}
-h1#logo a b {border-bottom:2px dotted #eee; padding-bottom:0;}
+h1#logo a b {border-bottom:2px dotted #ccc; padding-bottom:0; color:#06c;}
 h1#logo a:hover b, h1#logo a:active b a:active {border:none;}
 
 #content {padding-left:43px; position:relative;}
@@ -64,8 +60,6 @@ body#logbook #content, body#about #content, body#error #content {float:left;}
 
 body#home #header {margin-bottom:12px;}
 div.column {width:155px; float:left; margin:0 26px 0 0;}
-
-/*div.column h2 {text-align:center; background: url(/static/img/headings-sprite.png) no-repeat top left; text-indent:-2000em; margin:25px auto 10px; width: 111px; height: 68px;}*/
 
 div.column h2 {text-align:center; background: url(/static/img/parachute.gif) no-repeat 35px 0; margin:20px auto 15px; width: 155px; padding:40px 0 0 10px;}
 
@@ -92,7 +86,7 @@ body#archive #header p#homelink a {width:385px;}
 body#contact #header p#homelink a {position:absolute; width:140px; height:109px; top:28px; left:0; display:block; text-indent:-2000em;}
 body#contact #page {padding-bottom:100px; background:url(/static/img/balloon.gif) no-repeat top left; background-position:196px 0; width:900px;}
 body#contact #header {background:url(/static/img/macchi_contact.gif) no-repeat top left; background-position:0 28px; margin-bottom:41px;}
-/*body#contact h1#logo a {width:240px; bottom:0; right:100px; background:url(/static/img/logo_contact.gif) no-repeat 0 0;}*/
+
 body#contact h1#logo a {width:240px; bottom:0; right:100px;}
 body#contact #content {position:relative;}
 body#contact #content form, body#contact #content p#thankyou {position:absolute; right:-47px; top:0; width:336px; padding-right:90px; background:url(/static/img/inverted_jenny.gif) no-repeat bottom right;}
@@ -138,7 +132,6 @@ body.linked #header {background:url(/static/img/Airplane_BoeingP26Peashooter.gif
 /* =misc ---------------------- */
 
 body#about #header {background:url(/static/img/macchi_home.gif) no-repeat top right; margin-bottom:12px;}
-/*body#about #page, body#archive #page {background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;}*/
 .quiet {color:#999;}
 .normal {font-weight:normal;}
 
