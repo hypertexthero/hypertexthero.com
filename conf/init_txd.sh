@@ -1,3 +1,6 @@
+# These are the settings for when the site was in Textdrive.
+# Keeping them here in case I need to revert to fcgi someday.
+
 #!/usr/local/bin/bash 
 
 #Activate the virtualenv 
