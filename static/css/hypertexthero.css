@@ -186,8 +186,8 @@ acronym, abbr {border-bottom:1px dashed #2e2a1f;}
 sup {line-height:0;}
 hr {color:#eee; background:#eee; max-width:42em; height:1px; border:none; margin:1em 0;}
 .caps {font-size:0.9em;}
-.pull-right {float:right; padding:0 0 1em 1.5em;}
-.pull-left {float:left; padding:0 0 0 1.5em 1em;}
+.pull-right {float:right; padding:0 0 1em 1em;}
+.pull-left {float:left; padding:0 0 0 1em 1em;}
 .monospace {font-family:monospace;}
 .titlecase {text-transform:capitalize;}
 .center {text-align:center;}
