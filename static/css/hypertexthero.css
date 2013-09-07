@@ -1,32 +1,12 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: 2013-09-06
+Last update: 2013-09-07
 */
 * {margin:0; padding:0;}
 
-/* =fonts ---------------------- */
-/* If self-hosting: http://stackoverflow.com/questions/8966740/what-is-the-correct-way-of-hosting-google-web-fonts-on-my-own-server*/
-/*@font-face {
-  font-family: 'Gentium Basic';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Gentium Basic'), local('GentiumBasic'), url(../font/GentiumBasic.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Gentium Basic';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Gentium Basic Bold'), local('GentiumBasic-Bold'), url(../font/GentiumBasic-Bold.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Gentium Basic';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Gentium Basic Italic'), local('GentiumBasic-Italic'), url(../font/GentiumBasic-Italic.ttf) format('truetype');
-}*/
-
 /* =layout =links =general ---------------------- */
 
+/*http://stackoverflow.com/questions/8966740/what-is-the-correct-way-of-hosting-google-web-fonts-on-my-own-server*/
 body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff url(/static/img/bg-grey.gif) repeat 0 0;}
 
 a:link, a:visited {color:#06c; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
