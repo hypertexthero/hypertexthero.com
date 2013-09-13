@@ -9,9 +9,9 @@ Last update: 2013-09-07
 /*http://stackoverflow.com/questions/8966740/what-is-the-correct-way-of-hosting-google-web-fonts-on-my-own-server*/
 body {font-family:"Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff url(/static/img/bg-grey.gif) repeat 0 0;}
 
-a:link, a:visited {color:#06c; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
-a:visited {color:#36c;}
-a:hover, a:active {text-decoration:none; color:#900; outline:none; border:none;}
+a:link, a:visited {color:#0074BD; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
+a:visited {color:#1D6EB1;}
+a:hover, a:active {text-decoration:none; color:#930; outline:none; border:none;}
 
 :target {background: #ffc !important;}
 
@@ -25,8 +25,8 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 #header p.breadcrumbs {position:absolute; bottom:0; left:0; font-size:14px;}
 
 h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none; color:#2e2a1f;}
-h1#logo a b {border-bottom:2px dotted #ccc; padding-bottom:0; color:#06c;}
-h1#logo a:hover b, h1#logo a:active b a:active {border:none;}
+h1#logo a b {border-bottom:2px dotted #ccc; padding-bottom:0; color:#0074BD;}
+h1#logo a:hover b, h1#logo a:active b a:active {border:none; color:#930;}
 
 #content {padding-left:43px; position:relative;}
 body#logbook #content, body#about #content, body#error #content {float:left;}
@@ -117,6 +117,7 @@ body#about #header {background:url(/static/img/macchi_home.gif) no-repeat top ri
 
 /* =typography, etc ---------------------- */
 
+p.adminmenu {font-family:monospace; position:absolute; top:0; left:0; z-index:100; padding:1em 0;}
 p#homelink {line-height:0 !important; margin:0 !important; font-style:italic;}
 p#homelink a {border:none !important;}
 p#homelink a:hover, p#homelink a:active {text-indent:0 !important; line-height:1em !important; color:#afa99f; background:none;}
@@ -136,8 +137,8 @@ blockquote ul, blockquote ol {margin-left:1em;}
 .extrapad {padding:0.25em 0.5em;}
 a.plink {color:#eee; text-decoration:none; font-size:0.8em; text-transform:capitalize; padding:0.25em 0.5em; border:0;}
 body.detail a.plink {color:inherit;}
-body#logbook dt:hover a.plink {color:#000;}
-body#logboook a.plink:hover {color:#000;}
+dt:hover a.plink, li:hover a.plink {color:#000;}
+a.plink:hover {color:#000;}
 
 h1 {font-size:23px; font-weight:bold;}
 body#about h1 {font-size:1.7em;}

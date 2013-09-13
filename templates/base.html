@@ -42,7 +42,7 @@
 <body id="{% block bodyid %}{% endblock bodyid %}" class="{% block bodyclass %}{% endblock bodyclass %}">
 
     {% if user.is_staff %}
-    <p class="small monospace pull-right" style="padding:1em 0;">
+    <p class="adminmenu">
         <a style="padding:1em; border:0;" href="/admin/">admin</a> <a style="padding:1em; border:0;" href="/admin/logout/">logout</a>
     </p>
     {% endif %}

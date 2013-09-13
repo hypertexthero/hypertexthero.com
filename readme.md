@@ -17,6 +17,7 @@ Features
 
 - Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment.
 - Set up [SSL for privacy](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS).
+- Set up own instance of nginx?
 - Add to portfolio:
     - http://www.angelopaionni.it/
     - ippc identity work, including redrawn logo, trifold brochure, etc
