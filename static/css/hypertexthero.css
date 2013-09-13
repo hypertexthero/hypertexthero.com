@@ -34,7 +34,7 @@ body#logbook #content, body#about #content, body#error #content {float:left;}
 #picture {float:left; margin:0 0 1em 0;}
 #picture p {max-width:400px;}
 #picture img {border:1px solid #eee;}
-#content h1, #content h2, #content h3, #content p, #content li, #content dd {max-width:34em;}
+#content h1, #content h2, #content h3, #content p, #content li, #content dd, #content dt {max-width:34em;}
 
 /* =home ---------------------- */
 
