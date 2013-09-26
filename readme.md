@@ -19,6 +19,7 @@ Features
 - Set up [SSL for privacy](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS).
 - Set up own instance of nginx?
 - Add to portfolio:
+    - Graphite logo prototype
     - http://www.angelopaionni.it/
     - ippc identity work, including redrawn logo, trifold brochure, etc
 - Add Textile as a text syntax option.
