@@ -58,13 +58,13 @@ def RandomLine(afile):
 # http://mechanicalgirl.com/post/custom-template-tags-in-django/
 @register.inclusion_tag("hth/latest_entries.html", name="latest_entries")
 def LatestEntries():
-        latest_entries = Entry.objects.filter(
+        latest_entries = Entry.objects.published().filter(
                             is_active=1).order_by('-pub_date', 'title')[:7]
         return {'latest_entries': latest_entries}
 
 @register.inclusion_tag("hth/latest_linked_list_entries.html", name="latest_linked_list_entries")
 def LatestLinkedListEntries():
-        latest_linked_list_entries = Entry.objects.filter(
+        latest_linked_list_entries = Entry.objects.published().filter(
                             is_active=1, kind="L").order_by('-pub_date', 'title')[:15]
         return {'latest_linked_list_entries': latest_linked_list_entries}
 
