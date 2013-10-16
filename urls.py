@@ -86,6 +86,10 @@ urlpatterns += patterns('views',
     url(r'^logbook/rss/$', RssLogbookFeed()),
     url(r'^logbook/atom/$', AtomLogbookFeed()),
     
+    # Robots
+    url(r'^robots\.txt$', TemplateView.as_view(
+        template_name='robots.txt', content_type='text/plain')),
+    
     # =homepage
     url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
 

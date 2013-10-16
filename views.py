@@ -85,8 +85,8 @@ class LinkedListView(ArchiveIndexView):
 #         return content[:length].rsplit(' ', 1)[0]+suffix
 
 class RssLogbookFeed(Feed):
-    title = "Hypertexthero Logbook by Simon Griffee"
-    link = "/logbook/"
+    title = "Hypertexthero"
+    link = "http://hypertexthero.com/logbook/"
     description = "Writing and links on web, design and simplicity by Simon Griffee"
     # description_template = "hth/feed_description.html" # using default for now
 
