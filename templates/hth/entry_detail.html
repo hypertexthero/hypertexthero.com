@@ -6,7 +6,7 @@
     {{ object.title }} - {% if object.kind == "L" %}Hypertexthero Linked List{% else %} {# otherwise it is an original article #}Hypertexthero{% endif %} 
 {% endblock headtitle %}
 
-{% block description %}{% if object.kind == "L" %}Hypertexthero Linked List: {% else %} {# otherwise it is an original article #}Hypertexthero: {% endif %}{{ object.title }}{% endblock %} 
+{% block description %}{{ object.title }} - {% if object.kind == "L" %}Hypertexthero Linked List{% else %} {# otherwise it is an original article #}Hypertexthero{% endif %}{% endblock %} 
 
 {% block bodyid %}logbook{% endblock bodyid %}
 {% block bodyclass %}detail{% endblock bodyclass %}
