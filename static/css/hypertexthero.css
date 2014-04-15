@@ -22,7 +22,8 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 
 #header {margin:0 43px 12px; height:137px; position:relative; background:url(/static/img/macchi_home.gif) no-repeat top right;}
 #header blockquote {position:absolute; bottom:0; left:0; width:45%; font-size:14px; line-height:17px;}
-#header p.breadcrumbs {position:absolute; bottom:0; left:0; font-size:14px;}
+#header p.breadcrumbs {position:absolute; bottom:0; left:0; font-size:14px; color:#ccc;}
+#header p.breadcrumbs a {color:#999;}
 
 h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none; color:#2e2a1f;}
 h1#logo a b {border-bottom:2px dotted #ccc; padding-bottom:0; color:#0074BD;}
@@ -156,7 +157,7 @@ p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
 pre {margin:1em 0; padding:1em; overflow:visible; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
 pre, code, kbd, samp, tt{font-family:courier, "courier new", monospace,monospace; font-size:0.9em;}
 kbd {background:#ffc; padding:0.15em; border:1px solid #E6E3DB; border-radius:3px; line-height:0;}
-pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#afa99f; background:none; border:0 !important;}
+pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#ccc; background:none; border:0 !important;}
 strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}
 div.footnote {font-size:0.9em;}

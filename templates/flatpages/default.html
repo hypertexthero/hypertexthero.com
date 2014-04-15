@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block headtitle %}Hypertexthero: {{ flatpage.title }}{% endblock %}
-{% block description %}Hypertexthero: {{ flatpage.title }}{% endblock %}
 {% block keywords %}Web, Design, Simplicity{% endblock %}
 
 {% block extrahead %}
@@ -11,7 +10,9 @@
 {% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
+{% comment %}
     <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p>
+{% endcomment %}
     <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / {{ flatpage.title }}</p>
 {% endblock header %}
 
