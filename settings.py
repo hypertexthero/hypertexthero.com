@@ -57,9 +57,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'honeypot.middleware.HoneypotMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+HONEYPOT_FIELD_NAME = 'streetaddress'
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
@@ -116,6 +119,9 @@ INSTALLED_APPS = (
     
     # application server
     'gunicorn',
+    
+    # stop spam
+    'honeypot',
     
     # see what's running: ps aux | grep gunicorn
     # graceful stop: kill -HUP ####
