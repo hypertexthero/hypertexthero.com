@@ -19,6 +19,14 @@ from django.views.generic.dates import YearArchiveView
 from django.contrib import admin
 admin.autodiscover()
 
+# https://github.com/justquick/django-math-captcha
+from contact_form.views import ContactFormView
+from contact_form.forms import ContactForm
+from math_captcha.forms import MathCaptchaForm
+
+class CaptchaContactForm(ContactForm,MathCaptchaForm):
+    pass
+
 urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -56,7 +64,7 @@ urlpatterns = patterns('',
         name='archive-year'),
 
     # hypertexthero.com/linked/2013/january
-    url(r'^linked/(?P<year>\d+)/(?P<month>\d{2})/$', 
+    url(r'^linked/(?P<year>\d+)/(?P<month>\d{2})/$',
         view=LinkedListMonthArchive.as_view(),
         name='linked-archive'),
     # hypertexthero.com/linked/ and hypertexthero.com/linked/#archive
@@ -66,6 +74,10 @@ urlpatterns = patterns('',
     
     # hypertexthero.com/logbook
     url(r'^logbook/$', view=LogbookView.as_view(), name='logbook'),    
+    
+    # contact
+    url(r'^contact/$', view=ContactFormView.as_view(form_class=CaptchaContactForm), name='contact_form'),
+    url(r'^contact/sent/$', TemplateView.as_view(template_name='contact_form/contact_form_sent.html'), name='contact_form_sent'),
     
     # In addition to the following url pattern we are also using the 
     # built-in redirect app to redirect /linked/archive to /linked#archive
@@ -79,7 +91,7 @@ urlpatterns += patterns('views',
 # url(r'^work/(?P<slug>[-\w]+)$', TemplateView.as_view(
 #         template_name='flatpages/default.html'), name='work-detail'),
 
-    url(r'^contact/', include("contact_form.urls")),
+    # url(r'^contact/', include("contact_form.urls")),
     url(r'^search/$', Search, name="search"),
 
     # Feeds

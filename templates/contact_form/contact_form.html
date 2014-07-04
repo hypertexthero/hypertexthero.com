@@ -41,6 +41,23 @@
 {% endfor %}
 {% endif %}
 </div>
+
+{# <div class="input{% if form.math_captcha_field.errors %} alert alert-error{% endif %}"> #}
+{#     <label for="id_math_captcha_field">{{settings.MATH_CAPTCHA_QUESTION}}</label> #}
+{#     <input id="id_math_captcha_field" name="math_captcha_field" type="text">{{form.math_captcha_field}}</input> #}
+{#     {% if form.math_captcha_field.errors %} #}
+{#     {% for error in form.math_captcha_field.errors %} #}
+{#     {{ error|escape }} #}
+{#     {% endfor %} #}
+{#     {% endif %} #}
+{# </div> #}
+
+<p>
+  <label for="id_math_captcha_field">Are you human?</label> 
+  <input value="{{form.math_captcha_question.clean_math_captcha_field.}}" name="math_captcha_question"> 
+  5 - 2 = <input id="id_math_captcha_field" name="math_captcha_field" type="text">
+</p>
+
 <input type="submit" value="Send" tabindex="4" />
 </form>
 
