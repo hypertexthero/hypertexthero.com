@@ -68,9 +68,56 @@ The deployed stack for <http://hypertexthero.com> consists of the following comp
 
 5. [Restart server](#restart)
 
-# Cron
+# Cron (or better yet, supervisord -- see below)
 
 This is the cron job to make sure gunicorn is running.
 ssh into webfaction account, type ‘crontab -e’ to edit the cron file and append the following to the bottom of the file:
 
   30 * * * * cd ~/webapps/hypertexthero/hypertexthero-env/ && /webapps/hypertexthero/hypertexthero-env/bin/python /webapps/hypertexthero/hypertexthero-env/hth/manage.py run_gunicorn --daemon -b 127.0.0.1:23035 -w 2 --max-requests 500
+
+
+# Supervisord
+**Problem:** Your server machine crashes and your website running under an application server such as [Gunicorn](http://gunicorn.org/) goes down. The app server needs to be restarted.
+
+**Solution:** Use [supervisord](http://supervisord.org/) to monitor your application server process and restart it if it dies.
+
+1. Install supervisord:
+
+        pip install supervisor
+
+2. Put the follosing in `~/etc/supervisord.conf` (includes examples for [hypertexthero.com](http://hypertexthero.com) and [Food News](http://food.hypertexthero.com)):
+
+        [unix_http_server]
+        file=/home/hth/tmp/supervisor.sock
+
+        [supervisord]
+        logfile=/home/hth/logs/user/supervisord.log
+        logfile_maxbytes=25MB
+        logfile_backups=10
+        loglevel=info
+        pidfile=/home/hth/etc/supervisord.pid
+
+        [rpcinterface:supervisor]
+        supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+        [supervisorctl]
+        serverurl=unix:///home/hth/tmp/supervisor.sock
+
+        [include]
+        files = /home/hth/webapps/hypertexthero/hypertexthero-env/hth/hth/conf/supervisor.ini /home/hth/webapps/foodnews/fn-env/fn/supervisor.ini 
+
+3. Create a `supervisor.ini` file in each web application's repository so we keep supervisor settings for the application in version control. Example:
+
+        [program:hypertexthero.com]
+        command=/home/hth/webapps/hypertexthero/hypertexthero-env/bin/python2.7 /home/hth/webapps/hypertexthero/hypertexthero-env/bin/gunicorn_django --daemon -b 127.0.0.1:23035 -w 2 --max-requests 500
+        directory=/home/hth/webapps/hypertexthero/hypertexthero-env/hth/hth
+        user=hth
+        autostart=true
+        autorestart=true
+        redirect_stderr=True
+
+4. Start supervisord using its main configuration file:
+
+        supervisord -c /home/hth/etc/supervisord.conf
+
+If problem, see [this](http://serverfault.com/a/397970).
