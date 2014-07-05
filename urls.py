@@ -22,10 +22,10 @@ admin.autodiscover()
 # https://github.com/justquick/django-math-captcha
 from contact_form.views import ContactFormView
 from contact_form.forms import ContactForm
-from math_captcha.forms import MathCaptchaForm
+# from math_captcha.forms import MathCaptchaForm
 
-class CaptchaContactForm(ContactForm,MathCaptchaForm):
-    pass
+# class CaptchaContactForm(ContactForm,MathCaptchaForm):
+#     pass
 
 urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
