@@ -14,8 +14,8 @@
 {% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
-  {% include "hth/intro.html" %}
-    {# <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/" title="logbook front page.">Logbook</a> /</p> #}
+  
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> Logbook</a> /</p>
 {% endblock header %}
 
 {% block content %}
@@ -52,5 +52,7 @@
     <a rel="next" href="{{ object.get_next_by_pub_date.get_absolute_url }}"><i>Next:</i> <b>{{ object.get_next_by_pub_date }}</b></a>
   {% endif %}
 </p>
+
+{% include "hth/intro.html" %}
 
 {% endblock %}
