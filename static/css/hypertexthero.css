@@ -25,6 +25,7 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 #header p.breadcrumbs {position:absolute; bottom:0; left:0; font-size:14px; color:#ccc;}
 #header p.breadcrumbs a {color:#999;}
 
+#intro {float:right; width:200px; margin-top:142px;}
 h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none; color:#2e2a1f;}
 h1#logo a b {border-bottom:2px dotted #ccc; padding-bottom:0; color:#0074BD;}
 h1#logo a:hover b, h1#logo a:active b a:active {border:none; color:#930;}

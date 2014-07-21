@@ -64,9 +64,6 @@ urlpatterns = patterns('',
         view=LinkedListView.as_view(), 
         name='linked-list'),
     
-    # hypertexthero.com/logbook
-    url(r'^logbook/$', view=LogbookView.as_view(), name='logbook'),    
-    
     # contact
     url(r'^contact/', include("contact_form.urls")),
     
@@ -93,8 +90,11 @@ urlpatterns += patterns('views',
     url(r'^robots\.txt$', TemplateView.as_view(
         template_name='robots.txt', content_type='text/plain')),
     
-    # =homepage
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
+    # =work
+    url(r'^work/$', TemplateView.as_view(template_name='work.html'), name="work"),
+
+    # hypertexthero.com =homepage (logbook)
+    url(r'^$', view=LogbookView.as_view(), name='logbook'),
 
     # =404 for testing
     # url(r'^error/$', TemplateView.as_view(template_name='404.html'), name="error"),
