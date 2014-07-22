@@ -186,7 +186,7 @@ a.edit {color:#afa99f;}
 
 @media (max-width: 970px) {
     #page, #intro {width:auto;}
-    #content {padding-top:9em;}
+    #content {padding-top:13em;}
     #intro {position:relative; font-style:italic; padding-top:38px; width:auto; float:none;}
     p.aeroplane a {margin:0 0 1.5em;}
     #latest {width:auto; clear:both; text-align:left; float:none;}
