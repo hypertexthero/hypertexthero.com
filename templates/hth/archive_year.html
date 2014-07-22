@@ -4,8 +4,8 @@
 {% block bodyid %}archive{% endblock bodyid %}
 
 {% block header %}
-    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/archive/" title="logbook front page.">Logbook Archive</a> / {{ year|date:"Y" }}</p>
-        {% include "hth/intro.html" %}
+    <p class="breadcrumbs" style="top:10px;"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/archive/" title="logbook front page.">Logbook Archive</a> / {{ year|date:"Y" }}</p>
+    {% include "hth/intro.html" %}
 {% endblock header %}
 
 {% block content %}

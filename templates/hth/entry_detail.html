@@ -14,12 +14,11 @@
 {% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
-  
-    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> Logbook</a> /</p>
+  {% include "hth/intro.html" %}
+      {# <p class="breadcrumbs" style="top:10em;"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> /</p> #}
 {% endblock header %}
 
 {% block content %}
-
 {% if user.is_staff %} 
 <div class="pull-right">
     <a class="edit small monospace" href="/admin/hth/entry/{{ entry.id }}">Edit</a>
@@ -28,7 +27,7 @@
 
 {% if object.kind == "L" %} {# if a value for linkurl is present in the head of files this is a link to another site #}
     <dl>
-      <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
+      <dt><a href="{{ object.url }}">{{ object.title }}</a> &nbsp;<a class="plink" title="Permanent link to this entry." href="{{ object.get_linked_list_url }}"># {{ object.pub_date|date:"d b Y" }}</a></dt>
       <dd>
     	  {{ object.body_html|safe }}
       </dd>
@@ -36,7 +35,7 @@
 
     {% else %} {# otherwise it is an original article #}
 
-		<h1><a href="{{ object.get_absolute_url }}" rel="permalink" title="Permanent link to {{ object.title }}.">{{ object.title }}</a></h1>
+		<h1><a href="{{ object.get_absolute_url }}" rel="permalink" title="Permanent link to this entry.">{{ object.title }}</a></h1>
 		<p class="quiet"><time pubdate="pubdate">{{ object.pub_date|date:"l, F j Y" }}</time></p>
 		{{ object.body_html|safe }}
 
@@ -53,6 +52,6 @@
   {% endif %}
 </p>
 
-{% include "hth/intro.html" %}
+
 
 {% endblock %}

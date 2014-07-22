@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf import settings
 
 # http://stackoverflow.com/a/523366/412329
 # from django.views.generic.simple import redirect_to
@@ -127,8 +128,8 @@ from django.conf import settings
 
 if settings.DEBUG :
     urlpatterns += patterns('',
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-        url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve', 
+        url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
     )

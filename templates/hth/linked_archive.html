@@ -6,9 +6,7 @@
 
 {% block header %}
 {% include "hth/intro.html" %}
-    <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p>
-    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> / <a href="/linked/" title="Linked List.">Linked List</a> / {{ month|date:"F Y" }}</p>
-        {% include "hth/intro.html" %}
+    <p class="breadcrumbs" style="top:10px;"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> / <a href="/linked/" title="Linked List.">Linked List</a> / {{ month|date:"F Y" }}</p>
 {% endblock header %}
 
 {% block content %}
