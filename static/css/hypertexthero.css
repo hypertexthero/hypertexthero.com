@@ -34,6 +34,7 @@ h1#logo a:hover b, h1#logo a:active b a:active {border:none; color:#930;}
 
 #content {padding-left:43px;}
 body#logbook #content, body#about #content, body#error #content, body#archive #content {float:left;}
+/*body#logbook #content {margin-top:-55px;}*/
 #sidebar {float:right; width:296px; font-size:14px;}
 #picture {float:left; margin:0 0 1em 0;}
 #picture p {max-width:400px;}
