@@ -1,6 +1,6 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: 2014-07-22
+Last update: 2014-07-23
 */
 * {margin:0; padding:0;}
 
@@ -160,7 +160,13 @@ body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 .small {font-size:0.8em;}
 .noborder {border:none !important;}
 p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
-pre {margin:1em 0; padding:1em; overflow:visible; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */}
+pre {margin:1em 0; padding:1em; overflow:visible; 
+    white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
 pre, code, kbd, samp, tt {font-family:courier, "courier new", monospace,monospace; font-size:0.9em;}
 kbd {background:#ffc; padding:0.15em; border:1px solid #E6E3DB; border-radius:3px; line-height:0;}
 pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#ccc; background:none; border:0 !important;}
@@ -190,9 +196,11 @@ a.edit {color:#afa99f;}
 @media (max-width: 970px) {
     #page, #intro {width:auto;}
     #content {padding-top:13em;}
+    body#home #content, body#contact #content {padding-top:2em;}
     #intro {position:relative; font-style:italic; padding-top:38px; width:auto; float:none;}
     p.aeroplane a {margin:0 0 1.5em;}
     #latest {width:auto; clear:both; text-align:left; float:none;}
+    body#home #header {padding-bottom:3em;}
     #header #logo a {display:block;}
     #header blockquote {position:normal; float:left;}
     body#contact #page {width:770px;}
@@ -226,7 +234,7 @@ a.edit {color:#afa99f;}
     #header #logo a {display:block;}
     #header blockquote {position:relative; display:block; float:left; display:block;}
     body#home #content {width:400px !important; padding-left:20px;}
-    #content {width:500px !important; padding-left:20px;}
+    #content {width:auto !important; padding-left:20px; padding-right:40px;}
     #content img {width: 100%; height: auto;}
     #content img.thumbincontent {width:auto;}
     body#contact #page {width:570px; background:none;}
@@ -245,16 +253,20 @@ a.edit {color:#afa99f;}
     #header {margin:0 20px 0;}
     body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {width:auto;}
-    div.column {margin:0 24px 0 0;}
-    #header blockquote {display:none; position:relative;  float:left; width:180px;}
-    #content {width:340px !important; padding-left:20px;}
-    body#home #content {width:380px !important; padding-left:5px !important;}
+    div.column {width:auto; display:block; margin:0 24px;}
+    #header blockquote {position:relative; display:block; float:left; width:180px;}
+    #content {width:auto !important; padding-left:20px; padding-right:25px;}
+    body#home #content {width:auto !important; padding:0 5px !important;}
+    body#home #header {position:relative; width:auto; background:none; padding-top:10px;}
+    body#home #header blockquote {position:relative; width:auto;}
+    body#home h1#logo a {position:relative;}
     #content img {width:100%; height:auto;}
     #content img.thumbincontent {width:auto;}
+    iframe {max-width:260px; width:auto;}
     body#contact #page {width:350px; background:none;}
     body#contact #header {width:180px; height:100px; background:none;}
     body#logbook #header p.breadcrumbs, body#archive #header p.breadcrumbs {width:auto; position:normal;}
-    body#contact #content form, body#contact #content form textarea {width:300px;}
+    body#contact #content form, body#contact #content form textarea {width:260px !important;}
     body#contact h1#logo a {left:0;}
     body#contact p#homelink {display:none !important;}
     div#brief, body#contact #content form, body#contact #content p#thankyou, div#brief, div#address {position:relative; float:left; display:block;  text-align:left; background:none;}
