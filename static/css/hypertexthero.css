@@ -255,12 +255,12 @@ a.edit {color:#afa99f;}
     #header {margin:0 20px 0;}
     body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {width:auto;}
-    div.column {width:auto; display:block; margin:0 24px;}
+    div.column {width:auto; display:block; margin:0 auto; text-align:center; clear:both;}
     #header blockquote {position:relative; display:block; float:left; width:180px;}
     #content {width:auto !important; padding-left:20px; padding-right:25px;}
     body#home #content {width:auto !important; padding:0 5px !important;}
-    body#home #header {position:relative; width:auto; background:none; padding-top:10px;}
-    body#home #header blockquote {position:relative; width:auto;}
+    body#home #header {position:relative; width:auto; background:none; padding-top:10px; height:auto; clear:both; margin-bottom:0; padding-bottom:0;}
+    body#home #header blockquote {position:relative; width:auto; float:none; margin:2em 0 0;}
     body#home h1#logo a {position:relative;}
     #content img {width:100%; height:auto;}
     #content img.thumbincontent {width:auto;}
@@ -274,6 +274,8 @@ a.edit {color:#afa99f;}
     body#contact #content form {margin-bottom:0; padding-right:0;}
     div#brief {position:normal !important; top:1em; left:0;}
     div#description {padding-left:0;}
-    #footer {padding-left:20px;}
+    #footer {padding-left:20px; padding-right:20px;}
+    #footer input {width:260px !important;}
+    #footer input.button {width: auto !important;}
     }
  
