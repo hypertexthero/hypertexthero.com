@@ -160,14 +160,16 @@ body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 .small {font-size:0.8em;}
 .noborder {border:none !important;}
 p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
-pre {margin:1em 0; padding:1em; overflow:visible; 
+pre {margin:1em 0; padding:1em; overflow:visible;}
+pre, code {
+    
     white-space: pre-wrap;       /* CSS 3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
-pre, code, kbd, samp, tt {font-family:courier, "courier new", monospace,monospace; font-size:0.9em;}
+pre, code, kbd, samp, tt {font-family:courier, "courier new", monospace; font-size:0.9em;}
 kbd {background:#ffc; padding:0.15em; border:1px solid #E6E3DB; border-radius:3px; line-height:0;}
 pre.articlebreak {padding:0; margin:5em 0; font-family:monospace; color:#ccc; background:none; border:0 !important;}
 strong, b {font-weight:bold;}
