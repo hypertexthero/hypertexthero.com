@@ -262,7 +262,6 @@ a.edit {color:#afa99f;}
     body#home h1#logo a {position:relative;}
     #content img {width:100%; height:auto;}
     #content img.thumbincontent {width:auto;}
-    iframe {max-width:260px; width:auto;}
     body#contact #page {width:350px; background:none;}
     body#contact #header {width:180px; height:100px; background:none;}
     body#logbook #header p.breadcrumbs, body#archive #header p.breadcrumbs {width:auto; position:normal;}
