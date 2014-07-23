@@ -276,6 +276,7 @@ a.edit {color:#afa99f;}
     div#description {padding-left:0;}
     #footer {padding-left:20px; padding-right:20px;}
     #footer input {width:260px !important;}
-    #footer input.button {width: auto !important;}
+    #footer input.button {width:auto !important;}
+    iframe, pre {width:100% !important; overflow:hidden; max-width:220px;}
     }
  
