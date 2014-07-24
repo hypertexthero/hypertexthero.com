@@ -249,13 +249,14 @@ a.edit {color:#afa99f;}
     div#brief {position:normal !important; top:0; left:4em;}
     div#description {padding-left:0;}
     #footer {padding-left:20px;}
+    div.column {display:block; text-align:left;}
+    div.column h2 {margin:2em 0 1em;}
     }
 @media (max-width: 530px) {
     #page, #intro {width:auto; background:none;}
     #header {margin:0 20px 0;}
     body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {width:auto;}
-    div.column {width:auto; display:block; margin:0 auto; text-align:center; clear:both;}
     #header blockquote {position:relative; display:block; float:left; width:180px;}
     #content {width:auto !important; padding-left:20px; padding-right:25px;}
     body#home #content {width:auto !important; padding:0 5px !important;}
