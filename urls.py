@@ -92,7 +92,7 @@ urlpatterns += patterns('views',
         template_name='robots.txt', content_type='text/plain')),
     
     # =work
-    # url(r'^work/$', TemplateView.as_view(template_name='work.html'), name="work"),
+    url(r'^work/$', TemplateView.as_view(template_name='work_home.html'), name="work"),
 
     # hypertexthero.com =homepage (logbook)
     url(r'^$', view=LogbookView.as_view(), name='logbook'),
