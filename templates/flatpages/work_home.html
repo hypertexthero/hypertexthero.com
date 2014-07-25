@@ -12,7 +12,20 @@
 {% endblock header %}
 
 {% block content %}
+    {% if user.is_staff %} 
+    <div class="pull-right">
+        <a class="edit small" href="/admin/flatpages/flatpage/{{ flatpage.id }}">Edit</a>
+    </div>
+    {% endif %}
 
+    {% load markup %}
+    {{ flatpage.content|markdown:"codehilite,tables,footnotes" }}
+    
+    <div class="column logcolumn">
+    <h2 id="writing"><a href="/logbook/" title="Hypertexthero's blog about web, design and simplicity.">Logbook</a></h2>
+    {% latest_entries %}
+    </div>
+    
 {% endblock %}
 
 {% block footer %}
