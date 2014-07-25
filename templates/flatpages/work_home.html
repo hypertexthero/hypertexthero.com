@@ -18,8 +18,9 @@
     </div>
     {% endif %}
 
-    {% load markup %}
-    {{ flatpage.content|markdown:"codehilite,tables,footnotes" }}
+    {# {% load markup %} #}
+    {# {{ flatpage.content|markdown:"codehilite,tables,footnotes" }} #}
+    {{ flatpage.content|safe }}
     
     <div class="column logcolumn">
     <h2 id="writing"><a href="/logbook/" title="Hypertexthero's blog about web, design and simplicity.">Logbook</a></h2>
