@@ -1,6 +1,6 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: 2014-07-23
+Last update: 2014-08-05
 */
 * {margin:0; padding:0;}
 
@@ -20,7 +20,7 @@ a:hover, a:active {text-decoration:none; color:#930; outline:none; border:none;}
 #page {width:970px; text-align:left; margin:0 auto;}
 body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error.gif) no-repeat top left; background-position:352px -50px;}
 
-#header {margin:0 38px 12px; height:90px; position:relative; background:url(/static/img/macchi_home.gif) no-repeat top right;}
+#header {margin:0 38px 12px; height:100px; position:relative; background:url(/static/img/macchi_home.gif) no-repeat top right;}
 #header blockquote {position:absolute; bottom:0; left:0; width:45%; font-size:14px; line-height:1.4em;}
 blockquote {line-height:1.4em;}
 #header p.breadcrumbs {font-size:14px; color:#ccc; position:absolute; bottom:0;}

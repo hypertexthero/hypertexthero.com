@@ -4,8 +4,7 @@
 {% block bodyid %}archive{% endblock bodyid %}
 
 {% block header %}
-    {# <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p> #}
-    <p class="breadcrumbs" style="top:10px;"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / Logbook Archive</p>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / Logbook Archive</p>
 {% endblock header %}
 
 {% block content %}
@@ -16,7 +15,7 @@
 <input value="Search" class="button" type="submit">
 </form>
     
-    <h1 style="margin:2.75em 0 0;">Previously, on Hypertexthero</h1>
+  <h1 style="margin:2.75em 0 0;">Previously, on Hypertexthero</h1>
 	
 	{% for entry in object_list %}	
         {% ifchanged %}

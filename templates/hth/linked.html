@@ -11,7 +11,14 @@
 
 {% block content %}
 
-<h1>The Hypertexthero Linked List</h1>
+<form id="search" action="/search/" method="get">
+<label for="q" style="display:none;">Search:</label>
+<input name="q" value="" size="22" type="text">
+<input value="Search" class="button" type="submit">
+</form>
+
+
+  <h1 style="margin:2.75em 0 0;">The Hypertexthero Linked List</h1>
     {% load hth_tags %}
     {% latest_linked_list_entries %}
 
