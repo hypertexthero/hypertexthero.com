@@ -5,9 +5,7 @@
 {% block bodyclass %}linked{% endblock %}
 
 {% block header %}
-    {# <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p> #}
-    {# <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> /</p> #}
-    {% include "hth/intro.html" %}
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> /</p>
 {% endblock header %}
 
 
@@ -16,45 +14,7 @@
 <h1>The Hypertexthero Linked List</h1>
     {% load hth_tags %}
     {% latest_linked_list_entries %}
-{% comment %}
-    
 
-
-{% if latest %} {# the 'latest' variable of the template context is assigned automatically by the django.views.generic.date_based.archive_index generic view - https://docs.djangoproject.com/en/dev/ref/generic-views/#django-views-generic-date-based-archive-index #}
-{% for object in latest %}
-{# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#ifchanged #}
-{% ifchanged %}
-    {# <hr /> #}
-    {# https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#date #}
-    <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>
-{% endifchanged %}
-
-
-<dl>
-    <dt>
-        <a href="{{ object.url }}">{{ object.title }}</a>
-        <a class="plink" href="{{ object.get_linked_list_url }}" rel="permalink" title="Permanent link to {{ object.title }}.">#</a> 
-        {% if user.is_staff %} 
-        {# <span class="smaller normal quiet"> last edited {{ object.mod_date|timesince }} ago by {{ user.first_name }} {{ user.last_name }}</span> #}
-            <div class="pull-right">
-                <span class="small"> 
-                    <a class="edit " href="/admin/hth/entry/{{ object.id }}">Edit</a>
-                </span>
-            </div>
-        {% endif %}
-    </dt>
-    <dd>
-        {{ object.body_html|safe }}
-    </dd>
-</dl>
-
-{% endfor %} {# / for note in latest #}
-
-{% else %}
-    No entries.
-{% endif %} {# / if latest #}
-    
-{% endcomment %}
 <h2 id="about">About the Linked List</h2>
 
 <p>The Hypertexthero Linked List is a list of links to other places on the internet that Hypertexthero finds interesting.</p>
@@ -71,12 +31,8 @@
 
     {% for month in month_list %}
         <li><a href="/linked/{{year.grouper}}/{{month.grouper}}">{{ month.grouper|month_number_to_name }} {{ year.grouper }}</a></li>
-        {# {{ month.list }} #}
     {% endfor %}
 {% endfor %}
     </ul>
 
 {% endblock %} {# / block content #}
-
-{# {% block sidebar %} #}
-{# {% endblock %} #}

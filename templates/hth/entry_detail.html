@@ -14,8 +14,8 @@
 {% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
-  {% include "hth/intro.html" %}
-      {# <p class="breadcrumbs" style="top:10em;"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> /</p> #}
+  {# {% include "hth/intro.html" %} #}
+      <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> /</p>
 {% endblock header %}
 
 {% block content %}
@@ -33,25 +33,38 @@
       </dd>
     </dl>
 
+  <p id="about">
+    A <a href="/#about" title="Home.">Hypertexthero</a></b> link by <a href="/about/" title="About.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="{{ object.get_linked_list_url }}">{{ object.pub_date|date:"d F Y" }}</a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>.
+  </p>
+
     {% else %} {# otherwise it is an original article #}
 
 		<h1><a href="{{ object.get_absolute_url }}" rel="permalink" title="Permanent link to this entry.">{{ object.title }}</a></h1>
 		<p class="quiet"><time pubdate="pubdate">{{ object.pub_date|date:"l, F j Y" }}</time></p>
 		{{ object.body_html|safe }}
 
+  <p id="about">
+    A <a href="/#about" title="Home.">Hypertexthero</a></b> article by <a href="/about/" title="About.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="{{ object.get_linked_list_url }}"><time pubdate="pubdate">{{ object.pub_date|date:"d F Y" }}</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>.
+  </p>
+
 {% endif %} {# end if object.kind == "L" #}
 
-<p class="paging">
+
+{# =footer #}
+
+{# <p class="paging"> #}
   {# https://docs.djangoproject.com/en/dev/ref/models/instances/?from=olddocs#django.db.models.Model.get_next_by_FOO #}
-  {% if object.get_previous_by_pub_date %}
-    <a rel="prev" href="{{ object.get_previous_by_pub_date.get_absolute_url }}"><i>Previous:</i> <b>{{ object.get_previous_by_pub_date }}</b></a>
-  {% endif %}
-    <br>
-  {% if object.get_next_by_pub_date %}
-    <a rel="next" href="{{ object.get_next_by_pub_date.get_absolute_url }}"><i>Next:</i> <b>{{ object.get_next_by_pub_date }}</b></a>
-  {% endif %}
-</p>
+  {# {% if object.get_previous_by_pub_date %} #}
+    {# <a rel="prev" href="{{ object.get_previous_by_pub_date.get_absolute_url }}"><i>Previous:</i> <b>{{ object.get_previous_by_pub_date }}</b></a> #}
+  {# {% endif %} #}
+    {# <br> #}
+  {# {% if object.get_next_by_pub_date %} #}
+    {# <a rel="next" href="{{ object.get_next_by_pub_date.get_absolute_url }}"><i>Next:</i> <b>{{ object.get_next_by_pub_date }}</b></a> #}
+  {# {% endif %} #}
+{# </p> #}
 
 
 
 {% endblock %}
+
+{% block footer %}{% endblock footer %}
