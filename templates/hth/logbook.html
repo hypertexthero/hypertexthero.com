@@ -5,9 +5,12 @@
 {% block keywords %}Web, Design, Simplicity{% endblock %}
 
 {% block header %}
+
+    {# <h2 id="about" style="margin-top:5em;">About the Logbook</h2> #}
+    {#  #}
+    <p id="homelink"><a href="/#about" title="About Hypertexthero.">Hypertexthero</a></p>
+
 {% endblock header %}
-
-
 
 {% block content %}
 {% if latest %} {# the 'latest' variable of the template context is assigned automatically by the django.views.generic.date_based.archive_index generic view - https://docs.djangoproject.com/en/dev/ref/generic-views/#django-views-generic-date-based-archive-index #}
@@ -78,9 +81,5 @@
 {% else %}
     No entries.
 {% endif %} {# / if latest #}
-    
-    {# <h2 id="about" style="margin-top:5em;">About the Logbook</h2> #}
-    {#  #}
-    {# <p>The Hypertexthero Logbook is a blog about web, design and simplicity. It includes <a href="/linked" title="The Hypertexthero Linked List.">links</a> to other places on the internet that Hypertexthero finds interesting.</p> #}
     
 {% endblock %} {# / block content #}

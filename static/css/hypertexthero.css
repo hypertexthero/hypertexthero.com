@@ -65,7 +65,7 @@ div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #eee;
 li.nopicture {height:96px;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
 
-#header p#homelink a {position:absolute; width:240px; height:109px; top:0; right:0; display:block; text-indent:-2000em; padding-top:2em;}
+#header p#homelink a {text-indent:-2000em; width:240px; height:109px; display:block; padding:2em 0; position:relative; background:url(/static/img/macchi_contact.gif) no-repeat top left; background-position:0 28px; clear:both; float:right;}
 body#archive #header p#homelink a {width:385px;}
 
 /* =contact ---------------------- */
@@ -179,7 +179,7 @@ strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}
 div.footnote {font-size:0.9em;}
 div.footnote hr {margin:3em 0 1em; width:8em;}
-p.paging {margin:5em 0; font-size:0.9em;}
+p.paging {margin:0 0 5em; font-size:0.9em;}
 img {border:0; display:block; margin-bottom:1em;}
 body#home img {margin-bottom:0;}
 acronym, abbr {border-bottom:1px dashed #2e2a1f;}
@@ -193,6 +193,7 @@ hr {color:#eee; background:#eee; max-width:42em; height:1px; border:none; margin
 .center {text-align:center;}
 .hide {display:none;}
 a.edit {color:#afa99f;}
+a.browserid-login {display:none;}
 
 #footer {clear:both; padding:26px 43px;}
 
