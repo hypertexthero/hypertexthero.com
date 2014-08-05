@@ -45,7 +45,7 @@ body#logbook #content, body#about #content, body#error #content, body#archive #c
 
 /* =home ---------------------- */
 
-body#home #header {margin-bottom:12px;}
+body#home #header {margin-bottom:12px; height:137px;}
 div.column {width:155px; float:left; margin:0 26px 0 0;}
 
 div.column h2 {text-align:center; background: url(/static/img/parachute.gif) no-repeat 35px 0; margin:20px auto 15px; width: 155px; padding:40px 0 0 10px;}
@@ -65,7 +65,8 @@ div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #eee;
 li.nopicture {height:96px;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
 
-#header p#homelink a {text-indent:-2000em; width:240px; height:109px; display:block; padding:2em 0; position:relative; background:url(/static/img/macchi_contact.gif) no-repeat top left; background-position:0 28px; clear:both; float:right;}
+body#logbook p#homelink a {text-indent:-2000em; width:240px; height:109px; display:block; padding:2em 0; position:relative; background:url(/static/img/macchi_contact.gif) no-repeat top left; background-position:0 28px; clear:both; float:right;}
+
 body#archive #header p#homelink a {width:385px;}
 
 /* =contact ---------------------- */
@@ -218,8 +219,8 @@ a.browserid-login {display:none;}
     div.logcolumn h2 {text-align:left; width:99%; padding-left:15px;}
     div.logcolumn h2#writing {background-position:0 0; text-align:left;}
 /*    body#logbook #header p.breadcrumbs {}*/
-    #header p#homelink {text-align:center; clear:both;}
-    #header p#homelink a {margin:0 auto; float:left; clear:both;}
+    body#logbook p#homelink {text-align:center; clear:both;}
+    body#logbook p#homelink a {margin:0 auto; float:left; clear:both;}
     }
 @media (max-width: 800px) {
     #page, #latest, #intro {width:auto;}
