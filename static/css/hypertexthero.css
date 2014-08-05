@@ -218,6 +218,8 @@ a.browserid-login {display:none;}
     div.logcolumn h2 {text-align:left; width:99%; padding-left:15px;}
     div.logcolumn h2#writing {background-position:0 0; text-align:left;}
 /*    body#logbook #header p.breadcrumbs {}*/
+    #header p#homelink {text-align:center; clear:both;}
+    #header p#homelink a {margin:0 auto; float:left; clear:both;}
     }
 @media (max-width: 800px) {
     #page, #latest, #intro {width:auto;}
