@@ -6,11 +6,13 @@ from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Atom1Feed
 
 # from django.views.generic.list import MultipleObjectMixin
-from django.views.generic import ArchiveIndexView, MonthArchiveView, YearArchiveView, DetailView
+from django.views.generic import ArchiveIndexView, MonthArchiveView, YearArchiveView, DetailView, ListView
 from django.core.urlresolvers import reverse
 
 from django.contrib.flatpages.models import FlatPage
 from .models import Entry
+
+from taggit.models import Tag
 
 # =home, =list views ===================================
 
@@ -118,7 +120,18 @@ class LinkedDetailView(DetailView):
     """ Link permalink page """
     model = Entry
         
+class LogbookTagsDetailView(DetailView):
+    """ Tag detail page """
+    model = Entry
+        
+class TaggedList(ListView):
+    """ Get all content tagged with tag """
+    queryset = Entry.objects.all()
+    template_name = "hth/tagged.html"
 
+    def get_queryset(self):
+        return Entry.objects.filter(tags__name__in=[self.kwargs['tag']])
+            
 # =archives ===================================
 
 class LogbookArchiveView(ArchiveIndexView):
@@ -132,6 +145,17 @@ class LogbookArchiveView(ArchiveIndexView):
     allow_future = False
     queryset = Entry.objects.filter(
           is_active=True, kind='A').order_by('-pub_date', 'title')
+
+class LogbookTagsView(ArchiveIndexView):
+    """
+        Tags - lets see if this works.
+    """
+    model = Entry
+    date_field = 'pub_date'
+    template_name = 'hth/tags.html'
+    allow_future = False
+    queryset = Entry.objects.filter(
+          is_active=True).order_by('-pub_date', 'title')
 
 class LinkedListMonthArchive(MonthArchiveView):
     """Linked List monthly archives"""

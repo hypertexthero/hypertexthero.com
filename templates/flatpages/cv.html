@@ -10,8 +10,9 @@
 {% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
+    {# <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p> #}
     {% include "hth/nav.html" %}
-    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / {{ flatpage.title }}</p>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/about/" title="About.">About</a> / {{ flatpage.title }}</p>
 {% endblock header %}
 
 

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block headtitle %}Hypertexthero: Tags{% endblock headtitle %}
+{% block keywords %}Web, Design, Simplicity{% endblock %}
+{% block bodyid %}tags{% endblock bodyid %}
+
+{% load taggit_templatetags2_tags %}
+{% get_tags_for_object Entry as "tags" %}
+{% load hth_tags %}
+
+{% block header %}
+  {% include "hth/nav.html" %}
+  <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/archive/">Logbook Archive</a> / <a href="/tags/">Tags</a> / </p>
+{% endblock header %}
+
+{% block content %}
+
+<form id="search" action="/search/" method="get">
+<label for="q" style="display:none;">Search:</label>
+<input name="q" value="" size="22" type="text">
+<input value="Search" class="button" type="submit">
+</form>
+    
+  <h1 style="margin:2.75em 0 1em;">Entries Tagged: {{ request.path }}</h1>
+
+	{% for entry in object_list %}
+        <p>
+            <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a> <small class="small quiet extrapad titlecase">{{ entry.pub_date|date:"d b Y" }}</small>
+        </p>
+	{% endfor %}
+
+
+    {# <ul> #}
+    {# {% for tag in tags %} #}
+    {#   <li><a href="/tags/{{tag}}">{{tag}}</a> <small class="quiet">({{tag.num_times}})</small></li> #}
+    {# {% endfor %} #}
+    {# </ul> #}
+	
+{% endblock %}

@@ -12,7 +12,8 @@ from django.views.generic import RedirectView, TemplateView
 from .models import Entry
 from .views import LogbookView, LinkedListView, LogbookArchiveView,\
 LinkedListMonthArchive, LogbookDetailView, LinkedDetailView,\
-LogbookMonthArchive, LogbookYearArchive, Search, RssLogbookFeed, AtomLogbookFeed
+LogbookTagsView, TaggedList, LogbookMonthArchive,\
+LogbookYearArchive, Search, RssLogbookFeed, AtomLogbookFeed
 
 from django.views.generic.dates import YearArchiveView
 
@@ -64,6 +65,16 @@ urlpatterns = patterns('',
     url(r'^linked/$', 
         view=LinkedListView.as_view(), 
         name='linked-list'),
+
+    # hypertexthero.com/tags
+    url(r'^tags/$', 
+        view=LogbookTagsView.as_view(), 
+        name='tags'),
+    
+    # hypertexthero.com/tags/tag
+    url(r'^tags/(?P<tag>[\w-]+)/$', 
+        view=TaggedList.as_view(), 
+        name='tagged'),
     
     # contact
     url(r'^contact/', include("contact_form.urls")),

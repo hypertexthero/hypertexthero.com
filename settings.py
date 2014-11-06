@@ -116,6 +116,7 @@ INSTALLED_APPS = (
 
     'taggit',
     'taggit_autosuggest',
+    'taggit_templatetags2', # https://github.com/fizista/django-taggit-templatetags2
     
     # application server
     'gunicorn',

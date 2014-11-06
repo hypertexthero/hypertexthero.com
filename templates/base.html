@@ -20,12 +20,13 @@
 <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
 
-<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+{# <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'> #}
 <link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero.css" type="text/css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/code.css" type="text/css">
 
 {# =Mozilla =Persona - http://django-browserid.readthedocs.org/en/v0.9/setup.html#installation #}
-{% load browserid %} {# {% browserid_css %} #}
+{# {% load browserid %}  #}
+{# {% browserid_css %} #}
 
 <!--[if lte IE 6]>
 <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/ie6.css" />
@@ -65,13 +66,13 @@
     {% endblock footer %}
     
     {# =Mozilla =Persona #}
-    {% browserid_info %}
+    {# {% browserid_info %} #}
     <p class="small">
-      {% if user.is_authenticated %}
-        Logged in as {{ user }} / {% browserid_logout text='Logout' %}
-        {% else %}
-        {% browserid_login text='Login' color='light' %}
-      {% endif %}
+      {# {% if user.is_authenticated %} #}
+      {#   Logged in as {{ user }} / {% browserid_logout text='Logout' %} #}
+      {#   {% else %} #}
+      {#   {% browserid_login text='Login' color='light' %} #}
+      {# {% endif %} #}
     </p>
     
     {% if messages %}
@@ -87,7 +88,7 @@
 </div> {# /#page #}
 </div> {# /#wrapper #}
 <script src="{{ STATIC_URL }}js/jquery-1.9.1.min.js"></script>
-{% browserid_js %}
+{# {% browserid_js %} #}
 {# <script type="text/javascript" src="{{ STATIC_URL }}js/browserid.js"></script> #}
 {# <script type="text/javascript" src="https://login.persona.org/include.js"></script> #}
 </body>

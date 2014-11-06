@@ -14,8 +14,8 @@
 {% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
-  {# {% include "hth/intro.html" %} #}
-      <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> /</p>
+  {% include "hth/nav.html" %}
+  <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> /</p>
 {% endblock header %}
 
 {% block content %}

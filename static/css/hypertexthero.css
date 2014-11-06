@@ -25,6 +25,7 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 blockquote {line-height:1.4em;}
 #header p.breadcrumbs {font-size:14px; color:#ccc; position:absolute; bottom:0;}
 #header p.breadcrumbs a {color:#999;}
+body.detail #header p.breadcrumbs {bottom:20px;}
 
 /*#intro {float:right; width:200px; padding-top:14px; padding-right:30px;}*/
 p#about {margin:0 0 2em; max-width:30em; border-top:double #E6E3DB; padding-top:1em;}
@@ -65,9 +66,21 @@ div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #eee;
 li.nopicture {height:96px;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
 
-body#logbook p#homelink a {text-indent:-2000em; width:240px; height:109px; display:block; padding:2em 0; position:relative; background:url(/static/img/macchi_contact.gif) no-repeat top left; background-position:0 28px; clear:both; float:right;}
+/*body#logbook p#homelink a {width:140px; height:109px; display:block; position:relative; background:url(/static/img/macchi_contact.gif) no-repeat top left; background-position:0 -28px; clear:both;}*/
 
 body#archive #header p#homelink a {width:385px;}
+
+div.nav {float:right;}
+div.nav ul {list-style:none;}
+div.nav ul li {}
+div.nav a {border:0;}
+a#loglogo {}
+
+body#logbook a.nav-logbook,
+body#archive a.nav-archive,
+body#tags a.nav-tags,
+body#work a.nav-work,
+body#about a.nav-about {color:#000;}
 
 /* =contact ---------------------- */
 
@@ -94,13 +107,13 @@ div#address h3 {font-style:italic;}
 
 /* =work ---------------------- */
 
-body#work #header {height:137px;}
+body#work #header, body#about #header {height:137px;}
 div#description {width:296px; float:left; padding-left:43px; font-size:15px;}
 /*body#work #header p.breadcrumbs, body#about #header p.breadcrumbs, body#logbook #header p.breadcrumbs, body#archive #header p.breadcrumbs {bottom:0;}*/
 
 /* =logbook ---------------------- */
 
-body#logbook #header {background:none;}
+body#logbook #header {background:none; padding-bottom:40px;}
 body#archive #header p.breadcrumbs, body#about #header p.breadcrumbs, body#work #header p.breadcrumbs {font-size:14px; position:absolute; bottom:22px; left:0;}
 body#logbook #header p strong a {font-style:italic; font-size:22px; line-height:14px;}
 
@@ -121,16 +134,16 @@ body#archive #content p.archivetitle {line-height:1.2em; position:relative; padd
 
 /* =misc ---------------------- */
 
-body#about #header {background:url(/static/img/macchi_home.gif) no-repeat top right; margin-bottom:12px;}
+body#about #header, body.detail #header {background:url(/static/img/macchi_home.gif) no-repeat top right !important; margin-bottom:12px !important;}
 .quiet {color:#999;}
 .normal {font-weight:normal;}
 
 /* =typography, etc ---------------------- */
 
 p.adminmenu {font-family:monospace; position:absolute; top:0; left:0; z-index:100; padding:1em 0;}
-p#homelink {line-height:0 !important; margin:0 !important; font-style:italic;}
+p#homelink {line-height:0 !important; margin:0 !important;}
 p#homelink a {border:none !important;}
-p#homelink a:hover, p#homelink a:active {text-indent:0 !important; line-height:1em !important; color:#afa99f; background:none;}
+p#homelink a:hover, p#homelink a:active {text-indent:0 !important; color:#afa99f; background:none;}
 p {margin:0 0 0.9em; line-height:1.4em;}
 dt {margin:0 0 0.75em; color:#2e2a1f;}
 body.detail dt {font-weight:bold;}
@@ -260,6 +273,7 @@ a.browserid-login {color:#fafafa; border:0;}
     div.column h2 {margin:2em 0 1em;}
     }
 @media (max-width: 530px) {
+    div.nav {float:left; clear:both; padding-bottom:30px;}
     #page, #intro {width:auto; background:none;}
     #header {margin:0 20px 0;}
     body#logbook #header, body#archive #header {background:none !important;}
