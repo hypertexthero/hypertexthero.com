@@ -128,10 +128,18 @@ class TaggedList(ListView):
     """ Get all content tagged with tag """
     queryset = Entry.objects.all()
     template_name = "hth/tagged.html"
+    tagname = 
 
     def get_queryset(self):
         return Entry.objects.filter(tags__name__in=[self.kwargs['tag']])
-            
+    
+    # def get_context_data(self, **kwargs):
+    #     # Call the base implementation first to get a context
+    #     context = super(TaggedList, self).get_context_data(**kwargs)
+    #     # Add in the tag
+    #     context['tag'] = self.tag
+    #     return context
+    
 # =archives ===================================
 
 class LogbookArchiveView(ArchiveIndexView):
