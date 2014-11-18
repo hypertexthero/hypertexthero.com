@@ -104,7 +104,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps', # enabling sitemaps app
 
     # =mozilla =persona authentication
-    'django_browserid',
+    # 'django_browserid',
 
     'typogrify',
     'markdown',
@@ -118,6 +118,8 @@ INSTALLED_APPS = (
     'taggit_templatetags2', # https://github.com/fizista/django-taggit-templatetags2
     
     # application server
+    # start with:
+    # gunicorn --env DJANGO_SETTINGS_MODULE=hth.settings hth.wsgi
     'gunicorn',
     
     # stop spam
@@ -137,7 +139,7 @@ INSTALLED_APPS = (
 # =mozilla =persona
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'django_browserid.auth.BrowserIDBackend',
+    # 'django_browserid.auth.BrowserIDBackend',
 )
 
 # staticgenerator
@@ -150,7 +152,7 @@ STATIC_GENERATOR_URLS = (
     r'^/$',
     # r'^/()', # matches any page created?
     # (r'^$', 'direct_to_template', {'template': 'base.html'}),
-    r'^/(logbook|linked|archive|work)',
+    r'^/(logbook|linked|archive|work|contact)',
     r'^/(?P<year>\d+)/(?P<month>\d{2})/$', 
     r'^/(?P<year>\d+)/$',
     # r'^/(archive)',
@@ -161,29 +163,29 @@ STATIC_GENERATOR_URLS = (
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'filters': {
+#         'require_debug_false': {
+#             '()': 'django.utils.log.RequireDebugFalse'
+#         }
+#     },
+#     'handlers': {
+#         'mail_admins': {
+#             'level': 'ERROR',
+#             'filters': ['require_debug_false'],
+#             'class': 'django.utils.log.AdminEmailHandler'
+#         }
+#     },
+#     'loggers': {
+#         'django.request': {
+#             'handlers': ['mail_admins'],
+#             'level': 'ERROR',
+#             'propagate': True,
+#         },
+#     }
+# }
 
 # database, secret key, email settings, etc are in settings_local.py
 try:

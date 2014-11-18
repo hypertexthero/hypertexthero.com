@@ -2,8 +2,9 @@ from __future__ import absolute_import
 from django.conf.urls import patterns, include, url
 
 from django.conf import settings
+
+# http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-development
 from django.conf.urls.static import static
-from django.conf import settings
 
 # http://stackoverflow.com/a/523366/412329
 # from django.views.generic.simple import redirect_to
@@ -65,7 +66,8 @@ urlpatterns = patterns('',
     url(r'^linked/(?P<year>\d+)/(?P<month>\d{2})/$',
         view=LinkedListMonthArchive.as_view(),
         name='linked-archive'),
-    # hypertexthero.com/linked/ and hypertexthero.com/linked/#archive
+
+    # hypertexthero.com/linked/
     url(r'^linked/$', 
         view=LinkedListView.as_view(), 
         name='linked-list'),
@@ -85,7 +87,7 @@ urlpatterns = patterns('',
     
     # In addition to the following url pattern we are also using the 
     # built-in redirect app to redirect /linked/archive to /linked#archive
-    url(r'^linked/(?P<year>\d+)/$', RedirectView.as_view(url='/linked#archive')),
+    # url(r'^linked/(?P<year>\d+)/$', RedirectView.as_view(url='/linked#archive')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += patterns('views',
@@ -112,9 +114,6 @@ urlpatterns += patterns('views',
     # =home
     url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
 
-
-
-
     # =404 for testing
     # url(r'^error/$', TemplateView.as_view(template_name='404.html'), name="error"),
 
@@ -139,15 +138,3 @@ urlpatterns += patterns('',
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', 
         {'sitemaps': sitemaps}),
 )
-
-
-# http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-development
-from django.conf import settings
-
-if settings.DEBUG :
-    urlpatterns += patterns('',
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-            {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-        url(r'^static/files/(?P<path>.*)$', 'django.views.static.serve',
-            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-    )

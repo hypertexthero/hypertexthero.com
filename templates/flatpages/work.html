@@ -11,7 +11,7 @@
 
 {% block content %}
 
-<h1 class="normal" style="margin-bottom:0.25em;">Projects</h1>
+<h1 class="normal" style="margin-bottom:0.5em;">Projects</h1>
 
 {# https://docs.djangoproject.com/en/dev/ref/contrib/flatpages/ #}
 {% load flatpages %}
@@ -26,12 +26,5 @@
 {% endblock %}
 
 {% block footer %}
-{{ block.super }}
-<div id="address" style="display:none;">
-<strong>Email:</strong> <a href="mailto:simongriffee@gmail.com" rel="me">simon@hypertexthero.com</a>
-<br>
-<strong>Twitter:</strong> <a href="https://twitter.com/simongriffee" rel="me">simongriffee</a>
-<br>    
-<strong>Github:</strong> <a href="https://github.com/hypertexthero" rel="me">hypertexthero</a>
-</div>
+  
 {% endblock footer %}

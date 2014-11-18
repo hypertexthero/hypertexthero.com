@@ -209,7 +209,7 @@ a.browserid-login {color:#fafafa; border:0;}
     body#logbook p#homelink {text-align:center; clear:both;}
     body#logbook p#homelink a {margin:0 auto; float:left; clear:both;}
     }
-@media (max-width: 800px) {
+@media (max-width: 860px) {
     #page, #latest {width:auto;}
     body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {display:block; right:0;}

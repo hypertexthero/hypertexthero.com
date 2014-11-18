@@ -14,6 +14,8 @@
             <p>
                 <a href="{{ object.get_absolute_url }}">{{ object.title }}</a> <span class="small quiet extrapad" title="Permanent link to {{ object.title }}" href="{{ object.get_linked_list_url }}">{{ object.pub_date|date:"j M Y" }}</span>
             </p>
+    {% empty %}
+    <p>It does not look like anything was published during this period.</p>
     {% endfor %}
 	
 {% endblock %}

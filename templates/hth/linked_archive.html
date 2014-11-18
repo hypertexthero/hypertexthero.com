@@ -5,7 +5,8 @@
 {% block bodyid %}archive{% endblock bodyid %}
 
 {% block header %}
-    <p class="breadcrumbs" style="top:10px;"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> / <a href="/linked/" title="Linked List.">Linked List</a> / {{ month|date:"F Y" }}</p>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> / <a href="/linked/" title="Linked List.">Linked List</a> / {{ month|date:"F Y" }}</p>
+    {% include "hth/nav.html" %}
 {% endblock header %}
 
 {% block content %}
@@ -21,6 +22,8 @@
             	    {{ object.body_html|safe }}
                 </dd>
             </dl>
+    {% empty %}
+    <p>It does not look like anything was published during this period.</p>
     {% endfor %}
 	
 {% endblock %}

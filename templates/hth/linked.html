@@ -5,20 +5,16 @@
 {% block bodyclass %}linked{% endblock %}
 
 {% block header %}
-    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero Logbook</a> /</p>
+  {% include "hth/nav.html" %}
+  <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> / Linked List</p>
 {% endblock header %}
-
 
 {% block content %}
 
-<form id="search" action="/search/" method="get">
-<label for="q" style="display:none;">Search:</label>
-<input name="q" value="" size="22" type="text">
-<input value="Search" class="button" type="submit">
-</form>
-
+  {% include "hth/search_form.html" %}    
 
   <h1 style="margin:2.75em 0 0;">The Hypertexthero Linked List</h1>
+  <p><small><a href="#linkedarchive">Linked List Archive</a></small></p> 
     {% load hth_tags %}
     {% latest_linked_list_entries %}
 
@@ -26,7 +22,7 @@
 
 <p>The Hypertexthero Linked List is a list of links to other places on the internet that Hypertexthero finds interesting.</p>
 
-<h2 id="archive">Linked List Archive</h2>
+<h2 id="linkedarchive">Linked List Archive</h2>
 
 {% load hth_tags %}
 
@@ -37,7 +33,7 @@
     {% regroup year.list by pub_date|date:"m" as month_list %}
 
     {% for month in month_list %}
-        <li><a href="/linked/{{year.grouper}}/{{month.grouper}}">{{ month.grouper|month_number_to_name }} {{ year.grouper }}</a></li>
+        <li><a href="/linked/{{year.grouper}}/{{month.grouper}}/">{{ month.grouper|month_number_to_name }} {{ year.grouper }}</a></li>
     {% endfor %}
 {% endfor %}
     </ul>

@@ -15,6 +15,8 @@ Features
 
 ## Things to do
 
+- **Combine a static generator with this application so we are serving static HTML files from disk on server and Markdown and HTML columns in database.**
+    - Current command to deploy is `wget -m http://127.0.0.1:8000 --delete-after` then git push/pull or ftp drag-and-drop
 - Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment.
 - Set up [SSL for privacy](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS).
 - Set up own instance of nginx?
@@ -35,4 +37,4 @@ Features
 - JavaScript-based search for static files on server?
 - Learn how to [write tests](http://www.tdd-django-tutorial.com/) for views, then write unit and functional tests.
 - Consider using [prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html) for syntax highlighting (shows line numbers).
-- Combine [django-medusa](https://github.com/mtigas/django-medusa/) with this application so we are serving static HTML files from disk on server and Markdown and HTML columns in database.
+
