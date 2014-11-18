@@ -10,12 +10,8 @@
 
 {% block content %}
 
-<form id="search" action="/search/" method="get">
-<label for="q" style="display:none;">Search:</label>
-<input name="q" value="" size="22" type="text">
-<input value="Search" class="button" type="submit">
-</form>
-    
+  {% include "hth/search_form.html" %}    
+  
   <h1 style="margin:1em 0 0;" class="normal">Logbook Archive</h1>
 	
 	{% for entry in object_list %}	
