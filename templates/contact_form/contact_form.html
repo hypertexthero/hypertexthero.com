@@ -10,41 +10,41 @@
 {% block content %}
   <h1 style="margin:0 0 1em 0;" class="normal">Contact Hypertexthero</h1>
 
-<form action="" method="post">{% csrf_token %}
-{# {{ form.as_p }} #}
-{# {% load contact_tags %} #}
-{{ form.non_field_errors }}
+{% include "contact_form/address.html" %}
 
-<label for="id_body">{{ form.body.label }}</label>
-<div class="input{% if form.body.errors %} alert alert-error{% endif %}">
-<textarea cols="58" rows="16" id="id_body" name="body" cols="40" tabindex="1">{{ form.data.body }}</textarea>
-{% if form.body.errors %}
-{% for error in form.body.errors %}
-{{ error|escape }}
-{% endfor %}
-{% endif %}
-</div>
-<label for="id_name">{{ form.name.label }}</label>
-<div class="input{% if form.name.errors %} alert alert-error{% endif %}">
-<input type="text" name="name" value="{{ form.data.name }}" id="id_name" size="35" tabindex="2">
-{% if form.name.errors %}
-{% for error in form.name.errors %}
-{{ error|escape }}
-{% endfor %}
-{% endif %}
-</div>
-<label for="id_email">{{ form.email.label }}</label>
-<div class="input{% if form.email.errors %} alert alert-error{% endif %}">
-<input type="text" name="email" value="{{ form.data.email }}" id="id_email" size="35" tabindex="3">
-{% if form.email.errors %}
-{% for error in form.email.errors %}
-{{ error|escape }}
-{% endfor %}
-{% endif %}
-</div>
-
-<input type="submit" value="Send" tabindex="4">
-</form>
+{# <form action="" method="post">{% csrf_token %} #}
+{# {{ form.non_field_errors }} #}
+{#  #}
+{# <label for="id_body">{{ form.body.label }}</label> #}
+{# <div class="input{% if form.body.errors %} alert alert-error{% endif %}"> #}
+{# <textarea cols="58" rows="16" id="id_body" name="body" cols="40" tabindex="1">{{ form.data.body }}</textarea> #}
+{# {% if form.body.errors %} #}
+{# {% for error in form.body.errors %} #}
+{# {{ error|escape }} #}
+{# {% endfor %} #}
+{# {% endif %} #}
+{# </div> #}
+{# <label for="id_name">{{ form.name.label }}</label> #}
+{# <div class="input{% if form.name.errors %} alert alert-error{% endif %}"> #}
+{# <input type="text" name="name" value="{{ form.data.name }}" id="id_name" size="35" tabindex="2"> #}
+{# {% if form.name.errors %} #}
+{# {% for error in form.name.errors %} #}
+{# {{ error|escape }} #}
+{# {% endfor %} #}
+{# {% endif %} #}
+{# </div> #}
+{# <label for="id_email">{{ form.email.label }}</label> #}
+{# <div class="input{% if form.email.errors %} alert alert-error{% endif %}"> #}
+{# <input type="text" name="email" value="{{ form.data.email }}" id="id_email" size="35" tabindex="3"> #}
+{# {% if form.email.errors %} #}
+{# {% for error in form.email.errors %} #}
+{# {{ error|escape }} #}
+{# {% endfor %} #}
+{# {% endif %} #}
+{# </div> #}
+{#  #}
+{# <input type="submit" value="Send" tabindex="4"> #}
+{# </form> #}
 
 {% endblock %}
 
@@ -54,6 +54,4 @@
 help us find out <span class="small">(zipped plain text file, 2kb).</span></p>
 </div> {# brief end #}
 
-<h3>More Information</h3>
-{% include "contact_form/address.html" %}
 {% endblock footer %}
