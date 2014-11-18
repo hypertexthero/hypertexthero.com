@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block headtitle %}Hypertexthero: Web, Design, Simplicity{% endblock headtitle %}
+{% block keywords %}Web, Design, Simplicity{% endblock %}
+{% block bodyid %}home{% endblock bodyid %}
+
+{% load hth_tags %}
+
+{% block header %}
+ {% include "hth/nav.html" %}
+  <h1 id="introduction">
+      <b>Hypertexthero</b> aligns things so they <a href="/work/" title="Work examples.">look and work</a> well enough to be useful.
+  </h1>
+{% endblock header %}
+
+{# {% block content %} #}
+  {# {% load hth_tags %} #}
+  {# <h2 id="writing">New</h2> #}
+  {# {% latest_entries %} #}
+{# {% endblock content %} #}
+
+{% block footer %}
+
+{# for indy auth #}
+<div id="address" style="display:none;"> 
+<strong>Email:</strong> <a href="mailto:simongriffee@gmail.com" rel="me">simon@hypertexthero.com</a>
+<br>
+<strong>Twitter:</strong> <a href="https://twitter.com/simongriffee" rel="me">simongriffee</a>
+<br>    
+<strong>Github:</strong> <a href="https://github.com/hypertexthero" rel="me">hypertexthero</a>
+</div>
+
+{% endblock footer %}

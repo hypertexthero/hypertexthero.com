@@ -12,8 +12,9 @@ from django.views.generic import RedirectView, TemplateView
 from .models import Entry
 from .views import LogbookView, LinkedListView, LogbookArchiveView,\
 LinkedListMonthArchive, LogbookDetailView, LinkedDetailView,\
-LogbookTagsView, TaggedList, LogbookMonthArchive,\
-LogbookYearArchive, Search, RssLogbookFeed, AtomLogbookFeed
+LogbookMonthArchive, LogbookYearArchive, \
+Search, RssLogbookFeed, AtomLogbookFeed \
+# TaggedList, LogbookTagsView
 
 from django.views.generic.dates import YearArchiveView
 
@@ -37,6 +38,9 @@ urlpatterns = patterns('',
         view=LogbookDetailView.as_view(),
         name="logbook-entry-detail"),
 
+    # logbook home
+    url(r'^logbook/$', view=LogbookView.as_view(), name='logbook'),
+    
     # hypertexthero.com/logbook/2013/01/28/entry-title
     url(r'^linked/(?P<year>\d+)/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[\w-]+)/$',
         view=LinkedDetailView.as_view(),
@@ -67,14 +71,14 @@ urlpatterns = patterns('',
         name='linked-list'),
 
     # hypertexthero.com/tags
-    url(r'^tags/$', 
-        view=LogbookTagsView.as_view(), 
-        name='tags'),
+    # url(r'^tags/$',
+    #     view=LogbookTagsView.as_view(),
+    #     name='tags'),
     
     # hypertexthero.com/tags/tag
-    url(r'^tags/(?P<tag>[\w-]+)/$', 
-        view=TaggedList.as_view(), 
-        name='tagged'),
+    # url(r'^tags/(?P<tag>[\w-]+)/$',
+    #     view=TaggedList.as_view(),
+    #     name='tagged'),
     
     # contact
     url(r'^contact/', include("contact_form.urls")),
@@ -102,11 +106,12 @@ urlpatterns += patterns('views',
     url(r'^robots\.txt$', TemplateView.as_view(
         template_name='robots.txt', content_type='text/plain')),
     
-    # =work
-    # url(r'^work/$', TemplateView.as_view(template_name='work_home.html'), name="work"),
+    # =home
+    url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
 
     # hypertexthero.com =homepage (logbook)
-    url(r'^$', view=LogbookView.as_view(), name='logbook'),
+    # url(r'^$', view=LogbookView.as_view(), name='logbook'),
+
 
     # =404 for testing
     # url(r'^error/$', TemplateView.as_view(template_name='404.html'), name="error"),

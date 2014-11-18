@@ -124,14 +124,14 @@ class LogbookTagsDetailView(DetailView):
     """ Tag detail page """
     model = Entry
         
-class TaggedList(ListView):
-    """ Get all content tagged with tag """
-    queryset = Entry.objects.all()
-    template_name = "hth/tagged.html"
-    tagname = 
-
-    def get_queryset(self):
-        return Entry.objects.filter(tags__name__in=[self.kwargs['tag']])
+# class TaggedList(ListView):
+#     """ Get all content tagged with tag """
+#     queryset = Entry.objects.all()
+#     template_name = "hth/tagged.html"
+#     tagname =
+#
+#     def get_queryset(self):
+#         return Entry.objects.filter(tags__name__in=[self.kwargs['tag']])
     
     # def get_context_data(self, **kwargs):
     #     # Call the base implementation first to get a context

@@ -1,31 +1,29 @@
 {% extends "base.html" %}
 {% block headtitle %}Hypertexthero: Web, Design, Simplicity{% endblock headtitle %}
 {% block keywords %}Web, Design, Simplicity{% endblock %}
-{% block bodyid %}home{% endblock bodyid %}
+{% block bodyid %}work{% endblock bodyid %}
 
 {% load hth_tags %}
 
 {% block header %}
-    <h1 id="logo"><a href="/contact/" title="Contact Hypertexthero."><b>Call Hypertexthero</b> for Visual Design &amp; Web Development</a></h1>
-    {# =todo: put kindwords.txt in templates folder and modify RandomLine function in hth_tags.py? #}
-    <blockquote>{% kind_words "kindwords.txt" %}</blockquote>
+  {% include "hth/nav.html" %}
 {% endblock header %}
 
 {% block content %}
-    {% if user.is_staff %} 
-    <div class="pull-right">
-        <a class="edit small" href="/admin/flatpages/flatpage/{{ flatpage.id }}">Edit</a>
-    </div>
-    {% endif %}
 
+<h1 class="normal" style="margin-bottom:0.25em;">Projects</h1>
+
+{# https://docs.djangoproject.com/en/dev/ref/contrib/flatpages/ #}
+{% load flatpages %}
+{% get_flatpages '/work/' as work_flatpages %}
+
+<ul>
+{% for page in work_flatpages %}
+    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+{% endfor %}
+</ul>
     {# {% load markup %} #}
     {# {{ flatpage.content|markdown:"codehilite,tables,footnotes" }} #}
-    {{ flatpage.content|safe }}
-    
-    <div class="column logcolumn">
-    <h2 id="writing"><a href="/logbook/" title="Hypertexthero's blog about web, design and simplicity.">Logbook</a></h2>
-    {% latest_entries %}
-    </div>
     
 {% endblock %}
 
