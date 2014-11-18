@@ -26,6 +26,8 @@ blockquote {line-height:1.4em;}
 #header p.breadcrumbs {font-size:14px; color:#ccc; position:absolute; bottom:0;}
 #header p.breadcrumbs a {color:#999;}
 body.detail #header p.breadcrumbs {bottom:20px;}
+body#work.detail #header {height:120px;}
+body#work.detail #header p.breadcrumbs {bottom:0;}
 
 p#about {margin:0 0 2em; max-width:30em; border-top:double #E6E3DB; padding-top:1em;}
 p.aeroplane a {background:url(/static/img/AeromarineAirwaysHighballExpresstoBimini.gif) no-repeat; background-position:left 0px; text-indent:-2000em; display:block; width:272px; height:125px; border:0; margin-bottom:0; margin-left:-15px;}
