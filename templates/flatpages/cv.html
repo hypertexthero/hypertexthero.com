@@ -24,8 +24,8 @@
     </div>
     {% endif %}
 
-    {% load markup %}
-    {{ flatpage.content|markdown:"codehilite,tables,footnotes" }}
+    {% load hth_tags %}
+    {{ flatpage.content|my_markdown }}
 {% endblock %}
 
 {% block footer %}

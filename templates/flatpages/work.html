@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block headtitle %}Hypertexthero: Web, Design, Simplicity{% endblock headtitle %}
+{% block keywords %}Web, Design, Simplicity{% endblock %}
+{% block bodyid %}work{% endblock bodyid %}
+
+{% load hth_tags %}
+
+{% block header %}
+  {% include "hth/nav.html" %}
+{% endblock header %}
+
+{% block content %}
+
+<h1 class="normal" style="margin-bottom:0.25em;">Projects</h1>
+
+{# https://docs.djangoproject.com/en/dev/ref/contrib/flatpages/ #}
+{% load flatpages %}
+{% get_flatpages '/work/' as work_flatpages %}
+
+<ul>
+{% for page in work_flatpages %}
+    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+{% endfor %}
+</ul>
+    
+{% endblock %}
+
+{% block footer %}
+{{ block.super }}
+<div id="address" style="display:none;">
+<strong>Email:</strong> <a href="mailto:simongriffee@gmail.com" rel="me">simon@hypertexthero.com</a>
+<br>
+<strong>Twitter:</strong> <a href="https://twitter.com/simongriffee" rel="me">simongriffee</a>
+<br>    
+<strong>Github:</strong> <a href="https://github.com/hypertexthero" rel="me">hypertexthero</a>
+</div>
+{% endblock footer %}

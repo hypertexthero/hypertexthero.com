@@ -1,24 +1,31 @@
 # Requirements to deploy this code. To install all these run the following from terminal: 
 # pip install -r requirements.txt
 
-Django==1.5.2
-gunicorn==18.0
+Django==1.7.1
 Fabric==1.7.0
 Markdown==2.3.1
+PyYAML==3.11
 Pygments==1.6
+dj-database-url==0.3.0
 django-browserid==0.9
+django-classy-tags==0.5.1
 django-contact-form==1.0
 django-honeypot==0.4.0
 django-medusa==0.2.0
-django-taggit==0.10a1
-django-taggit-autosuggest==0.2
+django-taggit==0.12.2
+django-taggit-autosuggest==0.2.5
 django-taggit-autosuggest-select2==0.1
+django-taggit-templatetags2==1.2.0
+djangothis==0.9
 fancy-tag==0.2.0
+fhurl==0.1.7
 gunicorn==18.0
+importd==0.3.1
 paramiko==1.11.0
 pycrypto==2.6
 requests==1.2.3
-six==1.4.1
+six==1.8.0
+smarturls==0.1.4
 smartypants==1.6.0.3
 typogrify==2.0.0
 wsgiref==0.1.2

@@ -106,11 +106,13 @@ urlpatterns += patterns('views',
     url(r'^robots\.txt$', TemplateView.as_view(
         template_name='robots.txt', content_type='text/plain')),
     
+    # =work =projects
+    url(r'^work/$', TemplateView.as_view(template_name='flatpages/work.html'), name="work"),
+
     # =home
     url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
 
-    # hypertexthero.com =homepage (logbook)
-    # url(r'^$', view=LogbookView.as_view(), name='logbook'),
+
 
 
     # =404 for testing

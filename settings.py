@@ -95,7 +95,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.markup', # enabling markup so we can have markdown. requires http://www.freewisdom.org/projects/python-markdown
     'django.contrib.flatpages', # enabling flatpages app
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',

@@ -1,11 +1,15 @@
 import datetime
 import os
 import random
+import markdown
 
 # import Image, ImageOps
 
 from django import template
 from django.template import Library, Node
+from django.template.defaultfilters import stringfilter
+from django.utils.encoding import force_unicode
+from django.utils.safestring import mark_safe
 from hth.models import Entry
 
 register = template.Library()
@@ -20,6 +24,17 @@ def MonthNumberToName(value):
     return month_name[int(value)]
 
 
+# http://www.dominicrodger.com/django-markdown.html
+@register.filter(is_safe=True)
+@stringfilter
+def my_markdown(value):
+    extensions = ["nl2br", "codehilite", "tables", "footnotes",]
+
+    return mark_safe(markdown.markdown(force_unicode(value),
+                                       extensions,
+                                       safe_mode=False,
+                                       enable_attributes=False))
+                                       
 
 # http://stackoverflow.com/a/3540315/412329
 # (Waterman's "Reservoir Algorithm") from Knuth's 
