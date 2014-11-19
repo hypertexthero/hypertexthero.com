@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="communication, internet, submarine, jessica mckellar, connected, cable, networking, protocols">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    How The Internet Works -  Hypertexthero 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+
+		<h1><a href="/logbook/2013/09/how-the-internet-works/" rel="permalink" title="Permanent link to this entry.">How The Internet Works</a></h1>
+		<p class="quiet"><time pubdate="pubdate">Wednesday, September 4 2013</time></p>
+		<p><a href="http://jesstess.com">Jessica McKellar&#8217;s</a> excellent <a href="http://pyvideo.org/video/1677/how-the-internet-works">How The Internet Works</a>&nbsp;presentation:</p>
+<script async class="speakerdeck-embed" data-slide="23" data-id="e50b6280715601303b9822000a9f3a59" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<h2>Notes</h2>
+<p>You type <kbd>http://python.org</kbd> into your browser bar and press Enter. What&nbsp;happens? </p>
+<h3>Questions</h3>
+<ol>
+<li><span class="caps">WHAT</span> is&nbsp;python.org?  </li>
+<li><span class="caps">WHERE</span> is&nbsp;python.org?  </li>
+<li><span class="caps">HOW</span> does my computer talk to&nbsp;python.org?  </li>
+<li><span class="caps">WHAT</span> does my computer <span class="caps">SAY</span> to&nbsp;python.org?</li>
+</ol>
+<h3>Protocol</h3>
+<p>A format and rules for exchanging information. <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite" title="Internet protocol suite.">Internet protocols</a> are <em>layered</em>, one protocol per task. Application-layer protocols that use&nbsp;<span class="caps">TCP</span>:</p>
+<ul>
+<li>Web:&nbsp;<span class="caps">HTTP</span></li>
+<li>Chat: <span class="caps">IRC</span>,&nbsp;<span class="caps">XMPP</span>/Jabber</li>
+<li>Email: <span class="caps">SMTP</span>, <span class="caps">POP3</span>,&nbsp;<span class="caps">IMAP</span></li>
+</ul>
+<h3>Answers</h3>
+<ol>
+<li><span class="caps">WHAT</span>: <a href="https://en.wikipedia.org/wiki/Domain_Name_System" title="Domain Name System"><span class="caps">DNS</span></a> for translating hostnames to <span class="caps">IP</span>&nbsp;addresses</li>
+<li><span class="caps">WHERE</span>: <a href="https://en.wikipedia.org/wiki/Internet_Protocol" title="Internet Protocol"><span class="caps">IP</span></a> for addressing and&nbsp;routing</li>
+<li><span class="caps">HOW</span>: <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" title="Transmission Control Protocol"><span class="caps">TCP</span></a> for reliable&nbsp;delivery</li>
+<li><span class="caps">WHAT</span> do we <span class="caps">SAY</span>: <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" title="Hypertext Transfer Protocol"><span class="caps">HTTP</span></a> for requesting&nbsp;resources</li>
+</ol>
+<p>Address Resolution Protocol (<span class="caps">ARP</span>) maps hardware (<span class="caps">MAC</span>) addresses to <span class="caps">IP</span> addresses. Local network traffic goes through <a href="https://en.wikipedia.org/wiki/Default_gateway">gateway router</a> (usually has <span class="caps">IP</span> address 192.168.1.1) and then out to&nbsp;internet.</p>
+<p>See&nbsp;also:</p>
+<ul>
+<li><a href="http://submarinecablemap.com/">Submarine Cable&nbsp;Map</a></li>
+<li><a href="https://www.wireshark.org/download.html">Wireshark</a></li>
+<li><a href="https://twistedmatrix.com/trac/">Twisted</a></li>
+<li><a href="http://www.secdev.org/projects/scapy/">Scapy</a></li>
+</ul>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/logbook/2013/09/how-the-internet-works/"><time pubdate="pubdate">04 September 2013</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
+  </p>
+
+ 
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2013/09/wired-story-dean-hall-creator-day-z/"><i>Previous entry:</i> <b>Wired Story on Dean Hall, Creator of Day Z</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2013/09/hitchhikers-guide-python/"><i>Next entry:</i> <b>The Hitchhiker’s Guide to Python</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

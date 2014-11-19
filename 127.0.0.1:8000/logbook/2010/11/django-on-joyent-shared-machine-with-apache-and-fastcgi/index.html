@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    Django on Joyent Shared Machine with Apache and FastCGI -  Hypertexthero 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+
+		<h1><a href="/logbook/2010/11/django-on-joyent-shared-machine-with-apache-and-fastcgi/" rel="permalink" title="Permanent link to this entry.">Django on Joyent Shared Machine with Apache and FastCGI</a></h1>
+		<p class="quiet"><time pubdate="pubdate">Monday, November 29 2010</time></p>
+		<p>This is how I managed to deploy a site powered by <a href="http://www.djangoproject.com/" title="Django | The Web framework for perfectionists with deadlines">Django</a> (1.2.3) on my shared hosting account at <a href="http://www.joyent.com/" title="Cloud Computing - Cloud Hosting Services, Storage &amp; Security | Joyent">Joyent</a>. </p>
+
+<p>Replace USERNAME with your Joyent account username, WWW.DOMAIN.TLD with the domain name where you will be using Django and SERVER with the name of your server at Joyent (use lowercase).</p>
+
+<h2>SSH into your server</h2>
+
+<p>Open a Terminal window and SSH into your Joyent machine:</p>
+
+<pre><code>ssh USERNAME@SERVER.joyent.us
+</code></pre>
+
+<h2>Folders</h2>
+
+<p>Go to the domain name where your Django site will be located and create folders to store your Django stuff, then go into the /local/ folder:</p>
+
+<pre><code>cd domains/WWW.DOMAIN.TLD
+mkdir local
+mkdir local/django_projects
+cd local
+</code></pre>
+
+<h2>Download Django</h2>
+
+<p>Download Django with Subversion and change the name of the folder to django_trunk:</p>
+
+<pre><code>svn co http://code.djangoproject.com/svn/django/trunk/
+mv trunk django_trunk
+</code></pre>
+
+<h2>Admin media</h2>
+
+<ol>
+<li>Create a <em>media</em> folder inside your web public folder:
+
+<p><pre><code>mkdir /users/home/USERNAME/domains/WWW.DOMAIN.TLD/web/public/media</code></pre></p></li>
+<li>Create a symbolic link named &#8216;admin&#8217; linking to the admin/media folder in your Django installation folder:
+
+<p><pre><code>ln -s /users/home/USERNAME/domains/WWW.DOMAIN.TLD/local/django_trunk/django/contrib/admin/media ~/domains/WWW.DOMAIN.TLD/web/public/media/admin</code></pre></p></li>
+</ol>
+
+<h2>Upload your Django project to the server</h2>
+
+<p>You can do this with version control or by uploading your MYPROJECT folder into the <em>/django_projects/</em> folder with SFTP. Your project will then be found at <em>/users/home/USERNAME/domains/WWW.DOMAIN.TLD/local/django_projects/MYPROJECT</em>. </p>
+
+<p>I won&#8217;t explain how to create a Django project as this is already covered in many places. For example, if you follow <a href="http://code.djangoproject.com/wiki/DjangoCheatSheet" title="Django Cheat Sheet by Simon Willison">these Django quickstart instructions</a> on your computer and then put the resulting &#8216;AcmeIntranet&#8217; folder into <em>/users/home/USERNAME/domains/WWW.DOMAIN.TLD/local/django_projects/AcmeIntranet</em> it should just work, especially if you use SQLite as the database. Don't forget to point your paths in settings.py to the appropriate ones for your server.</p>
+
+<h2>MYPROJECT.fcgi</h2>
+
+<p>Put the following code in a file called <em>MYPROJECT.fcgi</em> at <em>/users/home/USERNAME/domains/WWW.DOMAIN.TLD/web/public/mysite.fcgi</em>:</p>
+
+<pre><code>#!/usr/local/bin/python
+import sys, os
+
+# Add a custom Python path.
+sys.path.insert(0, "/usr/local/bin/python")
+sys.path.insert(0, "/users/home/USERNAME/domains/WWW.DOMAIN.TLD/local/django_trunk")
+sys.path.insert(0, "/users/home/USERNAME/domains/WWW.DOMAIN.TLD/local/django_projects")
+
+# Switch to the directory of your project. (Optional.)
+os.chdir("/users/home/USERNAME/domains/WWW.DOMAIN.TLD/local/django_projects/mysite")
+
+# Set the DJANGO_SETTINGS_MODULE environment variable.
+os.environ['DJANGO_SETTINGS_MODULE'] = "mysite.settings"
+os.environ['PYTHON_EGG_CACHE'] = "/users/home/USERNAME/tmp"
+
+# Start FCGI
+from django.core.servers.fastcgi import runfastcgi
+runfastcgi(method="threaded", daemonize="false", maxchildren="2", maxspare="2", minspare="1")
+</code></pre>
+
+<h2>.htaccess</h2>
+
+<p>Create a file called <em>.htaccess</em>, put the following inside it and save it to your web root at <em>/users/home/USERNAME/domains/WWW.DOMAIN.TLD/web/public/.htaccess</em>:</p>
+
+<pre><code>AddHandler fcgid-script .fcgi # http://stackoverflow.com/questions/2617489/fcgi-htaccess-handler/2617527#2617527
+# AddHandler fastcgi-script .fcgi
+RewriteEngine On
+# RewriteRule ^/(media.*)$ /$1 [QSA,L,PT] # Must learn to serve static media with Nginx or another webserver eventually
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ mysite.fcgi/$1 [QSA,L]
+</code></pre>
+
+<h2>PYTHONPATH</h2>
+
+<ol>
+<li>Add the following to the bottom of a file called <em>.bashrc</em> at <em>/users/home/USERNAME/.bashrc</em> (note the $HOME variable at the beginning of the PYTHONPATH that is defined in this file)
+
+<p><pre><code>PYTHONPATH=$HOME/domains/WWW.DOMAIN.TLD/local/django_trunk:$HOME/lib/python2.6/site-packages
+export PYTHONPATH</code></pre></p></li>
+<li>Add the following to the bottom of a file called <em>.profile</em> at <em>/users/home/USERNAME/.profile</em> (note that the PYTHONPATH does NOT have a $HOME variable. It is the full path.
+
+<p><pre><code>PYTHONPATH=/users/home/USERNAME/domains/WWW.DOMAIN.TLD/local/django_trunk:/usr/local/lib/python2.6/site-packages
+export PYTHONPATH</code></pre></p></li>
+</ol>
+
+<h2>Touch and GO!</h2>
+
+<p>Whenever you change any Python code in <em>django_projects/MYPROJECT</em> you need to touch the MYPROJECT.fcgi file so <a href="http://docs.djangoproject.com/en/dev/howto/deployment/fastcgi/#running-django-on-a-shared-hosting-provider-with-apache" title="Django | How to use Django with FastCGI, SCGI, or AJP | Django documentation">Apache restarts your application for you</a>. Go to WWW.DOMAIN.TLD in a browser and you should see your application running, or at the very least a Django error message!</p>
+
+<h2>Future improvements (to do)</h2>
+
+<ul>
+<li><strong>Virtualenv</strong> - Ideally I would like to get the above running in an isolated Python environment using <a href="http://www.arthurkoziel.com/2008/10/22/working-virtualenv/" title="Working with Virtualenv">virtualenv</a>.</li>
+<li><strong>Nginx</strong> - Serving the site with Nginx would be best, <a href="http://discuss.joyent.com/viewtopic.php?pid=132393#p132393" title="The Joyent Community / Going all minimal and stuff">especially media files</a>.</li>
+</ul>
+
+<p>Thanks to <a href="http://discuss.joyent.com/viewtopic.php?id=26460" title="The Joyent Community / Django and Nginx on Shared Accelerators?">Mamash</a>, Linda and Jacques at Joyent and also to <a href="http://www.ecarmi.org/">Evan Carmi</a> for their help.</p>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/logbook/2010/11/django-on-joyent-shared-machine-with-apache-and-fastcgi/"><time pubdate="pubdate">29 November 2010</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
+  </p>
+
+ 
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2010/11/formalize-css/"><i>Previous entry:</i> <b>Formalize CSS</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2010/11/html-to-dokuwiki-converter/"><i>Next entry:</i> <b>HTML to Dokuwiki Converter</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

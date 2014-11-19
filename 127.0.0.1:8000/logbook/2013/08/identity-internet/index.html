@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="identity, nsa, ssl, bruce schneier, encryption, persona, federated login, federation, passwords, tim bray, eric sachs">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    Identity Authentication on the Internet -  Hypertexthero 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+
+		<h1><a href="/logbook/2013/08/identity-internet/" rel="permalink" title="Permanent link to this entry.">Identity Authentication on the Internet</a></h1>
+		<p class="quiet"><time pubdate="pubdate">Friday, August 30 2013</time></p>
+		<p>I&#8217;m <a href="http://stackoverflow.com/questions/18490696/authenticate-against-drupal-users-database-table-from-django-application">jumping into</a> the world of identity authentication on the internet and keeping links and notes&nbsp;here.</p>
+<ul>
+<li>Tim Bray&#8217;s <a href="http://www.tbray.org/ongoing/When/201x/2013/08/06/Federation-Conversation">Federation Conversation</a>: <ul>
+<li><a href="http://www.tbray.org/ongoing/When/201x/2013/08/08/FC1-What-is-disclosed"><span class="caps">FC</span> 1: Who Learns&nbsp;What</a></li>
+<li><a href="http://www.tbray.org/ongoing/When/201x/2013/08/14/FC2-Single-Point-of-Failure"><span class="caps">FC</span> 2: Single Point of Failure</a>?</li>
+<li><a href="http://www.tbray.org/ongoing/When/201x/2013/08/20/FC3-The-Spooks"><span class="caps">FC</span> 3: <span class="caps">FC3</span>: Who’s Watching You</a>?</li>
+<li><a href="http://www.tbray.org/ongoing/When/201x/2013/08/28/FC4-Persona"><span class="caps">FC4</span>: Persona&nbsp;Questions</a></li>
+</ul>
+</li>
+<li><a href="http://www.schneier.com/blog/archives/2013/08/the_nsa_is_comm.html">The <span class="caps">NSA</span> is Commandeering the Internet</a> by Bruce&nbsp;Schneier.</li>
+<li><a href="http://goo.gl/R8pMP">Running a Login System with an Account Chooser</a> by <a href="https://sites.google.com/site/ericsachs2/">Eric Sachs</a> of <a href="https://sites.google.com/site/oauthgoog/">Google’s Identity team</a>. <blockquote>
+<p>The short version is that the security of a user’s accounts on the Internet has became equivalent to the security of the least secure website where the user types their password.  Or to put it another way, the security of the Internet as a whole is now equivalent to the security level of websites with the worst security.  And there are plenty of websites with little to no&nbsp;security. </p>
+<p>If you are reading this guide, you are responsible for one of those websites.  Unless you work for a firm with hundreds of dedicated security personnel, there generally is no reason for your site to require that users are authenticated with passwords.  It both reduces the security of you own website to the level of websites with worse security, but it also reduces the security of other websites who have tried to build stronger&nbsp;security.</p>
+</blockquote>
+</li>
+<li><a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona: a sign-in system for the web</a>:<ul>
+<li><a href="http://lloyd.io/what-is-persona">What is Persona</a>?<blockquote>
+<p>Persona is an <em>easy way</em> to sign in that enables you to use your <em>existing email account</em>. It&#8217;s an <em>open technology</em> on the path to <em>standardization</em>.</p>
+</blockquote>
+</li>
+<li><a href="http://daker.me/2013/09/adding-persona-authentication-to-your-django-project.html">Add Persona authentification to a Django project</a> using <a href="http://django-browserid.readthedocs.org">django-browserid</a>.</li>
+<li>James Bennett is <a href="http://www.b-list.org/weblog/2013/sep/05/persona/">Personafied</a>.</li>
+<li><a href="https://github.com/pennersr/django-allauth">django-allauth</a></li>
+</ul>
+</li>
+<li><a href="http://www.troyhunt.com/2011/01/ssl-is-not-about-encryption.html">Troy Hunt: <span class="caps">SSL</span> is not about encryption</a>.</li>
+<li><a href="http://www.thoughtcrime.org/">Moxie Marlinspike&#8217;s website, thoughtcrime.org</a><blockquote>
+<p>I like computer security and software development, particularly in the areas of secure protocols, cryptography, privacy, and anonymity. But I also secretly hate technology, am partially horrified with the direction &#8220;geek&#8221; culture has gone, and have little affection for the weird entrepreneur scene that&#8217;s currently devouring the Bay Area.<br />
+…<br />
+In general, I hope to contribute to a world where we value skills and relationships over careers and money, where we know better than to trust cops or politicians, and where we&#8217;re passionate about building and creating things in a self-motivated and self-directed&nbsp;way.</p>
+</blockquote>
+</li>
+<li><a href="http://tack.io/">Tack</a></li>
+</ul>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/logbook/2013/08/identity-internet/"><time pubdate="pubdate">30 August 2013</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
+  </p>
+
+ 
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2013/08/practical-typography/"><i>Previous entry:</i> <b>Practical Typography</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2013/09/wired-story-dean-hall-creator-day-z/"><i>Next entry:</i> <b>Wired Story on Dean Hall, Creator of Day Z</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

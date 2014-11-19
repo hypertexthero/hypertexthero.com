@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="Web, Design, Simplicity">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>Hypertexthero Linked List: Archive for April 2012</title>
+</head>
+
+<body id="archive" class="">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> / <a href="/linked/" title="Linked List.">Linked List</a> / April 2012</p>
+    <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+
+  </div>
+
+  <div id="content">
+    
+        	<h1>Linked List: April 2012</h1>
+        
+            
+                <h2 class="dateline">Wednesday, 25 April 2012</h2>
+                
+            
+            <dl>
+                <dt><a href="http://stevelosh.com/blog/2010/09/making-my-site-sing/">TODO: Useful Links in Printed Webpages</a> &nbsp;<a class="plink" title="Permanent link to TODO: Useful Links in Printed Webpages" href="/linked/2012/04/25/todo-useful-links-in-printed-webpages/">#</a></dt>
+                <dd>
+            	    <div class="codehilite"><pre><span class="c">&lt;!-- URLs in printed page - http://stevelosh.com/blog/2010/09/making-my-site-sing/ --&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    $(function() {
+        $(&#39;#content p:has(a)&#39;).add(&#39;#content ol:has(a)&#39;).add(&#39;#content ul:has(a)&#39;).each(function() {
+            var printing_links = $(this).find(&#39;a&#39;)
+                                        .not(&quot;<span class="cp">[</span><span class="nb">href</span><span class="p">^</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="cp">]</span>&quot;)
+                                        .not(&quot;:has(img)&quot;)
+                                        .clone();
+            $(this).after(printing_links);
+
+            printing_links.wrap(&#39;<span class="nt">&lt;li&gt;&lt;/li&gt;</span>&#39;)
+                          .parent()
+                          .wrapAll(&#39;<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;print-links&quot;</span><span class="nt">&gt;&lt;/ul&gt;</span>&#39;);
+
+            printing_links.each(function() {
+                var href = $(this).attr(&#39;href&#39;);
+                if (href.match(&quot;^/&quot;)) {
+                    href = &#39;http://hypertexthero.com&#39; + href;
+                }
+                $(this).after(&#39;: &#39; + href);
+            });
+        });
+    });
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+                </dd>
+            </dl>
+        
+                
+            
+            <dl>
+                <dt><a href="None">TODO: Implement timeago for dates</a> &nbsp;<a class="plink" title="Permanent link to TODO: Implement timeago for dates" href="/linked/2012/04/25/todo-implement-timeago-for-dates/">#</a></dt>
+                <dd>
+            	    	<p>http://stevelosh.com/blog/2010/01/moving-from-django-to-hyde/<br />
+http://timeago.yarp.com/</p>
+                </dd>
+            </dl>
+        
+            
+                <h2 class="dateline">Tuesday, 24 April 2012</h2>
+                
+            
+            <dl>
+                <dt><a href="http://hynek.me/articles/python-deployment-anti-patterns/">Python Deployment Anti-Patterns</a> &nbsp;<a class="plink" title="Permanent link to Python Deployment Anti-Patterns" href="/linked/2012/04/24/python-deployment-anti-patterns/">#</a></dt>
+                <dd>
+            	    
+                </dd>
+            </dl>
+        
+                
+            
+            <dl>
+                <dt><a href="http://dotfiles.github.com/">Github Does Dotfiles</a> &nbsp;<a class="plink" title="Permanent link to Github Does Dotfiles" href="/linked/2012/04/24/github-does-dotfiles/">#</a></dt>
+                <dd>
+            	    
+                </dd>
+            </dl>
+        
+            
+                <h2 class="dateline">Monday, 23 April 2012</h2>
+                
+            
+            <dl>
+                <dt><a href="http://www.guardian.co.uk/technology/2012/apr/17/tim-berners-lee-monitoring-internet">Tim Berners-Lee: UK Spying Plan is a Destruction of Human Rights</a> &nbsp;<a class="plink" title="Permanent link to Tim Berners-Lee: UK Spying Plan is a Destruction of Human Rights" href="/linked/2012/04/23/tim-berners-lee-uk-spying-plan-is-a-destruction-of-human-rights/">#</a></dt>
+                <dd>
+            	    
+                </dd>
+            </dl>
+        
+            
+                <h2 class="dateline">Sunday, 22 April 2012</h2>
+                
+            
+            <dl>
+                <dt><a href="http://paulgraham.com/todo.html">Todo</a> &nbsp;<a class="plink" title="Permanent link to Todo" href="/linked/2012/04/22/top-of-todo/">#</a></dt>
+                <dd>
+            	    	<blockquote>
+		<p>Don&#8217;t ignore your dreams; don&#8217;t work too much; say what you think; cultivate friendships; be happy.</p>
+	</blockquote>
+                </dd>
+            </dl>
+        
+            
+                <h2 class="dateline">Thursday, 19 April 2012</h2>
+                
+            
+            <dl>
+                <dt><a href="http://datadesk.latimes.com/posts/2012/03/introducing-django-bakery/">django-bakery</a> &nbsp;<a class="plink" title="Permanent link to django-bakery" href="/linked/2012/04/19/django-bakery/">#</a></dt>
+                <dd>
+            	    	<p>Serve a site as flat files with Django. The <a href="https://github.com/datadesk/django-bakery">repository is on Github</a>.</p>
+                </dd>
+            </dl>
+        
+            
+                <h2 class="dateline">Friday, 13 April 2012</h2>
+                
+            
+            <dl>
+                <dt><a href="http://jamus.co.uk/demos/rwd-demonstrations/">Demonstrate Responsive Designs</a> &nbsp;<a class="plink" title="Permanent link to Demonstrate Responsive Designs" href="/linked/2012/04/13/demonstrate-responsive-designs/">#</a></dt>
+                <dd>
+            	    
+                </dd>
+            </dl>
+        
+                
+            
+            <dl>
+                <dt><a href="http://sebsauvage.net/paste/">ZeroBin</a> &nbsp;<a class="plink" title="Permanent link to ZeroBin" href="/linked/2012/04/13/zerobin/">#</a></dt>
+                <dd>
+            	    	<p>Minimalist, opensource online pastebin where the server has zero knowledge of pasted data. Data is encrypted/decrypted in the browser using 256 bits <span class="caps">AES</span> </p>
+
+	<p>Also check out <a href="http://lucaspiller.github.com/shortly/">Shortly</a>.</p>
+                </dd>
+            </dl>
+        
+                
+            
+            <dl>
+                <dt><a href="https://developers.google.com/chrome-developer-tools/docs/scripts-breakpoints">Debugging JavaScript Using Regular Breakpoints</a> &nbsp;<a class="plink" title="Permanent link to Debugging JavaScript Using Regular Breakpoints" href="/linked/2012/04/13/debugging-javascript-using-regular-breakpoints/">#</a></dt>
+                <dd>
+            	    
+                </dd>
+            </dl>
+        
+                
+            
+            <dl>
+                <dt><a href="http://gitimmersion.com/">Git Immersion</a> &nbsp;<a class="plink" title="Permanent link to Git Immersion" href="/linked/2012/04/13/git-immersion/">#</a></dt>
+                <dd>
+            	    	<p>Guided tour of Git internals.</p>
+                </dd>
+            </dl>
+        
+            
+                <h2 class="dateline">Wednesday, 11 April 2012</h2>
+                
+            
+            <dl>
+                <dt><a href="http://www.meteor.com/">Meteor</a> &nbsp;<a class="plink" title="Permanent link to Meteor" href="/linked/2012/04/11/meteor/">#</a></dt>
+                <dd>
+            	    	<p>JavaScript application framework. David Greenspan, author of <a href="http://hypertexthero.com/logbook/etherpad-lite">Etherpad</a>, is <a href="http://www.meteor.com/about/people">one of the developers</a>. </p>
+
+	<p>Thanks to <a href="http://devopsanywhere.blogspot.it/">B.B. The King of *x Sysadmin</a>.</p>
+                </dd>
+            </dl>
+        
+            
+                <h2 class="dateline">Saturday, 07 April 2012</h2>
+                
+            
+            <dl>
+                <dt><a href="http://adactio.com/journal/5351/">Jeremy Keith: Best Practice For Crafting Websites, 2012</a> &nbsp;<a class="plink" title="Permanent link to Jeremy Keith: Best Practice For Crafting Websites, 2012" href="/linked/2012/04/07/web-design-best-practice-2012/">#</a></dt>
+                <dd>
+            	    	<blockquote>
+		<p><em>Can you sum up, in general terms, the key things you think people should consider when building sites today?</em></p>
+		<p>I&#8217;ve found that it makes sense to apply the principle of progressive enhancement to everything: layout, images, and content:</p>
+		<p>	<ul>
+		<li>Use small images by default.</li>
+		<li>Don&#8217;t apply any layout in your <span class="caps">CSS</span>.</li>
+		<li>Start with the content that is absolutely essential.</li>
+	</ul></p>
+		<p>Once you&#8217;ve got that baseline working well, then you can start to progressively enhance the site:</p>
+		<p>	<ul>
+		<li>Load in larger images if the screen size permits it.</li>
+		<li>Use a grid for page layout, but keep the <span class="caps">CSS</span> declarations for the grid within media queries.</li>
+		<li>Use Ajax to conditionally load non-essential content for larger screens.</li>
+	</ul></p>
+		<p>Don&#8217;t start a design by thinking about the desktop layout. But don&#8217;t start by thinking about the mobile layout either. Instead, think about the content. And when I say &#8216;content&#8217;, I don&#8217;t mean &#8216;copy.&#8217; Your content could be a task, like adding an item to a shopping cart. Focus on the core task that your user wants to accomplish.</p>
+		<p>Separating out the content (reading an article, buying a pair of shoes) from the delivery mechanism (a desktop browser, a mobile browser, a tablet) requires a different mindset to the way web sites have traditionally been built. But much like the change in mindset that was required when we changed from tables for layout to <span class="caps">CSS</span>, it&#8217;s incredibly rewarding.</p>
+	</blockquote>
+                </dd>
+            </dl>
+    
+	
+
+  </div> 
+
+  <div id="footer">
+        
+        <p id="about">
+    <b><a href="/" title="Home.">Hypertexthero</a></b> aligns things so they <a href="/work/" title="Work examples.">look good and are useful</a>. He also <a href="/archive/" title="Archive of original logbook entries.">writes</a>, <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">links</a> and <a href="http://simongriffee.com" title="Photography.">photographs</a>. You can <a href="/contact/" title="Call Hypertexthero.">contact</a> him.
+  </p>
+      <hr class="hide">
+      <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+    
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

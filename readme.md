@@ -16,7 +16,7 @@ Features
 ## Things to do
 
 - **Combine a static generator with this application so we are serving static HTML files from disk on server and Markdown and HTML columns in database.**
-    - Current command to deploy is `wget -m http://127.0.0.1:8000 --delete-after` then git push/pull or ftp drag-and-drop
+    - Current command to deploy is `wget -m http://127.0.0.1:8000 --delete-after` then git push/pull or ftp drag-and-drop or `rsync -exclude='.DS_Store' -cavzhe ssh ~/Projects/hth-env/hth/_output/ hth@hth.webfactional.com:webapps/hth/`
 - Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment.
 - Set up [SSL for privacy](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS).
 - Set up own instance of nginx?

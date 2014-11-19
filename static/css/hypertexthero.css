@@ -1,6 +1,6 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: 2014-11-18 13:24:21
+Last update: 2014-11-19 11:35:55
 */
 * {margin:0; padding:0;}
 
@@ -46,7 +46,6 @@ body#logbook #content, body#about #content, body#error #content, body#archive #c
 
 /* =home ---------------------- */
 
-body#home #header {margin-bottom:12px; height:137px;}
 #introduction {font-weight:normal; padding:100px 0 0 0; max-width:22em !important;}
 
 div.column {width:155px; float:left; margin:0 26px 0 0;}
@@ -71,7 +70,7 @@ body#archive #header p#homelink a {width:385px;}
 
 /* =nav ---------------------- */
 
-div.nav {float:right;}
+div.nav {float:right; clear:both;}
 div.nav ul {list-style:none; margin:10px 0 0;}
 div.nav ul li {}
 div.nav a {border:0;}
@@ -83,14 +82,6 @@ body#tags a.nav-tags,
 body#work a.nav-work,
 body#contact a.nav-contact 
 {color:#000;}
-
-/* =contact ---------------------- */
-
-body#contact #content p#thankyou {padding-bottom:200px;}
-input, textarea {margin-bottom:1em; padding:2px;}
-label {color:#45423b;}
-button {border:none;}
-.alert-error {color:#c00;}
 
 /* =work ---------------------- */
 
@@ -150,7 +141,7 @@ body#logbook h1 {margin:0 0 0.3em;}
 h2 {font-size:21px; margin:1.5em 0 0.4em;}
 body#about h2 {font-size:1.5em;}
 h2.dateline {margin:5em 0 3em; text-transform:uppercase; font-size:0.9em !important; letter-spacing:0.2em; font-weight:normal;}
-h2.datelinearchive {font-weight:bold;}
+h2.datelinearchive {font-weight:normal;}
 h3 {font-size:18px; margin:1em 0 0.8em;}
 h3 span.normal {font-size:16px;}
 h3.posted {font-size:14px; font-style:italic; font-weight:normal; margin-top:0em;}
@@ -201,15 +192,6 @@ a.browserid-login {color:#fafafa; border:0;}
     body#home #header {padding-bottom:3em;}
     #header #logo a {display:block;}
     #header blockquote {position:normal; float:left;}
-    body#contact #page {width:770px;}
-    body#contact h1#logo a {right:0;}
-    div#brief {left:43px; text-align:left;}
-    body#contact #content form, body#contact #content p#thankyou {right:0;}
-    div.logcolumn {width:99%; text-align:left;}
-    div.logcolumn h2 {text-align:left; width:99%; padding-left:15px;}
-    div.logcolumn h2#writing {background-position:0 0; text-align:left;}
-    body#logbook p#homelink {text-align:center; clear:both;}
-    body#logbook p#homelink a {margin:0 auto; float:left; clear:both;}
     }
 @media (max-width: 860px) {
     #page, #latest {width:auto;}
@@ -219,11 +201,6 @@ a.browserid-login {color:#fafafa; border:0;}
     #header blockquote {position:relative; display:block; float:left; padding-top:1em;}
     #content img {width: 100%; height: auto;}
     #content img.thumbincontent {width:auto;}
-    body#contact #page {background:none; width:770px;}
-    body#contact h1#logo a {left:300px;}
-    div#brief {left:43px; text-align:left;}
-    body#contact #content form, body#contact #content p#thankyou {right:0;}
-    div#description {padding-left:0;}
     }
 @media (max-width: 650px) {
     #page {width:auto;}
@@ -231,46 +208,28 @@ a.browserid-login {color:#fafafa; border:0;}
     body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {display:block;}
     #header blockquote {position:relative; display:block; float:left; display:block;}
-    body#home #content {width:400px !important; padding-left:20px;}
     #content {width:auto !important; padding-left:20px; padding-right:40px;}
     #content img {width: 100%; height: auto;}
     #content img.thumbincontent {width:auto;}
-    body#contact #page {width:570px; background:none;}
-    body#contact #header {width:470px;}
-    body#contact h1#logo a {left:150px;}
-    div#brief {left:43px; text-align:left;}
-    body#contact p#homelink {display:none !important;}
-    body#contact form {width:100%;}
-    body#contact #content form, body#contact #content p#thankyou, div#brief, div#address {position:relative; float:left; display:block;}
-    div#brief {position:normal !important; top:0; left:4em;}
-    div#description {padding-left:0;}
+    body#home #content {width:400px !important; padding-left:20px;}
     #footer {padding-left:20px;}
-    div.column {display:block; text-align:left;}
-    div.column h2 {margin:2em 0 1em;}
-    }
+  }
 @media (max-width: 530px) {
-    div.nav {float:left; clear:both; padding-bottom:30px;}
+    div.nav {clear:both; padding-bottom:30px; text-align:center; display:block; width:99%;}
+    div.nav img {margin:1em auto;}
     #page {width:auto; background:none;}
     #header {margin:0 20px 0;}
     body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {width:auto;}
     #header blockquote {position:relative; display:block; float:left; width:180px;}
     #content {width:auto !important; padding-left:20px; padding-right:25px;}
-    body#home #content {width:auto !important; padding:0 5px !important;}
+    body#home #content {width:auto !important; padding:0 10px !important;}
     body#home #header {position:relative; width:auto; background:none; height:auto;}
     body#home #header blockquote {position:relative; width:auto; float:none; margin:2em 0 0;}
     body#home h1#logo a {position:relative;}
     #content img {width:100%; height:auto;}
     #content img.thumbincontent {width:auto;}
-    body#contact #page {width:350px; background:none;}
-    body#contact #header {width:180px; height:100px; background:none;}
     body#logbook #header p.breadcrumbs, body#archive #header p.breadcrumbs {width:auto; position:normal; display:none;}
-    body#contact #content form, body#contact #content form textarea {width:260px !important;}
-    body#contact h1#logo a {left:0;}
-    body#contact p#homelink {display:none !important;}
-    div#brief, body#contact #content form, body#contact #content p#thankyou, div#brief, div#address {position:relative; float:left; display:block;  text-align:left; background:none;}
-    body#contact #content form {margin-bottom:0; padding-right:0;}
-    div#brief {position:normal !important; top:1em; left:0;}
     div#description {padding-left:0;}
     #footer {padding-left:20px; padding-right:20px;}
     #footer input {width:260px !important;}

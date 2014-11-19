@@ -34,7 +34,7 @@
     </dl>
 
   <p id="about">
-    A <a href="/" title="Home.">Hypertexthero</a></b> link by <a href="/about/" title="About.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="{{ object.get_linked_list_url }}">{{ object.pub_date|date:"d F Y" }}</a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more links in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>. Original articles are in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>.
+    A <a href="/" title="Home.">Hypertexthero</a></b> link by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="{{ object.get_linked_list_url }}">{{ object.pub_date|date:"d F Y" }}</a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more links in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>. Original articles are in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>.
   </p>
 
     {% else %} {# otherwise it is an original article #}
@@ -44,7 +44,7 @@
 		{{ object.body_html|safe }}
 
   <p id="about">
-    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="/about/" title="About.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="{{ object.get_absolute_url }}"><time pubdate="pubdate">{{ object.pub_date|date:"d F Y" }}</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
+    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="{{ object.get_absolute_url }}"><time pubdate="pubdate">{{ object.pub_date|date:"d F Y" }}</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
   </p>
 
 {% endif %} {# end if object.kind == "L" #}

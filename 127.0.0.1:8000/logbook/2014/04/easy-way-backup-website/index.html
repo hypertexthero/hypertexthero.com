@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="unix, backup, website, wget">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    Easy Way to Backup a Website -  Hypertexthero 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+
+		<h1><a href="/logbook/2014/04/easy-way-backup-website/" rel="permalink" title="Permanent link to this entry.">Easy Way to Backup a Website</a></h1>
+		<p class="quiet"><time pubdate="pubdate">Tuesday, April 22 2014</time></p>
+		<p><em>This is an edited version of my comment <a href="http://theonlinephotographer.typepad.com/the_online_photographer/2014/04/dumb-question-more-blog-notes.html" title="The Online Photographer.">posted at <span class="caps">TOP</span></a>.</em></p>
+<p>I&#8217;ve recently <a href="http://hypertexthero.com/logbook/2014/03/textdrive-dead-jim/">had some trouble</a> with an old web host and have been <a href="http://hypertexthero.com/logbook/2014/03/web-publishing-maximum-longevity/">thinking about backups</a>.</p>
+<p>An easy way to backup an entire site as it is, with comments and styles intact, is to fire up a Unix utility called <a href="https://www.gnu.org/software/wget/manual/wget.html">wget</a> and have it crawl your site and save a static <span class="caps">HTML</span> version of it in a folder in your computer. You can then move this folder to your own server or web hosting company&nbsp;easily. </p>
+<p>The command may take a while to run depending on the size of your site, but is generally very fast, and gives you an <span class="caps">HTML</span> archive that can be served by a web server and browsed with a web browser regardless of service or software&nbsp;changes.</p>
+<p>First you will need to <a href="http://osxdaily.com/2012/05/22/install-wget-mac-os-x/">install wget</a> if you don&#8217;t have it&nbsp;already.</p>
+<p>Then you can run the following command in your terminal<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> (replace &#8216;domain.dev&#8217; — which appears twice — with your site&nbsp;domain): </p>
+<div class="codehilite"><pre>wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names<span class="o">=</span>unix --domains domain.dev http://domain.dev/
+</pre></div>
+
+
+<p>Once the command finishes processing you will have a folder containing the site&#8217;s contents in your&nbsp;computer.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>In Mac <span class="caps">OS</span> X the Terminal application is in <code>/Applications/Utilities/Terminal</code>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/logbook/2014/04/easy-way-backup-website/"><time pubdate="pubdate">22 April 2014</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
+  </p>
+
+ 
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2014/04/space-colony-art-1970s/"><i>Previous entry:</i> <b>Space Colony Art from the 1970s</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2014/04/microsoft-sharepoint-sucks/"><i>Next entry:</i> <b>Microsoft Sharepoint is Terrible Software</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

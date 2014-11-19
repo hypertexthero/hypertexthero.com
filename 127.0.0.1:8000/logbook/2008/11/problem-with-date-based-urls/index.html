@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    Problem With Date-Based URLs -  Hypertexthero 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+
+		<h1><a href="/logbook/2008/11/problem-with-date-based-urls/" rel="permalink" title="Permanent link to this entry.">Problem With Date-Based URLs</a></h1>
+		<p class="quiet"><time pubdate="pubdate">Saturday, November 8 2008</time></p>
+			<p>A <acronym titlee="Uniform Resource Locator"><span class="caps">URL</span></acronym> is an address which indicates the <a href="http://en.wikipedia.org/wiki/Uniform_Resource_Locator">location of something</a> on a network. After initial appreciation, even obsession, my opinion regarding the use of <em>dates</em> in <span class="caps">URL</span>s has changed.</p>
+
+	<p>I now think that unless you are <em>specifically</em> working with date-sensitive pages such as news or weblog archives, there is no need to include the  published date of an article in a <span class="caps">URL</span>. Doing so only serves to make the <span class="caps">URL</span> longer and limits its ability to help advanced users guess the location of related content.</p>
+
+	<p>As an example take someone is writing a tutorial on their website. The tutorial is divided into a series of articles. The following <span class="caps">URL</span> would frustrate a user navigating from the browser address bar because the published date (which is irrelevant to the user navigating the page) would make their guess of substituting the number 1 for 2 in the end a wrong guess:</p>
+
+<pre><code>http://example.com/tutorial/2008/11/08/part-1
+http://example.com/tutorial/2008/11/08/part-2 = 404 Page not found 
+(unless part 2 was published on the same date).
+</code></pre>
+
+	<p>A much better <span class="caps">URL</span> would be:</p>
+
+<pre><code>http://example.com/tutorial/part-1
+http://example.com/tutorial/part-2 = Success, the second part of the tutorial loads!
+</code></pre>
+
+	<p>Well-designed <span class="caps">URL</span> schemes should allow advanced users to guess the location of content related to what they are browsing, and the published date of an article should be featured in the article itself, not in the browser address bar.</p>
+
+
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/logbook/2008/11/problem-with-date-based-urls/"><time pubdate="pubdate">08 November 2008</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
+  </p>
+
+ 
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2008/11/django-hardcopy-book-to-get/"><i>Previous entry:</i> <b>Django Hardcopy Book to Get</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2008/11/screengrab/"><i>Next entry:</i> <b>Screengrab!</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

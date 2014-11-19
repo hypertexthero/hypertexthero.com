@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    Make.text - Hypertexthero Linked List 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+    <dl>
+      <dt><a href="http://homepage.mac.com/tjim/">Make.text</a> &nbsp;<a class="plink" title="Permanent link to this entry." href="/linked/2011/05/19/maketext/"># 19 may 2011</a></dt>
+      <dd>
+    	  <p>Bookmarklet for turning a web page into <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax. Drag the following to your bookmarks bar:</p>
+
+<p><strong><a href="javascript:(function(){/** Make.text 1.5. Trevor Jim. License: GPL v2 (www.fsf.org/copyleft/gpl.html). **/ var logging = false; var logString = ''; var unhandled = {};  function log(exn,msg) { if (!logging) return; logString += msg + ': ' + exn + '%5cn'; } var w = window.open('');  var d = w.document; var last = null; function addText(s) { if (last != null) d.write(last); last = s; } function llapLast(s) { if (last) last = last.replace(/    $/,s); } function finishOutput() { addText(%22%22); } var links = new Array(window.location);  var rlinks = {}; rlinks[window.location] = 0; var linkTitles = new Array(); var atP = true; var atLeft = true; var atNoWS = true;  var left = '%5cn'; function pushLeft(s) { var oldLeft = left; left += s; if (atP) addText(s); else p(); function r() { left = oldLeft; atP = atLeft = false; p(); } return r; } function p() { if (atP)  return; if (!atLeft) { addText(left); atLeft = true; } addText(left); atP = atNoWS = true; } function llap(s) { if (!atLeft) { addText(left.replace(/    $/,s)); atLeft = atP = atNoWS = true; return; } else { llapLast(s); return; } } function br(s) { addText('  ' + left); atLeft = atNoWS = true; } function o(s) { if (!s) return; if (!inPRE) { if (atNoWS) s = s.replace(/^[ %5ct%5cn]+/,''); else if (/^[ %5ct]*%5cn/.test(s)) s = s.replace(/^[ %5ct%5cn]+/,'%5cn'); else s = s.replace(/^[ %5ct]+/,' '); } if (s == '') return; atP = /%5cn%5cn$/.test(s); atLeft = /%5cn$/.test(s); atNoWS = /[ %5ct%5cn]$/.test(s); addText(s.replace(/%5cn/g,left)); } function oThunk(s) { function r() { o(s); } return r; } var inPRE = false; function pre() { var old = inPRE; inPRE = true; function r() { inPRE = old; } return r; } var inCODE = false; function code() { var old = inCODE; inCODE = true; function r() { inCODE = old; } return r; } var inOL = false; function ol() { var old = inOL; inOL = true; function r() { inOL = old; } return r; } function ul() { var old = inOL; inOL = false; function r() { inOL = old; } return r; } var replacements = { '%5c%5c%5c%5c': '%5c%5c%5c%5c', '%5c%5c[': '%5c%5c[', '%5c%5c]': '%5c%5c]', '>': '%5c%5c>', '_': '%5c%5c_', '%5c%5c*': '%5c%5c*', '`': '%5c%5c`', '#': '%5c%5c#', '([0-9])%5c%5c.(%5c%5cs|$)': '$1%5c%5c.$2',  '%5cu00a9': '(c)', '%5cu00ae': '(r)', '%5cu2122': '(tm)', '%5cu00a0': ' ',    '%5cu00b7': '%5c%5c*',  '%5cu2002': ' ',  '%5cu2003': ' ',  '%5cu2009': ' ',  '%5cu2018': %22'%22, '%5cu2019': %22'%22, '%5cu201c': '%22', '%5cu201d': '%22', '%5cu2026': '...', '%5cu2013': '--',  '%5cu2014': '---'  }; var regex = {}; for (var key in replacements) { regex[key] = new RegExp(key, 'g'); } function nonPREproc(s) { s = s.replace(/%5cn([ %5ct]*%5cn)+/g,'%5cn');  s = s.replace(/%5cn[ %5ct]+/g,'%5cn');       s = s.replace(/[ %5ct]+/g,' ');          for (var key in replacements) { s = s.replace(regex[key], replacements[key]); } return s; } function inCODEproc(s) { s = s.replace(/`/g,'%5c%5c`'); return s; } function isAbsolute(s) {      return /^[a-zA-Z]([a-zA-Z0-9+-.])*:/.test(s); } function isSiteRelative(s) {  return /^%5cx2f/.test(s);   } function isPageRelative(s) {  return /^#/.test(s); } var urlBase = location.href; var urlDir = urlBase.replace(/%5c/[^%5c/]*$/,'/'); var urlPage = urlBase.replace(/#[^%5c/#]*$/,''); var urlSite = urlBase; if (isAbsolute(urlBase)) { urlSite = urlBase.replace(/^([a-zA-Z]([a-zA-Z0-9+-.])*:%5c/%5c/[^%5c/]*).*/,'$1'); } function makeAbsolute(s) { if (isAbsolute(s)) return s; else if (isSiteRelative(s)) return urlSite + s; else if (isPageRelative(s)) return urlPage + s; else return urlDir + s; } function urlEscape(s) { s = makeAbsolute(s); s = s.replace(/%5cx22/g,'%2522');  s = s.replace(/%5cx27/g,'%2527');  s = s.replace(/%5cx20/g,'%2520');  s = s.replace(/%5cx09/g,'%2509');  s = s.replace(/%5cx0a/g,'%250a');  s = s.replace(/%5cx0d/g,'%250d');  s = s.replace(/%5cx28/g,'%2528');  s = s.replace(/%5cx29/g,'%2529');  s = s.replace(/%5cx5b/g,'%255b');  s = s.replace(/%5cx5d/g,'%255d');  s = s.replace(/%5cx5c/g,'%255c');  return s; } if (!window.Node) Node = {}; if (!Node.ELEMENT_NODE) Node.ELEMENT_NODE = 1; if (!Node.TEXT_NODE) Node.TEXT_NODE = 3; function dfs(e) { if (window.getComputedStyle) { try {  var style = window.getComputedStyle(e,null); if (style.getPropertyValue %26%26 style.getPropertyValue('display') == 'none') return; } catch (exn) { log(exn,'computedStyle'); } } if (e.nodeType == Node.ELEMENT_NODE) { var after = null; var skipChildren = false; try { switch (e.tagName) { case 'HEAD': case 'STYLE': case 'SCRIPT': case 'SELECT': case 'OPTION': case 'NOSCRIPT': case 'NOFRAMES': case 'INPUT':    case 'BUTTON':   case 'SELECT':   case 'TEXTAREA': case 'LABEL': skipChildren = true; break; case 'BODY': case 'FORM':  break; case 'H1': p(); o('# '); break;  case 'H2': p(); o('## '); break; case 'H3': p(); o('### '); break; case 'H4': p(); o('#### '); break; case 'H5': p(); o('##### '); break; case 'H6': p(); o('###### '); break; case 'P':  p(); break; case 'DIV': p(); break; case 'BR': br(); break; case 'HR': p(); o('--------------------------------'); p(); break; case 'EM': case 'I': case 'U': o('_'); atNoWS = true; after = oThunk('_');  break; case 'DT': p(); case 'STRONG': case 'B': o('**'); atNoWS = true; after = oThunk('**');  break; case 'OL': var r1 = pushLeft('    '); var r2 = ol(); after = function() { r1(); r2(); }; break; case 'UL': var r1 = pushLeft('    '); var r2 = ul(); after = function() { r1(); r2(); }; break; case 'LI': if (inOL) llap('1.  '); else llap('*   '); break; case 'PRE': var r1 = pushLeft('    '); var r2 = pre(); after = function() { r1(); r2(); }; break; case 'CODE': if (!inPRE) { o('`'); var r1 = code(); var r2 = oThunk('`'); after = function() { r1(); r2(); }; } break; case 'DD': case 'BLOCKQUOTE': after = pushLeft('> '); break; case 'A': var href = e.getAttribute('href'); if (!href) break; href = urlEscape(href); var n; if (rlinks[href]) { n = rlinks[href]; } else { n = links.length; links[n] = href; rlinks[href] = n; if (e.getAttribute('title')) linkTitles[n] = e.getAttribute('title'); } o('['); atNoWS = true; after = oThunk('][' + n + ']'); break; case 'IMG': skipChildren = true; var src = e.getAttribute('src'); if (!src) break; src = urlEscape(src); var alt = e.getAttribute('alt'); if (!alt) alt = ''; o('![' + alt + '](' + src + ')'); break; case 'IFRAME': case 'FRAME': skipChildren = true; try {  if (e.contentDocument %26%26 e.contentDocument.documentElement) { dfs(e.contentDocument.documentElement); } } catch (exn) { log(exn,'contentDocument'); } break; case 'TR': after = p; break; default: if (logging) unhandled[e.tagName] = null; break; } } catch (exn) { log(exn,e.tagName); } if (!skipChildren) { var c = e.childNodes; for (var i = 0; i < c.length; i++) { dfs(c[i]); } } if (after) after(); } else if (e.nodeType == Node.TEXT_NODE) { if (inPRE) o(e.nodeValue); else if (inCODE) o(inCODEproc(e.nodeValue)); else o(nonPREproc(e.nodeValue)); } } addText('<pre>'); addText('%26lt;!-- [' + window.document.title + '][0] --%26gt;%5cn%5cn'); dfs(window.document.body); addText('%5cn%5cn'); for (var i = 0; i < links.length; i++) { var title = '%5cn'; if (linkTitles[i]) title = ' %22' + linkTitles[i] + '%22%5cn'; if (links[i]) addText('[' + i + ']: ' + links[i] + title); } if (logging) { addText('%5cn%5cn%26lt;!-- Make.text debugging:%5cn'); for (var i in unhandled) addText('Not handled: ' + i + '%5cn'); addText('%5cn'); addText(logString); addText('--%26gt;%5cn'); } addText('</pre>'); finishOutput(); d.close(); })();void(0);">
+Make.text</a></strong></p>
+      </dd>
+    </dl>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> link by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/linked/2011/05/19/maketext/">19 May 2011</a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more links in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>. Original articles are in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>.
+  </p>
+
+     
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2011/05/keep-talking/"><i>Previous entry:</i> <b>Keep Talking</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2011/05/bandwidth-threatens-control/"><i>Next entry:</i> <b>Bandwidth Threatens Control</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="system administration, unix, supervisord">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    Supervisord Configuration at Webfaction -  Hypertexthero 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+
+		<h1><a href="/logbook/2014/07/supervisord-configuration-webfaction/" rel="permalink" title="Permanent link to this entry.">Supervisord Configuration at Webfaction</a></h1>
+		<p class="quiet"><time pubdate="pubdate">Friday, July 4 2014</time></p>
+		<p><strong>Problem:</strong> Your server machine crashes and your website running under an application server such as <a href="http://gunicorn.org/">Gunicorn</a> goes down. The app server needs to be&nbsp;restarted.</p>
+<p><strong>Solution:</strong> Use <a href="http://supervisord.org/">supervisord</a> to monitor your application server process and restart it if it&nbsp;dies.</p>
+<ol>
+<li>
+<p>Install&nbsp;supervisord:</p>
+<div class="codehilite"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">supervisor</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Put the follosing in <code>~/etc/supervisord.conf</code> (includes examples for <a href="http://hypertexthero.com">hypertexthero.com</a> and <a href="http://food.hypertexthero.com">Food News</a>):</p>
+<div class="codehilite"><pre><span class="k">[unix_http_server]</span>
+<span class="na">file</span><span class="o">=</span><span class="s">/home/hth/tmp/supervisor.sock</span>
+
+<span class="k">[supervisord]</span>
+<span class="na">logfile</span><span class="o">=</span><span class="s">/home/hth/logs/user/supervisord.log</span>
+<span class="na">logfile_maxbytes</span><span class="o">=</span><span class="s"><span class="caps">25MB</span></span>
+<span class="na">logfile_backups</span><span class="o">=</span><span class="s">10</span>
+<span class="na">loglevel</span><span class="o">=</span><span class="s">info</span>
+<span class="na">pidfile</span><span class="o">=</span><span class="s">/home/hth/etc/supervisord.pid</span>
+
+<span class="k">[rpcinterface:supervisor]</span>
+<span class="na">supervisor.rpcinterface_factory</span> <span class="o">=</span> <span class="s">supervisor.rpcinterface:make_main_rpcinterface</span>
+
+<span class="k">[supervisorctl]</span>
+<span class="na">serverurl</span><span class="o">=</span><span class="s">unix:///home/hth/tmp/supervisor.sock</span>
+
+<span class="k">[include]</span>
+<span class="na">files</span> <span class="o">=</span> <span class="s">/home/hth/webapps/hypertexthero/hypertexthero-env/hth/hth/conf/supervisor.ini /home/hth/webapps/foodnews/fn-env/fn/supervisor.ini</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Create a <code>supervisor.ini</code> file in each web application&#8217;s repository so we keep supervisor settings for the application in version control.&nbsp;Example:</p>
+<div class="codehilite"><pre><span class="k">[program:hypertexthero.com]</span>
+<span class="na">command</span><span class="o">=</span><span class="s">/home/hth/webapps/hypertexthero/hypertexthero-env/bin/python2.7 /home/hth/webapps/hypertexthero/hypertexthero-env/bin/gunicorn_django --daemon -b 127.0.0.1:23035 -w 2 --max-requests 500</span>
+<span class="na">directory</span><span class="o">=</span><span class="s">/home/hth/webapps/hypertexthero/hypertexthero-env/hth/hth</span>
+<span class="na">user</span><span class="o">=</span><span class="s">hth</span>
+<span class="na">autostart</span><span class="o">=</span><span class="s">true</span>
+<span class="na">autorestart</span><span class="o">=</span><span class="s">true</span>
+<span class="na">redirect_stderr</span><span class="o">=</span><span class="s">True</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Start supervisord using its main configuration&nbsp;file:</p>
+<div class="codehilite"><pre><span class="n">supervisord</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">hth</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">supervisord</span><span class="p">.</span><span class="n">conf</span>
+</pre></div>
+
+
+</li>
+</ol>
+<p>If problem, see <a href="http://serverfault.com/a/397970">this</a>.</p>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/logbook/2014/07/supervisord-configuration-webfaction/"><time pubdate="pubdate">04 July 2014</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
+  </p>
+
+ 
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2014/07/what-comes-when-nationalism-goes/"><i>Previous entry:</i> <b>What Is It That Comes When Nationalism Goes?</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2014/07/endless-river/"><i>Next entry:</i> <b>The Endless River</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

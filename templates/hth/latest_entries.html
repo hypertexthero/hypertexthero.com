@@ -1,13 +1,11 @@
-<div id="latest">
-    {# <h2><i>Latest from the <a href="/logbook/">Logbook</a></i></h2> #}
-    <ul class="unstyled">
-    {% for entry in latest_entries %}
-        {% if entry.kind == "A" %}
-            <li><a href="{{ entry.get_absolute_url }}" title="Read this Logbook entry.">{{ entry.title }}</a></li>
-        {% else %} {# object.kind == "L" #}
-            <li><a href="{{ entry.url }}" title="Visit this Logbook Linked List link.">{{ entry.title }}</a> <a class="plink" href="{{ entry.get_linked_list_url }}" rel="permalink" title="Permanent link to {{ entry.title }}.">#</a></li>
-        {% endif %}
-    {% endfor %}
-        <li><a href="/logbook/" title="The Logbook is where Hypertexthero writes about web, design and simplicity.">More Entries</a> &rarr;</li>
-    </ul>
-</div>
+{# <h2><i>Latest from the <a href="/logbook/">Logbook</a></i></h2> #}
+<ul>
+{% for entry in latest_entries %}
+    {% if entry.kind == "A" %}
+        <li><a href="{{ entry.get_absolute_url }}" title="Read this Logbook entry.">{{ entry.title }}</a></li>
+    {% else %} {# object.kind == "L" #}
+        <li><a href="{{ entry.url }}" title="Visit this Logbook Linked List link.">{{ entry.title }}</a> <a class="plink" href="{{ entry.get_linked_list_url }}" rel="permalink" title="Permanent link to {{ entry.title }}.">#</a></li>
+    {% endif %}
+{% endfor %}
+    <li><a href="/logbook/" title="The Logbook is where Hypertexthero writes about web, design and simplicity.">More Entries</a> &rarr;</li>
+</ul>

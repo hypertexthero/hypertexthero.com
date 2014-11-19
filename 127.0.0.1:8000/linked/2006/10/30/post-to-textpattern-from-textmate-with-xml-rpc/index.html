@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    Post to Textpattern from Textmate With XML-RPC - Hypertexthero Linked List 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+    <dl>
+      <dt><a href="None">Post to Textpattern from Textmate With XML-RPC</a> &nbsp;<a class="plink" title="Permanent link to this entry." href="/linked/2006/10/30/post-to-textpattern-from-textmate-with-xml-rpc/"># 30 oct 2006</a></dt>
+      <dd>
+    	  	<p><strong>Update 2007/08/08:</strong> The <span class="caps">XML-RPC</span> posting-from-Textmate-to-Textpattern functionality seems quite buggy and in my opinion is not worth pursuing at this time. One problem I&#8217;ve found is the disappearance of the <span class="caps">URL</span> title from a Textpattern article when updating a post via Textmate&#8217;s <em>Bundles</em> &rarr; <em>Blogging</em> &rarr; <em>Fetch Post</em>, and as a consequence, a 404 Error. </p>
+
+	<p>For those of you who have asked for help with this, I&#8217;ve added some clarifications below. Cheers!</p>
+
+	<p>- &#8211; -</p>
+
+	<p>If this post is visible, then <a href="http://textpattern.com/download-rpc" title="Textpattern.com - Download 4.0 XML-RPC.">this</a> worked. Things that needed to be done: </p>
+
+	<ol>
+		<li><a href="http://textpattern.com/download-rpc" title="Textpattern.com - Download 4.0 XML-RPC.">Download and install Textmate XML-RPC</a></li>
+		<li>Apply the <a href="http://textpattern.com/weblog/201/xml-rpc-support-for-textpattern-403-is-here#c000287" title="Textpattern welog - XML-RPC support for Textpattern 4.0.3 is here.">fix described in comment #20 here</a></li>
+		<li>Make sure you have the <a href="http://macromates.com/blog/archives/2006/06/19/blogging-from-textmate/" title="Textmate Blog - Blogging From TextMate.">Textmate Blogging bundle</a> installed. You can use the <a href="http://projects.validcode.net/getbundle">GetBundle Bundle</a> to easily get the blogging bundle and any other bundle you might like to bundle into Textmate. Bundle bundle bundle.</li>
+		<li>Make Textile be recognized as the syntax: Fire up Textmate, then on the menu bar: Bundles &rarr; Bundle Editor &rarr; Show Bundle Editor &rarr; Blogging &rarr; Blog Post (Textile), <span class="caps">NOT</span> Blog â€” Textile &rarr; <span class="caps">CLICK</span> ON: untitled.blog.textile, and add <kbd>Format: 1</kbd> under the <code>Title:</code> line like this: <pre>
+Title: ${TM_BLOG_TITLE}
+Format: 1
+${TM_BLOG_HEADER}
+Main entry text
+- - - - - -
+Main entry continued
+</pre></li>
+		<li>Configure the <acronym title="Remote Procedure Call">RPC</acronym> endpoint <acronym title="Uniform Resource Locator">URL</acronym> to post to a specific Textpattern section (Menu bar &rarr; Bundles &rarr; Blogging &rarr; Setup Blogs) like this: <kbd>http://username@site.com/rpc/index.php#sectionname</kbd>. For example, my site would be set up as follows: <pre>
+ Hypertexthero Dlog   http://sgriffee@hypertexthero.com/rpc/index.php#dlog
+</pre></li>
+		<li>To post to a site: Menu bar &rarr; File &rarr; New From Template &rarr; Blogging &rarr; Blog Post (Textile).</li>
+		<li>Fill in the Title of the post, the excerpt (main entry text) and body (main entry continued)</li>
+		<li>Either press <kbd>Commang-Control-P</kbd> or go to the Menu bar &rarr; Bundles &rarr; Blogging &rarr; Post To Blog. You will be given a list of blogs you have set up on step v. above. Select one and click <strong>OK</strong>. You&#8217;ll be prompted for your password before being able to post.</li>
+	</ol>
+      </dd>
+    </dl>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> link by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/linked/2006/10/30/post-to-textpattern-from-textmate-with-xml-rpc/">30 October 2006</a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more links in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>. Original articles are in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>.
+  </p>
+
+     
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2006/10/web-design-is-95-percent-typography/"><i>Previous entry:</i> <b>Web Design is 95 Percent Typography</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2006/11/textmate-revision-1324/"><i>Next entry:</i> <b>Textmate Revision 1324</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

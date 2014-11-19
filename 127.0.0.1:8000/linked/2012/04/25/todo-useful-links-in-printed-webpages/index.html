@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="print, accessibility">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    TODO: Useful Links in Printed Webpages - Hypertexthero Linked List 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+    <dl>
+      <dt><a href="http://stevelosh.com/blog/2010/09/making-my-site-sing/">TODO: Useful Links in Printed Webpages</a> &nbsp;<a class="plink" title="Permanent link to this entry." href="/linked/2012/04/25/todo-useful-links-in-printed-webpages/"># 25 apr 2012</a></dt>
+      <dd>
+    	  <div class="codehilite"><pre><span class="c">&lt;!-- URLs in printed page - http://stevelosh.com/blog/2010/09/making-my-site-sing/ --&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    $(function() {
+        $(&#39;#content p:has(a)&#39;).add(&#39;#content ol:has(a)&#39;).add(&#39;#content ul:has(a)&#39;).each(function() {
+            var printing_links = $(this).find(&#39;a&#39;)
+                                        .not(&quot;<span class="cp">[</span><span class="nb">href</span><span class="p">^</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="cp">]</span>&quot;)
+                                        .not(&quot;:has(img)&quot;)
+                                        .clone();
+            $(this).after(printing_links);
+
+            printing_links.wrap(&#39;<span class="nt">&lt;li&gt;&lt;/li&gt;</span>&#39;)
+                          .parent()
+                          .wrapAll(&#39;<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;print-links&quot;</span><span class="nt">&gt;&lt;/ul&gt;</span>&#39;);
+
+            printing_links.each(function() {
+                var href = $(this).attr(&#39;href&#39;);
+                if (href.match(&quot;^/&quot;)) {
+                    href = &#39;http://hypertexthero.com&#39; + href;
+                }
+                $(this).after(&#39;: &#39; + href);
+            });
+        });
+    });
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+      </dd>
+    </dl>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> link by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/linked/2012/04/25/todo-useful-links-in-printed-webpages/">25 April 2012</a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more links in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>. Original articles are in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>.
+  </p>
+
+     
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2012/04/todo-implement-timeago-for-dates/"><i>Previous entry:</i> <b>TODO: Implement timeago for dates</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2012/05/understanding-database-normalization/"><i>Next entry:</i> <b>Understanding Database Normalization</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>

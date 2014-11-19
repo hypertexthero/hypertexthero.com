@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="all">
+<meta http-equiv="imagetoolbar" content="false">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+<meta name="keywords" content="education, raspberry pi, computer, raspbian, vnc, imac">
+
+<meta name="author" content="Simon Griffee">
+<meta name="copyright" content="Copyright 2001-2014 Simon Griffee.">
+
+<!-- https://indieauth.com/setup -->
+<link href="https://github.com/hypertexthero" rel="me">
+
+<link rel="Shortcut Icon" href="/static/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/hypertexthero.css" type="text/css">
+<link rel="stylesheet" href="/static/css/code.css" type="text/css">
+
+
+
+
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie6.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/ie7.css" />
+<![endif]-->
+
+
+
+<title>
+    Connect to Raspberry Pi From an iMac -  Hypertexthero 
+</title>
+</head>
+
+<body id="logbook" class="detail">
+
+    
+<div id="wrapper">
+<div id="page">
+  <div id="header">
+    
+  <div class="nav">
+  <a id="loglogo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <ul>
+      <li><a class="nav-home" href="/" title="Hypertexthero homepage.">Hypertexthero</a></li> 
+      <li><a class="nav-logbook" href="/logbook/" title="Hypertexthero's blog on web, design and simplicity, also known as the Logbook.">Blog</a>, <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a></li>
+      <li><a class="nav-work" href="/work/" title="Work examples.">Projects</a></li> 
+      <li><a class="nav-contact" href="/contact/" title="Call Hypertexthero.">Contact</a></li>
+  </ul>
+</div>
+    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> /</p>
+
+  </div>
+
+  <div id="content">
+    
+
+
+ 
+
+		<h1><a href="/logbook/2014/07/connect-raspberry-pi-imac/" rel="permalink" title="Permanent link to this entry.">Connect to Raspberry Pi From an iMac</a></h1>
+		<p class="quiet"><time pubdate="pubdate">Tuesday, July 15 2014</time></p>
+		<ol>
+<li><a href="http://www.raspberrypi.org/documentation/installation/installing-images/mac.md">Install Raspbian <span class="caps">OS</span> image into <span class="caps">SD</span>&nbsp;card</a></li>
+<li>Slide <span class="caps">SD</span> Card into Raspberry Pi, then connect an ethernet cable from the Pi to your router and connect a power cable to the Pi (in my case the power cable is also connected to a <span class="caps">USB</span> port in the router for&nbsp;power)</li>
+<li>
+<p>Install nmap on Mac to find out <span class="caps">IP</span> address of Pi on network and then <span class="caps">SSH</span> into the&nbsp;Pi:</p>
+<ol>
+<li><code>brew install nmap</code></li>
+<li>
+<p><code>sudo nmap -sn 192.168.1.0/24</code></p>
+<div class="codehilite"><pre>Starting Nmap 6.40 <span class="o">(</span> http://nmap.org <span class="o">)</span> at 2014-07-15 19:27 <span class="caps">CEST</span>
+Nmap scan report <span class="k">for </span>192.168.1.1
+Host is up <span class="o">(</span>0.0021s latency<span class="o">)</span>.
+<span class="caps">MAC</span> Address: 78:6A:89:42:7A:76 <span class="o">(</span>Unknown<span class="o">)</span>
+Nmap scan report <span class="k">for </span>192.168.1.3
+Host is up <span class="o">(</span>0.092s latency<span class="o">)</span>.
+<span class="caps">MAC</span> Address: 00:88:65:3F:94:A8 <span class="o">(</span>Apple<span class="o">)</span>
+Nmap scan report <span class="k">for </span>192.168.1.4
+Host is up <span class="o">(</span>0.0035s latency<span class="o">)</span>.
+<span class="caps">MAC</span> Address: B8:27:<span class="caps">EB</span>:69:<span class="caps">DC</span>:41 <span class="o">(</span>Raspberry Pi Foundation<span class="o">)</span>
+Nmap scan report <span class="k">for </span>192.168.1.11
+Host is up.
+Nmap <span class="k">done</span>: 256 <span class="caps">IP</span> addresses <span class="o">(</span>4 hosts up<span class="o">)</span> scanned in 3.44 seconds
+</pre></div>
+
+
+</li>
+</ol>
+</li>
+<li>
+<p><code>ssh -X pi@192.168.1.4</code></p>
+</li>
+<li><a href="http://www.interlockroc.org/2012/12/06/raspberry-pi-macgyver/">Setup <span class="caps">VNC</span> server on the Pi</a><ol>
+<li><code>apt-get install tightvncserver</code></li>
+<li><code>vncserver</code></li>
+<li><code>vncserver :1</code></li>
+</ol>
+</li>
+<li>And <a href="http://sourceforge.net/projects/chicken/">on the iMac</a>.</li>
+<li>And from any device with a terminal in the same network, including an iPhone with an application such as <a href="https://panic.com/prompt/">Prompt</a>: <code>ssh -X pi@192.168.1.4</code></li>
+</ol>
+<p>To be expanded with more&nbsp;details.</p>
+
+  <p id="about">
+    A <a href="/" title="Home.">Hypertexthero</a></b> article by <a href="http://simongriffee.com" title="See my photography website.">Simon Griffee</a> published on <a title="Permanent link to this entry." href="/logbook/2014/07/connect-raspberry-pi-imac/"><time pubdate="pubdate">15 July 2014</time></a> under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>. See more articles in the <a href="/archive/" title="Archive of original logbook entries.">archive</a>. Links are in the <a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">linked list</a>.
+  </p>
+
+ 
+
+
+
+
+<p class="paging">
+  
+  
+    <a rel="prev" href="/logbook/2014/07/osservatorio-sulla-censura-di-internet-italia/"><i>Previous entry:</i> <b>Osservatorio Sulla Censura Di Internet in Italia</b></a>
+  
+    <br>
+  
+    <a rel="next" href="/logbook/2014/07/steve-jobs-next-ibm-logotype/"><i>Next entry:</i> <b>Steve Jobs Next to the IBM Logotype</b></a>
+  
+</p>
+
+  </div> 
+
+  <div id="footer">
+    
+    <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites" value="hypertexthero.com"/>
+    <input type="hidden" name="k8" value="#444444"/>
+    <input type="hidden" name="k9" value="#D51920"/>
+    <input type="hidden" name="kt" value="h"/>
+    <input type="text" name="q" maxlength="255" placeholder=""/>
+    <input id="searchbutton" type="submit" value="Search" />
+</form>
+
+    
+    
+    
+    <p class="small">
+      
+      
+      
+      
+      
+    </p>
+    
+    
+</div> 
+</div> 
+</div> 
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+
+
+
+</body>
+</html>
