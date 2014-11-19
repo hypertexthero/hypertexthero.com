@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-../python manage.py runserver && wget -m http://127.0.0.1:8000 ../_output && rsync -exclude='.DS_Store' -cavzhe ssh ~/Projects/hth-env/hth/_output/ hth@hth.webfactional.com:webapps/hth/
+../python manage.py runserver && wget -m http://127.0.0.1:8000 ../_output --delete-after && rsync -exclude='.DS_Store' -cavzhe ssh ~/Projects/hth-env/hth/_output/ hth@hth.webfactional.com:webapps/hth/

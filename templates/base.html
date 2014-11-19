@@ -63,18 +63,16 @@
       {% include "hth/footer.html" %}
       <hr class="hide">
       {% include "hth/search_form.html" %}
-    {% endblock footer %}
-    
+    {% endblock footer %}    
     {# =Mozilla =Persona #}
     {# {% browserid_info %} #}
-    <p class="small">
+    {# <p class="small"> #}
       {# {% if user.is_authenticated %} #}
       {#   Logged in as {{ user }} / {% browserid_logout text='Logout' %} #}
       {#   {% else %} #}
       {#   {% browserid_login text='Login' color='light' %} #}
       {# {% endif %} #}
-    </p>
-    
+    {# </p> #}
     {% if messages %}
     <div>
         {% for message in messages %}
