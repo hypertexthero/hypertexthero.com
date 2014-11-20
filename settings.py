@@ -49,7 +49,7 @@ TEMPLATE_LOADERS = (
 APPEND_SLASH = True
 
 MIDDLEWARE_CLASSES = (
-    'staticgenerator.middleware.StaticGeneratorMiddleware',
+    # 'staticgenerator.middleware.StaticGeneratorMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # enabling middleware for flatpages app
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware', # enabling redirects app
     'django.middleware.common.CommonMiddleware',
@@ -111,7 +111,7 @@ INSTALLED_APPS = (
 
     # python manage.py staticsitegen
     # 'django_medusa',
-    'staticgenerator',
+    # 'staticgenerator',
 
     'taggit',
     'taggit_autosuggest',
@@ -143,20 +143,20 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # staticgenerator
-WEB_ROOT = os.path.join(
-    DIRNAME, '..', "_output"
-)
+# WEB_ROOT = os.path.join(
+#     DIRNAME, '..', "_output"
+# )
 
 # =todo: Static files should be generated automatically, and not after they have been visited once
-STATIC_GENERATOR_URLS = (
-    r'^/$',
-    # r'^/()', # matches any page created?
-    # (r'^$', 'direct_to_template', {'template': 'base.html'}),
-    r'^/(logbook|linked|archive|work|contact)',
-    r'^/(?P<year>\d+)/(?P<month>\d{2})/$', 
-    r'^/(?P<year>\d+)/$',
-    # r'^/(archive)',
-)
+# STATIC_GENERATOR_URLS = (
+#     r'^/$',
+#     # r'^/()', # matches any page created?
+#     # (r'^$', 'direct_to_template', {'template': 'base.html'}),
+#     r'^/(logbook|linked|archive|work|contact)',
+#     r'^/(?P<year>\d+)/(?P<month>\d{2})/$',
+#     r'^/(?P<year>\d+)/$',
+#     # r'^/(archive)',
+# )
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

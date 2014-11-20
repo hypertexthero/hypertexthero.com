@@ -1,6 +1,6 @@
 /*
 Hypertexthero.css master stylesheet by Simon Griffee
-Last update: 2014-11-19 11:35:55
+Last update: 2014-11-20 12:44:52
 */
 * {margin:0; padding:0;}
 
@@ -21,15 +21,13 @@ a:hover, a:active {text-decoration:none; color:#930; outline:none; border:none;}
 body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error.gif) no-repeat top left; background-position:352px -50px;}
 
 #header {margin:0 38px 12px; height:100px; position:relative;}
-#header blockquote {position:absolute; bottom:0; left:0; width:45%; font-size:14px; line-height:1.4em;}
-blockquote {line-height:1.4em;}
+blockquote {line-height:1.4em; padding-left:1em; border-left:1px solid #eee;}
 #header p.breadcrumbs {font-size:14px; color:#ccc; position:absolute; bottom:0;}
 #header p.breadcrumbs a {color:#999;}
 body.detail #header p.breadcrumbs {bottom:20px;}
-body#work.detail #header {height:120px;}
+body#work.detail #header, body#archive #header {height:120px;}
 body#work.detail #header p.breadcrumbs {bottom:0;}
 
-p#about {margin:0 0 2em; max-width:30em; border-top:double #E6E3DB; padding-top:1em;}
 p.aeroplane a {background:url(/static/img/AeromarineAirwaysHighballExpresstoBimini.gif) no-repeat; background-position:left 0px; text-indent:-2000em; display:block; width:272px; height:125px; border:0; margin-bottom:0; margin-left:-15px;}
 
 h1#logo a {position:absolute; right:0; bottom:0; width:50%; height:53px; border:none; color:#2e2a1f;}
@@ -66,8 +64,6 @@ div.column ul.thumbs li {margin-bottom:26px; width:155px; border:solid 1px #eee;
 li.nopicture {height:96px;}
 div.column ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}
 
-body#archive #header p#homelink a {width:385px;}
-
 /* =nav ---------------------- */
 
 div.nav {float:right; clear:both;}
@@ -99,7 +95,6 @@ body#logbook #content h2 {font-size:110%;}
 
 /* =archive ---------------------- */
 
-body#archive #header {background:none; height:115px;}
 body#archive #content h2.archivemonth {margin:2.5em 0; font-weight:bold;}
 body#archive #content p.archiveday {line-height:1em; margin:0 0 -1em 1em !important;}
 body#archive #content p.archivetitle {line-height:1.2em; position:relative; padding-left:2.8em;}
@@ -113,9 +108,6 @@ body#about #header, body.detail #header {background:none;}
 /* =typography, etc ---------------------- */
 
 p.adminmenu {font-family:monospace; position:absolute; top:0; left:0; z-index:100; padding:1em 0;}
-p#homelink {line-height:0 !important; margin:0 !important;}
-p#homelink a {border:none !important;}
-p#homelink a:hover, p#homelink a:active {text-indent:0 !important; color:#afa99f; background:none;}
 p {margin:0 0 0.9em; line-height:1.4em;}
 dt {margin:0 0 0.75em; color:#2e2a1f;}
 body.detail dt {font-weight:bold;}
@@ -151,12 +143,11 @@ body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
 pre {margin:1em 0; padding:1em; overflow:visible;}
 pre, code {
-    
-    white-space: pre-wrap;       /* CSS 3 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  white-space: pre-wrap;       /* CSS 3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 pre, code, kbd, samp, tt {font-family:courier, "courier new", monospace; font-size:0.9em;}
 kbd {background:#ffc; padding:0.15em; border:1px solid #E6E3DB; border-radius:3px; line-height:0;}
@@ -165,7 +156,6 @@ strong, b {font-weight:bold;}
 p.datelineresults {margin:2em 0 0;}
 div.footnote {font-size:0.9em;}
 div.footnote hr {margin:3em 0 1em; width:8em;}
-p.paging {margin:0 0 1em; font-size:0.9em;}
 img {border:0; display:block; margin-bottom:1em;}
 acronym, abbr {border-bottom:1px dashed #2e2a1f;}
 sup {line-height:0;}
@@ -180,9 +170,11 @@ hr {color:#eee; background:#eee; max-width:42em; height:1px; border:none; margin
 a.edit {color:#afa99f;}
 a.browserid-login {color:#fafafa; border:0;}
 
-#footer {clear:both; padding:26px 43px;}
+#footer {clear:both; padding:26px 43px; max-width:30em;}
+#footer p {margin:0 0 2em; max-width:30em; border-top:double #E6E3DB; padding-top:1em;}
+p.paging {font-size:0.9em; padding-top:1.75em !important;}
 
-/* =responsive structure - work in progress ---------------------- */
+/* =responsive structure ---------------------- */
 
 @media (max-width: 970px) {
     #page {width:auto;}
@@ -191,23 +183,18 @@ a.browserid-login {color:#fafafa; border:0;}
     #latest {width:auto; clear:both; text-align:left; float:none;}
     body#home #header {padding-bottom:3em;}
     #header #logo a {display:block;}
-    #header blockquote {position:normal; float:left;}
     }
 @media (max-width: 860px) {
     #page, #latest {width:auto;}
-    body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {display:block; right:0;}
     div.column {margin:0 10px 0 0;}
-    #header blockquote {position:relative; display:block; float:left; padding-top:1em;}
     #content img {width: 100%; height: auto;}
     #content img.thumbincontent {width:auto;}
     }
 @media (max-width: 650px) {
     #page {width:auto;}
     #header {margin:0 20px 0; width:auto;}
-    body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {display:block;}
-    #header blockquote {position:relative; display:block; float:left; display:block;}
     #content {width:auto !important; padding-left:20px; padding-right:40px;}
     #content img {width: 100%; height: auto;}
     #content img.thumbincontent {width:auto;}
@@ -217,23 +204,17 @@ a.browserid-login {color:#fafafa; border:0;}
 @media (max-width: 530px) {
     div.nav {clear:both; padding-bottom:30px; text-align:center; display:block; width:99%;}
     div.nav img {margin:1em auto;}
-    #page {width:auto; background:none;}
+    #page {width:auto;}
     #header {margin:0 20px 0;}
-    body#logbook #header, body#archive #header {background:none !important;}
     #header #logo a {width:auto;}
-    #header blockquote {position:relative; display:block; float:left; width:180px;}
     #content {width:auto !important; padding-left:20px; padding-right:25px;}
     body#home #content {width:auto !important; padding:0 10px !important;}
-    body#home #header {position:relative; width:auto; background:none; height:auto;}
-    body#home #header blockquote {position:relative; width:auto; float:none; margin:2em 0 0;}
     body#home h1#logo a {position:relative;}
     #content img {width:100%; height:auto;}
     #content img.thumbincontent {width:auto;}
     body#logbook #header p.breadcrumbs, body#archive #header p.breadcrumbs {width:auto; position:normal; display:none;}
     div#description {padding-left:0;}
     #footer {padding-left:20px; padding-right:20px;}
-    #footer input {width:260px !important;}
-    #footer input.button {width:auto !important;}
     iframe, pre {width:100% !important; overflow:hidden; max-width:220px;}
     }
  

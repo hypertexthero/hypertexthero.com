@@ -9,11 +9,8 @@
 {% endblock header %}
 
 {% block content %}
-
-  {% include "hth/search_form.html" %}    
-  
-  <h1 style="margin:1em 0 0;" class="normal">Archive of Original Logbook Entries</h1>
-	
+  <h1 style="margin-bottom:0.5em;">Archive of Original Logbook Entries</h1>
+  {% include "hth/search_form.html" %}    	
 	{% for entry in object_list %}	
         {% ifchanged %}
             <h2 class="dateline datelinearchive">{{ entry.pub_date|date:"F Y" }}</h2>

@@ -23,71 +23,38 @@
 <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero.css" type="text/css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/code.css" type="text/css">
-
-{# =Mozilla =Persona - http://django-browserid.readthedocs.org/en/v0.9/setup.html#installation #}
-{# {% load browserid %}  #}
-{# {% browserid_css %} #}
-
 <!--[if lte IE 6]>
 <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/ie6.css" />
 <![endif]-->
-
 <!--[if IE 7]>
 <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/ie7.css" />
 <![endif]-->
-
 {% block extrahead %}{% endblock extrahead %}
-
 <title>{% block headtitle %}{% endblock headtitle %}</title>
 </head>
 
 <body id="{% block bodyid %}{% endblock bodyid %}" class="{% block bodyclass %}{% endblock bodyclass %}">
-
     {% if user.is_staff %}
     <p class="adminmenu">
         <a style="padding:1em; border:0;" href="/admin/">admin</a> <a style="padding:1em; border:0;" href="/admin/logout/">logout</a>
     </p>
     {% endif %}
 <div id="wrapper">
-<div id="page">
-  <div id="header">
-    {% block header %}{% endblock header %}
-  </div>
-
-  <div id="content">
-    {% block content %}{% endblock %}
-  </div> {# /#content #}
-
-  <div id="footer">
-    {% block footer %}    
-      {% include "hth/footer.html" %}
-      <hr class="hide">
-      {% include "hth/search_form.html" %}
-    {% endblock footer %}    
-    {# =Mozilla =Persona #}
-    {# {% browserid_info %} #}
-    {# <p class="small"> #}
-      {# {% if user.is_authenticated %} #}
-      {#   Logged in as {{ user }} / {% browserid_logout text='Logout' %} #}
-      {#   {% else %} #}
-      {#   {% browserid_login text='Login' color='light' %} #}
-      {# {% endif %} #}
-    {# </p> #}
-    {% if messages %}
-    <div>
-        {% for message in messages %}
-            {% autoescape off %}
-                {{ message|safe }}
-            {% endautoescape %}
-        {% endfor %}
+  <div id="page">
+    <div id="header">
+      {% block header %}{% endblock header %}
     </div>
-    {% endif %}
-</div> {# /#footer #}
-</div> {# /#page #}
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div> {# /#content #}
+    <div id="footer">
+      {% block footer %}    
+        {% include "hth/footer.html" %}
+        <hr class="hide">
+        {% include "hth/search_form.html" %}
+      {% endblock footer %}    
+    </div> {# /#footer #}
+  </div> {# /#page #}
 </div> {# /#wrapper #}
-<script src="{{ STATIC_URL }}js/jquery-1.9.1.min.js"></script>
-{# {% browserid_js %} #}
-{# <script type="text/javascript" src="{{ STATIC_URL }}js/browserid.js"></script> #}
-{# <script type="text/javascript" src="https://login.persona.org/include.js"></script> #}
 </body>
 </html>

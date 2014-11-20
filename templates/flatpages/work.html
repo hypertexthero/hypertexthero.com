@@ -11,7 +11,7 @@
 
 {% block content %}
 
-<h1 class="normal" style="margin-bottom:0.5em;">Selected Work</h1>
+<h1 style="margin-bottom:0.5em;">Selected Work</h1>
 
 {# https://docs.djangoproject.com/en/dev/ref/contrib/flatpages/ #}
 {% load flatpages %}
@@ -22,9 +22,36 @@
     <li><a href="{{ page.url }}">{{ page.title }}</a></li>
 {% endfor %}
 </ul>
-    
+
+<h2 style="margin-bottom:0.5em;">Commendations</h2>
+
+<blockquote>
+  <p>One thing that really distinguishes Simon is that he has both ‘hard’ and ‘soft’ skills. He understands web development inside and out. At the same time he excels at listening to his colleagues and discerning what they really want. In fact, people often don't know what they want. I have seen Simon on many occasions patiently guide subject matter experts to an excellent solution saving otherwise wasted time and effort.</p>
+</blockquote>
+<p style="margin-bottom:2em;"><i>—Bryan Berry, Infrastructure Engineer</i></p>
+
+<blockquote>
+  <p>Simon is a great guy to work with, he always delivers on time and on budget. The work he does is fantastic too, crisp, clean.</p>
+</blockquote>
+<p style="margin-bottom:2em;"><i>—Karim Gargum, Marketing Specialist</i></p>
+
+<blockquote>
+  <p>Hi Simon, your work always fascinates me. At first your pages look a bit oversimplified, almost ‘empty’. But then the realization that everything is there and easily found begins to emerge and they become a pleasure to use. I am very happy with the way it looks, well done!</p>
+</blockquote>
+<p style="margin-bottom:2em;"><i>—Marco Marsella, Co-founder and Technical Director, IT Works</i></p>
+
+<blockquote>
+  <p>Apart from the layout and overall design, what is so wonderful about your work is your ability to blend the writing and the art in such a sophisticated way. One complements the other and the result is harmony and visual pleasure. Brilliant.</p>
+</blockquote>
+<p style="margin-bottom:2em;"><i>—Molly Bianchini, English Teacher</i></p>
+
+<blockquote>
+  <p>Simon is a brilliant designer, a pleasure to work with, an open and creative person, honest and direct. I would recommend him for any position or assignment."</p>
+</blockquote>
+<p style="margin-bottom:2em;"><i>—Jon Cooper, Project Manager and IT Executive</i></p>
+
 {% endblock %}
 
 {% block footer %}
-  
+<div style="display:none;"><a href="/cv/">CV</a>, <a href="/404.html">404 page</a></div>
 {% endblock footer %}

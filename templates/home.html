@@ -7,45 +7,42 @@
 
 {% block header %}
   {% include "hth/nav.html" %}
-  {# <h1 id="introduction"> #}
-  {#     <a href="/contact/" title="At your service.">Call</a> <i>Hypertexthero</i> for <a href="/work/" title="See selected work.">web and graphic design</a>. #}
-  {# </h1> #}
 {% endblock header %}
 
 {% block content %}
-  <h1 style="margin:0 0 0.5em 0;" class="normal"><a href="/contact/" title="At your service.">Call</a> <i>Hypertexthero</i> for <a href="/work/" title="See selected work.">web &amp; graphic design</a>.</h1>
-
+  <h1 style="margin:0 0 0.5em 0;"><a href="/contact/" title="At your service.">Call</a> Hypertexthero for <a href="/work/" title="See selected work.">Web &amp; Graphic Design</a></h1>
   {% filter my_markdown %}
+  <span class="pull-right" style="padding-top:8px;"><img style="border:1px solid #eee;" src="/static/img/simon-sf.jpg" alt="Simon Griffee in San Francisco."></span>
 
-<span class="pull-right" style="padding-top:8px;"><img style="border:1px solid #eee;" src="/static/img/simon-sf.jpg" alt="Simon Griffee in San Francisco."></span>
+  Hypertexthero is the little design studio of designer and [photographer](http://simongriffee.com "See my photographs.") Simon Griffee. 
 
-Hypertexthero is the little design studio of designer and [photographer](http://simongriffee.com "See my photographs.") Simon Griffee. 
+  I make simple and useful things that look good, and am experienced in both [digital and traditional media](/work/ "Web and print."). 
 
-I make simple and useful things that look good, and am experienced in both [digital and traditional media](/work/ "Web and print."). 
+  I also write and record websites of interest I find on the internet in my [logbook](/logbook/ "Hypertexthero's blog on web, design and simplicity.").
 
-I also write and record websites of interest I find on the internet in my [logbook](/logbook/ "Hypertexthero's blog on web, design and simplicity.").
-
-Thanks for visiting!
-—Simon
-{# 𝓢𝖎ﾶo𝓷 #}
-{# http://www.panix.com/~eli/unicode/convert.cgi?text=Simon #}
+  Thanks for visiting!
+  —Simon
   {% endfilter %}
-
-  {# {% load hth_tags %} #}
-  {# <h2 class="normal">Latest Logbook Entries</h2> #}
-  {# {% latest_entries %} #}
-  
+{% comment %}
+  {% load hth_tags %}
+  <h2 class="normal">Latest Logbook Entries</h2>
+  {% latest_entries %}
+  {% load hth_tags %}
+  =todo: put kindwords.txt in templates folder and modify RandomLine function in hth_tags.py?
+  <blockquote>
+    <p>{% kind_words "kindwords.txt" %}</p>
+  </blockquote>
+{% endcomment %}  
 {% endblock content %}
 
 {% block footer %}
 
-{# for indy auth #}
+<!-- for indy auth - https://indieauth.com/ -->
 <div id="address" style="display:none;"> 
-<strong>Email:</strong> <a href="mailto:simongriffee@gmail.com" rel="me">simon@hypertexthero.com</a>
-<br>
-<strong>Twitter:</strong> <a href="https://twitter.com/simongriffee" rel="me">simongriffee</a>
-<br>    
-<strong>Github:</strong> <a href="https://github.com/hypertexthero" rel="me">hypertexthero</a>
+  <strong>Email:</strong> <a href="mailto:simongriffee@gmail.com" rel="me">simon@hypertexthero.com</a>
+  <br>
+  <strong>Twitter:</strong> <a href="https://twitter.com/simongriffee" rel="me">simongriffee</a>
+  <br>    
+  <strong>Github:</strong> <a href="https://github.com/hypertexthero" rel="me">hypertexthero</a>
 </div>
-
 {% endblock footer %}

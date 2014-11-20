@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-../python manage.py runserver && wget -m http://127.0.0.1:8000 ../_output --delete-after && rsync -exclude='.DS_Store' -cavzhe ssh ~/Projects/hth-env/hth/_output/ hth@hth.webfactional.com:webapps/hth/
+# To use this make sure the above line points to your local bash and that this file is executable with chmod +x (http://stackoverflow.com/a/817098)
+# Also make sure Django local development server is running
+cd ~/Sites/hth.dev && wget --mirror --no-host-directories --directory-prefix ~/Sites/hth.dev http://127.0.0.1:8000 && rsync -exclude='.DS_Store' -cavzhe ssh ~/Sites/hth.dev/ hth@hth.webfactional.com:webapps/hth/

@@ -3,7 +3,14 @@
 {% block keywords %}Web, Design, Simplicity{% endblock %}
 
 {% block extrahead %}
-<link href="/static/css/lightbox.css" rel="stylesheet" />
+<link rel="stylesheet" href="/static/css/colorbox.css">
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/jquery.colorbox-min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('a.gallery').colorbox({rel:'gallery', transition:"fade"});
+  });
+</script>
 {% endblock extrahead %}
 
 {% block bodyid %}work{% endblock bodyid %}
@@ -26,24 +33,3 @@
     {% load hth_tags %}
     {{ flatpage.content|my_markdown }}
 {% endblock %}
-
-{% block footer %}
-{{ block.super }}
-<script src="/static/js/jquery-1.9.1.min.js"></script>
-<script src="/static/js/lightbox.js"></script>
-<script>
-  jQuery(document).ready(function($) {
-      $('a').smoothScroll({
-        speed: 0,
-        // easing: 'easeInOutCubic'
-      });
-
-      $('.showOlderChanges').on('click', function(e){
-        $('.changelog .old').slideDown('fast');
-        $(this).fadeOut();
-        e.preventDefault();
-      })
-  });
-
-</script>
-{% endblock footer %}
