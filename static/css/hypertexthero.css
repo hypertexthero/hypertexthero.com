@@ -63,7 +63,7 @@ h2#writing a:hover {text-decoration:underline; background:none;}
 #latest {margin:-15px 0 0;}
 #latest ul li {padding:0.5em 0; font-size:14px;}
 ul.thumbs {list-style:none;}
-ul.thumbs li {margin-bottom:5em; width:330px; vertical-align:top; display:inline-block; /*border:solid 1px #eee; border-radius:2px;*/}
+ul.thumbs li {margin-bottom:5em; margin-right:10px; width:auto; max-width:330px; vertical-align:top; display:inline-block; /*border:solid 1px #eee; border-radius:2px;*/}
 li.nopicture {height:96px;}
 /*ul.thumbs li:hover, div.column ul.thumbs li:active {border:solid 1px #2e2a1f;}*/
 ul.thumbs img {margin-bottom:0.5em;}
