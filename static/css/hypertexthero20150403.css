@@ -26,21 +26,71 @@ blockquote {line-height:1.4em; padding-left:1em; border-left:1px solid #eee;}
 #header p.breadcrumbs {font-size:14px; color:#ccc; position:absolute; bottom:0;}
 #header p.breadcrumbs a {color:#999;}
 body.detail #header p.breadcrumbs {bottom:20px;}
-body#work.detail #header, body#archive #header {height:120px;}
+/*body#work.detail #header,*/body#archive #header {height:120px;}
 body#work.detail #header p.breadcrumbs {bottom:0;}
 
-#logo img {margin:40px 0 0 -28px; width:80px; /* 320px/2 for retina */}
+/* swinging parachuted content */
+@-moz-keyframes swing {
+  0%{-moz-transform:rotate(-2deg);}
+  50%{-moz-transform:rotate(2deg);}
+  100%{-moz-transform:rotate(-2deg);}
+	}
+@-webkit-keyframes swing {
+  0%{-webkit-transform:rotate(-2deg);}
+  50%{-webkit-transform:rotate(2deg);}
+  100%{-webkit-transform:rotate(-2deg);}
+	}
 
-p.aeroplane a {background:url(/static/img/AeromarineAirwaysHighballExpresstoBimini.gif) no-repeat; background-position:left 0px; text-indent:-2000em; display:block; width:272px; height:125px; border:0; margin-bottom:0; margin-left:-15px;}
+/* areoplane logo fly-by */
+@-webkit-keyframes flying-aeroplane {
+  from {margin:-40px 0 0 -2000px; 
+		-webkit-transform: rotate(70deg); 
+  	-moz-transform: rotate(70deg); 
+		}
+  to {margin:40px 0 0 -28px;
+		-webkit-transform: rotate(0deg); 
+  	-moz-transform: rotate(0deg); 
+		}
+	}
+@keyframes flying-aeroplane {
+  from {margin:-40px 0 0 -2000px; 
+		-webkit-transform: rotate(70deg); 
+  	-moz-transform: rotate(70deg); 
+		}
+  to {margin:40px 0 0 -28px;
+		-webkit-transform: rotate(0deg); 
+  	-moz-transform: rotate(0deg); 
+		}
+	}
 
-#content {padding-left:43px;}
-body#logbook #content, body#about #content, body#error #content, body#archive #content {float:left;}
-#sidebar {float:right; width:296px; font-size:14px;}
-#picture {float:left; margin:0 0 1em 0;}
-#picture p {max-width:400px;}
-#content h1, #content h2, #content h3, #content p, #content li, #content dd, #content dt, div.article {max-width:30em;}
+#logo img {
+	width:80px; /* 320px/2 for retina */
+  -webkit-animation: flying-aeroplane 0.5s;
+  animation: flying-aeroplane 0.5s;
+	margin:40px 0 0 -28px;
 
-/* =home ---------------------- */
+  -webkit-transform: rotate(0deg); 
+  -moz-transform: rotate(0deg); 
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg); 
+  transform: translate()
+	}
+
+#logo img:hover { 
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out; 
+  -o-transition: all 0.5s ease-in-out; 
+  -ms-transition: all 0.5s ease-in-out; 
+  transition-duration: 0.5s;
+/*    box-shadow: 0 3px 15px #000;*/
+  -webkit-transform: rotate(-360deg); 
+  -moz-transform: rotate(-360deg); 
+  -o-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg); 
+  transform: translate()
+	}
+
+/* =home =work ---------------------- */
 
 #introduction {font-weight:normal; padding:100px 0 0 0; max-width:22em !important;}
 
@@ -58,11 +108,40 @@ h2#writing a:hover {text-decoration:underline; background:none;}
 #latest {margin:-15px 0 0;}
 #latest ul li {padding:0.5em 0; font-size:14px;}
 ul.thumbs {list-style:none;}
-ul.thumbs li {margin-bottom:5em; margin-right:10px; width:auto; max-width:330px !important; vertical-align:top; display:inline-block;}
+.intro {
+	max-width:500px;
+	
+  -moz-animation: 5s ease 0s reverse none 1.25 swing;
+  -moz-transform-origin: center top;
+  -webkit-animation:swing 5s 1.25 ease-in-out;
+  -webkit-transform-origin:top;
+	}
+ul.thumbs li {
+	margin-bottom:5em; 
+	margin-right:10px; 
+	width:auto; 
+	max-width:330px !important; 
+	vertical-align:top; 
+	display:inline-block;
+	
+  -moz-animation: 5s ease 0s reverse none 1.25 swing;
+  -moz-transform-origin: center top;
+  -webkit-animation:swing 5s 1.25 ease-in-out;
+  -webkit-transform-origin:top;
+	}
 li.nopicture {height:96px;}
 ul.thumbs img {margin-bottom:0.5em;}
 
 body.workhome #page {width:100%;}
+
+p.aeroplane a {background:url(/static/img/AeromarineAirwaysHighballExpresstoBimini.gif) no-repeat; background-position:left 0px; text-indent:-2000em; display:block; width:272px; height:125px; border:0; margin-bottom:0; margin-left:-15px;}
+
+#content {padding-left:43px;}
+body#logbook #content, body#about #content, body#error #content, body#archive #content {float:left;}
+#sidebar {float:right; width:296px; font-size:14px;}
+#picture {float:left; margin:0 0 1em 0;}
+#picture p {max-width:400px;}
+#content h1, #content h2, #content h3, #content p, #content li, #content dd, #content dt, div.article {max-width:30em;}
 
 /* =nav ---------------------- */
 
@@ -195,7 +274,12 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
     #footer {padding-left:20px;}
   }
 @media (max-width: 530px) {
-		#logo img {margin:40px auto 0;}
+		#logo img {
+			margin:40px auto 0 !important;
+		  -webkit-animation: none;
+		  animation: none;
+				}
+/*		#logo img {margin:40px auto 0;}*/
     div.nav {clear:both; padding-bottom:30px; text-align:center; display:block; width:99%;}
     div.nav img {margin:1em auto;}
     #page {width:auto;}

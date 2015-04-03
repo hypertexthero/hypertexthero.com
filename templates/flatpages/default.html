@@ -3,33 +3,36 @@
 {% block keywords %}Web, Design, Simplicity{% endblock %}
 
 {% block extrahead %}
-<link rel="stylesheet" href="/static/css/colorbox.css">
-<script src="/static/js/jquery-1.9.1.min.js"></script>
-<script src="/static/js/jquery.colorbox-min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function () {
-    $('a.gallery').colorbox({rel:'gallery', transition:"fade"});
-  });
-</script>
+
+{# uncomment to enable lightbox #}
+
+{# <link rel="stylesheet" href="/static/css/colorbox.css"> #}
+{# <script src="/static/js/jquery-1.9.1.min.js"></script> #}
+{# <script src="/static/js/jquery.colorbox-min.js"></script> #}
+{# <script type="text/javascript"> #}
+{#   $(document).ready(function () { #}
+{#     $('a.gallery').colorbox({rel:'gallery', transition:"fade"}); #}
+{#   }); #}
+{# </script> #}
+
 {% endblock extrahead %}
 
 {% block bodyid %}work{% endblock bodyid %}
 {% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
-    {# <p id="homelink"><a href="/" title="Hypertexthero homepage and portfolio.">Home</a></p> #}
-    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/work/" title="Work examples.">Work</a> / {{ flatpage.title }}</p>
+	<a id="logo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
+  <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/work/" title="Work examples.">Work</a> / {{ flatpage.title }}</p>
 {% endblock header %}
 
 
 {% block content %}
-    
-    {% if user.is_staff %} 
-    <div class="pull-right">
-        <a class="edit small" href="/admin/flatpages/flatpage/{{ flatpage.id }}">Edit</a>
-    </div>
-    {% endif %}
+  {% if user.is_staff %} 
+  <div class="pull-right">
+      <a class="edit small" href="/admin/flatpages/flatpage/{{ flatpage.id }}">Edit</a>
+  </div>
+  {% endif %}
 
-    {% load hth_tags %}
-    {{ flatpage.content|my_markdown }}
+  {% load hth_tags %}
+  {{ flatpage.content|my_markdown }}
 {% endblock %}
