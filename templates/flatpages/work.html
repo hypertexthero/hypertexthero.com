@@ -2,6 +2,7 @@
 {% block headtitle %}Hypertexthero: Web, Design, Simplicity{% endblock headtitle %}
 {% block keywords %}Web, Design, Simplicity{% endblock %}
 {% block bodyid %}work{% endblock bodyid %}
+{% block bodyclass %}workhome{% endblock bodyclass %}
 
 {% load hth_tags %}
 
@@ -11,24 +12,129 @@
 
 {% block content %}
 
-<h1 style="margin-bottom:0.5em;">Selected Work <small><a class="normal" href="#references">&amp; References</a></small></h1>
+<h1 style="margin-bottom:1em;">Selected Work <small><a class="normal" href="#references">&amp; References</a></small></h1>
 
 {# https://docs.djangoproject.com/en/dev/ref/contrib/flatpages/ #}
 {% load flatpages %}
 {% get_flatpages '/work/' as work_flatpages %}
 
-<ul>
-{% for page in work_flatpages %}
-    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-{% endfor %}
+{# <ul> #}
+{# {% for page in work_flatpages %} #}
+{#     <li><a href="{{ page.url }}">{{ page.title }}</a></li> #}
+{# {% endfor %} #}
+{# </ul> #}
+
+<ul class="thumbs">
+	<li>
+		<a href="/work/international-symbol-observer/" title="Accepted as U+23FF Observer Eye Symbol — yay!"><img width="320" src="/static/img/observer-symbol/observer-symbol.png" alt="International Symbol for an Observer - Unicode Consortium."></a> 
+		<small><a href="/work/international-symbol-observer/">International Symbol for an Observer</a> - Unicode Consortium.</small>
+	</li>
+  <li>
+      <a href="/work/photographs/" title="Photographs."><img width="320" src="http://simongriffee.com/images/GRS-20140116-195618.jpg" alt="One of my photographs."></a>
+			<small>My photography at <a href="http://simongriffee.com">SimonGriffee.com</a></small>
+  </li>
+	
+  <li>
+      <a href="/work/it-wishlist/" title="The one with the top hat is the boss."><img width="320" src="/static/img/work/IPPCITWorkflow.png" alt="IPPC IT Wishlist web application design."></a>
+			<small>IT Wishlist <a href="/work/it-wishlist/">web application design</a>.</small>
+  </li>
+	<li>
+		<a href="/work/international-plant-protection-convention-website/" title="International Plant Protection Convention website, 2015 version."><img width="320" src="/static/img/work/InternationalPlantProtectionConvention2015.jpg" alt="International Plant Protection Convention website redesign."></a>
+		<small>International Plant Protection Convention <a href="/work/international-plant-protection-convention-website/">website redesign</a>.</small>
+	</li>
+  <li>
+      <a href="/work/atpm-covers/" title="Big, blocky, colorful, à la Paul Rand."><img width="320" src="/static/img/work/atpm-001.gif" alt="Cover design with the word 'Macintosh' in large, bold letters, blocking a tangle of gray lines." ></a>
+		<small>About This Particular Macintosh <a href="/work/atpm-covers/">webzine covers</a>.</small>
+  </li>
+  <li>
+      <a href="/work/international-plant-protection-convention-poster/" title="International Plant Protection Convention poster."><img width="320" src="/static/img/work/InternationalPlantProtectionConventionPoster.jpg" alt="A poster design for the International Plant Protection Convention."></a>
+			<small><a href="/work/international-plant-protection-convention-poster/">Graphic design</a> for the International Plant Protection Convention. See also a <a href="http://hypertexthero.com/ippc/work/brochures-flyers/ippc-a4-trifold.pdf">trifold brochure</a>, <a href="https://docs.google.com/document/d/1XPQTZtQ5ppJ-CFGo6pkAQY7BWygBgE4jyfjYxe8bMmE/edit?authkey=CNHC2MUF&amp;authkey=CNHC2MUF#heading=h.4tz8d1ohyaap">newsletter template in Google Docs</a> and <a href="http://hypertexthero.com/ippc/work/logos/redesign/">redrawn logos</a>.<!--, and <a href="http://hypertexthero.com/ippc/work/">more</a>.--></small>
+  </li>
+  <li>
+      <a href="/work/pianist-card/" title="Beautiful instrument to both listen and look at."><img width="320" src="/static/img/work/PianistCard.png" alt="Business card for a pianist."></a>
+			<small><a href="/work/pianist-card/">Business card</a> for a pianist.</small>
+  </li>
+  <li>
+      <a href="/work/it-works-logotype/" title="IT Works logotype."><img width="320" src="/static/img/work/ItWorksLogotype.png" alt="Logotype for IT Works, a small software company with big clients."></a>
+			<small><a href="/work/it-works-logotype/">Logotype</a> for a small software company with big clients.</small>
+  </li>
+  <li>
+      <a href="/work/fao-biotech/" title="I don&rsquo;t the division exists any longer."><img width="320" src="/static/img/work/FaoBiotech.png" alt="Logotype for the Food and Agriculture Organization's Biotechnology division."></a>
+			<small><a href="/work/fao-biotech/">Logotype</a> for the Food and Agriculture Organization's Biotechnology division.</small>
+  </li>
+  <li>
+      <a href="/work/tradecamp-logotype/" title="Logotype for Tradecamp, a web startup."><img width="320" src="/static/img/work/TradeCampLogo.png" alt="Logotype for Tradecamp, a web startup."></a>
+			<small><a href="/work/tradecamp-logotype/">Logotype</a> for Tradecamp, a web startup.</small>
+  </li>
+  <li>
+      <a href="/work/simple-web-typography-template/" title="The text is an excerpt from Star Maker by Olaf Stapledon - warmly recommended."><img width="320" src="/static/img/work/SimpleWebTypographyTemplate.png" alt="Simple web typography template in HTML and CSS, free to use."></a>
+			<small>Simple <a href="/work/simple-web-typography-template/">web typography template</a> in HTML and CSS.</small>
+  </li>
+  <li>
+      <a href="http://simongriffee.com/imaginarylines" title="Started after reading Jiddu Krishnamurti."><img width="320" src="http://simongriffee.com/images/imaginarylines/imaginary-lines-masthead.gif"></a>
+			<small><a href="http://simongriffee.com/imaginarylines">Imaginary Lines</a>: Short-lived attack on ideas of national borders, sovereign states, nationalism and the political division of human beings.</small>
+  </li>
+  <li>
+      <a href="/work/earth-among-the-stars/" title="Our pale blue dot. I miss Carl Sagan."><img width="320" src="/static/img/work/EarthAmongTheStars.png" alt="Earth Among The Stars in HTML and CSS." ></a><small>Earth Among The Stars <a href="/work/earth-among-the-stars/">experiment in HTML and CSS</a>.</small>
+  </li>
+  <li style="height:auto;">
+      <a href="/work/pasta-clock/" title="With instructions written by my alter-ego, Jimmy Boss."><img width="320" src="/static/img/work/PastaClock.png"></a>
+			<small>Pasta Clock: <a href="/work/pasta-clock/">Single-page web application</a> to help you cook pasta al dente, not al mush.</small>
+  </li>
+  {# <li> #}
+  {#     <a href="/work/mylius-brochure/" title="Brochure for Mylius Yachts."><img width="320" src="/static/img/work/MyliusYachts.jpg" alt="Brochure cover for the small yet pleasurable Mylius 11E25 37' Yacht." title="Brochure cover for the small yet pleasurable Mylius 11E25 37' Yacht."></a> #}
+  {# </li> #}
+  {# <li> #}
+  {#     <a href="/work/aosr/" title="American Overseas School of Rome print work."><img width="320" src="/static/img/work/AosrLitmagCover.jpg" alt="American Overseas School of Rome print work." title="American Overseas School of Rome print work."></a> #}
+  {# </li> #}
+	
+	
+
+  {# <li> #}
+  {#     <a href="/work/food-news/" title="♨ Food News is a website to publish and discuss links about healthy sustainable food, ranked by readers."><img width="320" src="/static/img/work/FoodNews.png" alt="♨ Food News is a website to publish and discuss links about healthy sustainable food, ranked by readers." title="♨ Food News is a website to publish and discuss links about healthy sustainable food, ranked by readers."></a> #}
+  {# </li> #}
+  {# <li> #}
+  {#     <a href="/work/australian-plant-biosecurity-program/" title="Australian Plant Biosecurity Program website."><img width="320" src="/static/img/work/AustralianPlantBiosecurityProgram.jpg" alt="Australian Postgraduate Study in Plant Biosecurity Program website design."></a> #}
+  {# 			<small>Australian Postgraduate Study in Plant Biosecurity Program website design.</small> #}
+  {# </li> #}
+  {# <li> #}
+  {#     <a href="/work/descriptedlines/" title="Descriptedlines website."><img width="320" src="/static/img/work/Descriptedlines.png" alt="Descriptedlines : A website for a writer to write and readers to read." title="Descriptedlines : A website for a writer to write and readers to read."></a> #}
+  {# </li> #}
+  {# <li> #}
+  {#     <a href="/work/atpm/" title="About This Particular Macintosh webzine redesign."><img width="320" src="/static/img/work/AboutThisParticularMacintosh.png" alt="About This Particular Macintosh webzine redesign." title="About This Particular Macintosh webzine redesign."><em>About This Particular Macintosh</em> old school webzine redesign.</a> #}
+  {# </li> #}
+  {# <li> #}
+  {#     <a href="/work/ippc-annual-report/" title="International Plant Protection Convention annual report."><img width="320" src="/static/img/work/SecretariatReport2013.jpg" alt="International Plant Protection Convention annual report." title="International Plant Protection Convention annual report." ></a> #}
+  {# </li> #}
+  {# <li> #}
+  {#     <a href="/work/a-lone-star-lock-service/" title="Business card for A Lone Star Lock Service."><img width="320" src="/static/img/work/ALoneStarLockService.png" alt="Pyramids echo a key in the desert night." title="Pyramids echo a key in the desert night."></a> #}
+  {# </li> #}
+  {# <li> #}
+  {#     <a href="/work/ippc-logotype/" title="International Plant Protection Convention logotype redesign."><img width="320" src="/static/img/work/IppcLogo.png" alt="Logotype redesign for IPPC." title="International Plant Protection Convention logotype redesign."></a> #}
+  {# </li> #}
+
 </ul>
 
-<h2 style="margin-bottom:0.5em;" id="references">References</h2>
+
+<hr>
+
+<h2 style="margin-bottom:0.5em; clear:both;" id="references">References <small><a class="normal small" href="#top">&uarr; back to top</a></small></h2>
+
+
+<blockquote>
+	<p>I have known Mr. Griffee professionally for nearly three years and have found him to be a conscientious employee, outstanding worker and of fine character. On a personal basis, while I have not had much interaction with Mr. Griffee socially, the interaction I have had has been cordial, respectful and mature.</p>
+</blockquote>
+<p style="margin-bottom:2em;"><i>—Craig Fedchock, Officer-In-Charge, International Plant Protection Convention, Food and Agriculture Organization of the United Nations</i></p>
 
 <blockquote>
 	<p>I thought the ‘<a href="http://simongriffee.com/singles/love-longing">love and longing</a>’ category was a nice touch full of humanity. All the photos are beautiful!</p>
 </blockquote>
 <p style="margin-bottom:2em;"><i>—Bianca Escobar, Senior Art Producer at Droga5</i></p>
+
+<blockquote>
+  <p>One thing that really distinguishes Simon is that he has both ‘hard’ and ‘soft’ skills. He understands web development inside and out. At the same time he excels at listening to his colleagues and discerning what they really want. In fact, people often don't know what they want. I have seen Simon on many occasions patiently guide subject matter experts to an excellent solution saving otherwise wasted time and effort.</p>
+</blockquote>
+<p style="margin-bottom:2em;"><i>—Bryan Berry, Infrastructure Engineer, Cycle Computing</i></p>
 
 <blockquote>
   <p>Apart from the layout and overall design, what is so wonderful about your work is your ability to blend the writing and the art in such a sophisticated way. One complements the other and the result is harmony and visual pleasure. Brilliant.</p>
@@ -40,10 +146,6 @@
 </blockquote>
 <p style="margin-bottom:2em;"><i>—Jon Cooper, Project Manager and IT Executive, European Artisans</i></p>
 
-<blockquote>
-  <p>One thing that really distinguishes Simon is that he has both ‘hard’ and ‘soft’ skills. He understands web development inside and out. At the same time he excels at listening to his colleagues and discerning what they really want. In fact, people often don't know what they want. I have seen Simon on many occasions patiently guide subject matter experts to an excellent solution saving otherwise wasted time and effort.</p>
-</blockquote>
-<p style="margin-bottom:2em;"><i>—Bryan Berry, Infrastructure Engineer, Cycle Computing</i></p>
 
 <blockquote>
   <p>Simon is a great guy to work with, he always delivers on time and on budget. The work he does is fantastic too, crisp, clean.</p>
@@ -55,8 +157,10 @@
 </blockquote>
 <p style="margin-bottom:2em;"><i>—Marco Marsella, Co-founder and Technical Director, IT Works</i></p>
 
-
-
+<blockquote>
+  <p>Simon, As we finish another HS basketball season, as always, I bring up your memory. You are still the most natural passer and player I have ever coached. I am glad to finally get ahold of you again. Of course, by now basketball is probably just a historical event for you. I see that you are now successful in the world. If you are in China, look me up. All the best. Coach Elliott</p>
+</blockquote>
+<p style="margin-bottom:2em;"><i>—Mark Elliott, Director of Athletics at American International School of Guangzhou</i></p>
 {% endblock %}
 
 {% block footer %}
