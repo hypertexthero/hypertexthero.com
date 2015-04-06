@@ -15,7 +15,7 @@
 
 {% block header %}
   {% include "hth/nav.html" %}
-    <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> / {% if object.kind == "L" %}<a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">Linked List</a> / <a href="/linked/{{ object.pub_date|date:"Y" }}/{{ object.pub_date|date:"m" }}/">{{ object.pub_date|date:"F Y" }}</a> /{% else %} <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a> /{% endif %} </p>
+    <p class="breadcrumbs intro"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/logbook/">Logbook</a> / {% if object.kind == "L" %}<a href="/linked/" title="List of links to other places on the internet that Hypertexthero finds interesting.">Linked List</a> / <a href="/linked/{{ object.pub_date|date:"Y" }}/{{ object.pub_date|date:"m" }}/">{{ object.pub_date|date:"F Y" }}</a> /{% else %} <a class="nav-archive" href="/archive/" title="Archive of original blog entries.">Archive</a> /{% endif %} </p>
 {% endblock header %}
 
 {% block content %}

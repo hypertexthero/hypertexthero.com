@@ -5,7 +5,8 @@ Hypertexthero.css master stylesheet by Simon Griffee
 
 /* =layout =links =general ---------------------- */
 
-body {font-family: "Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff url(/static/img/bg-grey.gif) repeat 0 0;}
+body {font-family: "Gentium Basic", "times new roman", times, serif; font-size:100%; color:#2e2a1f; background:#fff url(/static/img/bg-grey.gif) repeat 0 0; 
+/* Hide the horizontal scroller appearing during the cloud animation: */}
 
 a:link, a:visited {color:#0074BD; text-decoration:none; border-bottom:1px solid #E6E3DB; padding-bottom:0;}
 a:visited {color:#1D6EB1;}
@@ -13,10 +14,8 @@ a:hover, a:active {text-decoration:none !important; color:#930; outline:none !im
 
 :target {background:#ffc;}
 
-#wrapper {text-align:center;}
-#page {width:970px; text-align:left; margin:0 auto;
-/*background:url(/static/img/bg_technical.gif) no-repeat top center; background-position:5px 0;*/
-}
+#wrapper {text-align:center; overflow: hidden;}
+#page {width:970px; text-align:left; margin:0 auto;}
 
 #page {width:970px; text-align:left; margin:0 auto;}
 body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error.gif) no-repeat top left; background-position:352px -50px;}
@@ -29,7 +28,125 @@ body.detail #header p.breadcrumbs {bottom:20px;}
 /*body#work.detail #header,*/body#archive #header {height:120px;}
 body#work.detail #header p.breadcrumbs {bottom:0;}
 
-/* swinging parachuted content */
+/* =clouds ======================== */
+/* From the awesome Code Player site - a great place to learn to HTML/CSS/JS with live coding - change code and see updates in real-time: http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background */
+
+#sky {height:40px; padding-top:50px;}
+
+/* The basic cloud shape */
+.cloud {
+	width: 100px; height: 30px;
+	background: #eee;
+	
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	
+	position: relative; 
+	margin-left:-1000px; /* hide clouds after animation runs once */
+	}
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute; 
+	background: #eee;
+	width: 32px; height: 32px;
+	position: absolute; top: -12px; right: 20px;
+	
+	border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+	}
+.cloud:after {
+	width: 50px; height: 50px;
+	top: -23px; right: auto; left: 12px;
+	}
+
+/* Animate */
+.n1 {	/* closest large cloud */
+	top:15px;
+	left:150px;
+	-webkit-animation: moveclouds 12s linear 1;
+	-moz-animation: moveclouds 12s linear 1;
+	-o-animation: moveclouds 12s linear 1;
+	opacity: 0.6;
+	}
+
+/* Variable speed, opacity, and position of clouds for realistic effect */
+.n2 {	/* farthest small cloud */
+	left: 0px;
+	top:-60px;
+	-webkit-transform: scale(0.5);
+	-moz-transform: scale(0.5);
+	transform: scale(0.5);
+	opacity: 0.4;
+	
+	/* Speed will also be proportional to the size and opacity */
+	/* The More the speed. Less the time in 's' = seconds */
+	-webkit-animation: moveclouds 30s linear 1;
+	-moz-animation: moveclouds 30s linear 1;
+	-o-animation: moveclouds 30s linear 1;
+	}
+
+
+.n5 { /* middle-distance-and-speed cloud */
+	left: -30px; top: -130px;
+	z-index:-1;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	transform: scale(0.7);
+	opacity: 0.5;
+	
+	-webkit-animation: moveclouds 21s linear 1;
+	-moz-animation: moveclouds 21s linear 1;
+	-o-animation: moveclouds 21s linear 1;
+	}
+	
+/* unused since we are only running the animation once to avoid overheating the computer!
+	
+	.n3 {
+	left: -250px; top: -200px;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.6;
+
+	-webkit-animation: moveclouds 20s linear 1;
+	-moz-animation: moveclouds 20s linear 1;
+	-o-animation: moveclouds 20s linear 1;
+	}
+
+.n4 {
+	left: 470px; top: -250px;
+
+	-webkit-transform: scale(0.75);
+	-moz-transform: scale(0.75);
+	transform: scale(0.75);
+	opacity: 0.6;
+
+	-webkit-animation: moveclouds 25s linear 1;
+	-moz-animation: moveclouds 25s linear 1;
+	-o-animation: moveclouds 25s linear 1;
+	}*/
+
+@-webkit-keyframes moveclouds {
+	0% {margin-left: 95%;}
+	100% {margin-left: -1000px;}
+	}
+@-moz-keyframes moveclouds {
+	0% {margin-left: 95%;}
+	100% {margin-left: -1000px;}
+	}
+@-o-keyframes moveclouds {
+	0% {margin-left: 95%;}
+	100% {margin-left: -1000px;}
+	}
+
+/* swinging parachuted content ======================== */
+
 @-moz-keyframes swing {
   0%{-moz-transform:rotate(-2deg);}
   50%{-moz-transform:rotate(2deg);}
@@ -110,10 +227,10 @@ h2#writing a:hover {text-decoration:underline; background:none;}
 ul.thumbs {list-style:none;}
 .intro {
 	max-width:500px;
-	
-  -moz-animation: 2.5s ease 0s normal none 1.25 swing;
+	/* =parachute =swing */
+  -moz-animation: 1.25s ease 0s normal none 1.25 swing;
   -moz-transform-origin: center top;
-  -webkit-animation:swing 2.5s 1.25 ease-in-out;
+  -webkit-animation:swing 1.25s 1.25 ease-in-out;
   -webkit-transform-origin:top;
 	}
 ul.thumbs li {
@@ -124,9 +241,9 @@ ul.thumbs li {
 	vertical-align:top; 
 	display:inline-block;
 	
-  -moz-animation: 2.5s ease 0s normal none 1.25 swing;
+  -moz-animation: 1.25s ease 0s normal none 1.25 swing;
   -moz-transform-origin: center top;
-  -webkit-animation:swing 2.5s 1.25 ease-in-out;
+  -webkit-animation:swing 1.25s 1.25 ease-in-out;
   -webkit-transform-origin:top;
 	}
 li.nopicture {height:96px;}
@@ -155,7 +272,8 @@ body#logbook a.nav-logbook,
 body#archive a.nav-archive,
 body#tags a.nav-tags,
 body#work a.nav-work,
-body#contact a.nav-contact 
+body#contact a.nav-contact,
+body#about a.nav-about  
 {color:#000;}
 
 /* =work ---------------------- */
@@ -265,6 +383,16 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
     body#home #header {padding-bottom:3em;}
     }
 @media (max-width: 860px) {
+		/* no transitions or animations on mobile */
+		* { 
+	   -webkit-transition: none !important;
+	   -moz-transition: none !important;
+	   -o-transition: none !important;
+	   -ms-transition: none !important;
+	   transition: none !important;
+	  }
+		* {-webkit-animation:none !important; -moz-animation:none !important;}
+		
     #page, #latest {width:auto;}
     div.column {margin:0 10px 0 0;}
     }
@@ -274,6 +402,7 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
     #content {width:auto !important; padding-left:20px; padding-right:40px;}
     body#home #content {width:400px !important; padding-left:20px;}
     #footer {padding-left:20px;}
+		p.breadcrumbs {display:none;}
   }
 @media (max-width: 530px) {
 		#logo img {
@@ -281,6 +410,7 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
 		  -webkit-animation: none;
 		  animation: none;
 			}
+			.tip {display:none;}
 /*		body#work.detail #logo img {margin-top:0;}*/
 		body#work.detail #header {height:120px;}
 /*		#logo img {margin:40px auto 0;}*/
@@ -292,7 +422,6 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
     body#home #content {width:auto !important; padding:0 10px !important;}
     #content img {width:100%; height:auto;}
     #content img.thumbincontent {width:auto;}
-    body#logbook p.breadcrumbs, body#archive p.breadcrumbs, body#about p.breadcrumbs, body#error p.breadcrumbs {width:auto; position:normal; display:none;}
     div#description {padding-left:0;}
     #footer {padding-left:20px; padding-right:20px;}
     iframe, pre {width:100% !important; overflow:hidden; max-width:220px;}

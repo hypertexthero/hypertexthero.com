@@ -21,8 +21,8 @@
 {% block bodyclass %}detail{% endblock bodyclass %}
 
 {% block header %}
-	<a id="logo" href="/" title="Hypertexthero homepage."><img src="/static/img/logo.png"></a>
-  <p class="breadcrumbs"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/work/" title="Work examples.">Work</a> / {{ flatpage.title }}</p>
+	{% include "hth/nav.html" %}
+  <p class="breadcrumbs intro"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/work/" title="Work examples.">Work</a> / {{ flatpage.title }}</p>
 {% endblock header %}
 
 

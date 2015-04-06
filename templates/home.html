@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 {% block headtitle %}Hypertexthero: Web, Design, Simplicity{% endblock headtitle %}
 {% block keywords %}Web, Design, Simplicity{% endblock %}
+
+{% block extrahead %}
+<style type="text/css" media="screen">
+
+</style>
+{% endblock extrahead %}
+
 {% block bodyid %}home{% endblock bodyid %}
 
 {% load hth_tags %}
 
 {% block header %}
   {% include "hth/nav.html" %}
+	{% include "hth/sky.html" %}
 {% endblock header %}
 
 {% block content %}
+	
 <div class="intro">
   <h1 style="margin:0 0 0.5em 0;"><a href="/contact/" title="At your service.">Call</a> Hypertexthero for <a href="/work/" title="See selected work.">design work</a></h1>
 
@@ -43,7 +52,9 @@
     <p>{% kind_words "kindwords.txt" %}</p>
   </blockquote>
 {% endcomment %} 
+	
 </div> {# /.intro  #}
+
 {% endblock content %}
 
 {% block footer %}

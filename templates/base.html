@@ -30,6 +30,17 @@
 <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/ie7.css" />
 <![endif]-->
 {% block extrahead %}{% endblock extrahead %}
+{% comment %}
+<script type="text/javascript">
+  function toggle_visibility(id) {
+     var e = document.getElementById(id);
+     if(e.style.display == 'block')
+        e.style.display = 'none';
+     else
+        e.style.display = 'block';
+  }
+</script>
+{% endcomment %}	
 <title>{% block headtitle %}{% endblock headtitle %}</title>
 </head>
 
