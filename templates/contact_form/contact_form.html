@@ -8,9 +8,115 @@
 {% endblock header %}
 
 {% block content %}
-  <h1 style="margin:0 0 0.5em 0;">Calling Hypertexthero</h1>
+<div class="intro">
+	<h1 style="margin:0 0 0.5em 0;">Calling Hypertexthero</h1>
+	<p><a href="mailto:simon@hypertexthero.com" rel="me" title="Send me an email.">simon@hypertexthero.com</a></p>
+</div> {# /.intro #}
 
-{% include "contact_form/address.html" %}
+<p>If you are getting in touch regarding potential work, completing a project brief helps me create a proposal that meets your specific needs and helps to make sure things don’t go horribly wrong.</p> 
+
+<p>Please copy and paste the following into your email to me, then replace the text in italics with your answers.</p>
+
+<script type="text/javascript">
+    function selectText(containerid) {
+        if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById(containerid));
+            range.select();
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(document.getElementById(containerid));
+            window.getSelection().addRange(range);
+        }
+    }
+</script>
+		
+<style type="text/css" media="screen">
+i {color:#008000;}
+</style>
+
+<p class="pull-right small quiet" style="padding-top:1em;">
+	<b>Tip:</b> Click the text then press <kbd title="On Macs.">Command-C</kbd> or <kbd title="On PCs.">CTRL-C</kbd> to copy.
+</p>
+
+<div id="selectable" onclick="selectText('selectable')" style="border:double #eee; border-left:0; border-right:0; margin-bottom:1em;">
+
+	<h3>Project Brief</h3>
+
+	<p>
+		<strong>Your name:</strong>
+		<br>
+		<i>Your name and title here</i>.
+	</p>
+
+	<p>
+		<b>Your organization name and location:</b>
+		<br>
+		<i>Organization name and location here.</i>
+	</p>
+
+	<p>
+		<b>Your email address:</b>
+		<br>
+		<i>you@domain.tld</i>
+	</p>
+
+	<p>
+		<b>Your business phone:</b>
+		<br>
+		<i>Please include area and country code.</i>
+	</p>
+
+	<p>
+		<b>Describe your organization:</b>
+		<br>
+		<i>Briefly, who are you, what do you do, why does it matter? If you have an existing website, what is its URL?</i>
+	</p>
+
+	<p>
+		<b>Describe the concept, product or service you intend to promote and the medium you have in mind for the project (website, brochure, print ads, etc):</b>
+		<br>
+		<i>Your answer.</i>
+	</p>
+
+	<p>
+		<b>Describe your audience:</b>
+		<br>
+		<i>Who are they? What do they do? What do they think and feel?</i>
+	</p>
+
+	<p>
+		<b>Describe the primary purpose of your project:</b>
+		<br>
+		<i>What primary goal do you wish to accomplish by promoting your concept, product or service to your audience? What do you want your audience to think and feel when they hear your voice? What does this project need to accomplish at the very least?</i>
+	</p>
+
+	<p>
+		<b>Describe your brand’s tone of voice:</b>
+		<br>
+		<i>In as few words or sentences as possible, describe the feel you wish your concept, product or service to evoke in your audience. Warm? Serious? Playful? Hi-tech? Humorous? Classic? Modern? Understated? Punk rock?</i>
+	</p>
+
+	<p>
+		<b>Additional notes and comments:</b>
+		<br>
+		<i>Please use as much detail as you need.</i>
+	</p>
+
+</div> {# /#selectable #}
+
+	<p>
+		Thank you!
+		<br>
+		—Simon
+	</p>
+	
+	{# <p> #}
+	{# 	<strong>Google+:</strong> <a href="https://plus.google.com/+SimonGriffee/">+SimonGriffee</a><br> #}
+	{#   <strong>Twitter:</strong> <a href="https://twitter.com/simongriffee">simongriffee</a><br> #}
+	{#   <strong>Instagram:</strong> <a href="https://instagram.com/simongriffee">simongriffee</a><br> #}
+	{#   <strong>Github:</strong> <a href="https://github.com/hypertexthero" title="I'm not a good coder, but I can hack things together.">hypertexthero</a> #}
+	{# </p> #}
 
 {# <form action="" method="post">{% csrf_token %} #}
 {# {{ form.non_field_errors }} #}

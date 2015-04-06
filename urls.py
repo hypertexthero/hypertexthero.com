@@ -108,6 +108,9 @@ urlpatterns += patterns('views',
     url(r'^robots\.txt$', TemplateView.as_view(
         template_name='robots.txt', content_type='text/plain')),
     
+    # =about
+    url(r'^about/$', TemplateView.as_view(template_name='about.html'), name="about"),
+    
     # =work =projects
     url(r'^work/$', TemplateView.as_view(template_name='flatpages/work.html'), name="work"),
 

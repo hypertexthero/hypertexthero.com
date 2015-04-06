@@ -11,7 +11,7 @@ a:link, a:visited {color:#0074BD; text-decoration:none; border-bottom:1px solid 
 a:visited {color:#1D6EB1;}
 a:hover, a:active {text-decoration:none !important; color:#930; outline:none !important; border:none !important;}
 
-:target {background:#ffc; padding:2px 5px;}
+:target {background:#ffc;}
 
 #wrapper {text-align:center;}
 #page {width:970px; text-align:left; margin:0 auto;
@@ -24,7 +24,7 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 #header {margin:0 38px 12px; height:100px; position:relative;}
 blockquote {line-height:1.4em; padding-left:1em; border-left:1px solid #eee;}
 #header p.breadcrumbs {font-size:14px; color:#ccc; position:absolute; bottom:0;}
-#header p.breadcrumbs a {color:#999;}
+/*#header p.breadcrumbs a {color:#999;}*/
 body.detail #header p.breadcrumbs {bottom:20px;}
 /*body#work.detail #header,*/body#archive #header {height:120px;}
 body#work.detail #header p.breadcrumbs {bottom:0;}
@@ -111,9 +111,9 @@ ul.thumbs {list-style:none;}
 .intro {
 	max-width:500px;
 	
-  -moz-animation: 5s ease 0s reverse none 1.25 swing;
+  -moz-animation: 2.5s ease 0s normal none 1.25 swing;
   -moz-transform-origin: center top;
-  -webkit-animation:swing 5s 1.25 ease-in-out;
+  -webkit-animation:swing 2.5s 1.25 ease-in-out;
   -webkit-transform-origin:top;
 	}
 ul.thumbs li {
@@ -124,9 +124,9 @@ ul.thumbs li {
 	vertical-align:top; 
 	display:inline-block;
 	
-  -moz-animation: 5s ease 0s reverse none 1.25 swing;
+  -moz-animation: 2.5s ease 0s normal none 1.25 swing;
   -moz-transform-origin: center top;
-  -webkit-animation:swing 5s 1.25 ease-in-out;
+  -webkit-animation:swing 2.5s 1.25 ease-in-out;
   -webkit-transform-origin:top;
 	}
 li.nopicture {height:96px;}
