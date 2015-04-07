@@ -304,10 +304,10 @@ body#about #header, body.detail #header {background:none;}
 .quiet {color:#999;}
 .normal {font-weight:normal;}
 
-/* =typography, etc ---------------------- */
+/* =typography, =para ---------------------- */
 
 p.adminmenu {font-family:monospace; position:absolute; top:0; left:0; z-index:100; padding:1em 0;}
-p {margin:0 0 0.9em; line-height:1.4em;}
+p, label {margin:0 0 0.9em; line-height:1.4em;}
 dt {margin:0 0 0.75em; color:#2e2a1f;}
 body.detail dt {font-weight:bold;}
 dd {margin:0 0 2em 1em;}
