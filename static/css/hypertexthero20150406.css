@@ -147,7 +147,7 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
 
 /* swinging parachuted content ======================== */
 
-@-moz-keyframes swing {
+/*@-moz-keyframes swing {
   0%{-moz-transform:rotate(-2deg);}
   50%{-moz-transform:rotate(2deg);}
   100%{-moz-transform:rotate(-2deg);}
@@ -157,7 +157,7 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
   50%{-webkit-transform:rotate(2deg);}
   100%{-webkit-transform:rotate(-2deg);}
 	}
-
+*/
 /* areoplane logo fly-by */
 @-webkit-keyframes flying-aeroplane {
   from {margin:-40px 0 0 -2000px; 
@@ -228,10 +228,10 @@ ul.thumbs {list-style:none;}
 .intro {
 	max-width:500px;
 	/* =parachute =swing */
-  -moz-animation: 1.25s ease 0s normal none 1.25 swing;
+/*  -moz-animation: 1.25s ease 0s normal none 1.25 swing;
   -moz-transform-origin: center top;
   -webkit-animation:swing 1.25s 1.25 ease-in-out;
-  -webkit-transform-origin:top;
+  -webkit-transform-origin:top;*/
 	}
 ul.thumbs li {
 	margin-bottom:5em; 
@@ -241,10 +241,10 @@ ul.thumbs li {
 	vertical-align:top; 
 	display:inline-block;
 	
-  -moz-animation: 1.25s ease 0s normal none 1.25 swing;
+/*  -moz-animation: 1.25s ease 0s normal none 1.25 swing;
   -moz-transform-origin: center top;
   -webkit-animation:swing 1.25s 1.25 ease-in-out;
-  -webkit-transform-origin:top;
+  -webkit-transform-origin:top;*/
 	}
 li.nopicture {height:96px;}
 ul.thumbs img {margin-bottom:0.5em;}
