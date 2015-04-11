@@ -31,15 +31,24 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
 /* =clouds ======================== */
 /* From the awesome Code Player site - a great place to learn to HTML/CSS/JS with live coding - change code and see updates in real-time: http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background */
 
-#sky {height:40px; padding-top:50px;}
+#sky {height:40px; padding-top:50px; 
+/*	attempt to get browsers to activate 3D acceleration and stop computer fans from starting
+	https://css-tricks.com/almanac/properties/p/perspective/
+	*/
+	-webkit-perspective: 1000px;
+		 -moz-perspective: 1000px;
+		  -ms-perspective: 1000px;
+			 -o-perspective: 1000px;
+ 			 	 	perspective: 1000px;
+}
 
 /* The basic cloud shape */
 .cloud {
 	width: 100px; height: 30px;
 	background: #eee;
 	
-	border-radius: 100px;
-	-moz-border-radius: 100px;
+				  border-radius: 100px;
+		 -moz-border-radius: 100px;
 	-webkit-border-radius: 100px;
 	
 	position: relative; 
@@ -51,14 +60,13 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
 	background: #eee;
 	width: 32px; height: 32px;
 	position: absolute; top: -12px; right: 20px;
-	
-	border-radius: 50px;
-	-moz-border-radius: 50px;
+					border-radius: 50px;
+ 		 -moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	
 	-webkit-transform: rotate(30deg);
-	transform: rotate(30deg);
-	-moz-transform: rotate(30deg);
+		  	  transform: rotate(30deg);
+		 -moz-transform: rotate(30deg);
 	}
 .cloud:after {
 	width: 50px; height: 50px;
@@ -69,9 +77,9 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
 .n1 {	/* closest large cloud */
 	top:15px;
 	left:150px;
-	-webkit-animation: moveclouds 12s linear 1;
-	-moz-animation: moveclouds 12s linear 1;
-	-o-animation: moveclouds 12s linear 1;
+	-webkit-animation: moveclouds 6s linear 1;
+		 -moz-animation: moveclouds 6s linear 1;
+		   -o-animation: moveclouds 6s linear 1;
 	opacity: 0.6;
 	}
 
@@ -80,15 +88,15 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
 	left: 0px;
 	top:-60px;
 	-webkit-transform: scale(0.5);
-	-moz-transform: scale(0.5);
-	transform: scale(0.5);
-	opacity: 0.4;
+		 -moz-transform: scale(0.5);
+		 			transform: scale(0.5);
+						opacity: 0.4;
 	
 	/* Speed will also be proportional to the size and opacity */
 	/* The More the speed. Less the time in 's' = seconds */
-	-webkit-animation: moveclouds 30s linear 1;
-	-moz-animation: moveclouds 30s linear 1;
-	-o-animation: moveclouds 30s linear 1;
+	-webkit-animation: moveclouds 15s linear 1;
+		 -moz-animation: moveclouds 15s linear 1;
+		   -o-animation: moveclouds 15s linear 1;
 	}
 
 
@@ -96,13 +104,13 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
 	left: -30px; top: -130px;
 	z-index:-1;
 	-webkit-transform: scale(0.7);
-	-moz-transform: scale(0.7);
-	transform: scale(0.7);
-	opacity: 0.5;
+		 -moz-transform: scale(0.7);
+		      transform: scale(0.7);
+					opacity: 0.5;
 	
-	-webkit-animation: moveclouds 21s linear 1;
-	-moz-animation: moveclouds 21s linear 1;
-	-o-animation: moveclouds 21s linear 1;
+	-webkit-animation: moveclouds 10s linear 1;
+		 -moz-animation: moveclouds 10s linear 1;
+		   -o-animation: moveclouds 10s linear 1;
 	}
 	
 /* unused since we are only running the animation once to avoid overheating the computer!
@@ -162,21 +170,21 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
 @-webkit-keyframes flying-aeroplane {
   from {margin:-40px 0 0 -2000px; 
 		-webkit-transform: rotate(70deg); 
-  	-moz-transform: rotate(70deg); 
+			 -moz-transform: rotate(70deg); 
 		}
   to {margin:40px 0 0 -28px;
 		-webkit-transform: rotate(0deg); 
-  	-moz-transform: rotate(0deg); 
+			 -moz-transform: rotate(0deg); 
 		}
 	}
 @keyframes flying-aeroplane {
   from {margin:-40px 0 0 -2000px; 
 		-webkit-transform: rotate(70deg); 
-  	-moz-transform: rotate(70deg); 
+			 -moz-transform: rotate(70deg); 
 		}
   to {margin:40px 0 0 -28px;
 		-webkit-transform: rotate(0deg); 
-  	-moz-transform: rotate(0deg); 
+			 -moz-transform: rotate(0deg); 
 		}
 	}
 
@@ -187,24 +195,24 @@ body#work.detail #header p.breadcrumbs {bottom:0;}
 	margin:40px 0 0 -28px;
 
   -webkit-transform: rotate(0deg); 
-  -moz-transform: rotate(0deg); 
-  -o-transform: rotate(0deg);
-  -ms-transform: rotate(0deg); 
-  transform: translate()
+  	 -moz-transform: rotate(0deg); 
+		   -o-transform: rotate(0deg);
+			-ms-transform: rotate(0deg); 
+					transform: translate()
 	}
 
 #logo img:hover { 
   -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out; 
-  -o-transition: all 0.5s ease-in-out; 
-  -ms-transition: all 0.5s ease-in-out; 
-  transition-duration: 0.5s;
+  	 -moz-transition: all 0.5s ease-in-out; 
+  	   -o-transition: all 0.5s ease-in-out; 
+  		-ms-transition: all 0.5s ease-in-out; 
+  	 transition-duration: 0.5s;
 /*    box-shadow: 0 3px 15px #000;*/
   -webkit-transform: rotate(-360deg); 
-  -moz-transform: rotate(-360deg); 
-  -o-transform: rotate(-360deg);
-  -ms-transform: rotate(-360deg); 
-  transform: translate()
+  	 -moz-transform: rotate(-360deg); 
+  	   -o-transform: rotate(-360deg);
+  		-ms-transform: rotate(-360deg); 
+  	 			transform: translate()
 	}
 
 /* =home =work ---------------------- */
@@ -227,7 +235,7 @@ h2#writing a:hover {text-decoration:underline; background:none;}
 ul.thumbs {list-style:none;}
 .intro {
 	max-width:500px;
-	/* =parachute =swing */
+	/* =parachute =swing swinging parachutes are jarring, removing */
 /*  -moz-animation: 1.25s ease 0s normal none 1.25 swing;
   -moz-transform-origin: center top;
   -webkit-animation:swing 1.25s 1.25 ease-in-out;
@@ -240,11 +248,33 @@ ul.thumbs li {
 	max-width:330px !important; 
 	vertical-align:top; 
 	display:inline-block;
+	overflow:hidden;
 	
-/*  -moz-animation: 1.25s ease 0s normal none 1.25 swing;
+/* swinging parachutes are jarring, removing
+	-moz-animation: 1.25s ease 0s normal none 1.25 swing;
   -moz-transform-origin: center top;
   -webkit-animation:swing 1.25s 1.25 ease-in-out;
   -webkit-transform-origin:top;*/
+	}
+
+	ul.thumbs li:hover img {
+	  -webkit-transition: all 0.1s ease;
+	     -moz-transition: all 0.1s ease;
+	       -o-transition: all 0.1s ease;
+	      -ms-transition: all 0.1s ease;
+	          transition: all 0.1s ease;
+	 /* -webkit-transform: rotate(-3deg);
+	     -moz-transform: rotate(-3deg);
+	       -o-transform: rotate(-3deg);
+	      -ms-transform: rotate(-3deg);
+	          transform: rotate(-3deg);*/
+/*	  color: #fff;*/
+	  border-radius: 100px;
+		
+/*		box-shadow: 0 3px 15px #ddd;*/
+	}
+	.larger {
+		font-size:1.5em;
 	}
 li.nopicture {height:96px;}
 ul.thumbs img {margin-bottom:0.5em;}
@@ -425,5 +455,8 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
     div#description {padding-left:0;}
     #footer {padding-left:20px; padding-right:20px;}
     iframe, pre {width:100% !important; overflow:hidden; max-width:220px;}
+		body#work.detail a.nav-work {font-size:1.5em; color:#0074BD; padding-right:0.5em;}
+		body#work.detail a.nav-work:hover {color:#000;}
+		body#work.detail a.nav-work:before {content:"« ";}
     }
  

@@ -22,17 +22,15 @@
 
 {% block header %}
 	{% include "hth/nav.html" %}
-  <p class="breadcrumbs intro"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/work/" title="Work examples.">Work</a> / {{ flatpage.title }}</p>
+  <p class="breadcrumbs intro"><a href="/" title="Hypertexthero homepage.">Hypertexthero</a> / <a href="/work/" title="Back to selected work index." class="larger">Work</a> / {{ flatpage.title }}</p>
 {% endblock header %}
 
 
 {% block content %}
   {% if user.is_staff %} 
-  <div class="pull-right">
-      <a class="edit small" href="/admin/flatpages/flatpage/{{ flatpage.id }}">Edit</a>
-  </div>
+      <p style="position:absolute; top:10px; right:0;"><a style="padding:1em;" href="/admin/flatpages/flatpage/{{ flatpage.id }}">edit</a></p>
   {% endif %}
-
   {% load hth_tags %}
   {{ flatpage.content|my_markdown }}
+	
 {% endblock %}
