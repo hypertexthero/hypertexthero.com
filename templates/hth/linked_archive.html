@@ -11,6 +11,8 @@
 
 {% block content %}
         	<h1>Linked List: {{ month|date:"F Y" }}</h1>
+				  <p><small><a href="/linked/#about">About</a></small> · <small><a href="/linked/#linkedarchive">Archive</a></small> · <small><a href="/logbook/atom/" title="Atom XML Feed" href="/atom/">XML feed</a></small></p>
+					
     {% for object in object_list %}    
             {% ifchanged %}
                 <h2 class="dateline">{{ object.pub_date|date:"l, d F Y" }}</h2>

@@ -10,18 +10,17 @@
 
 {% block content %}
 
-  {% include "hth/search_form.html" %}    
-
   <h1 style="margin:2.75em 0 0;">The Hypertexthero Linked List</h1>
-  <p><small><a href="#linkedarchive">Linked List Archive</a></small> · <small><a href="/logbook/atom/" title="Atom XML Feed" href="/atom/">XML feed</a></small></p> 
+  <p><small><a href="#about">About</a></small> · <small><a href="#linkedarchive">Archive</a></small> · <small><a href="/logbook/atom/" title="Atom XML Feed" href="/atom/">XML feed</a></small></p>
+	  {% include "hth/search_form.html" %}     
     {% load hth_tags %}
     {% latest_linked_list_entries %}
 
-<h2 id="about">About the Linked List</h2>
+<h2 id="about">About the Linked List <small><a href="#top" class="small normal">&uarr; back to top</a></small></h2>
 
 <p>The Hypertexthero Linked List is a list of links to other places on the internet that Hypertexthero finds interesting.</p>
 
-<h2 id="linkedarchive">Linked List Archive</h2>
+<h2 id="linkedarchive">Linked List Archive <small><a href="#top" class="small normal">&uarr; back to top</a></small></h2>
 
 {% load hth_tags %}
 
