@@ -388,7 +388,7 @@ hr {color:#eee; background:#eee; max-width:32em; height:1px; border:none; margin
 a.edit {color:#afa99f;}
 a.browserid-login {color:#fafafa; border:0;}
 
-#footer {clear:both; padding:0.5em 43px 0; max-width:32em;}
+#footer {clear:both; padding:0.5em 43px 0; max-width:32em; font-size:0.9em;}
 #footer p {margin:0 0 2em; max-width:32em; border-top:double #eee; padding-top:1em;}
 p.paging {font-size:0.9em; padding-top:1.75em !important;}
 
