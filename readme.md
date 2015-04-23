@@ -7,31 +7,17 @@ Features
 - Links and original article note types published to the same content column.
 - Dates on homepage are displayed only once for notes published on the same day. Using '[ifchanged](https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#ifchanged)'.
 - Code syntax highlighting in markup courtesy of [Pygments](http://pygments.org/) (here are [some CSS styles](https://github.com/richleland/pygments-css)) and [CodeHilite](http://pythonhosted.org/Markdown/extensions/code_hilite.html).
-- Simple search.
 - Uses Django admin interface.
-- [Mozilla Persona for authentication](http://django-browserid.readthedocs.org/)
-- XML feeds in both Atom and RSS flavours.
-- Tags with auto-suggest widget for post keywords
+- XML feed.
+- Tags with auto-suggest widget for posting keywords.
 
 ## Things to do
 
-- **Combine a static generator with this application so we are serving static HTML files from disk on server and Markdown and HTML columns in database.**
-    - Current command to deploy is `../python manage.py runserver && cd ~/Sites/hth.dev && wget --mirror --no-host-directories --directory-prefix ~/Sites/hth.dev http://127.0.0.1:8000 && rsync -exclude='.DS_Store' -cavzhe ssh ~/Sites/hth.dev/ hth@hth.webfactional.com:webapps/hth/`.
-- Set up [Fabric](http://docs.fabfile.org/en/1.6/tutorial.html) script for deployment.
-- Set up [SSL for privacy](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS).
+- Set up [SSL for security](https://www.tbray.org/ongoing/When/201x/2012/12/02/HTTPS).
 - Set up own instance of nginx?
-- Add to portfolio:
-    - Graphite logo prototype
-- Add Textile as a text syntax option.
 - Set up pagedown for markdown preview.
-- [Automatically post new articles to Twitter](http://djangosnippets.org/snippets/1339/).
-- Find a way to run django tests so each url on the site is accessed and generated automatically with a command.
-- Finalize data import. Don't forget to fix macroman->utf-8 encoding problems and import keywords into tag field.
-- Refactor breadcrumbs into templatetag to remove repetition.
-- [Images in entries](http://stackoverflow.com/a/537966/412329)? [Image](http://stackoverflow.com/questions/1021487/add-functionality-to-django-flatpages-without-changing-the-original-django-app) and [thumbnail](https://bitbucket.org/winsmith/django-thumbnail/wiki/Home) functionality for flatpages?
-- Make Work category pages and list of categories page titled 'What'?
+- Make Work category pages and list of categories page titled 'What'
 - Articles available in Markdown format on the server (article-title.txt).
-- JavaScript-based search for static files on server?
 - Learn how to [write tests](http://www.tdd-django-tutorial.com/) for views, then write unit and functional tests.
 - Consider using [prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html) for syntax highlighting (shows line numbers).
 

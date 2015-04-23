@@ -3,7 +3,12 @@
 {% block keywords %}Web, Design, Simplicity{% endblock %}
 
 {% block extrahead %}
-<link href="/static/css/lightbox.css" rel="stylesheet" />
+
+<style type="text/css" media="screen">
+h2 {margin-top:2em;}
+h1, h2:target {font-weight:700;}
+/*h2 small {margin-left:1em;}*/
+</style>
 {% endblock extrahead %}
 
 {% block bodyid %}about{% endblock bodyid %}
@@ -18,21 +23,18 @@
 
 {% block content %}
 
+<a href="#top"> </a>
 <div class="intro">
 	{# <img src="/static/files/GRS-20140402-171125-small.jpg" alt="A photograph of Hypertexthero photographing." style="border:1px solid #eee; border-radius:2px;"> #}
 
-	<h1 style="margin-bottom:1em;">
-    Simon Griffee <br><span class="normal">Designer &amp; Photographer</span><br><small><a href="/static/files/SimonGriffeeCV.pdf" title="Portable Document Format">↓ Download Résumé</a> <span class="small quiet normal"><span class="caps">PDF</span> 170kb</span></small>
+	<h1 style="margin-bottom:0.5em;" id="summary">
+    Simon Griffee <br><small>Designer &amp; Photographer <small><a href="/static/files/SimonGriffee.pdf" title="Portable Document Format">↓ Download Résumé</a> <span class="small quiet normal"><span class="caps">PDF</span> 170kb</span></small></small>
 	</h1>
 </div> {# /.intro #}
 
-<h2 id="summary" style="border-bottom:1px solid #eee; padding-bottom:0.25em;">
-    Summary
-</h2>
-
-<p class="large">Enjoy <a href="#education" title="Jump to ‘Education’ on this page.">learning</a> and absorbing information from different <a href="#interests" title="Jump to ‘Interests’ on this page.">fields</a> to help <a href="#skillstools" title="Jump to ‘Skills &amp; Tools’ on this page.">solve problems</a>, keep brain whirring and, with any luck, pass on knowledge to <a href="/linked/2005/10/27/longnow/" title="Longnow.">future generations</a>.</p>
+<p class="large">Over a decade of professional graphic and web design <a href="#experience" title="Jump to ‘Experience’ on this page.">experience</a>. Enjoy <a href="#education" title="Jump to ‘Education’ on this page.">learning</a> and absorbing information from different <a href="#interests" title="Jump to ‘Interests’ on this page.">fields</a> to help <a href="#skillstools" title="Jump to ‘Skills &amp; Tools’ on this page.">solve problems</a>, keep brain whirring and, with any luck, pass on some knowledge to <a href="/linked/2005/10/27/longnow/" title="Longnow.">future generations</a>.</p>
 <p>
-	With over a decade of professional <strong><a href="#experience" title="Jump to ‘Experience’ on this page.">graphic and web design experience</a></strong> while <strong>travelling extensively</strong> around the <strong><a href="/work/earth-among-the-stars/" title="See Earth among the stars in HTML and CSS on a new page.">world</a></strong> and living in Brazil, Tunisia, Italy, England and the United States have learned to speak and write in: <b>English</b> and <b>Portuguese</b> fluently, <b>Italian</b> well, <b>French</b> and <b>Spanish</b> in a somewhat amusing way. Using these together with <a href="#skillstools" title="Jump to ‘Skills, Tools and Interests’ on this page."><strong>visual</strong> and <strong>programming languages</strong></a> have managed to:</p>
+	Traveled extensively around the <a href="/work/earth-among-the-stars/" title="See Earth among the stars in HTML and CSS on a new page.">world</a>, living in Brazil, Tunisia, Italy, England and the United States. Speak and write in <b>English</b> and <b>Portuguese</b> fluently, <b>Italian</b> well, <b>French</b> and <b>Spanish</b> okay. Using these together with <a href="#skillstools" title="Jump to ‘Skills, Tools and Interests’ on this page.">visual and programming languages</a> have managed to:</p>
 
 <ul>
 	<li>
@@ -48,112 +50,99 @@
 
 <p>Based in and usually <a href="/logbook/2015/04/i-heart-earth/" title="I ❤︎ Earth, inspired by Milton Glaser’s I ❤︎ NY logotype.">&#9829;</a> New York City.</p>
 
-
-
-<h2 id="experience" style="border-bottom:1px solid #eee; padding-bottom:0.25em;">
-Experience
-<small><a href="#summary" class="small normal">&uarr; back to top</a></small>
+<h2 id="experience">
+	Experience
+	<small><a href="#top" class="normal">↩</a></small>
 </h2>
-<h3>
-Information Systems Officer <em>(Designer &amp; Developer)</em><br>
-<span class="normal">Food and Agriculture Organization of the United Nations, Rome, Italy<br>
-<em>June 2009–Present</em></span>
-</h3>
-<p>
-Helped increase funding and the number of contracting parties to the International 
-Plant Protection Convention and raise public awareness of its <a href="/work/international-plant-protection-convention-poster/" title="See identity design work done for the International Plant Protection Convention.">work</a> while making people using computers there <a href="/work/it-wishlist/" title="See the IT Wishlist project.">happier</a>. Hands-on design and coding work from wireframes to production of websites and print media in both assigned and self-started projects. Organized photography groups and wine tasting.
-</p>
-{# <ul> #}
-{# <li>Designed and oversaw production of print materials including brochures, logotypes, letterheads and posters such as <span class="caps">IPPC</span>’s <a href="http://hypertexthero.com/work/international-plant-protection-convention-poster">2011 poster</a> #}
-{# </li> #}
-{# <li>Designed, coded and deployed internal project management tool for implementing  #}
-{# <a href="http://agilemanifesto.org/">agile</a> web development practices: <a href="/work/it-wishlist/">it.ippc.int</a></li> #}
-{# <li>Wrote website <span class="caps">HTML</span>, <span class="caps">CSS</span>, JavaScript template code for <a href="http://www.ippc.int/">www.ippc.int</a>. Original templates and other work can be found at: <a href="http://hypertexthero.com/ippc/work">hypertexthero.com/ippc/work</a> #}
-{# </li> #}
-{# <li>Designed, coded and deployed multi-user <span class="caps">CMS</span> which supports automatic user registration and document uploads using the <a href="http://djangoproject.com/">Django web framework</a> and Drupal <span class="caps">CMS</span> #}
-{# </li> #}
-{# <li>Designed and coded <a href="https://github.com/hypertexthero/ippcdj">custom <span class="caps">CMS</span></a> based on Django and <a href="http://mezzanine.jupo.org/">Mezzanine</a> for future version of IPPC website #}
-{# </li> #}
-{# <li>Designed and coded <span class="caps">CMS</span> which generates static <span class="caps">HTML</span> pages for the <a href="http://ephyto.ippc.int/">ephyto.ippc.int</a> website #}
-{# </li> #}
-{# </ul> #}
-<h3>
-Freelance Web &amp; Graphic Designer<br>
-<span class="normal">Hypertexthero, Worldwide<br>
-<em>2005–Present</em></span>
-</h3>
-<p>
-Completed a variety of web and print projects for clients around the world, from large companies in London and internet startups in the Bay Area to non-profits and United Nations agencies in Rome.
-</p>
+<div class="answer">
+	<h3>
+	Information Systems Officer <em>(Designer &amp; Developer)</em><br>
+		<span class="normal">Food and Agriculture Organization of the United Nations, Rome, Italy<br>
+			<em>June 2009–Present</em></span>
+	</h3>
+	<p>
+	Helped increase funding and the number of contracting parties to the International 
+	Plant Protection Convention and raise public awareness of its <a href="/work/international-plant-protection-convention-poster/" title="See identity design work done for the International Plant Protection Convention.">work</a> while making people using computers there <a href="/work/it-wishlist/" title="See the IT Wishlist project.">happier</a>. Hands-on design and coding work from wireframes to production of websites and print media in both assigned and self-started projects. Organized photography groups and wine tasting.
+	</p>
+	<h3>
+	Freelance Web &amp; Graphic Designer<br>
+	<span class="normal">Hypertexthero, Worldwide<br>
+	<em>2005–Present</em></span>
+	</h3>
+	<p>
+	Completed a variety of web and print projects for clients around the world, from large companies in London and internet startups in the Bay Area to non-profits and United Nations agencies in Rome.
+	</p>
 
-<h3>
-Designer<br>
-<span class="normal">Acotel Group S.p.A, Rome, Italy<br>
-<em>2003–2004</em></span>
-</h3>
-<p>
-Created the first web standards based website design project in Italy. Completed identity design projects and marketing and advertising multimedia campaigns.
-</p>
+	<h3>
+	Designer<br>
+	<span class="normal">Acotel Group S.p.A, Rome, Italy<br>
+	<em>2003–2004</em></span>
+	</h3>
+	<p>
+	Created the first web standards based website design project in Italy. Completed identity design projects and marketing and advertising campaigns.
+	</p>
 
-<h3>
-Freelance Web &amp; Graphic Designer<br>
-<span class="normal">European Artisans, Various, Rome, Italy<br>
-<em>1999–2003</em></span>
-</h3>
-<p>Freelance designer for an internet startup and various clients.</p>
-
-<h2 id="education" style="border-bottom:1px solid #eee; padding-bottom:0.25em;">
-Education
-<small><a href="#summary" class="small normal">&uarr; back to top</a></small>
+	<h3>
+	Freelance Web &amp; Graphic Designer<br>
+	<span class="normal">European Artisans, Various, Rome, Italy<br>
+	<em>1999–2003</em></span>
+	</h3>
+	<p>Designer in an internet startup and for various clients.</p>
+</div> {# /.answer #}
+	
+<h2 id="education" >
+	Education
+	<small><a href="#top" class="normal">↩</a></small>
 </h2>
+<div class="answer">
+	<p><a href="/logbook/2009/08/learning-by-doing/" title="Learning by doing.">Learned</a> to work with computers with <a href="/logbook/2006/06/spacewar/" title="Space War, Computers and Education.">computer games</a>. Learned graphic design from books, interfaces, posters and films by designers like <a href="/logbook/2013/09/transgression-doubt-truth/" title="The designer of the I ❤︎ NY logotype.">Milton Glaser</a>, <a href="http://www.folklore.org/StoryView.py?project=Macintosh&amp;story=Steve,_Icon.txt&amp;sortOrder=Sort+by+Date&amp;characters=Susan+Kare" title="Iconic iconographer.">Susan Kare</a>, <a href="http://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style" title="The Elements of Typographic Style.">Robert Bringhurst</a> and <a href="http://en.wikipedia.org/wiki/Saul_Bass" title="Desiger of some of my favorite posters and film titles, like Hitchcock’s Vertigo and Scorsese’s Casino.">Saul Bass</a>. Learned HTML and CSS by viewing the source of websites, searching with <a href="http://www.google.com/about/company/philosophy/" title="I’ve been following Google since 2001 when I was working at a startup in Rome. It is still the company doing most for all humans on the web.">Google</a> and reading Jeffrey Zeldman’s <a href="http://en.wikipedia.org/wiki/Designing_with_Web_Standards">Designing With Web Standards</a>. Learned user experience, usability and accessibility principles from <a href="http://www.cluetrain.com/" title="The End of Business as Usual.">The Cluetrain Manifesto</a>, <a href="https://www.sensible.com/dmmt.html" title="Classic book by Steve Krug. The subtitle is ‘A Common Sense Approach to Web Usability’.">Don’t Make Me Think</a> and <a href="http://www.nngroup.com/articles/" title="UseIt">Jacob Nielsen’s Alertbox column</a>. Learned photography by <a href="http://simongriffee.com" title="My photographs.">taking</a> and <a href="http://simongriffee.com/notebook/editing" title="Editing.">looking at</a> photographs</a>. Learned to <a href="/work/pasta-clock/" title="See the Pasta Clock web app I hacked together.">cook and eat</a> in Italy. Learning Python, enjoyed meeting <a href="/logbook/2013/07/europython-2013-notes/#goodenough" title="‘Good Enough’ is Good Enough!">Alex Martelli in Florence in 2013</a>.</p> 
 
-<p><a href="/logbook/2009/08/learning-by-doing/" title="Learning by doing.">Learned</a> to work with computers with <a href="/logbook/2006/06/spacewar/" title="Space War, Computers and Education.">computer games</a>. Learned graphic design from books, interfaces, posters and films by designers like <a href="/logbook/2013/09/transgression-doubt-truth/" title="The designer of the I ❤︎ NY logotype.">Milton Glaser</a>, <a href="http://www.folklore.org/StoryView.py?project=Macintosh&amp;story=Steve,_Icon.txt&amp;sortOrder=Sort+by+Date&amp;characters=Susan+Kare" title="Iconic iconographer.">Susan Kare</a>, <a href="http://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style" title="The Elements of Typographic Style.">Robert Bringhurst</a> and <a href="http://en.wikipedia.org/wiki/Saul_Bass" title="Desiger of some of my favorite posters and film titles, like Hitchcock’s Vertigo and Scorsese’s Casino.">Saul Bass</a>. Learned HTML and CSS by viewing the source of websites, searching with <a href="http://www.google.com/about/company/philosophy/" title="I’ve been following Google since 2001 when I was working at a startup in Rome. It is still the company doing most for all humans on the web.">Google</a> and reading Jeffrey Zeldman’s <a href="http://en.wikipedia.org/wiki/Designing_with_Web_Standards">Designing With Web Standards</a>. Learned user experience, usability and accessibility principles from <a href="http://www.cluetrain.com/" title="The End of Business as Usual.">The Cluetrain Manifesto</a>, <a href="https://www.sensible.com/dmmt.html" title="Classic book by Steve Krug. The subtitle is ‘A Common Sense Approach to Web Usability’.">Don’t Make Me Think</a> and <a href="http://www.nngroup.com/articles/" title="UseIt">Jacob Nielsen’s Alertbox column</a>. Learned photography by <a href="http://simongriffee.com" title="My photographs.">taking</a> and <a href="http://simongriffee.com/notebook/editing" title="Editing.">looking at</a> photographs</a>. Learned to <a href="/work/pasta-clock/" title="See the Pasta Clock web app I hacked together.">cook and to eat</a> in Italy. Learning Python, enjoyed meeting <a href="/logbook/2013/07/europython-2013-notes/#goodenough" title="‘Good Enough’ is Good Enough!">Alex Martelli in Florence in 2013</a>.</p> 
+	<h3 style="margin-bottom:0;">Magnum Photos</h3>
+	<p>2011, 2012, 2013 · Photography Workshops in <a href="http://simongriffee.com/stories/cortona">Cortona</a>, <a href="http://simongriffee.com/stories/wolverhampton">Wolverhampton</a> and <a href="http://simongriffee.com/stories/five-days-in-paris">Paris</a>.</p>
 
-<h3 style="margin-bottom:0;">Magnum Photos</h3>
-<p>2011, 2012, 2013 · Photography Workshops in <a href="http://simongriffee.com/stories/cortona" title="See my photos from the workshop in a new window.">Cortona</a>, <a href="http://simongriffee.com/stories/wolverhampton" title="See my photos from the workshop in a new window.">Wolverhampton</a> and <a href="http://simongriffee.com/stories/five-days-in-paris">Paris</a>.</p>
+	<h3 style="margin:0;">Per Volquartz</h3>
+	<p>2007 · Photography Workshop in <a href="http://simongriffee.com/stories/joshua-tree">Joshua Tree National Park, California</a>.</p>
 
-<h3 style="margin:0;">Per Volquartz</h3>
-<p>2007 · Photography Workshop in <a href="http://simongriffee.com/stories/joshua-tree" title="See my photographs from the workshop in a new window.">Joshua Tree National Park, California</a>.</p>
+	<h3 style="margin:0;">Stanford University</h3>
+	<p>2006 · <a href="/logbook/2006/02/gazi/">Concept Design Workshop</a> at Stanford University’s <a href="http://dschool.stanford.edu" title="See the d.school website.">d.school</a>.</p>
 
-<h3 style="margin:0;">Stanford University</h3>
-<p>2006 · <a href="/logbook/2006/02/gazi/">Concept Design Workshop</a> at Stanford University’s <a href="http://dschool.stanford.edu" title="See the d.school website.">d.school</a>.</p>
+	<h3 style="margin:0;">Bournemouth University, England</h3>
+	<p>1996–1999 · Bachelor of Arts with Honours in Creative Advertising.</p>
 
-<h3 style="margin:0;">Bournemouth University, England</h3>
-<p>1996–1999 · Bachelor of Arts with Honours in Creative Advertising.</p>
-
-<h3 style="margin:0;">Arts University Bournemouth (formerly Bournemouth and Poole College of Art &amp; Design), England</h3>
-<p>1997–1998 · City &amp; Guilds Diploma with Distinction in Photography.</p>
-
-
-
-<h2 id="skillstools">
-	Skills &amp; Tools  
-	<small><a href="#summary" class="small normal">&uarr; back to top</a></small>
-</h2>
-<p>
-<b>Web design and development:</b>  
-Wireframing in HTML &amp; CSS client-side code that usually ends up in production. Some JavaScript and Python.
-</p>
-<p>
-<b>User experience design, usability, accessibility:</b> 
-Fast, simple interfaces and <a href="http://hypertexthero.com/logbook/2012/04/web-design-where-to-begin/" title="Web design: Where to Begin.">good writing</a> over excessive style. 
-</p>
-<p>
-<b>Photography:</b> 
-<a href="http://simongriffee.com" title="My photographs.">Candid photography</a>, usually on the street using Leica rangefinder cameras and Fuji and Ricoh compacts. Want a <a href="/logbook/2013/09/design-good-camera/" title="Design Specifications for a Good Camera.">better, more affordable camera for photography students</a> and <a href="http://simongriffee.com/notebook/editing" title="Editing means culling, improving, condensing, simplifying — removing the unnecessary, leaving the best. In this sense, when applied to photographs, and if you want to improve your photography, I think ‘editing’ is a better word than ‘organizing’ or ‘management’, and it should be embraced in its traditional sense.">better editing software</a>. 
-</p>
-<p>
-<b>Software:</b> 
-Web browsers (Firefox and Chrome) and their developer tools, Textmate and a Terminal prompt, Sketch, Lightroom, Photoshop, Illustrator and InDesign. Have experience with <a href="/logbook/2013/07/europython-2013-notes/" title="See my notes from EuroPython 2013 in Florence, Italy.">Python</a> and Django that is also used to edit hypertexthero.com on a local development server that is then published with rsync and version controlled with Git and <a href="https://github.com/hypertexthero" title="I’m not a great coder, but I can hack things together.">Github</a>. Also know a bit of Ruby and Jekyll, some Apache and Nginx configuration, a tiny bit of MySQL, PostgreSQL and SQLite, and a little Unix system administration. <a href="/logbook/2015/01/software-2015/" title="On my blog.">Software being used in 2015</a>.</p>
+	<h3 style="margin:0;">Arts University Bournemouth{#  (formerly Bournemouth and Poole College of Art &amp; Design) #}, England</h3>
+	<p>1997–1998 · City &amp; Guilds Diploma with Distinction in Photography.</p>
+</div> {# /.answer #}
 
 <h2 id="interests">
 	Interests
-	<small><a href="#summary" class="small normal">&uarr; back to top</a></small>
+	<small><a href="#top" class="normal">↩</a></small>
 </h2>
-<p>
-<a href="http://simongriffee.com/notebook/parallel-universes" title="Open ‘Parallel Universes’ in a new window.">Communication</a>, information &amp; <a href="http://en.wikipedia.org/wiki/Free_culture_movement" title="Free Culture Movement on Wikipedia.">free culture</a>, <a href="/work/photographs/" title="A page about my photography work.">photography</a>, travel, <a href="/logbook/2011/01/tips-for-creating-your-online-identity/" title="Tips for creating your online identity.">indy web</a>, open source &amp; open internet, <a href="/logbook/2011/12/i-am-nothing/" title="Paul Buchheit, Jiddu Krishnamurti-like.">philosophy</a>, 
-art history, <a href="/work/simple-web-typography-template/" title="See a simple web typography template.">typography</a>, nature, <a href="/logbook/2014/03/cosmos/" title="Cosmos.">astronomy</a>, music, (blues guitar, jazz, classical), <a href="/logbook/2014/07/elite-dangerous-education/" title="Elite: Dangerous Education.">computer simulations</a>, vintage aeroplanes, <a href="/contact/#elliott" title="Blush.">basketball</a> &#10086;
-</p>
+<div class="answer">
+	<p>
+	<a href="http://simongriffee.com/notebook/parallel-universes" title="‘Parallel Universes’.">Communication</a>, information &amp; <a href="http://en.wikipedia.org/wiki/Free_culture_movement" title="Free Culture Movement on Wikipedia.">free culture</a>, <a href="/work/photographs/" title="A page about my photography work.">photography</a>, travel, <a href="/logbook/2011/01/tips-for-creating-your-online-identity/" title="Tips for creating your online identity.">indy web</a>, open source &amp; open internet, <a href="/logbook/2011/12/i-am-nothing/" title="Paul Buchheit, Jiddu Krishnamurti-like.">philosophy</a>, 
+	art history, <a href="/work/simple-web-typography-template/" title="See a simple web typography template.">typography</a>, nature, <a href="/logbook/2014/03/cosmos/" title="Cosmos.">astronomy</a>, music, (play blues &amp; rock guitar), <a href="/logbook/2014/07/elite-dangerous-education/" title="Elite: Dangerous Education.">computer simulations</a>, vintage aeroplanes, <a href="/contact/#elliott" title="Blush.">basketball</a>. 
+	</p>
+</div> {# /.answer #}
+
+<h2 id="skillstools">
+	Skills &amp; Tools
+	<small><a href="#top" class="normal">↩</a></small>
+</h2>
+	<p>
+	<b>Web design and development:</b>  
+	Wireframing in HTML &amp; CSS client-side code that usually ends up in production. Some JavaScript and Python.
+	</p>
+	<p>
+	<b>User experience design, usability, accessibility:</b> 
+	Fast, simple interfaces and <a href="http://hypertexthero.com/logbook/2012/04/web-design-where-to-begin/" title="Web design: Where to Begin.">good writing</a> over excessive style. 
+	</p>
+	<p>
+	<b>Photography:</b> 
+	<a href="http://simongriffee.com" title="My photographs.">Candid photography</a>, usually on the street using Leica rangefinder cameras and Fuji and Ricoh compacts. Want a <a href="/logbook/2013/09/design-good-camera/" title="Design Specifications for a Good Camera.">better, more affordable camera for photography students</a> and <a href="http://simongriffee.com/notebook/editing" title="Editing means culling, improving, condensing, simplifying — removing the unnecessary, leaving the best. In this sense, when applied to photographs, and if you want to improve your photography, I think ‘editing’ is a better word than ‘organizing’ or ‘management’, and it should be embraced in its traditional sense.">better editing software</a>. 
+	</p>
+	<p>
+	<b>Software:</b> 
+	Web browsers (Firefox and Chrome) and their developer tools, Textmate and a Terminal prompt, Sketch, Lightroom, Photoshop, Illustrator and InDesign. Have experience with <a href="/logbook/2013/07/europython-2013-notes/" title="See my notes from EuroPython 2013 in Florence, Italy.">Python</a> and Django that is also used to edit <a href="https://github.com/hypertexthero/hypertexthero.com" title="See this site’s source code on GitHub.">hypertexthero.com</a> on a local development server that is then published with rsync and version controlled with Git and <a href="https://github.com/hypertexthero" title="I’m not a great coder, but I can hack things together.">Github</a>. Also know a bit of Ruby and Jekyll, some Apache and Nginx configuration, a tiny bit of MySQL, PostgreSQL and SQLite, and a little Unix system administration. <a href="/logbook/2015/01/software-2015/" title="On my blog.">Software being used in 2015</a>.</p>
 
 {% endblock %}
 		

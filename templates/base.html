@@ -1,47 +1,30 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="robots" content="all">
-<meta http-equiv="imagetoolbar" content="false">
-<meta name="MSSmartTagsPreventParsing" content="true">
-<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
-<meta name="keywords" content="{% block keywords %}{% endblock %}{% block tags %}{% endblock tags %}">
-{% comment %}<meta name="description" content="{% block description %}{% endblock %}">{% endcomment %}
-<meta name="author" content="Simon Griffee">
-<meta name="copyright" content="Copyright 2001-{% now "Y" %} Simon Griffee.">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="robots" content="all">
+	<meta http-equiv="imagetoolbar" content="false">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta name="google-site-verification" content="CvLKcJBPrtNY455YaUc8M30eCw8V1ITHJEmg1l-mX9U" />
+	<meta name="keywords" content="{% block keywords %}{% endblock %}{% block tags %}{% endblock tags %}">
+	{% comment %}<meta name="description" content="{% block description %}{% endblock %}">{% endcomment %}
+	<meta name="author" content="Simon Griffee">
+	<meta name="copyright" content="Copyright 2001-{% now "Y" %} Simon Griffee.">
 
-<!-- https://indieauth.com/setup -->
-<link href="https://github.com/hypertexthero" rel="me">
+	<!-- https://indieauth.com/setup -->
+	<link href="https://github.com/hypertexthero" rel="me">
 
-<link rel="Shortcut Icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon">
+	<link rel="Shortcut Icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon">
 
-<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+	<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="http://hypertexthero.com/logbook/atom/">
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://hypertexthero.com/logbook/rss/">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,300,300italic,500,500italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero20150422.css" type="text/css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/code.css" type="text/css">
 
-<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ STATIC_URL }}css/hypertexthero20150416.css" type="text/css">
-<link rel="stylesheet" href="{{ STATIC_URL }}css/code.css" type="text/css">
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/ie6.css" />
-<![endif]-->
-<!--[if IE 7]>
-<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/ie7.css" />
-<![endif]-->
-{% block extrahead %}{% endblock extrahead %}
-{% comment %}
-<script type="text/javascript">
-  function toggle_visibility(id) {
-     var e = document.getElementById(id);
-     if(e.style.display == 'block')
-        e.style.display = 'none';
-     else
-        e.style.display = 'block';
-  }
-</script>
-{% endcomment %}	
-<title>{% block headtitle %}{% endblock headtitle %}</title>
+	{% block extrahead %}{% endblock extrahead %}
+	<title>{% block headtitle %}{% endblock headtitle %}</title>
 </head>
 
 <body id="{% block bodyid %}{% endblock bodyid %}" class="{% block bodyclass %}{% endblock bodyclass %}">
