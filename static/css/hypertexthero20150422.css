@@ -276,7 +276,7 @@ body#logbook #content, body#about #content, body#error #content, body#archive #c
 #sidebar {float:right; width:296px; font-size:14px;}
 #picture {float:left; margin:0 0 1em 0;}
 #picture p {max-width:400px;}
-#content h1, #content h2, #content h3, #content p, #content li, #content dd, #content dt, div.article {max-width:32em;}
+#content h1, #content h2, #content h3, #content p, #content li, #content dd, #content dt, div.article {max-width:36em;}
 
 /* =nav ---------------------- */
 
@@ -352,7 +352,7 @@ h2 {font-size:21px; margin:1.5em 0 0.4em;}
 body#about h2 {font-size:1.5em;}
 h2.dateline {margin:5em 0 3em; text-transform:uppercase; font-size:0.9em !important; letter-spacing:0.2em; font-weight:300;}
 h2.datelinearchive {font-weight:300;}
-h3 {font-size:18px; margin:1em 0 0.8em;}
+h3 {font-size:18px; margin:1em 0 0.8em; line-height:1.6em;}
 h3 span.normal {font-size:16px;}
 h3.posted {font-size:14px; font-style:italic; font-weight:300; margin-top:0em;}
 body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
