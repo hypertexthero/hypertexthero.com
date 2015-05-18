@@ -8,7 +8,94 @@
 h2 {margin-top:2em;}
 h1, h2:target {font-weight:700;}
 /*h2 small {margin-left:1em;}*/
+
+
+.intro {overflow:visible; position:relative;}
+{% comment %}
+/* Animated titles */
+.rw-words{
+	position:absolute;
+	left:-108px;
+	
+}
+.rw-words-1 span{
+	position: absolute;
+	opacity: 1;
+	overflow: hidden;
+	color: #EEB211;	/* yellow */
+	-webkit-animation: rotateWord 2s linear 1 0s;
+	-ms-animation: rotateWord 2s linear 1 0s;
+	animation: rotateWord 2s linear 1 0s;
+	right:-100px;
+	top:6px;
+}
+.rw-words-1 span:nth-child(2) { 
+    -webkit-animation-delay: 0.5s; 
+	-ms-animation-delay: 0.5s; 
+	animation-delay: 0.5s; 
+	color: #D50F25; /* red */
+	right:-100px;
+	top:-12px;
+}
+.rw-words-1 span:nth-child(3) { 
+    -webkit-animation-delay: 1s; 
+	-ms-animation-delay: 1s; 
+	animation-delay: 1s; 
+	color: #3369E8; /* blue */
+	float:right !important;
+	right:-100px;
+	top:-32px;
+}
+.rw-words-1 span:nth-child(4) { 
+    -webkit-animation-delay: 1.5s; 
+	-ms-animation-delay: 1.5s; 
+	animation-delay: 1.5s; 
+	color:#009925; /* green */
+	right:-100px;
+	top:-48px;
+}
+/*.rw-words-1 span:nth-child(5) {
+    -webkit-animation-delay: 2.5s;
+	-ms-animation-delay: 2.5s;
+	animation-delay: 2.5s;
+}
+.rw-words-1 span:nth-child(6) {
+    -webkit-animation-delay: 4s;
+	-ms-animation-delay: 4s;
+	animation-delay: 4s;
+}*/
+@-webkit-keyframes rotateWord {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-20px); }
+	5% { opacity: 1; -webkit-transform: translateY(4px);}
+    17% { opacity: 1; -webkit-transform: translateY(4px); }
+	20% { opacity: 0; -webkit-transform: translateY(20px); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@-ms-keyframes rotateWord {
+    0% { opacity: 0; }
+    2% { opacity: 0; -ms-transform: translateY(-20px); }
+	5% { opacity: 1; -ms-transform: translateY(6px);}
+    17% { opacity: 1; -ms-transform: translateY(4px); }
+	20% { opacity: 0; -ms-transform: translateY(20px); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes rotateWord {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+	5% { opacity: 1; -webkit-transform: translateY(6px); transform: translateY(6px);}
+    17% { opacity: 1; -webkit-transform: translateY(6px); transform: translateY(6px); }
+	20% { opacity: 1; -webkit-transform: translateY(20px); transform: translateY(-20px); }
+	80% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+	
+{% endcomment %}
 </style>
+
 {% endblock extrahead %}
 
 {% block bodyid %}about{% endblock bodyid %}
@@ -28,11 +115,23 @@ h1, h2:target {font-weight:700;}
 	{# <img src="/static/files/GRS-20140402-171125-small.jpg" alt="A photograph of Hypertexthero photographing." style="border:1px solid #eee; border-radius:2px;"> #}
 
 	<h1 style="margin-bottom:0.5em;" id="summary">
-    Simon Griffee <br><small>Interaction Designer <small><a href="/static/files/SimonGriffee.pdf" title="Portable Document Format">↓ Résumé</a> <span class="small quiet normal"><span class="caps">PDF</span> 170kb</span></small></small>
+    Simon Griffee <br>
+		
+		<small>
+			 
+			 {# <span>Designer</span> #}
+			{# <br> #}
+			<small><a href="/static/files/simon-griffee.pdf" title="Portable Document Format">↓ Résumé</a> <span class="small quiet normal"><span class="caps">PDF</span> 170kb</span></small>
+		</small>
 	</h1>
 </div> {# /.intro #}
 
-<p class="large">Over a decade of professional graphic and web design <a id="experience-s" href="#experience" title="Jump to ‘Experience’ on this page.">experience</a>. Enjoy <a id="education-s" href="#education" title="Jump to ‘Education’ on this page.">learning</a> and absorbing information from different <a id="interests-s" href="#interests" title="Jump to ‘Interests’ on this page.">fields</a> to help <a id="skillstools-s" href="#skillstools" title="Jump to ‘Skills &amp; Tools’ on this page.">solve problems</a>, keep brain <a href="/logbook/2014/08/john-cleese-creativity-transcript/" title="John Cleese on Creativity.">whirring</a> and, with any luck, pass on knowledge to <a href="/linked/2005/10/27/longnow/" title="Longnow.">future generations</a>.</p>
+<p class="large">Over a decade of professional 
+				<span style="color: #EEB211;	/* yellow */;">experience</span>,
+				<span style="color: #D50F25; /* red */;">interaction</span> &amp;
+				<span style="color:#009925; /* green */;">visual</span> 
+				{# <span style="color: #3369E8; /* blue */;">web</span> #}
+			design <a id="experience-s" href="#experience" title="Jump to ‘Experience’ on this page.">work</a>. Enjoy <a id="education-s" href="#education" title="Jump to ‘Education’ on this page.">learning</a> and absorbing information from different <a id="interests-s" href="#interests" title="Jump to ‘Interests’ on this page.">fields</a> to help <a id="skillstools-s" href="#skillstools" title="Jump to ‘Skills &amp; Tools’ on this page.">solve problems</a>, keep brain <a href="/logbook/2014/08/john-cleese-creativity-transcript/" title="John Cleese on Creativity.">whirring</a> and, with any luck, pass on knowledge to <a href="/linked/2005/10/27/longnow/" title="Longnow.">future generations</a>.</p>
 <p>
 	Traveled extensively around the <a href="/work/earth-among-the-stars/" title="See Earth among the stars in HTML and CSS on a new page.">world</a>, living in Brazil, Tunisia, Italy, England and the United States. Speak and write in <b>English</b> and <b>Portuguese</b> fluently, <b>Italian</b> well, <b>French</b> and <b>Spanish</b> okay. Using these together with <a href="#skillstools" title="Jump to ‘Skills and Tools’ on this page.">visual and programming languages</a> have managed to: ¶ <strong>Reduce time</strong> people spend using computers while making the remaining more enjoyable. ¶ <strong>Make communication</strong> and cooperation between international organizations better. ¶ <strong>Help people</strong> with hands-on design, coding, editing and brainstorming.
 </p>
@@ -40,7 +139,7 @@ h1, h2:target {font-weight:700;}
 <p>Based in and usually <a href="/logbook/2015/04/i-heart-earth/" title="I ❤︎ Earth, inspired by Milton Glaser’s I ❤︎ NY logotype.">&#9829;</a> New York City.</p>
 
 <h2 id="experience">
-	Experience
+	Work Experience
 	<small><a href="#experience-s" class="normal">↩</a></small>
 </h2>
 <div class="answer">
