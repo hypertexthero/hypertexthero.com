@@ -7,7 +7,7 @@ Hypertexthero.css master stylesheet by Simon Griffee
 
 body {font-family: 'Roboto', 'helvetica neue', helvetica, sans-serif; font-size:100%; font-weight: 300; color:#2e2a1f; background:#fff url(/static/img/bg-grey.gif) repeat 0 0;}
 
-a:link, a:visited {color:#0074BD; text-decoration:none; padding-bottom:0; border-bottom:1px solid #eee;}
+a:link, a:visited {color:#0074BD; text-decoration:none; padding-bottom:0; border-bottom:1px solid #ddd;}
 a:visited {color:#1D6EB1;}
 a:hover, a:active {color:#930;}
 
