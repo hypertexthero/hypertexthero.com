@@ -343,7 +343,7 @@ body.detail a.plink {color:inherit;}
 dt:hover a.plink, li:hover a.plink {color:#000;}
 a.plink:hover {color:#000;}
 
-h1, h2, h3, h4, h5, h6 {font-weight:500;}
+h1, h2, h3, h4, h5, h6 {font-weight:700;}
 h1 {font-size:23px;}
 h1 small {font-weight:400;}
 body#about h1 {font-size:1.7em;}
