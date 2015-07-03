@@ -15,9 +15,9 @@
   {% include "hth/search_form.html" %}
 </div> {# /.intro #}
 	{% for entry in object_list %}	
-        {% ifchanged %}
-            <h2 class="dateline datelinearchive">{{ entry.pub_date|date:"F Y" }}</h2>
-        {% endifchanged %}    
+        {# {% ifchanged %} #}
+        {#     <h2 class="dateline datelinearchive">{{ entry.pub_date|date:"F Y" }}</h2> #}
+        {# {% endifchanged %}    #} 
         <p>
             <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a> <small class="small quiet extrapad titlecase">{{ entry.pub_date|date:"d b Y" }}</small>
         </p>
