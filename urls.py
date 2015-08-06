@@ -13,8 +13,7 @@ from django.views.generic import RedirectView, TemplateView
 from .models import Entry
 from .views import LogbookView, LinkedListView, LogbookArchiveView,\
 LinkedListMonthArchive, LogbookDetailView, LinkedDetailView,\
-LogbookMonthArchive, LogbookYearArchive, \
-Search, RssLogbookFeed, AtomLogbookFeed \
+LogbookMonthArchive, LogbookYearArchive, Search, RssLogbookFeed
 # TaggedList, LogbookTagsView
 
 from django.views.generic.dates import YearArchiveView
@@ -102,7 +101,7 @@ urlpatterns += patterns('views',
 
     # Feeds
     url(r'^logbook/rss/$', RssLogbookFeed()),
-    url(r'^logbook/atom/$', AtomLogbookFeed()),
+    # url(r'^logbook/atom/$', AtomLogbookFeed()),
     
     # Robots
     url(r'^robots\.txt$', TemplateView.as_view(

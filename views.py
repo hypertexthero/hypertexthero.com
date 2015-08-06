@@ -3,7 +3,7 @@ import functools
 # http://ccbv.co.uk/projects/Django/1.5/django.views.generic.list/MultipleObjectMixin/
 # http://ccbv.co.uk/projects/Django/1.5/django.views.generic.dates/ArchiveIndexView/
 from django.contrib.syndication.views import Feed
-from django.utils.feedgenerator import Atom1Feed
+# from django.utils.feedgenerator import Atom1Feed
 
 # from django.views.generic.list import MultipleObjectMixin
 from django.views.generic import ArchiveIndexView, MonthArchiveView, YearArchiveView, DetailView, ListView
@@ -89,6 +89,7 @@ class LinkedListView(ArchiveIndexView):
 class RssLogbookFeed(Feed):
     title = "Hypertexthero"
     link = "http://hypertexthero.com/logbook/"
+    feed_url = 'http://hypertexthero.com/logbook/rss/'
     description = "Writing and links on web, design and simplicity by Simon Griffee"
     # description_template = "hth/feed_description.html" # using default for now
 
@@ -105,9 +106,11 @@ class RssLogbookFeed(Feed):
         # return smart_truncate(item.body_html)
         return item.body_html
 
-class AtomLogbookFeed(RssLogbookFeed):
-    feed_type = Atom1Feed
-    subtitle = RssLogbookFeed.description
+# class AtomLogbookFeed(RssLogbookFeed):
+#     feed_type = Atom1Feed
+#     feed_url = 'http://hypertexthero.com/logbook/rss/'
+#     link = "http://hypertexthero.com/logbook/"
+#     subtitle = RssLogbookFeed.description
 
 
 # =single pages ===================================
