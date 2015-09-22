@@ -31,9 +31,8 @@ body#error #page {padding-bottom:100px; background:url(/static/img/balloon_error
 #header {margin:0 38px 0; height:100px; position:relative;}
 blockquote {line-height:1.5em; padding-left:1em; border-left:1px solid #eee;}
 #header p.breadcrumbs {font-size:14px; color:#ccc; position:absolute; bottom:0;}
-#header p.breadcrumbs a {color:#999;}
 body.detail #header p.breadcrumbs {bottom:20px;}
-/*body#work.detail #header,*/body#archive #header {height:120px;}
+body#archive #header {height:120px;}
 body#work.detail #header p.breadcrumbs {bottom:0;}
 
 /* =clouds ======================== */
@@ -285,6 +284,8 @@ div.nav {float:right; clear:both;}
 div.nav ul {list-style:none; margin:10px 0 30px;}
 div.nav a {border:0;}
 
+body#work.detail div.nav {text-align:right;}
+
 body#home a.nav-home,
 body#logbook a.nav-logbook,
 body#archive a.nav-archive,
@@ -401,7 +402,6 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
     p.aeroplane a {margin:0 0 1.5em;}
     #latest {width:auto; clear:both; text-align:left; float:none;}
     body#home #header {padding-bottom:3em;}
-    
     }
 @media (max-width: 860px) {
 		/* no transitions or animations on mobile */
@@ -417,6 +417,7 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
     div.nav ul {margin-bottom:0;}
     #page, #latest {width:auto;}
     div.column {margin:0 10px 0 0;}
+    body#work.detail div.nav {text-align:center;}
     }
 @media (max-width: 650px) {
     #page {width:auto;}
