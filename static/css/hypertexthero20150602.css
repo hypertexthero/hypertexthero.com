@@ -33,7 +33,7 @@ blockquote {line-height:1.5em; padding-left:1em; border-left:1px solid #eee;}
 #header p.breadcrumbs {font-size:14px; color:#ccc; position:absolute; bottom:0;}
 body.detail #header p.breadcrumbs {bottom:20px;}
 body#archive #header {height:120px;}
-body#logbook.logbookindex #header {height:auto;}
+/*body#logbook.logbookindex #header {height:auto;}*/
 body#work.detail #header p.breadcrumbs {bottom:0;}
 
 /* =clouds ======================== */
