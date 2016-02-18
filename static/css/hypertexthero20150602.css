@@ -418,6 +418,7 @@ p.paging {font-size:0.9em; padding-top:1.75em !important;}
     #page, #latest {width:auto;}
     div.column {margin:0 10px 0 0;}
     body#work.detail div.nav {text-align:center;}
+    p.scroll {display:none;}
     }
 @media (max-width: 650px) {
     #page {width:auto;}
