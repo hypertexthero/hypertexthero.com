@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block headtitle %}Hypertexthero: Developer Relations Work{% endblock headtitle %}
+{% block keywords %}Web, Design, Simplicity{% endblock %}
+{% block bodyid %}work{% endblock bodyid %}
+{% block bodyclass %}workhome{% endblock bodyclass %}
+
+{% load hth_tags %}
+
+{% block header %}
+  {% include "hth/nav.html" %}
+    {# {% include "hth/sky.html" %} #}
+{% endblock header %}
+
+{% block content %}
+
+<h1 style="margin-bottom:1em;">Selected Work <small class="small quiet">I’m also on <a href="https://dribbble.com/hypertexthero" title="Show and tell for designers.">Dribbble</a>.</small></h1>
+
+{# <p style="margin:0 0 1em;"><a href="/static/files/SimonGriffeePortfolio.pdf" title="Fourteen pages.">&darr; Download Portfolio</a> <small class="caps quiet">(PDF ~20MB).</small></p> #}
+
+{# https://docs.djangoproject.com/en/dev/ref/contrib/flatpages/ #}
+{# {% load flatpages %} #}
+{# {% get_flatpages '/work/' as work_flatpages %} #}
+
+{# <ul> #}
+{# {% for page in work_flatpages %} #}
+{#     <li><a href="{{ page.url }}">{{ page.title }}</a></li> #}
+{# {% endfor %} #}
+{# </ul> #}
+
+<ul class="thumbs">
+  {# <li> #}
+  {#   <a href="/work/columbia-italian-academy/" title="See some of my work here and on College Walk in Columbia's Morningside Heights campus."><img style="max-width:320px;" src="/static/img/work/MagdalenaBaczewska.jpg" alt="I photographed piano virtuoso Magdalena Baczewska and leaves in Inwood Hill Park two days later. The idea to combine the two came while listening to Magdalena's performance of Bach's Goldberg Variations on harpsichord."></a> #}
+  {#   <small><a href="/work/columbia-italian-academy/" title="You can currently see some of my work on College Walk in the Morningside Heights campus.">Graphic Design</a> for Columbia University’s Italian Academy for Advanced Studies in America.</small> #}
+  {# </li> #}
+  <li>
+    <a href="/work/be-kind/" title="Be kind, damnit!"><img style="max-width:320px; border:1px solid #eee;" src="/static/img/work/be-kind-damnit.png" alt="Be kind, damnit!"></a> 
+    <small>Vonnegut in love wearing <a href="/work/be-kind/" title="Be kind, damnit!">Roboto</a>.</small>
+  </li>
+  <li>
+    <a href="/work/international-plant-protection-convention-poster/" title="International Plant Protection Convention poster."><img style="max-width:320px;" src="/static/img/work/InternationalPlantProtectionConventionPosterAlt.jpg" alt="A poster design for the International Plant Protection Convention."></a>
+    <small><a href="/work/international-plant-protection-convention-poster/">Graphic design</a> for the International Plant Protection Convention. See also a <a href="/work/international-plant-protection-convention-poster/#calendar">calendar</a>, <a href="http://hypertexthero.com/ippc/work/brochures-flyers/ippc-a4-trifold.pdf">trifold brochure</a>, <a href="https://docs.google.com/document/d/1XPQTZtQ5ppJ-CFGo6pkAQY7BWygBgE4jyfjYxe8bMmE/edit?authkey=CNHC2MUF&amp;authkey=CNHC2MUF#heading=h.4tz8d1ohyaap">newsletter template in Google Docs</a> and <a href="/work/ippc-logotype/">redrawn logos</a>.</small>
+  </li>
+  <li>
+    <a href="/work/portraits/"><img style="max-width:320px;" src="/static/img/work/dev-bdale.jpg" alt="Bdale Garbee at FOSDEM 2013." title="Bdale Garbee at FOSDEM 2013." width="530"></a>
+    <small><a href="/work/portraits/">Portraits</a> of developers, engineers and other talented creatures I have met. Above is <a href="https://en.wikipedia.org/wiki/Bdale_Garbee">Bdale Garbee</a> at <a href="https://archive.fosdem.org/2013/">FOSDEM 2013</a>.</small>
+  </li>
+  <li>
+    <a href="/work/drawings/" title="Some of my drawings."><img style="max-width:320px;" src="/static/img/work/gkchesterton.jpg" alt="Some of my drawings."></a>
+      <small>A few of my <a href="/work/drawings/">drawings</a>.</small>
+  </li>
+  <li>
+    <a href="/work/robotics-law-ethics/"><img style="max-width:320px;" src="/static/img/work/robotics-law-ethics-cathode.jpg" alt="Good old GNU Nano running in a terminal, running in the Cathode terminal emulator." title="Good old GNU Nano running in a terminal, running in the Cathode terminal emulator." width="530"></a>
+    <small>Robotics Law and Ethics <a href="/work/robotics-law-ethics/">poster</a>.</small>
+  </li>  
+	<li>
+		<a href="/work/international-symbol-observer/" title="Accepted as U+23FF Observer Eye Symbol — yay!"><img style="max-width:320px;" src="/static/img/work/ObserverSymbol-t.png" alt="International Symbol for an Observer - Unicode Consortium."></a> 
+		<small><a href="/work/international-symbol-observer/">International Symbol for an Observer</a> - Unicode Consortium.</small>
+	</li>
+  <li>
+    <a href="/work/it-wishlist/" title="The one with the top hat is the boss."><img style="max-width:320px;" src="/static/img/work/IPPCITWorkflow-t.png" alt="IPPC IT Wishlist web application design."></a>
+		<small>IT Wishlist <a href="/work/it-wishlist/">web application design</a>.</small>
+  </li>  
+  <li>
+      <a href="/work/it-works-logotype/" title="IT Works logotype."><img style="max-width:320px;" src="/static/img/work/ItWorksLogotype.png" alt="Logotype for IT Works, a small software company with big clients."></a>
+			<small><a href="/work/it-works-logotype/">Logotype</a> for a small software company with big clients.</small>
+  </li>
+  <li>
+      <a href="/work/fao-biotech/" title="I don&rsquo;t the division exists any longer."><img style="max-width:320px;" src="/static/img/work/FaoBiotech.png" alt="Logotype for the Food and Agriculture Organization's Biotechnology division."></a>
+        <small><a href="/work/fao-biotech/">Logotype</a> for the Food and Agriculture Organization's Biotechnology division.</small>
+  </li>
+  <li>
+      <a href="/work/pianist-card/" title="Beautiful to listen to and look at."><img style="max-width:320px; border:1px solid #eee;" src="/static/img/work/PianistCard.png" alt="Business card for a pianist."></a>
+      <small><a href="/work/pianist-card/">Business card</a> for a pianist.</small>
+  </li>
+  {# <li> #}
+  {#   <a href="/work/roboto-typeface-explorations/" title="When in doubt, move."><img style="max-width:320px;" src="/static/img/work/when-in-doubt-move.png" alt="When in doubt, move."></a>  #}
+  {#   <small>Roboto typeface <a href="/work/roboto-typeface-explorations/">explorations</a>.</small> #}
+  {# </li>   #}
+  <li>
+    <a href="/work/international-plant-protection-convention-website/" title="International Plant Protection Convention website, 2009 version."><img style="max-width:320px;" src="/static/img/work/InternationalPlantProtectionConvention.png" alt="International Plant Protection Convention website redesign."></a>
+    <small>International Plant Protection Convention <a href="/work/international-plant-protection-convention-website/">website redesign</a>.</small>
+  </li>
+  <li>
+      <a href="/work/food-news/" title="♨ Food News is a website to publish and discuss links about healthy sustainable food, ranked by readers."><img style="max-width:320px;" src="/static/img/work/FoodNews.png" alt="♨ Food News is a website to publish and discuss links about healthy sustainable food, ranked by readers." title="♨ Food News is a website to publish and discuss links about healthy sustainable food, ranked by readers."></a>
+        <small><a href="/work/food-news/">Food News</a> was a website to publish and discuss links about healthy sustainable food, ranked by readers.</small>
+  </li>
+  <li>
+    <a href="/work/descriptedlines/" title="Descriptedlines website."><img style="max-width:320px;" src="/static/img/work/Descriptedlines-t.png" alt="Descriptedlines : A website for a writer to write and readers to read." title="Descriptedlines: Website for a writer to write and readers to read."></a>
+    <small><a href="/work/descriptedlines/" title="Descriptedlines website.">Website</a> for a writer to write and readers to read.</small>
+  </li>
+  <li>
+      <a href="/work/simple-web-typography-template/" title="The text is an excerpt from Star Maker by Olaf Stapledon - warmly recommended."><img style="max-width:320px;" src="/static/img/work/SimpleWebTypographyTemplate.png" alt="Simple web typography template in HTML and CSS, free to use."></a>
+			<small>Simple <a href="/work/simple-web-typography-template/">web typography template</a> in HTML and CSS.</small>
+  </li>
+  <li>
+      <a href="/work/earth-among-the-stars/" title="Our pale blue dot. I miss Carl Sagan."><img style="max-width:320px;" src="/static/img/work/EarthAmongTheStars.png" alt="Earth Among The Stars in HTML and CSS." ></a><small>Earth Among The Stars <a href="/work/earth-among-the-stars/">experiment in HTML and CSS</a>.</small>
+  </li>    
+</ul>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock footer %}
