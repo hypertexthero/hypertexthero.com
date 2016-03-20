@@ -296,6 +296,9 @@ body#contact a.nav-contact,
 body#about a.nav-about  
 {color:#000;}
 
+body#work.detail a.nav-work {color:#0074BD; text-transform:uppercase; letter-spacing:2px;}
+/*body#work.detail a.nav-work:before {content:"« ";}*/
+
 /* =work ---------------------- */
 
 div#description {width:296px; float:left; padding-left:43px; font-size:15px;}
