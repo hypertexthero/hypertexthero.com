@@ -15,23 +15,23 @@
 {% endblock header %}
 
 {% block content %}
-	
+
 <div class="intro">
 
 {% filter my_markdown %}
-<strong>Hypertexthero</strong> is the little communications studio of designer <a href="/about/" title="More information about me, including my résumé.">Simon Griffee</a>. Simon likes <a href="/work/" title="See selected work.">working together with people</a> to align things so they are beautiful and useful. He has a <a href="/logbook/" title="My blog.">blog</a> about design, creativity and simplicity and is also on <a href="https://dribbble.com/hypertexthero" title="Show and tell for designers.">Dribbble</a>, <a href="https://instagram.com/simongriffee" title="Mainly photography and some drawing.">Instagram</a>, <a href="https://twitter.com/simongriffee/" title="Musings on art, design, science and humanities.">Twitter</a> and <a href="http://github.com/hypertexthero/">GitHub</a>.
+<strong>Hypertexthero</strong> is the little communications studio of designer <a href="/about/" title="More information about me, including my résumé.">Simon Griffee</a>. Simon likes <a href="/work/" title="See selected work.">working together with nice people</a> to align things so they are beautiful and useful. He has a <a href="/logbook/" title="My blog.">blog</a> about design, creativity and simplicity and is also on <a href="https://dribbble.com/hypertexthero" title="Show and tell for designers.">Dribbble</a>, <a href="https://instagram.com/simongriffee" title="Mainly photography and some drawing.">Instagram</a>, <a href="https://twitter.com/simongriffee/" title="Musings on art, design, science and humanities.">Twitter</a> and <a href="http://github.com/hypertexthero/">GitHub</a>.
 
 {% comment %}
 
 My <a href="/work/" title="See selected work.">work</a> encompasses:
 
-<strong>Print Graphics:</strong> Identity programs for corporate and institutional marketing purposes, including logotypes, brochures, cards, signage, posters and annual reports. <strong>Web &amp; User Experience Design:</strong> Leadership in large website design and redesign projects from strategic planning to hands-on visualization and coding work. <strong>Environmental &amp; Interior Design:</strong> Conceptualization and supervision of exhibitions, interiors and exteriors of conferences and other environments in multilingual, international contexts. 
+<strong>Print Graphics:</strong> Identity programs for corporate and institutional marketing purposes, including logotypes, brochures, cards, signage, posters and annual reports. <strong>Web &amp; User Experience Design:</strong> Leadership in large website design and redesign projects from strategic planning to hands-on visualization and coding work. <strong>Environmental &amp; Interior Design:</strong> Conceptualization and supervision of exhibitions, interiors and exteriors of conferences and other environments in multilingual, international contexts.
 For work inquiries please [contact](/contact/ "I will respond promptly.") me.
 {% endcomment %}
 
 
 {% endfilter %}
-	
+
 {% comment %}
   {% load hth_tags %}
   <h2 class="normal">Latest Logbook Entries</h2>
@@ -41,8 +41,8 @@ For work inquiries please [contact](/contact/ "I will respond promptly.") me.
   <blockquote>
     <p>{% kind_words "kindwords.txt" %}</p>
   </blockquote>
-{% endcomment %} 
-	
+{% endcomment %}
+
 </div> {# /.intro  #}
 
 {% endblock content %}
@@ -50,11 +50,11 @@ For work inquiries please [contact](/contact/ "I will respond promptly.") me.
 {% block footer %}
 
 <!-- for indy auth and 404 generation - https://indieauth.com/ -->
-<div id="address" style="display:none;"> 
+<div id="address" style="display:none;">
   <strong>Email:</strong> <a href="mailto:simongriffee@gmail.com" rel="me">simon@hypertexthero.com</a>
   <br>
   <strong>Twitter:</strong> <a href="https://twitter.com/simongriffee" rel="me">simongriffee</a>
-  <br>    
+  <br>
   <strong>Github:</strong> <a href="https://github.com/hypertexthero" rel="me">hypertexthero</a>
 	<br>
 	My <a href="/404.html">404 page</a>
