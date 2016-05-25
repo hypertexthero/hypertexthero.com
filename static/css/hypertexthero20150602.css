@@ -363,6 +363,7 @@ h3 span.normal {font-style:italic;}
 h3.posted {font-size:14px; font-style:italic; font-weight:normal; margin-top:0em;}
 body#about h3 {font-size:1em !important; margin:1em 0 0.3em;}
 .small, small {font-size:0.9em;}
+.smaller {font-size:0.7em;}
 .noborder {border:none !important;}
 p.caption {font-size:15px; font-style:italic; margin:0 0 2em;}
 pre {margin:1em 0; padding:1em; overflow:visible;}
